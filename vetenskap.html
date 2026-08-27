@@ -1,1 +1,358 @@
+<!DOCTYPE html>
+<html lang="sv">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Så fungerar naturvetenskap – NO-Upptäckaren</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .hero {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .hero-icon {
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .lessons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .lesson {
+            display: block;
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            text-decoration: none;
+            color: #18332a;
+            border-left: 6px solid #16a34a;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .lesson:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.14);
+        }
+
+        .lesson-icon {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .lesson h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .lesson p {
+            color: #52665d;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .lesson-button {
+            display: inline-block;
+            background: #14532d;
+            color: white;
+            padding: 9px 15px;
+            border-radius: 9px;
+            font-weight: bold;
+        }
+
+        .activity {
+            margin-top: 35px;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .activity h2 {
+            margin-bottom: 15px;
+        }
+
+        .activity p {
+            line-height: 1.6;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🔎 SÅ FUNGERAR NATURVETENSKAP</h1>
+
+    <p>
+        NO-Upptäckaren • Årskurs 4
+    </p>
+
+</header>
+
+
+<main>
+
+
+    <section class="hero">
+
+        <div class="hero-icon">
+            🔬
+        </div>
+
+        <h2>Hur tar vi reda på saker?</h2>
+
+        <p>
+            Naturvetenskap handlar om att undersöka världen
+            omkring oss. Här får du lära dig att ställa frågor,
+            göra undersökningar, samla information och tänka
+            som en forskare.
+        </p>
+
+    </section>
+
+
+    <section class="lessons">
+
+
+        <a href="fraga.html" class="lesson">
+
+            <div class="lesson-icon">
+                ❓
+            </div>
+
+            <h3>1. Ställ en bra fråga</h3>
+
+            <p>
+                En undersökning börjar ofta med en fråga.
+                Lär dig göra frågor som går att undersöka.
+            </p>
+
+            <span class="lesson-button">
+                Utforska →
+            </span>
+
+        </a>
+
+
+        <a href="hypotes.html" class="lesson">
+
+            <div class="lesson-icon">
+                💭
+            </div>
+
+            <h3>2. Gör en förutsägelse</h3>
+
+            <p>
+                Vad tror du kommer att hända?
+                Lär dig formulera en hypotes och motivera
+                din tanke.
+            </p>
+
+            <span class="lesson-button">
+                Utforska →
+            </span>
+
+        </a>
+
+
+        <a href="undersokning.html" class="lesson">
+
+            <div class="lesson-icon">
+                🔬
+            </div>
+
+            <h3>3. Planera en undersökning</h3>
+
+            <p>
+                Lär dig hur man planerar en rättvis
+                och säker undersökning.
+            </p>
+
+            <span class="lesson-button">
+                Utforska →
+            </span>
+
+        </a>
+
+
+        <a href="observation.html" class="lesson">
+
+            <div class="lesson-icon">
+                👀
+            </div>
+
+            <h3>4. Observera och samla information</h3>
+
+            <p>
+                Upptäck hur observationer, mätningar
+                och anteckningar kan hjälpa oss.
+            </p>
+
+            <span class="lesson-button">
+                Utforska →
+            </span>
+
+        </a>
+
+
+        <a href="resultat.html" class="lesson">
+
+            <div class="lesson-icon">
+                📊
+            </div>
+
+            <h3>5. Resultat och mönster</h3>
+
+            <p>
+                Lär dig läsa resultat och upptäcka
+                mönster i det du undersökt.
+            </p>
+
+            <span class="lesson-button">
+                Utforska →
+            </span>
+
+        </a>
+
+
+        <a href="slutsats.html" class="lesson">
+
+            <div class="lesson-icon">
+                🧠
+            </div>
+
+            <h3>6. Dra en slutsats</h3>
+
+            <p>
+                Vad visar undersökningen?
+                Lär dig förklara vad dina resultat betyder.
+            </p>
+
+            <span class="lesson-button">
+                Utforska →
+            </span>
+
+        </a>
+
+
+        <a href="naturvetenskapvardag.html" class="lesson">
+
+            <div class="lesson-icon">
+                🏠
+            </div>
+
+            <h3>7. Naturvetenskap i vardagen</h3>
+
+            <p>
+                Se hur naturvetenskap används hemma,
+                i skolan, samhället och tekniken.
+            </p>
+
+            <span class="lesson-button">
+                Utforska →
+            </span>
+
+        </a>
+
+
+        <a href="forskarutmaning.html" class="lesson">
+
+            <div class="lesson-icon">
+                🏆
+            </div>
+
+            <h3>8. Forskarutmaningen</h3>
+
+            <p>
+                Använd det du lärt dig och genomför
+                en egen liten naturvetenskaplig undersökning.
+            </p>
+
+            <span class="lesson-button">
+                Utmana dig →
+            </span>
+
+        </a>
+
+
+    </section>
+
+
+    <section class="activity">
+
+        <h2>🧠 Vad kommer du att träna?</h2>
+
+        <p>
+            När du arbetar med området tränar du bland annat
+            på att ställa frågor, göra enkla systematiska
+            undersökningar, använda information, beskriva
+            resultat och resonera kring det du har kommit fram till.
+        </p>
+
+    </section>
+
+
+    <div class="navigation">
+
+        <a href="ak4.html">
+            ← Tillbaka till Åk 4
+        </a>
+
+        <br><br>
+
+        <a href="index.html">
+            🏠 Till startsidan
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    NO-Upptäckaren • Så fungerar naturvetenskap • Årskurs 4
+
+</footer>
+
+
+</body>
+
+</html>
