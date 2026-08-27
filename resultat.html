@@ -1,1 +1,405 @@
+<!DOCTYPE html>
+<html lang="sv">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resultat och jämförelser – NO-Upptäckaren</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .intro {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .intro-icon {
+            font-size: 65px;
+        }
+
+        .intro h2 {
+            font-size: 30px;
+            margin: 15px 0;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .example {
+            background: #eef7f2;
+            border-radius: 15px;
+            padding: 22px;
+            margin-top: 20px;
+        }
+
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .result-table th,
+        .result-table td {
+            border: 1px solid #cbd5e1;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .result-table th {
+            background: #eef7f2;
+        }
+
+        .quiz {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .quiz button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 14px;
+            background: white;
+            border: 2px solid #d1d5db;
+            border-radius: 10px;
+            text-align: left;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .quiz button:hover {
+            background: #eef7f2;
+        }
+
+        .feedback {
+            display: none;
+            margin-top: 18px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #dcfce7;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>📊 RESULTAT OCH JÄMFÖRELSER</h1>
+
+    <p>
+        Så fungerar naturvetenskap • Årskurs 4
+    </p>
+
+</header>
+
+
+<main>
+
+
+    <section class="intro">
+
+        <div class="intro-icon">
+            📊
+        </div>
+
+        <h2>Vad berättar undersökningen?</h2>
+
+        <p>
+            När du har gjort en undersökning behöver du
+            samla och ordna dina resultat.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>📝 Dokumentera resultatet</h2>
+
+        <p>
+            Skriv ner det du observerar och mäter.
+            Då kan du senare gå tillbaka och undersöka
+            vad resultaten visar.
+        </p>
+
+        <div class="example">
+
+            <h3>Exempel: Isbitar</h3>
+
+            <p>
+                Vi undersöker hur lång tid det tar för
+                olika isbitar att smälta.
+            </p>
+
+            <table class="result-table">
+
+                <tr>
+                    <th>Plats</th>
+                    <th>Tid</th>
+                </tr>
+
+                <tr>
+                    <td>Sol</td>
+                    <td>18 minuter</td>
+                </tr>
+
+                <tr>
+                    <td>Skugga</td>
+                    <td>31 minuter</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🔎 Jämför resultaten</h2>
+
+        <p>
+            När du jämför resultat kan du upptäcka
+            skillnader och likheter.
+        </p>
+
+        <div class="example">
+
+            <p>
+                Isbiten i solen smälte snabbare än isbiten
+                i skuggan.
+            </p>
+
+            <br>
+
+            <p>
+                Skillnaden var:
+                <strong>31 − 18 = 13 minuter.</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>📈 Använd tabeller och diagram</h2>
+
+        <p>
+            En tabell kan göra informationen tydlig.
+            Ett diagram kan hjälpa dig att se skillnader
+            ännu snabbare.
+        </p>
+
+        <div class="example">
+
+            <h3>Kom ihåg!</h3>
+
+            <p>
+                En bra presentation av resultat ska vara
+                tydlig och lätt för någon annan att förstå.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>⚠️ Ett resultat är inte alltid perfekt</h2>
+
+        <p>
+            I en undersökning kan det finnas saker som
+            påverkar resultatet.
+        </p>
+
+        <br>
+
+        <p>
+            Därför kan det ibland vara bra att göra samma
+            undersökning flera gånger och jämföra resultaten.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🎯 Kunskapskollen</h2>
+
+        <div class="quiz">
+
+            <p>
+                <strong>
+                    Varför är det bra att skriva ner resultaten?
+                </strong>
+            </p>
+
+            <button onclick="answer(1)">
+                A. För att kunna undersöka och jämföra det man upptäckt.
+            </button>
+
+            <button onclick="answer(2)">
+                B. För att göra undersökningen svårare.
+            </button>
+
+            <button onclick="answer(3)">
+                C. För att ingen annan ska kunna förstå undersökningen.
+            </button>
+
+            <div id="feedback" class="feedback"></div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>💡 Tänk som en forskare</h2>
+
+        <p>
+            Titta på resultaten från en undersökning.
+        </p>
+
+        <br>
+
+        <p>
+            <strong>Vad ser du?</strong>
+        </p>
+
+        <p>
+            ______________________________________
+        </p>
+
+        <br>
+
+        <p>
+            <strong>Vilken skillnad upptäcker du?</strong>
+        </p>
+
+        <p>
+            ______________________________________
+        </p>
+
+        <br>
+
+        <p>
+            <strong>Vad tror du kan ha orsakat skillnaden?</strong>
+        </p>
+
+        <p>
+            ______________________________________
+        </p>
+
+    </section>
+
+
+    <div class="navigation">
+
+        <a href="vetenskap.html">
+            ← Tillbaka till Så fungerar naturvetenskap
+        </a>
+
+        <br><br>
+
+        <a href="ak4.html">
+            🔬 Till Åk 4
+        </a>
+
+        <br><br>
+
+        <a href="index.html">
+            🏠 Till startsidan
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    NO-Upptäckaren • Årskurs 4 • Naturvetenskap
+
+</footer>
+
+
+<script>
+
+function answer(choice) {
+
+    const feedback = document.getElementById("feedback");
+
+    feedback.style.display = "block";
+
+    if (choice === 1) {
+
+        feedback.innerHTML =
+        "✅ Rätt! När du skriver ner resultaten kan du undersöka, jämföra och dra slutsatser.";
+
+    } else {
+
+        feedback.innerHTML =
+        "❌ Försök igen! Fundera på vad du behöver göra för att kunna komma ihåg och jämföra dina resultat.";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
