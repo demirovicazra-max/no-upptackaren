@@ -1,1 +1,350 @@
+<!DOCTYPE html>
+<html lang="sv">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NO-Upptäckaren – Åk 4</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .year-intro {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .year-intro h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .year-intro p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .progress-box {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .progress-box h3 {
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 18px;
+            background: #e5e7eb;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: #16a34a;
+            border-radius: 20px;
+        }
+
+        .topics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .topic {
+            display: block;
+            background: white;
+            border-radius: 20px;
+            padding: 28px;
+            text-align: left;
+            text-decoration: none;
+            color: #18332a;
+            border-top: 7px solid #16a34a;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .topic:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.14);
+        }
+
+        .topic-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .topic h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .topic p {
+            color: #52665d;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        .topic-button {
+            display: inline-block;
+            background: #14532d;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🔬 NO-UPPTÄCKAREN</h1>
+
+    <p>
+        Årskurs 4 • Din digitala NO-värld
+    </p>
+
+</header>
+
+
+<main>
+
+
+    <section class="year-intro">
+
+        <h2>🚀 Välkommen till Åk 4</h2>
+
+        <p>
+            Här börjar din resa genom naturvetenskapens värld.
+            Utforska, undersök, testa idéer och lär dig
+            hur världen omkring dig fungerar.
+        </p>
+
+    </section>
+
+
+    <section class="progress-box">
+
+        <h3>⭐ Din utveckling</h3>
+
+        <p>
+            Du har börjat på din NO-resa!
+        </p>
+
+        <br>
+
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+
+    </section>
+
+
+    <section class="topics">
+
+
+        <!-- OMRÅDE 1 -->
+
+        <a href="vetenskap.html" class="topic">
+
+            <div class="topic-icon">
+                🔎
+            </div>
+
+            <h3>Så fungerar naturvetenskap</h3>
+
+            <p>
+                Lär dig hur forskare ställer frågor,
+                undersöker världen och drar slutsatser.
+            </p>
+
+            <span class="topic-button">
+                Börja utforska →
+            </span>
+
+        </a>
+
+
+        <!-- OMRÅDE 2 -->
+
+        <a href="vaxter.html" class="topic">
+
+            <div class="topic-icon">
+                🌱
+            </div>
+
+            <h3>Växternas hemliga liv</h3>
+
+            <p>
+                Upptäck växternas delar, fotosyntesen,
+                frön, fortplantning och växternas livsmiljöer.
+            </p>
+
+            <span class="topic-button">
+                Börja utforska →
+            </span>
+
+        </a>
+
+
+        <!-- OMRÅDE 3 -->
+
+        <a href="djur.html" class="topic">
+
+            <div class="topic-icon">
+                🐾
+            </div>
+
+            <h3>Djurens värld</h3>
+
+            <p>
+                Utforska olika djurgrupper, deras liv,
+                livsmiljöer, föda och anpassningar.
+            </p>
+
+            <span class="topic-button">
+                Börja utforska →
+            </span>
+
+        </a>
+
+
+        <!-- OMRÅDE 4 -->
+
+        <a href="kemi.html" class="topic">
+
+            <div class="topic-icon">
+                ⚗️
+            </div>
+
+            <h3>Materiens mysterier</h3>
+
+            <p>
+                Undersök materia, ämnen, material,
+                blandningar och olika förändringar.
+            </p>
+
+            <span class="topic-button">
+                Börja utforska →
+            </span>
+
+        </a>
+
+
+        <!-- OMRÅDE 5 -->
+
+        <a href="luft.html" class="topic">
+
+            <div class="topic-icon">
+                💨
+            </div>
+
+            <h3>Luften omkring oss</h3>
+
+            <p>
+                Upptäck vad luft består av och undersök
+                luftens egenskaper genom experiment.
+            </p>
+
+            <span class="topic-button">
+                Börja utforska →
+            </span>
+
+        </a>
+
+
+        <!-- OMRÅDE 6 -->
+
+        <a href="energi.html" class="topic">
+
+            <div class="topic-icon">
+                ⚡
+            </div>
+
+            <h3>Energi i vardagen</h3>
+
+            <p>
+                Lär dig om energi, energiformer,
+                energiomvandlingar och energikällor.
+            </p>
+
+            <span class="topic-button">
+                Börja utforska →
+            </span>
+
+        </a>
+
+
+        <!-- OMRÅDE 7 -->
+
+        <a href="vader.html" class="topic">
+
+            <div class="topic-icon">
+                🌦️
+            </div>
+
+            <h3>Väder, värme och klimat</h3>
+
+            <p>
+                Utforska temperatur, nederbörd, vind,
+                väderprognoser och klimat.
+            </p>
+
+            <span class="topic-button">
+                Börja utforska →
+            </span>
+
+        </a>
+
+
+    </section>
+
+
+    <div class="navigation">
+
+        <a href="index.html">
+            ← Tillbaka till NO-Upptäckaren
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    NO-Upptäckaren • Årskurs 4
+
+</footer>
+
+
+</body>
+
+</html>
