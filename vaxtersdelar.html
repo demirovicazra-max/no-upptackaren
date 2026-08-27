@@ -1,1 +1,459 @@
+<!DOCTYPE html>
+<html lang="sv">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Växtens delar – NO-Upptäckaren</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .intro {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .intro-icon {
+            font-size: 65px;
+        }
+
+        .intro h2 {
+            font-size: 30px;
+            margin: 15px 0;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .parts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .part {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .part-icon {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .part h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .part p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .example {
+            background: #eef7f2;
+            border-radius: 15px;
+            padding: 22px;
+            margin-top: 20px;
+        }
+
+        .quiz {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .quiz button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 14px;
+            background: white;
+            border: 2px solid #d1d5db;
+            border-radius: 10px;
+            text-align: left;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .quiz button:hover {
+            background: #eef7f2;
+        }
+
+        .feedback {
+            display: none;
+            margin-top: 18px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #dcfce7;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🌿 VÄXTENS DELAR</h1>
+
+    <p>
+        Växternas värld • Biologi • Årskurs 4
+    </p>
+
+</header>
+
+
+<main>
+
+
+    <section class="intro">
+
+        <div class="intro-icon">
+            🌱
+        </div>
+
+        <h2>En växt är byggd av flera delar</h2>
+
+        <p>
+            Olika delar av växten har olika uppgifter.
+            Tillsammans hjälper de växten att leva och växa.
+        </p>
+
+    </section>
+
+
+    <section class="parts">
+
+
+        <div class="part">
+
+            <div class="part-icon">
+                🌱
+            </div>
+
+            <h2>Rot</h2>
+
+            <p>
+                Rötterna håller fast växten i marken.
+                De tar också upp vatten och mineralämnen
+                från marken.
+            </p>
+
+        </div>
+
+
+        <div class="part">
+
+            <div class="part-icon">
+                🌿
+            </div>
+
+            <h2>Stam</h2>
+
+            <p>
+                Stammen håller upp växtens blad och blommor.
+                I stammen transporteras vatten och andra
+                ämnen mellan olika delar av växten.
+            </p>
+
+        </div>
+
+
+        <div class="part">
+
+            <div class="part-icon">
+                🍃
+            </div>
+
+            <h2>Blad</h2>
+
+            <p>
+                I bladen sker fotosyntesen.
+                Där använder växten ljus för att tillverka
+                energirik näring.
+            </p>
+
+        </div>
+
+
+        <div class="part">
+
+            <div class="part-icon">
+                🌸
+            </div>
+
+            <h2>Blomma</h2>
+
+            <p>
+                Hos många växter är blomman viktig för
+                fortplantningen. Pollen och fröämnen
+                ingår i processen.
+            </p>
+
+        </div>
+
+
+        <div class="part">
+
+            <div class="part-icon">
+                🍎
+            </div>
+
+            <h2>Frukt</h2>
+
+            <p>
+                Frukten utvecklas hos många blomväxter
+                efter befruktningen och kan hjälpa till
+                att skydda fröna.
+            </p>
+
+        </div>
+
+
+        <div class="part">
+
+            <div class="part-icon">
+                🌰
+            </div>
+
+            <h2>Frö</h2>
+
+            <p>
+                Ett frö innehåller början till en ny växt.
+                När förhållandena är rätt kan fröet börja
+                gro.
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🔄 Hur hänger delarna ihop?</h2>
+
+        <p>
+            Växtens olika delar samarbetar.
+        </p>
+
+        <div class="example">
+
+            <p>
+                <strong>Roten</strong> tar upp vatten.
+            </p>
+
+            <p>
+                <strong>Stammen</strong> transporterar vatten
+                till andra delar.
+            </p>
+
+            <p>
+                <strong>Bladen</strong> använder ljus i
+                fotosyntesen.
+            </p>
+
+            <p>
+                <strong>Blomman</strong> kan vara en del av
+                växtens fortplantning.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🔬 Titta närmare</h2>
+
+        <p>
+            Ta en växt och undersök den noggrant.
+        </p>
+
+        <br>
+
+        <p>
+            Kan du hitta en rot, en stam och blad?
+        </p>
+
+        <br>
+
+        <p>
+            Om växten blommar – kan du hitta blomman?
+        </p>
+
+        <br>
+
+        <p>
+            Rita växten och skriv ut namnen på de delar
+            du hittar.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🎯 Kunskapskollen</h2>
+
+        <div class="quiz">
+
+            <p>
+                <strong>
+                    Vilken del av växten tar främst upp vatten
+                    och mineralämnen från marken?
+                </strong>
+            </p>
+
+            <button onclick="answer(1)">
+                A. Bladet
+            </button>
+
+            <button onclick="answer(2)">
+                B. Roten
+            </button>
+
+            <button onclick="answer(3)">
+                C. Blomman
+            </button>
+
+            <div id="feedback" class="feedback"></div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>💡 Tänk vidare</h2>
+
+        <p>
+            Vad tror du skulle hända med en växt om dess
+            rötter inte kunde ta upp vatten?
+        </p>
+
+        <br>
+
+        <p>
+            Förklara med hjälp av det du har lärt dig
+            om växtens olika delar.
+        </p>
+
+        <br>
+
+        <p>
+            __________________________________________
+        </p>
+
+        <p>
+            __________________________________________
+        </p>
+
+    </section>
+
+
+    <div class="navigation">
+
+        <a href="./vaxter.html">
+            ← Tillbaka till Växternas värld
+        </a>
+
+        <br><br>
+
+        <a href="./ak4.html">
+            🌱 Till Åk 4
+        </a>
+
+        <br><br>
+
+        <a href="./index.html">
+            🏠 Till startsidan
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    NO-Upptäckaren • Växtens delar • Årskurs 4
+
+</footer>
+
+
+<script>
+
+function answer(choice) {
+
+    const feedback = document.getElementById("feedback");
+
+    feedback.style.display = "block";
+
+    if (choice === 2) {
+
+        feedback.innerHTML =
+        "✅ Rätt! Rötterna tar upp vatten och mineralämnen från marken.";
+
+    } else {
+
+        feedback.innerHTML =
+        "❌ Försök igen! Tänk på vilken del av växten som finns nere i marken.";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
