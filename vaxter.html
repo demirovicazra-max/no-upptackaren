@@ -11,7 +11,7 @@
 
     <style>
 
-        .intro {
+        .plant-intro {
             background: white;
             border-radius: 20px;
             padding: 35px;
@@ -20,73 +20,87 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
         }
 
-        .intro-icon {
-            font-size: 65px;
+        .plant-intro-icon {
+            font-size: 60px;
+            margin-bottom: 10px;
         }
 
-        .intro h2 {
+        .plant-intro h2 {
             font-size: 30px;
-            margin: 15px 0;
+            margin: 10px 0 15px;
         }
 
-        .intro p {
+        .plant-intro p {
             font-size: 18px;
             line-height: 1.6;
         }
 
-        .topics {
+        .plant-topics {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
         }
 
-        .topic {
+        .plant-topic {
             display: block;
             background: white;
             border-radius: 20px;
-            padding: 30px 20px;
+            padding: 30px 25px;
             text-align: center;
             text-decoration: none;
             color: #18332a;
             box-shadow: 0 6px 18px rgba(0,0,0,0.08);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #e5ebe8;
         }
 
-        .topic:hover {
+        .plant-topic:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 25px rgba(0,0,0,0.12);
         }
 
-        .topic-icon {
+        .plant-topic-icon {
             font-size: 50px;
             margin-bottom: 15px;
         }
 
-        .topic h3 {
+        .plant-topic h3 {
             font-size: 21px;
-            margin-bottom: 10px;
+            margin: 0 0 10px;
         }
 
-        .topic p {
-            color: #52665d;
+        .plant-topic p {
+            font-size: 16px;
             line-height: 1.5;
+            color: #52665d;
+            margin: 0;
         }
 
-        .navigation {
+        .plant-navigation {
             text-align: center;
             margin-top: 35px;
         }
 
-        .navigation a {
+        .plant-navigation a {
             text-decoration: none;
             font-size: 18px;
+        }
+
+        @media (max-width: 700px) {
+
+            .plant-topics {
+                grid-template-columns: 1fr;
+            }
+
         }
 
     </style>
 
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -98,15 +112,19 @@
 
 </header>
 
+
 <main>
 
-    <section class="intro">
 
-        <div class="intro-icon">
+    <section class="plant-intro">
+
+        <div class="plant-intro-icon">
             🌱
         </div>
 
-        <h2>Upptäck hur växter lever och växer</h2>
+        <h2>
+            Upptäck hur växter lever och växer
+        </h2>
 
         <p>
             Utforska växternas delar, hur de får energi,
@@ -116,16 +134,18 @@
     </section>
 
 
-    <section class="topics">
+    <section class="plant-topics">
 
 
-        <a href="vaxtersdelar.html" class="topic">
+        <a href="vaxtersdelar.html" class="plant-topic">
 
-            <div class="topic-icon">
+            <div class="plant-topic-icon">
                 🌿
             </div>
 
-            <h3>Växtens delar</h3>
+            <h3>
+                Växtens delar
+            </h3>
 
             <p>
                 Lär dig om rötter, stam, blad, blommor,
@@ -135,108 +155,126 @@
         </a>
 
 
-        <a href="fotosyntes.html" class="topic">
+        <a href="fotosyntes.html" class="plant-topic">
 
-            <div class="topic-icon">
+            <div class="plant-topic-icon">
                 ☀️
             </div>
 
-            <h3>Växternas energi</h3>
+            <h3>
+                Växternas energi
+            </h3>
 
             <p>
                 Upptäck hur växter använder ljus,
-                vatten och koldioxid.
+                vatten och koldioxid för att leva.
             </p>
 
         </a>
 
 
-        <a href="vaxer.html" class="topic">
+        <a href="vaxer.html" class="plant-topic">
 
-            <div class="topic-icon">
+            <div class="plant-topic-icon">
                 🌱
             </div>
 
-            <h3>Så växer växter</h3>
+            <h3>
+                Så växer växter
+            </h3>
 
             <p>
-                Undersök vad växter behöver för att växa.
+                Undersök vad växter behöver för att
+                kunna växa och utvecklas.
             </p>
 
         </a>
 
 
-        <a href="fortplantning.html" class="topic">
+        <a href="fortplantning.html" class="plant-topic">
 
-            <div class="topic-icon">
+            <div class="plant-topic-icon">
                 🌸
             </div>
 
-            <h3>Blommor och fortplantning</h3>
+            <h3>
+                Blommor och fortplantning
+            </h3>
 
             <p>
-                Lär dig hur blommor, pollen och frön hänger ihop.
+                Lär dig hur blommor, pollen och frön
+                hänger ihop.
             </p>
 
         </a>
 
 
-        <a href="fronspridning.html" class="topic">
+        <a href="fronspridning.html" class="plant-topic">
 
-            <div class="topic-icon">
+            <div class="plant-topic-icon">
                 🌰
             </div>
 
-            <h3>Frön och spridning</h3>
+            <h3>
+                Frön och spridning
+            </h3>
 
             <p>
-                Upptäck hur växter sprider sina frön.
+                Upptäck hur växter sprider sina frön
+                till nya platser.
             </p>
 
         </a>
 
 
-        <a href="vaxtermiljo.html" class="topic">
+        <a href="vaxtermiljo.html" class="plant-topic">
 
-            <div class="topic-icon">
+            <div class="plant-topic-icon">
                 🌍
             </div>
 
-            <h3>Växter och miljön</h3>
+            <h3>
+                Växter och miljön
+            </h3>
 
             <p>
-                Undersök hur växter påverkas av sin miljö.
+                Undersök hur växter påverkas av ljus,
+                vatten, temperatur och andra faktorer.
             </p>
 
         </a>
 
 
-        <a href="vaxtexperiment.html" class="topic">
+        <a href="vaxtexperiment.html" class="plant-topic">
 
-            <div class="topic-icon">
+            <div class="plant-topic-icon">
                 🧪
             </div>
 
-            <h3>Undersök en växt</h3>
+            <h3>
+                Undersök en växt
+            </h3>
 
             <p>
                 Gör enkla undersökningar och dokumentera
-                dina upptäckter.
+                vad du upptäcker.
             </p>
 
         </a>
 
 
-        <a href="vaxterquiz.html" class="topic">
+        <a href="vaxterquiz.html" class="plant-topic">
 
-            <div class="topic-icon">
+            <div class="plant-topic-icon">
                 🧠
             </div>
 
-            <h3>Kunskapskollen</h3>
+            <h3>
+                Kunskapskollen
+            </h3>
 
             <p>
-                Testa dina kunskaper om växter.
+                Testa vad du kommer ihåg om växternas värld.
             </p>
 
         </a>
@@ -245,7 +283,7 @@
     </section>
 
 
-    <div class="navigation">
+    <div class="plant-navigation">
 
         <a href="ak4.html">
             ← Tillbaka till Åk 4
@@ -258,6 +296,7 @@
         </a>
 
     </div>
+
 
 </main>
 
