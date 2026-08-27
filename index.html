@@ -1,1 +1,204 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NO-Upptäckaren – Åk 4–6</title>
 
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef7f2;
+            color: #18332a;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #14532d, #16a34a);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 20px;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .welcome {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .welcome h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .welcome p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .subjects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .subject {
+            background: white;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .subject:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.14);
+        }
+
+        .subject .icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .subject h3 {
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .subject p {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #52665d;
+        }
+
+        .biology {
+            border-top: 7px solid #22c55e;
+        }
+
+        .chemistry {
+            border-top: 7px solid #8b5cf6;
+        }
+
+        .physics {
+            border-top: 7px solid #3b82f6;
+        }
+
+        .technology {
+            border-top: 7px solid #f59e0b;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #60756c;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            .welcome {
+                padding: 25px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🔬 NO-UPPTÄCKAREN</h1>
+    <p>Din interaktiva NO-lärobok för årskurs 4–6</p>
+</header>
+
+<main>
+
+    <section class="welcome">
+        <h2>👋 Välkommen, forskare!</h2>
+
+        <p>
+            Här får du utforska naturen, människokroppen,
+            materia, krafter, energi och mycket mer.
+        </p>
+
+        <p style="margin-top: 15px;">
+            📖 Läs • 🔎 Utforska • 🧪 Undersök • 🧠 Testa dina kunskaper
+        </p>
+    </section>
+
+    <section class="subjects">
+
+        <div class="subject biology">
+            <div class="icon">🌿</div>
+            <h3>Biologi</h3>
+            <p>
+                Utforska livet, naturen, människokroppen,
+                evolution och ekosystem.
+            </p>
+        </div>
+
+        <div class="subject chemistry">
+            <div class="icon">⚗️</div>
+            <h3>Kemi</h3>
+            <p>
+                Upptäck materia, ämnen, blandningar,
+                kemiska reaktioner och mer.
+            </p>
+        </div>
+
+        <div class="subject physics">
+            <div class="icon">⚡</div>
+            <h3>Fysik</h3>
+            <p>
+                Undersök krafter, energi, ljus, ljud,
+                elektricitet och universum.
+            </p>
+        </div>
+
+        <div class="subject technology">
+            <div class="icon">⚙️</div>
+            <h3>Teknik</h3>
+            <p>
+                Utforska konstruktioner, tekniska system,
+                digital teknik och problemlösning.
+            </p>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    NO-Upptäckaren • Årskurs 4–6
+</footer>
+
+</body>
+</html>
