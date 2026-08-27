@@ -1,1 +1,485 @@
+<!DOCTYPE html>
+<html lang="sv">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Planera en undersökning – NO-Upptäckaren</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .intro {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .intro-icon {
+            font-size: 65px;
+        }
+
+        .intro h2 {
+            font-size: 30px;
+            margin: 15px 0;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .steps {
+            display: grid;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .step {
+            background: #eef7f2;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .step-number {
+            font-size: 25px;
+            margin-right: 8px;
+        }
+
+        .example {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        .quiz {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .quiz button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 14px;
+            background: white;
+            border: 2px solid #d1d5db;
+            border-radius: 10px;
+            text-align: left;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .quiz button:hover {
+            background: #eef7f2;
+        }
+
+        .feedback {
+            display: none;
+            margin-top: 18px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #dcfce7;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🧪 PLANERA EN UNDERSÖKNING</h1>
+
+    <p>
+        Så fungerar naturvetenskap • Årskurs 4
+    </p>
+
+</header>
+
+
+<main>
+
+
+    <section class="intro">
+
+        <div class="intro-icon">
+            🧪
+        </div>
+
+        <h2>Från idé till undersökning</h2>
+
+        <p>
+            En bra undersökning behöver vara planerad.
+            Då blir det lättare att genomföra den och förstå resultatet.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🔬 Sex steg till en undersökning</h2>
+
+        <div class="steps">
+
+            <div class="step">
+
+                <h3>
+                    <span class="step-number">1️⃣</span>
+                    Formulera en fråga
+                </h3>
+
+                <p>
+                    Vad vill du ta reda på?
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>
+                    <span class="step-number">2️⃣</span>
+                    Gör en förutsägelse
+                </h3>
+
+                <p>
+                    Vad tror du kommer att hända?
+                    Förklara varför.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>
+                    <span class="step-number">3️⃣</span>
+                    Bestäm material
+                </h3>
+
+                <p>
+                    Vad behöver du för att kunna genomföra undersökningen?
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>
+                    <span class="step-number">4️⃣</span>
+                    Bestäm hur du ska göra
+                </h3>
+
+                <p>
+                    Skriv en tydlig ordning på vad du ska göra.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>
+                    <span class="step-number">5️⃣</span>
+                    Bestäm vad du ska mäta
+                </h3>
+
+                <p>
+                    Fundera på vilket resultat du behöver
+                    samla in för att kunna svara på frågan.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>
+                    <span class="step-number">6️⃣</span>
+                    Bestäm vad som ska vara lika
+                </h3>
+
+                <p>
+                    Om du jämför olika saker behöver viktiga
+                    förhållanden vara så lika som möjligt.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🧊 Exempel: Vilken isbit smälter snabbast?</h2>
+
+        <p>
+            Vi vill undersöka om platsen påverkar hur snabbt
+            en isbit smälter.
+        </p>
+
+        <div class="example">
+
+            <h3>❓ Fråga</h3>
+
+            <p>
+                Vilken isbit smälter snabbast – den i solen
+                eller den i skuggan?
+            </p>
+
+            <br>
+
+            <h3>💭 Förutsägelse</h3>
+
+            <p>
+                Jag tror att isbiten i solen smälter snabbast
+                eftersom solen värmer isen.
+            </p>
+
+            <br>
+
+            <h3>🧰 Material</h3>
+
+            <p>
+                • Två lika stora isbitar<br>
+                • Två tallrikar<br>
+                • En plats i solen<br>
+                • En plats i skuggan<br>
+                • Klocka eller timer
+            </p>
+
+            <br>
+
+            <h3>📋 Genomförande</h3>
+
+            <p>
+                Placera isbitarna samtidigt.
+                Observera dem under samma tidsperiod.
+                Skriv ner vad som händer.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>⚖️ Gör undersökningen rättvis</h2>
+
+        <p>
+            Om du jämför två saker behöver du tänka på
+            vad som ska vara lika och vad som ska förändras.
+        </p>
+
+        <div class="example">
+
+            <p>
+                <strong>Det som ändras:</strong>
+                platsen.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Det som ska vara lika:</strong>
+                isbitarnas storlek och tiden som undersökningen pågår.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🎯 Kunskapskollen</h2>
+
+        <div class="quiz">
+
+            <p>
+                <strong>
+                    Varför är det viktigt att planera
+                    en undersökning?
+                </strong>
+            </p>
+
+            <button onclick="answer(1)">
+                A. För att veta vad man ska göra och kunna jämföra resultat.
+            </button>
+
+            <button onclick="answer(2)">
+                B. För att undersökningen ska bli så lång som möjligt.
+            </button>
+
+            <button onclick="answer(3)">
+                C. För att man ska slippa skriva ner resultatet.
+            </button>
+
+            <div id="feedback" class="feedback"></div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>💡 Planera din egen undersökning</h2>
+
+        <p>
+            Använd frågorna nedan för att göra en egen plan.
+        </p>
+
+        <br>
+
+        <p>
+            <strong>❓ Min fråga:</strong>
+        </p>
+
+        <p>
+            __________________________________________
+        </p>
+
+        <br>
+
+        <p>
+            <strong>💭 Min förutsägelse:</strong>
+        </p>
+
+        <p>
+            __________________________________________
+        </p>
+
+        <br>
+
+        <p>
+            <strong>🧰 Jag behöver:</strong>
+        </p>
+
+        <p>
+            __________________________________________
+        </p>
+
+        <br>
+
+        <p>
+            <strong>📋 Så här ska jag göra:</strong>
+        </p>
+
+        <p>
+            __________________________________________
+        </p>
+
+        <p>
+            __________________________________________
+        </p>
+
+    </section>
+
+
+    <div class="navigation">
+
+        <a href="vetenskap.html">
+            ← Tillbaka till Så fungerar naturvetenskap
+        </a>
+
+        <br><br>
+
+        <a href="ak4.html">
+            🔬 Till Åk 4
+        </a>
+
+        <br><br>
+
+        <a href="index.html">
+            🏠 Till startsidan
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    NO-Upptäckaren • Årskurs 4 • Naturvetenskap
+
+</footer>
+
+
+<script>
+
+function answer(choice) {
+
+    const feedback = document.getElementById("feedback");
+
+    feedback.style.display = "block";
+
+    if (choice === 1) {
+
+        feedback.innerHTML =
+        "✅ Rätt! En plan hjälper dig att veta vad du ska göra och gör det lättare att jämföra resultat.";
+
+    } else {
+
+        feedback.innerHTML =
+        "❌ Försök igen! Tänk på varför det är viktigt att veta vad du ska göra innan undersökningen börjar.";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
