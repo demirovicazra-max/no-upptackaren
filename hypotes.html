@@ -1,1 +1,356 @@
+<!DOCTYPE html>
+<html lang="sv">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Förutsäg och förklara – NO-Upptäckaren</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .intro {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .intro-icon {
+            font-size: 65px;
+        }
+
+        .intro h2 {
+            font-size: 30px;
+            margin: 15px 0;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .example {
+            background: #eef7f2;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .thinking {
+            background: #fff7ed;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .quiz {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .quiz button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 14px;
+            background: white;
+            border: 2px solid #d1d5db;
+            border-radius: 10px;
+            text-align: left;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .quiz button:hover {
+            background: #eef7f2;
+        }
+
+        .feedback {
+            display: none;
+            margin-top: 18px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #dcfce7;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>💭 FÖRUTSÄG OCH FÖRKLARA</h1>
+
+    <p>
+        Så fungerar naturvetenskap • Årskurs 4
+    </p>
+
+</header>
+
+
+<main>
+
+
+    <section class="intro">
+
+        <div class="intro-icon">
+            💭
+        </div>
+
+        <h2>Vad tror du kommer att hända?</h2>
+
+        <p>
+            Innan du gör en undersökning kan du fundera på
+            vad du tror att resultatet kommer att bli.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🧠 Vad är en hypotes?</h2>
+
+        <p>
+            En hypotes är en genomtänkt förutsägelse om vad
+            du tror kommer att hända i en undersökning.
+        </p>
+
+        <br>
+
+        <p>
+            En bra förutsägelse bygger på något du redan vet
+            eller har observerat.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🔬 Ett exempel</h2>
+
+        <p>
+            Du vill undersöka om temperaturen påverkar hur
+            snabbt en isbit smälter.
+        </p>
+
+        <div class="example">
+
+            <p>
+                <strong>Min förutsägelse:</strong>
+            </p>
+
+            <br>
+
+            <p>
+                Jag tror att isbiten som ligger varmt kommer
+                att smälta snabbare än isbiten som ligger kallt.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Varför?</strong>
+            </p>
+
+            <p>
+                Jag tror det eftersom värme gör att isen
+                smälter.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🧩 En bra förutsägelse innehåller</h2>
+
+        <p>
+            <strong>1.</strong> Vad du tror kommer att hända.
+        </p>
+
+        <p>
+            <strong>2.</strong> En förklaring till varför du tror det.
+        </p>
+
+        <p>
+            <strong>3.</strong> Något som senare går att jämföra
+            med resultatet.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>💡 Tänk själv</h2>
+
+        <div class="thinking">
+
+            <p>
+                Du har två glas med vatten.
+                Ett glas står i solen och ett står i skuggan.
+            </p>
+
+            <br>
+
+            <p>
+                Vilket vatten tror du blir varmast?
+            </p>
+
+            <br>
+
+            <p>
+                Förklara varför du tror det.
+            </p>
+
+            <br>
+
+            <p>
+                ✏️ Min förutsägelse:
+            </p>
+
+            <br>
+
+            <p>
+                ______________________________________
+            </p>
+
+            <p>
+                ______________________________________
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🎯 Kunskapskollen</h2>
+
+        <div class="quiz">
+
+            <p>
+                <strong>
+                    Vilket alternativ är en förutsägelse?
+                </strong>
+            </p>
+
+            <button onclick="answer(1)">
+                A. Jag tror att växten med mest ljus kommer att växa snabbast eftersom växter behöver ljus.
+            </button>
+
+            <button onclick="answer(2)">
+                B. Växten är grön.
+            </button>
+
+            <button onclick="answer(3)">
+                C. Jag mätte växten till 12 centimeter.
+            </button>
+
+            <div id="feedback" class="feedback"></div>
+
+        </div>
+
+    </section>
+
+
+    <div class="navigation">
+
+        <a href="vetenskap.html">
+            ← Tillbaka till Så fungerar naturvetenskap
+        </a>
+
+        <br><br>
+
+        <a href="ak4.html">
+            🔬 Till Åk 4
+        </a>
+
+        <br><br>
+
+        <a href="index.html">
+            🏠 Till startsidan
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    NO-Upptäckaren • Årskurs 4 • Naturvetenskap
+
+</footer>
+
+
+<script>
+
+function answer(choice) {
+
+    const feedback = document.getElementById("feedback");
+
+    feedback.style.display = "block";
+
+    if (choice === 1) {
+
+        feedback.innerHTML =
+        "✅ Rätt! Här finns både en förutsägelse och en förklaring till varför man tror att det kommer att hända.";
+
+    } else {
+
+        feedback.innerHTML =
+        "❌ Inte riktigt. En förutsägelse beskriver vad du tror kommer att hända innan undersökningen genomförs.";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
