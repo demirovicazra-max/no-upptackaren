@@ -1,1 +1,300 @@
+<!DOCTYPE html>
+<html lang="sv">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ställ en bra fråga – NO-Upptäckaren</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .content-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .content-card h2 {
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+
+        .content-card h3 {
+            font-size: 21px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-card p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .example {
+            background: #eef7f2;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .example p {
+            margin-bottom: 8px;
+        }
+
+        .question-box {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        .question-box button {
+            border: none;
+            background: #14532d;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        .question-box button:hover {
+            background: #166534;
+        }
+
+        .answer {
+            display: none;
+            margin-top: 20px;
+            padding: 18px;
+            background: #dcfce7;
+            border-radius: 12px;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>❓ STÄLL EN BRA FRÅGA</h1>
+
+    <p>
+        Så fungerar naturvetenskap • Årskurs 4
+    </p>
+
+</header>
+
+
+<main>
+
+
+    <section class="content-card">
+
+        <h2>🔎 Var börjar en undersökning?</h2>
+
+        <p>
+            Många naturvetenskapliga undersökningar börjar med
+            att någon blir nyfiken och ställer en fråga.
+        </p>
+
+        <br>
+
+        <p>
+            En bra undersökningsfråga hjälper dig att ta reda
+            på något genom att observera, mäta, jämföra eller
+            göra ett experiment.
+        </p>
+
+    </section>
+
+
+    <section class="content-card">
+
+        <h2>💡 Frågor som går att undersöka</h2>
+
+        <p>
+            Alla frågor går inte att undersöka med ett experiment.
+            Därför behöver vi fundera på om frågan går att testa.
+        </p>
+
+        <div class="example">
+
+            <h3>❌ Svår att undersöka</h3>
+
+            <p>
+                Vilket djur är sötast?
+            </p>
+
+            <h3>✅ Går att undersöka</h3>
+
+            <p>
+                Vilket djur äter mest mat under en dag?
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="content-card">
+
+        <h2>🧪 Frågan ska hjälpa dig att planera</h2>
+
+        <p>
+            När du har en undersökningsfråga kan du fundera på
+            vad du behöver göra för att få ett svar.
+        </p>
+
+        <div class="example">
+
+            <p>
+                <strong>Fråga:</strong>
+                Vilket material håller bäst på värmen?
+            </p>
+
+            <br>
+
+            <p>
+                Då kan du jämföra olika material och mäta
+                temperaturen efter en viss tid.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="content-card">
+
+        <h2>🎯 Testa dig själv</h2>
+
+        <div class="question-box">
+
+            <p>
+                <strong>
+                    Vilken fråga går bäst att undersöka genom
+                    ett enkelt experiment?
+                </strong>
+            </p>
+
+            <br>
+
+            <p>
+                A. Vilken färg är vackrast?
+            </p>
+
+            <p>
+                B. Vilket papper suger upp mest vatten?
+            </p>
+
+            <p>
+                C. Vilket djur är roligast?
+            </p>
+
+            <button onclick="showAnswer()">
+                Visa svar
+            </button>
+
+            <div id="answer" class="answer">
+
+                <strong>✅ Rätt svar: B</strong>
+
+                <p>
+                    Du kan testa olika sorters papper och
+                    jämföra hur mycket vatten de suger upp.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="content-card">
+
+        <h2>💡 Tänk vidare</h2>
+
+        <p>
+            Du vill undersöka vilka pappersflygplan som flyger
+            längst.
+        </p>
+
+        <br>
+
+        <p>
+            Formulera en egen fråga som går att undersöka.
+        </p>
+
+        <br>
+
+        <p>
+            Fundera sedan på:
+        </p>
+
+        <p>
+            • Vad ska du jämföra?<br>
+            • Vad ska du mäta?<br>
+            • Vad behöver vara lika?
+        </p>
+
+    </section>
+
+
+    <div class="navigation">
+
+        <a href="vetenskap.html">
+            ← Tillbaka till Så fungerar naturvetenskap
+        </a>
+
+        <br><br>
+
+        <a href="ak4.html">
+            ← Tillbaka till Åk 4
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    NO-Upptäckaren • Årskurs 4 • Naturvetenskap
+
+</footer>
+
+
+<script>
+
+function showAnswer() {
+
+    document.getElementById("answer").style.display = "block";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
