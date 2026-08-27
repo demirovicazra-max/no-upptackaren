@@ -1,1 +1,483 @@
+<!DOCTYPE html>
+<html lang="sv">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Observera och mäta – NO-Upptäckaren</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .intro {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .intro-icon {
+            font-size: 65px;
+        }
+
+        .intro h2 {
+            font-size: 30px;
+            margin: 15px 0;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .example {
+            background: #eef7f2;
+            border-radius: 15px;
+            padding: 22px;
+            margin-top: 20px;
+        }
+
+        .tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .tool {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .tool-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .quiz {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .quiz button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 14px;
+            background: white;
+            border: 2px solid #d1d5db;
+            border-radius: 10px;
+            text-align: left;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .quiz button:hover {
+            background: #eef7f2;
+        }
+
+        .feedback {
+            display: none;
+            margin-top: 18px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #dcfce7;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>👀 OBSERVERA OCH MÄTA</h1>
+
+    <p>
+        Så fungerar naturvetenskap • Årskurs 4
+    </p>
+
+</header>
+
+
+<main>
+
+
+    <section class="intro">
+
+        <div class="intro-icon">
+            👀
+        </div>
+
+        <h2>Upptäck genom att undersöka</h2>
+
+        <p>
+            När forskare undersöker något behöver de vara
+            noggranna med vad de ser, hör, känner och mäter.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>👀 Vad betyder att observera?</h2>
+
+        <p>
+            Att observera betyder att noggrant undersöka
+            något med hjälp av våra sinnen och olika hjälpmedel.
+        </p>
+
+        <br>
+
+        <p>
+            När du observerar ska du försöka beskriva
+            det du faktiskt upptäcker.
+        </p>
+
+        <div class="example">
+
+            <h3>Exempel</h3>
+
+            <p>
+                Istället för att skriva:
+                <strong>”Växten mår bra.”</strong>
+            </p>
+
+            <br>
+
+            <p>
+                kan du skriva:
+                <strong>”Växten har fem gröna blad och är 12 cm hög.”</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>📏 Vad kan vi mäta?</h2>
+
+        <p>
+            Med olika verktyg kan vi göra observationer
+            mer noggranna.
+        </p>
+
+        <div class="tools">
+
+            <div class="tool">
+
+                <div class="tool-icon">📏</div>
+
+                <strong>Längd</strong>
+
+                <p>
+                    linjal eller måttband
+                </p>
+
+            </div>
+
+
+            <div class="tool">
+
+                <div class="tool-icon">⚖️</div>
+
+                <strong>Massa</strong>
+
+                <p>
+                    våg
+                </p>
+
+            </div>
+
+
+            <div class="tool">
+
+                <div class="tool-icon">🌡️</div>
+
+                <strong>Temperatur</strong>
+
+                <p>
+                    termometer
+                </p>
+
+            </div>
+
+
+            <div class="tool">
+
+                <div class="tool-icon">⏱️</div>
+
+                <strong>Tid</strong>
+
+                <p>
+                    klocka eller timer
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>📊 Varför mäter vi?</h2>
+
+        <p>
+            Mätningar gör det lättare att jämföra olika
+            resultat.
+        </p>
+
+        <div class="example">
+
+            <p>
+                Två elever mäter varsin växt.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Växt A:</strong> 12 cm
+            </p>
+
+            <p>
+                <strong>Växt B:</strong> 18 cm
+            </p>
+
+            <br>
+
+            <p>
+                Då kan vi tydligt se att växt B är 6 cm högre
+                än växt A.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>📝 Skriv ner det du upptäcker</h2>
+
+        <p>
+            Det är viktigt att dokumentera resultatet
+            medan du undersöker.
+        </p>
+
+        <div class="example">
+
+            <p>
+                Du kan använda:
+            </p>
+
+            <br>
+
+            <p>
+                • text<br>
+                • bilder<br>
+                • tabeller<br>
+                • mätvärden<br>
+                • enkla diagram
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🎯 Kunskapskollen</h2>
+
+        <div class="quiz">
+
+            <p>
+                <strong>
+                    Vilket är det bästa sättet att ta reda på
+                    hur hög en växt är?
+                </strong>
+            </p>
+
+            <button onclick="answer(1)">
+                A. Gissa hur hög den ser ut att vara.
+            </button>
+
+            <button onclick="answer(2)">
+                B. Mäta växten med en linjal eller ett måttband.
+            </button>
+
+            <button onclick="answer(3)">
+                C. Fråga någon hur hög den kanske är.
+            </button>
+
+            <div id="feedback" class="feedback"></div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🔎 Din observationsutmaning</h2>
+
+        <p>
+            Välj ett föremål i klassrummet.
+        </p>
+
+        <br>
+
+        <p>
+            Observera det noggrant och skriv minst tre saker
+            du kan se eller mäta.
+        </p>
+
+        <br>
+
+        <p>
+            <strong>Föremål:</strong>
+        </p>
+
+        <p>
+            ______________________________________
+        </p>
+
+        <br>
+
+        <p>
+            <strong>Observation 1:</strong>
+        </p>
+
+        <p>
+            ______________________________________
+        </p>
+
+        <br>
+
+        <p>
+            <strong>Observation 2:</strong>
+        </p>
+
+        <p>
+            ______________________________________
+        </p>
+
+        <br>
+
+        <p>
+            <strong>Observation 3:</strong>
+        </p>
+
+        <p>
+            ______________________________________
+        </p>
+
+    </section>
+
+
+    <div class="navigation">
+
+        <a href="vetenskap.html">
+            ← Tillbaka till Så fungerar naturvetenskap
+        </a>
+
+        <br><br>
+
+        <a href="ak4.html">
+            🔬 Till Åk 4
+        </a>
+
+        <br><br>
+
+        <a href="index.html">
+            🏠 Till startsidan
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    NO-Upptäckaren • Årskurs 4 • Naturvetenskap
+
+</footer>
+
+
+<script>
+
+function answer(choice) {
+
+    const feedback = document.getElementById("feedback");
+
+    feedback.style.display = "block";
+
+    if (choice === 2) {
+
+        feedback.innerHTML =
+        "✅ Rätt! Med en linjal eller ett måttband kan du mäta växtens längd och få ett resultat som går att jämföra.";
+
+    } else {
+
+        feedback.innerHTML =
+        "❌ Försök igen. Fundera på vilket sätt som ger ett så noggrant resultat som möjligt.";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
