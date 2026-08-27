@@ -11,32 +11,9 @@
 
     <style>
 
-        .intro {
-            background: white;
-            border-radius: 20px;
-            padding: 35px;
-            margin-bottom: 30px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-        }
-
-        .intro-icon {
-            font-size: 65px;
-        }
-
-        .intro h2 {
-            font-size: 30px;
-            margin: 15px 0;
-        }
-
-        .intro p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
         .topics {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
         }
 
@@ -44,17 +21,15 @@
             display: block;
             background: white;
             border-radius: 20px;
-            padding: 28px 22px;
+            padding: 30px 20px;
             text-align: center;
             text-decoration: none;
             color: #18332a;
             box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .topic:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.14);
+            transform: translateY(-5px);
         }
 
         .topic-icon {
@@ -68,9 +43,30 @@
         }
 
         .topic p {
-            font-size: 15px;
-            line-height: 1.5;
             color: #52665d;
+            line-height: 1.5;
+        }
+
+        .intro {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .intro-icon {
+            font-size: 60px;
+        }
+
+        .intro h2 {
+            margin: 15px 0;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.6;
         }
 
         .navigation {
@@ -93,27 +89,21 @@
 
     <h1>🔎 SÅ FUNGERAR NATURVETENSKAP</h1>
 
-    <p>
-        NO-Upptäckaren • Årskurs 4
-    </p>
+    <p>NO-Upptäckaren • Årskurs 4</p>
 
 </header>
 
-
 <main>
-
 
     <section class="intro">
 
-        <div class="intro-icon">
-            🔬
-        </div>
+        <div class="intro-icon">🔬</div>
 
-        <h2>Från nyfikenhet till upptäckt</h2>
+        <h2>Från nyfiken fråga till upptäckt</h2>
 
         <p>
-            Här får du lära dig hur forskare undersöker världen,
-            ställer frågor, gör förutsägelser och drar slutsatser.
+            Här får du träna på hur naturvetare undersöker
+            frågor, samlar information och drar slutsatser.
         </p>
 
     </section>
@@ -121,17 +111,14 @@
 
     <section class="topics">
 
-
         <a href="fraga.html" class="topic">
 
-            <div class="topic-icon">
-                ❓
-            </div>
+            <div class="topic-icon">❓</div>
 
-            <h3>Ställ en bra fråga</h3>
+            <h3>Ställ en fråga</h3>
 
             <p>
-                Lär dig formulera frågor som går att undersöka.
+                Lär dig formulera en fråga som går att undersöka.
             </p>
 
         </a>
@@ -139,31 +126,25 @@
 
         <a href="hypotes.html" class="topic">
 
-            <div class="topic-icon">
-                💭
-            </div>
+            <div class="topic-icon">💭</div>
 
             <h3>Gör en förutsägelse</h3>
 
             <p>
-                Fundera på vad du tror kommer att hända
-                och förklara varför.
+                Fundera på vad du tror kommer att hända.
             </p>
 
         </a>
 
 
-        <a href="experiment.html" class="topic">
+        <a href="planera.html" class="topic">
 
-            <div class="topic-icon">
-                🧪
-            </div>
+            <div class="topic-icon">🧪</div>
 
-            <h3>Gör en undersökning</h3>
+            <h3>Planera en undersökning</h3>
 
             <p>
-                Planera och genomför en enkel naturvetenskaplig
-                undersökning.
+                Bestäm material, metod och vad du ska undersöka.
             </p>
 
         </a>
@@ -171,15 +152,12 @@
 
         <a href="observation.html" class="topic">
 
-            <div class="topic-icon">
-                👀
-            </div>
+            <div class="topic-icon">👀</div>
 
             <h3>Observera och mäta</h3>
 
             <p>
-                Lär dig att observera, mäta och dokumentera
-                det du upptäcker.
+                Lär dig att observera och göra noggranna mätningar.
             </p>
 
         </a>
@@ -187,15 +165,12 @@
 
         <a href="resultat.html" class="topic">
 
-            <div class="topic-icon">
-                📊
-            </div>
+            <div class="topic-icon">📊</div>
 
-            <h3>Resultat och jämförelser</h3>
+            <h3>Samla resultat</h3>
 
             <p>
-                Samla resultat och jämför vad som hände
-                i undersökningen.
+                Dokumentera och jämför det du upptäcker.
             </p>
 
         </a>
@@ -203,19 +178,15 @@
 
         <a href="slutsats.html" class="topic">
 
-            <div class="topic-icon">
-                🧠
-            </div>
+            <div class="topic-icon">🧠</div>
 
             <h3>Dra en slutsats</h3>
 
             <p>
-                Använd resultatet för att besvara din fråga
-                och förklara vad du har kommit fram till.
+                Använd dina resultat för att besvara frågan.
             </p>
 
         </a>
-
 
     </section>
 
@@ -234,16 +205,13 @@
 
     </div>
 
-
 </main>
-
 
 <footer>
 
-    NO-Upptäckaren • Så fungerar naturvetenskap • Årskurs 4
+    NO-Upptäckaren • Årskurs 4 • Naturvetenskap
 
 </footer>
-
 
 </body>
 
