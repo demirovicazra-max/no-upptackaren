@@ -1,1 +1,421 @@
+<!DOCTYPE html>
+<html lang="sv">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gör en undersökning – NO-Upptäckaren</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .intro {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .intro-icon {
+            font-size: 65px;
+        }
+
+        .intro h2 {
+            font-size: 30px;
+            margin: 15px 0;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .steps {
+            display: grid;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .step {
+            background: #eef7f2;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .step strong {
+            font-size: 19px;
+        }
+
+        .experiment-box {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        .experiment-box h3 {
+            margin-bottom: 12px;
+        }
+
+        .quiz {
+            margin-top: 20px;
+        }
+
+        .quiz button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 14px;
+            background: white;
+            border: 2px solid #d1d5db;
+            border-radius: 10px;
+            text-align: left;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .quiz button:hover {
+            background: #eef7f2;
+        }
+
+        .feedback {
+            display: none;
+            margin-top: 18px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #dcfce7;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🧪 GÖR EN UNDERSÖKNING</h1>
+
+    <p>
+        Så fungerar naturvetenskap • Årskurs 4
+    </p>
+
+</header>
+
+
+<main>
+
+
+    <section class="intro">
+
+        <div class="intro-icon">
+            🧪
+        </div>
+
+        <h2>Nu är det dags att testa!</h2>
+
+        <p>
+            När du har en fråga och en förutsägelse
+            kan du planera hur du ska undersöka den.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🔬 Så går en undersökning till</h2>
+
+        <div class="steps">
+
+            <div class="step">
+                <strong>1. ❓ Fråga</strong>
+                <p>
+                    Vad vill du ta reda på?
+                </p>
+            </div>
+
+            <div class="step">
+                <strong>2. 💭 Förutsägelse</strong>
+                <p>
+                    Vad tror du kommer att hända?
+                </p>
+            </div>
+
+            <div class="step">
+                <strong>3. 🧰 Planera</strong>
+                <p>
+                    Vad behöver du och hur ska du göra?
+                </p>
+            </div>
+
+            <div class="step">
+                <strong>4. 🧪 Testa</strong>
+                <p>
+                    Genomför undersökningen på ett noggrant sätt.
+                </p>
+            </div>
+
+            <div class="step">
+                <strong>5. 📊 Samla resultat</strong>
+                <p>
+                    Skriv ner eller mät det du upptäcker.
+                </p>
+            </div>
+
+            <div class="step">
+                <strong>6. 🧠 Slutsats</strong>
+                <p>
+                    Vad visar resultatet?
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🧊 Exempel: Vilken isbit smälter snabbast?</h2>
+
+        <p>
+            Du vill undersöka hur olika platser påverkar
+            hur snabbt en isbit smälter.
+        </p>
+
+        <div class="experiment-box">
+
+            <h3>Material</h3>
+
+            <p>
+                • 3 isbitar<br>
+                • 3 tallrikar<br>
+                • En plats i solen<br>
+                • En plats i skuggan<br>
+                • Ett kylskåp
+            </p>
+
+            <br>
+
+            <h3>Gör så här</h3>
+
+            <p>
+                Placera en isbit på varje plats.
+                Använd lika stora isbitar och börja samtidigt.
+            </p>
+
+            <br>
+
+            <h3>Observera</h3>
+
+            <p>
+                Titta efter förändringar och skriv ner
+                vad som händer.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>⚖️ Gör undersökningen rättvis</h2>
+
+        <p>
+            För att kunna jämföra resultat behöver vissa saker
+            vara lika.
+        </p>
+
+        <div class="experiment-box">
+
+            <p>
+                <strong>Lika:</strong>
+                mängden vatten, storleken på isbitarna
+                och tiden som undersökningen pågår.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Det som ändras:</strong>
+                platsen där isbiten ligger.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🎯 Kunskapskollen</h2>
+
+        <div class="quiz">
+
+            <p>
+                <strong>
+                    Varför ska vissa saker vara lika
+                    i en undersökning?
+                </strong>
+            </p>
+
+            <button onclick="answer(1)">
+                A. För att undersökningen ska bli rättvis och lättare att jämföra.
+            </button>
+
+            <button onclick="answer(2)">
+                B. För att undersökningen ska ta längre tid.
+            </button>
+
+            <button onclick="answer(3)">
+                C. För att resultatet ska bli hemligt.
+            </button>
+
+            <div id="feedback" class="feedback"></div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>💡 Din tur att undersöka</h2>
+
+        <p>
+            Välj något du är nyfiken på och planera
+            en enkel undersökning.
+        </p>
+
+        <br>
+
+        <p>
+            <strong>Min fråga:</strong>
+        </p>
+
+        <br>
+
+        <p>
+            ______________________________________
+        </p>
+
+        <br>
+
+        <p>
+            <strong>Jag tror att:</strong>
+        </p>
+
+        <br>
+
+        <p>
+            ______________________________________
+        </p>
+
+        <br>
+
+        <p>
+            <strong>Jag behöver:</strong>
+        </p>
+
+        <br>
+
+        <p>
+            ______________________________________
+        </p>
+
+    </section>
+
+
+    <div class="navigation">
+
+        <a href="vetenskap.html">
+            ← Tillbaka
+        </a>
+
+        <br><br>
+
+        <a href="ak4.html">
+            🔬 Till Åk 4
+        </a>
+
+        <br><br>
+
+        <a href="index.html">
+            🏠 Till startsidan
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    NO-Upptäckaren • Årskurs 4 • Naturvetenskap
+
+</footer>
+
+
+<script>
+
+function answer(choice) {
+
+    const feedback = document.getElementById("feedback");
+
+    feedback.style.display = "block";
+
+    if (choice === 1) {
+
+        feedback.innerHTML =
+        "✅ Rätt! När viktiga saker hålls lika blir det lättare att se vad som faktiskt påverkar resultatet.";
+
+    } else {
+
+        feedback.innerHTML =
+        "❌ Försök igen. Fundera på varför forskare behöver kunna jämföra sina resultat.";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
