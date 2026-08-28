@@ -11,87 +11,191 @@
 
     <style>
 
-        .plant-intro {
+        .hero {
             background: white;
-            border-radius: 20px;
-            padding: 35px;
-            margin-bottom: 30px;
+            border-radius: 22px;
+            padding: 40px;
+            margin-bottom: 25px;
             text-align: center;
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
         }
 
-        .plant-intro-icon {
-            font-size: 60px;
-            margin-bottom: 10px;
+        .hero-icon {
+            font-size: 70px;
         }
 
-        .plant-intro h2 {
-            font-size: 30px;
-            margin: 10px 0 15px;
+        .hero h2 {
+            font-size: 32px;
+            margin: 15px 0;
         }
 
-        .plant-intro p {
+        .hero p {
             font-size: 18px;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        .plant-topics {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 22px;
-        }
-
-        .plant-topic {
-            display: block;
+        .section {
             background: white;
             border-radius: 20px;
-            padding: 30px 25px;
-            text-align: center;
-            text-decoration: none;
-            color: #18332a;
+            padding: 30px;
+            margin-bottom: 25px;
             box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border: 1px solid #e5ebe8;
         }
 
-        .plant-topic:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-        }
-
-        .plant-topic-icon {
-            font-size: 50px;
+        .section h2 {
+            font-size: 26px;
             margin-bottom: 15px;
         }
 
-        .plant-topic h3 {
+        .section h3 {
             font-size: 21px;
-            margin: 0 0 10px;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
 
-        .plant-topic p {
-            font-size: 16px;
-            line-height: 1.5;
-            color: #52665d;
-            margin: 0;
+        .section p {
+            font-size: 17px;
+            line-height: 1.7;
         }
 
-        .plant-navigation {
-            text-align: center;
-            margin-top: 35px;
+        .fact-box {
+            background: #eef7f2;
+            border-radius: 16px;
+            padding: 22px;
+            margin-top: 20px;
         }
 
-        .plant-navigation a {
-            text-decoration: none;
+        .fact-box strong {
             font-size: 18px;
         }
 
-        @media (max-width: 700px) {
+        .plant-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
 
-            .plant-topics {
-                grid-template-columns: 1fr;
-            }
+        .plant-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 22px;
+            text-align: center;
+            border: 1px solid #e5ebe8;
+        }
 
+        .plant-card-icon {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .plant-card h3 {
+            margin: 5px 0 10px;
+        }
+
+        .plant-card p {
+            font-size: 15px;
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .topic-link {
+            display: block;
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 22px;
+            text-align: center;
+            text-decoration: none;
+            color: #18332a;
+            border: 1px solid #e5ebe8;
+            transition: 0.2s;
+        }
+
+        .topic-link:hover {
+            transform: translateY(-4px);
+        }
+
+        .topic-link .icon {
+            font-size: 45px;
+        }
+
+        .topic-link h3 {
+            margin: 10px 0;
+        }
+
+        .topic-link p {
+            font-size: 15px;
+            color: #52665d;
+        }
+
+        .quiz {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        .quiz-question {
+            margin-bottom: 30px;
+        }
+
+        .quiz-question p {
+            font-weight: bold;
+        }
+
+        .quiz button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 14px;
+            background: white;
+            border: 2px solid #d1d5db;
+            border-radius: 10px;
+            text-align: left;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .quiz button:hover {
+            background: #eef7f2;
+        }
+
+        .feedback {
+            display: none;
+            margin-top: 12px;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .correct {
+            background: #dcfce7;
+        }
+
+        .wrong {
+            background: #fee2e2;
+        }
+
+        .remember {
+            background: #fff7d6;
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        .navigation {
+            text-align: center;
+            margin: 35px 0;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            font-size: 18px;
         }
 
     </style>
@@ -116,182 +220,831 @@
 <main>
 
 
-    <section class="plant-intro">
+    <!-- INTRO -->
 
-        <div class="plant-intro-icon">
+    <section class="hero">
+
+        <div class="hero-icon">
             🌱
         </div>
 
-        <h2>
-            Upptäck hur växter lever och växer
-        </h2>
+        <h2>Växter – levande organismer</h2>
 
         <p>
-            Utforska växternas delar, hur de får energi,
-            hur de växer, förökar sig och påverkas av sin miljö.
+            Växter finns nästan överallt på jorden.
+            De kan växa i skogar, på ängar, i sjöar,
+            i trädgårdar och till och med i mycket torra miljöer.
+        </p>
+
+        <p>
+            Men vad behöver egentligen en växt för att leva?
+            Hur fungerar växtens olika delar?
+            Och hur kan en liten fröplanta bli ett stort träd?
         </p>
 
     </section>
 
 
-    <section class="plant-topics">
+    <!-- VAD ÄR EN VÄXT -->
 
+    <section class="section">
 
-        <a href="vaxtersdelar.html" class="plant-topic">
+        <h2>🌿 Vad är en växt?</h2>
 
-            <div class="plant-topic-icon">
-                🌿
-            </div>
+        <p>
+            Växter är levande organismer. Precis som andra
+            levande organismer behöver de energi och ämnen
+            från sin omgivning.
+        </p>
 
-            <h3>
-                Växtens delar
-            </h3>
+        <p>
+            De flesta växter kan tillverka sin egen energirika
+            näring genom en process som kallas fotosyntes.
+        </p>
 
-            <p>
-                Lär dig om rötter, stam, blad, blommor,
-                frukter och frön.
-            </p>
+        <div class="fact-box">
 
-        </a>
-
-
-        <a href="fotosyntes.html" class="plant-topic">
-
-            <div class="plant-topic-icon">
-                ☀️
-            </div>
-
-            <h3>
-                Växternas energi
-            </h3>
+            <strong>💡 Visste du?</strong>
 
             <p>
-                Upptäck hur växter använder ljus,
-                vatten och koldioxid för att leva.
+                Växter är viktiga för livet på jorden.
+                De producerar syrgas genom fotosyntesen och
+                är en viktig del av många näringskedjor.
             </p>
 
-        </a>
-
-
-        <a href="vaxer.html" class="plant-topic">
-
-            <div class="plant-topic-icon">
-                🌱
-            </div>
-
-            <h3>
-                Så växer växter
-            </h3>
-
-            <p>
-                Undersök vad växter behöver för att
-                kunna växa och utvecklas.
-            </p>
-
-        </a>
-
-
-        <a href="fortplantning.html" class="plant-topic">
-
-            <div class="plant-topic-icon">
-                🌸
-            </div>
-
-            <h3>
-                Blommor och fortplantning
-            </h3>
-
-            <p>
-                Lär dig hur blommor, pollen och frön
-                hänger ihop.
-            </p>
-
-        </a>
-
-
-        <a href="fronspridning.html" class="plant-topic">
-
-            <div class="plant-topic-icon">
-                🌰
-            </div>
-
-            <h3>
-                Frön och spridning
-            </h3>
-
-            <p>
-                Upptäck hur växter sprider sina frön
-                till nya platser.
-            </p>
-
-        </a>
-
-
-        <a href="vaxtermiljo.html" class="plant-topic">
-
-            <div class="plant-topic-icon">
-                🌍
-            </div>
-
-            <h3>
-                Växter och miljön
-            </h3>
-
-            <p>
-                Undersök hur växter påverkas av ljus,
-                vatten, temperatur och andra faktorer.
-            </p>
-
-        </a>
-
-
-        <a href="vaxtexperiment.html" class="plant-topic">
-
-            <div class="plant-topic-icon">
-                🧪
-            </div>
-
-            <h3>
-                Undersök en växt
-            </h3>
-
-            <p>
-                Gör enkla undersökningar och dokumentera
-                vad du upptäcker.
-            </p>
-
-        </a>
-
-
-        <a href="vaxterquiz.html" class="plant-topic">
-
-            <div class="plant-topic-icon">
-                🧠
-            </div>
-
-            <h3>
-                Kunskapskollen
-            </h3>
-
-            <p>
-                Testa vad du kommer ihåg om växternas värld.
-            </p>
-
-        </a>
-
+        </div>
 
     </section>
 
 
-    <div class="plant-navigation">
+    <!-- VÄXTENS DELAR -->
 
-        <a href="ak4.html">
+    <section class="section">
+
+        <h2>🌿 Växtens viktigaste delar</h2>
+
+        <p>
+            En växt består av olika delar som har olika
+            uppgifter. Delarna samarbetar för att växten
+            ska kunna leva och växa.
+        </p>
+
+
+        <div class="plant-cards">
+
+
+            <div class="plant-card">
+
+                <div class="plant-card-icon">
+                    🌱
+                </div>
+
+                <h3>Rötter</h3>
+
+                <p>
+                    Rötterna förankrar växten i marken och
+                    hjälper den att ta upp vatten och
+                    mineralämnen.
+                </p>
+
+            </div>
+
+
+            <div class="plant-card">
+
+                <div class="plant-card-icon">
+                    🌿
+                </div>
+
+                <h3>Stam</h3>
+
+                <p>
+                    Stammen håller upp växtens delar och
+                    kan transportera vatten och andra ämnen
+                    genom växten.
+                </p>
+
+            </div>
+
+
+            <div class="plant-card">
+
+                <div class="plant-card-icon">
+                    🍃
+                </div>
+
+                <h3>Blad</h3>
+
+                <p>
+                    I bladen sker mycket av fotosyntesen.
+                    Där fångar växten upp ljus från solen.
+                </p>
+
+            </div>
+
+
+            <div class="plant-card">
+
+                <div class="plant-card-icon">
+                    🌸
+                </div>
+
+                <h3>Blommor</h3>
+
+                <p>
+                    Hos många växter har blommorna en viktig
+                    roll vid fortplantningen.
+                </p>
+
+            </div>
+
+
+            <div class="plant-card">
+
+                <div class="plant-card-icon">
+                    🍎
+                </div>
+
+                <h3>Frukter</h3>
+
+                <p>
+                    Frukter kan skydda frön och hjälpa till
+                    med fröspridning.
+                </p>
+
+            </div>
+
+
+            <div class="plant-card">
+
+                <div class="plant-card-icon">
+                    🌰
+                </div>
+
+                <h3>Frön</h3>
+
+                <p>
+                    Ett frö innehåller en liten växtanlag
+                    och kan utvecklas till en ny växt.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="fact-box">
+
+            <strong>🔎 Fördjupa dig</strong>
+
+            <p>
+                Vill du lära dig mer om varje del av växten?
+                Öppna sidan om växtens delar.
+            </p>
+
+            <a href="./vaxtersdelar.html">
+                🌿 Utforska växtens delar →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOTOSYNTES -->
+
+    <section class="section">
+
+        <h2>☀️ Hur får växten energi?</h2>
+
+        <p>
+            Växter behöver energi för att leva och växa.
+            De flesta växter får inte sin näring genom
+            att äta andra organismer.
+        </p>
+
+        <p>
+            I stället tillverkar de energirik näring genom
+            fotosyntesen.
+        </p>
+
+        <div class="fact-box">
+
+            <strong>☀️ Fotosyntesen behöver:</strong>
+
+            <p>
+                • ljus från solen<br>
+                • vatten<br>
+                • koldioxid
+            </p>
+
+            <p>
+                Med hjälp av ljusenergi kan växten tillverka
+                socker. Samtidigt bildas syrgas.
+            </p>
+
+        </div>
+
+        <a href="./fotosyntes.html">
+            ☀️ Lär dig mer om fotosyntesen →
+        </a>
+
+    </section>
+
+
+    <!-- VÄXTENS BEHOV -->
+
+    <section class="section">
+
+        <h2>💧 Vad behöver växter för att växa?</h2>
+
+        <p>
+            Växter behöver flera saker för att kunna leva
+            och utvecklas.
+        </p>
+
+
+        <div class="plant-cards">
+
+
+            <div class="plant-card">
+
+                <div class="plant-card-icon">
+                    ☀️
+                </div>
+
+                <h3>Ljus</h3>
+
+                <p>
+                    Ljus behövs för fotosyntesen.
+                </p>
+
+            </div>
+
+
+            <div class="plant-card">
+
+                <div class="plant-card-icon">
+                    💧
+                </div>
+
+                <h3>Vatten</h3>
+
+                <p>
+                    Vatten behövs bland annat för
+                    fotosyntesen och transporten av ämnen.
+                </p>
+
+            </div>
+
+
+            <div class="plant-card">
+
+                <div class="plant-card-icon">
+                    🌬️
+                </div>
+
+                <h3>Koldioxid</h3>
+
+                <p>
+                    Koldioxid från luften används
+                    vid fotosyntesen.
+                </p>
+
+            </div>
+
+
+            <div class="plant-card">
+
+                <div class="plant-card-icon">
+                    🌍
+                </div>
+
+                <h3>Mineralämnen</h3>
+
+                <p>
+                    Växter tar upp olika mineralämnen
+                    från marken.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <a href="./vaxer.html">
+            🌱 Utforska hur växter växer →
+        </a>
+
+    </section>
+
+
+    <!-- FORTPLANTNING -->
+
+    <section class="section">
+
+        <h2>🌸 Hur får växter nya plantor?</h2>
+
+        <p>
+            Många växter kan fortplanta sig genom frön.
+            Hos blomväxter är blommans olika delar viktiga
+            för fortplantningen.
+        </p>
+
+        <p>
+            Pollen kan flyttas från en blomma till en annan,
+            till exempel med hjälp av vind eller djur som
+            besöker blommor.
+        </p>
+
+        <div class="fact-box">
+
+            <strong>🐝 Ett exempel</strong>
+
+            <p>
+                Bin kan besöka blommor för att samla nektar.
+                När bina flyger mellan blommor kan pollen
+                följa med och bidra till växternas fortplantning.
+            </p>
+
+        </div>
+
+        <a href="./fortplantning.html">
+            🌸 Lär dig mer om blommor och fortplantning →
+        </a>
+
+    </section>
+
+
+    <!-- FRÖSPRIDNING -->
+
+    <section class="section">
+
+        <h2>🌰 Hur sprids frön?</h2>
+
+        <p>
+            För att nya växter ska kunna växa behöver frön
+            ibland komma bort från moderplantan.
+        </p>
+
+        <p>
+            Frön kan spridas på flera olika sätt.
+        </p>
+
+        <div class="plant-cards">
+
+
+            <div class="plant-card">
+
+                <div class="plant-card-icon">
+                    🌬️
+                </div>
+
+                <h3>Vind</h3>
+
+                <p>
+                    Lätta frön kan transporteras med vinden.
+                </p>
+
+            </div>
+
+
+            <div class="plant-card">
+
+                <div class="plant-card-icon">
+                    🐦
+                </div>
+
+                <h3>Djur</h3>
+
+                <p>
+                    Djur kan sprida frön när de äter frukter
+                    eller får frön på pälsen.
+                </p>
+
+            </div>
+
+
+            <div class="plant-card">
+
+                <div class="plant-card-icon">
+                    💧
+                </div>
+
+                <h3>Vatten</h3>
+
+                <p>
+                    Vissa frön kan flyta och transporteras
+                    med vatten.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <a href="./fronspridning.html">
+            🌰 Utforska fröspridning →
+        </a>
+
+    </section>
+
+
+    <!-- MILJÖ -->
+
+    <section class="section">
+
+        <h2>🌍 Växter och deras miljö</h2>
+
+        <p>
+            Växter lever i många olika miljöer. Olika arter
+            har egenskaper som hjälper dem att klara de
+            förhållanden som finns där de växer.
+        </p>
+
+        <p>
+            Tillgången på ljus, vatten och temperatur kan
+            påverka vilka växter som trivs på en plats.
+        </p>
+
+        <div class="fact-box">
+
+            <strong>🌵 Exempel</strong>
+
+            <p>
+                Växter i torra miljöer kan ha egenskaper som
+                hjälper dem att hushålla med vatten.
+            </p>
+
+        </div>
+
+        <a href="./vaxtermiljo.html">
+            🌍 Utforska växter och miljö →
+        </a>
+
+    </section>
+
+
+    <!-- UNDERSÖKNING -->
+
+    <section class="section">
+
+        <h2>🧪 Undersök en växt</h2>
+
+        <p>
+            Naturvetenskap handlar inte bara om att läsa.
+            Du kan också undersöka världen omkring dig.
+        </p>
+
+        <p>
+            Du kan till exempel undersöka hur en växt påverkas
+            av olika mängd ljus eller vatten.
+        </p>
+
+        <div class="fact-box">
+
+            <strong>🔬 Som en forskare</strong>
+
+            <p>
+                Ställ en fråga → gör en förutsägelse →
+                planera → undersök → dokumentera →
+                jämför → dra en slutsats.
+            </p>
+
+        </div>
+
+        <a href="./vaxtexperiment.html">
+            🧪 Gör en växtundersökning →
+        </a>
+
+    </section>
+
+
+    <!-- KUNSKAPSKOLL -->
+
+    <section class="section">
+
+        <h2>🧠 Kunskapskollen</h2>
+
+        <p>
+            Testa vad du har lärt dig.
+        </p>
+
+
+        <div class="quiz">
+
+
+            <!-- FRÅGA 1 -->
+
+            <div class="quiz-question">
+
+                <p>
+                    1. Vilken del av växten tar främst upp
+                    vatten från marken?
+                </p>
+
+                <button onclick="checkAnswer('q1', false)">
+                    A. Bladen
+                </button>
+
+                <button onclick="checkAnswer('q1', true)">
+                    B. Rötterna
+                </button>
+
+                <button onclick="checkAnswer('q1', false)">
+                    C. Blommorna
+                </button>
+
+                <div id="q1" class="feedback"></div>
+
+            </div>
+
+
+            <!-- FRÅGA 2 -->
+
+            <div class="quiz-question">
+
+                <p>
+                    2. Vad behöver växter för fotosyntesen?
+                </p>
+
+                <button onclick="checkAnswer('q2', true)">
+                    A. Ljus, vatten och koldioxid
+                </button>
+
+                <button onclick="checkAnswer('q2', false)">
+                    B. Bara jord
+                </button>
+
+                <button onclick="checkAnswer('q2', false)">
+                    C. Bara vatten
+                </button>
+
+                <div id="q2" class="feedback"></div>
+
+            </div>
+
+
+            <!-- FRÅGA 3 -->
+
+            <div class="quiz-question">
+
+                <p>
+                    3. Vad kan ett frö utvecklas till?
+                </p>
+
+                <button onclick="checkAnswer('q3', true)">
+                    A. En ny växt
+                </button>
+
+                <button onclick="checkAnswer('q3', false)">
+                    B. En sten
+                </button>
+
+                <button onclick="checkAnswer('q3', false)">
+                    C. En molnformation
+                </button>
+
+                <div id="q3" class="feedback"></div>
+
+            </div>
+
+
+            <!-- FRÅGA 4 -->
+
+            <div class="quiz-question">
+
+                <p>
+                    4. Varför är bladen viktiga?
+                </p>
+
+                <button onclick="checkAnswer('q4', false)">
+                    A. De håller alltid växten fast i marken.
+                </button>
+
+                <button onclick="checkAnswer('q4', true)">
+                    B. Där sker mycket av fotosyntesen.
+                </button>
+
+                <button onclick="checkAnswer('q4', false)">
+                    C. De gör att växten kan gå.
+                </button>
+
+                <div id="q4" class="feedback"></div>
+
+            </div>
+
+
+            <!-- FRÅGA 5 -->
+
+            <div class="quiz-question">
+
+                <p>
+                    5. Varför sprids frön?
+                </p>
+
+                <button onclick="checkAnswer('q5', true)">
+                    A. För att nya växter ska kunna växa på andra platser.
+                </button>
+
+                <button onclick="checkAnswer('q5', false)">
+                    B. För att växten ska kunna sluta växa.
+                </button>
+
+                <button onclick="checkAnswer('q5', false)">
+                    C. För att frön ska försvinna.
+                </button>
+
+                <div id="q5" class="feedback"></div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- KOM IHÅG -->
+
+    <section class="section">
+
+        <h2>⭐ Det viktigaste att komma ihåg</h2>
+
+        <div class="remember">
+
+            <p>
+                🌱 Växter är levande organismer.
+            </p>
+
+            <p>
+                🌿 Växtens olika delar har olika uppgifter.
+            </p>
+
+            <p>
+                ☀️ Fotosyntesen använder ljusenergi.
+            </p>
+
+            <p>
+                💧 Växter behöver vatten.
+            </p>
+
+            <p>
+                🌸 Många växter fortplantar sig genom frön.
+            </p>
+
+            <p>
+                🌰 Frön kan spridas på olika sätt.
+            </p>
+
+            <p>
+                🌍 Växter påverkas av sin miljö.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FÖRDJUPNING -->
+
+    <section class="section">
+
+        <h2>🔬 Utforska vidare</h2>
+
+        <div class="topic-grid">
+
+
+            <a href="./vaxtersdelar.html" class="topic-link">
+
+                <div class="icon">🌿</div>
+
+                <h3>Växtens delar</h3>
+
+                <p>
+                    Fördjupa dig i rötter, stam, blad,
+                    blommor, frukter och frön.
+                </p>
+
+            </a>
+
+
+            <a href="./fotosyntes.html" class="topic-link">
+
+                <div class="icon">☀️</div>
+
+                <h3>Fotosyntesen</h3>
+
+                <p>
+                    Upptäck hur växter tillverkar
+                    energirik näring.
+                </p>
+
+            </a>
+
+
+            <a href="./vaxer.html" class="topic-link">
+
+                <div class="icon">🌱</div>
+
+                <h3>Växternas tillväxt</h3>
+
+                <p>
+                    Undersök hur frön utvecklas
+                    till nya växter.
+                </p>
+
+            </a>
+
+
+            <a href="./fortplantning.html" class="topic-link">
+
+                <div class="icon">🌸</div>
+
+                <h3>Fortplantning</h3>
+
+                <p>
+                    Lär dig mer om blommor,
+                    pollen och frön.
+                </p>
+
+            </a>
+
+
+            <a href="./fronspridning.html" class="topic-link">
+
+                <div class="icon">🌰</div>
+
+                <h3>Fröspridning</h3>
+
+                <p>
+                    Upptäck hur frön tar sig
+                    till nya platser.
+                </p>
+
+            </a>
+
+
+            <a href="./vaxtermiljo.html" class="topic-link">
+
+                <div class="icon">🌍</div>
+
+                <h3>Växter och miljö</h3>
+
+                <p>
+                    Se hur olika miljöfaktorer
+                    påverkar växter.
+                </p>
+
+            </a>
+
+
+            <a href="./vaxtexperiment.html" class="topic-link">
+
+                <div class="icon">🧪</div>
+
+                <h3>Växtundersökningar</h3>
+
+                <p>
+                    Gör egna enkla naturvetenskapliga
+                    undersökningar.
+                </p>
+
+            </a>
+
+
+            <a href="./vaxterquiz.html" class="topic-link">
+
+                <div class="icon">🧠</div>
+
+                <h3>Stort växtquiz</h3>
+
+                <p>
+                    Testa dina kunskaper om hela området.
+                </p>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="navigation">
+
+        <a href="./ak4.html">
             ← Tillbaka till Åk 4
         </a>
 
         <br><br>
 
-        <a href="index.html">
+        <a href="./index.html">
             🏠 Till startsidan
         </a>
 
@@ -306,6 +1059,35 @@
     NO-Upptäckaren • Växternas värld • Årskurs 4
 
 </footer>
+
+
+<script>
+
+function checkAnswer(question, correct) {
+
+    const feedback = document.getElementById(question);
+
+    feedback.style.display = "block";
+
+    if (correct) {
+
+        feedback.className = "feedback correct";
+
+        feedback.innerHTML =
+            "✅ Rätt! Bra jobbat!";
+
+    } else {
+
+        feedback.className = "feedback wrong";
+
+        feedback.innerHTML =
+            "❌ Inte riktigt. Läs frågan igen och försök en gång till.";
+
+    }
+
+}
+
+</script>
 
 
 </body>
