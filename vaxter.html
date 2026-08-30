@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="sv">
 
@@ -6,209 +5,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Så växer växter – NO-Upptäckaren</title>
+    <title>Växternas värld – NO-Upptäckaren</title>
 
     <link rel="stylesheet" href="style.css">
 
     <style>
-
-        .lesson-intro {
+        .plant-intro {
             background: white;
-            border-radius: 22px;
+            border-radius: 20px;
             padding: 35px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             text-align: center;
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
         }
 
-        .lesson-icon {
-            font-size: 65px;
+        .plant-intro-icon {
+            font-size: 60px;
+            margin-bottom: 10px;
         }
 
-        .lesson-intro h2 {
+        .plant-intro h2 {
             font-size: 30px;
-            margin: 15px 0;
+            margin: 10px 0 15px;
         }
 
-        .lesson-intro p {
+        .plant-intro p {
             font-size: 18px;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
-        .lesson-card {
-            background: white;
-            border-radius: 22px;
-            padding: 30px;
-            margin-bottom: 25px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-        }
-
-        .lesson-card h2 {
-            font-size: 25px;
-            margin-bottom: 15px;
-        }
-
-        .lesson-card h3 {
-            font-size: 20px;
-            margin-top: 22px;
-            margin-bottom: 10px;
-        }
-
-        .lesson-card p,
-        .lesson-card li {
-            font-size: 17px;
-            line-height: 1.7;
-        }
-
-        .lesson-card ul {
-            padding-left: 25px;
-        }
-
-        .fact-box {
-            background: #eef7f2;
-            border-radius: 16px;
-            padding: 22px;
-            margin-top: 20px;
-        }
-
-        .fact-box strong {
-            font-size: 18px;
-        }
-
-        .growth-steps {
+        .plant-topics {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
         }
 
-        .growth-step {
-            background: #f8fafc;
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .growth-step .number {
-            font-size: 35px;
-            margin-bottom: 10px;
-        }
-
-        .growth-step h3 {
-            margin: 5px 0 10px;
-            font-size: 18px;
-        }
-
-        .mini-question {
-            background: #fff7ed;
-            border-left: 5px solid #f59e0b;
-            border-radius: 12px;
-            padding: 18px;
-            margin-top: 20px;
-        }
-
-        .quiz {
-            background: #f8fafc;
-            border-radius: 16px;
-            padding: 25px;
-        }
-
-        .quiz-question {
-            margin-bottom: 25px;
-        }
-
-        .quiz-question p {
-            font-weight: bold;
-        }
-
-        .quiz button {
+        .plant-topic {
             display: block;
-            width: 100%;
-            margin: 9px 0;
-            padding: 14px 16px;
             background: white;
-            border: 2px solid #d1d5db;
-            border-radius: 12px;
-            text-align: left;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.2s;
+            border-radius: 20px;
+            padding: 30px 25px;
+            text-align: center;
+            text-decoration: none;
+            color: #18332a;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #e5ebe8;
         }
 
-        .quiz button:hover {
-            background: #eef7f2;
-            transform: translateX(3px);
+        .plant-topic:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
         }
 
-        .feedback {
-            display: none;
-            margin-top: 15px;
-            padding: 15px;
-            border-radius: 12px;
-            font-size: 16px;
-        }
-
-        .correct {
-            background: #dcfce7;
-        }
-
-        .wrong {
-            background: #fee2e2;
-        }
-
-        .think-box {
-            background: #eef2ff;
-            border-radius: 16px;
-            padding: 25px;
-        }
-
-        .think-box p {
+        .plant-topic-icon {
+            font-size: 50px;
             margin-bottom: 15px;
         }
 
-        .answer-line {
-            border-bottom: 2px solid #94a3b8;
-            height: 35px;
-            margin-bottom: 20px;
+        .plant-topic h3 {
+            font-size: 21px;
+            margin: 0 0 10px;
         }
 
-        .navigation {
+        .plant-topic p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #52665d;
+            margin: 0;
+        }
+
+        .plant-navigation {
             text-align: center;
-            margin: 35px 0;
+            margin-top: 35px;
         }
 
-        .navigation a {
+        .plant-navigation a {
             text-decoration: none;
             font-size: 18px;
         }
 
-        @media (max-width: 800px) {
-
-            .growth-steps {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-        }
-
-        @media (max-width: 500px) {
-
-            .growth-steps {
+        @media (max-width: 700px) {
+            .plant-topics {
                 grid-template-columns: 1fr;
             }
-
         }
-
     </style>
 
 </head>
 
-
 <body>
-
 
 <header>
 
-    <h1>🌱 SÅ VÄXER VÄXTER</h1>
+    <h1>🌱 VÄXTERNAS VÄRLD</h1>
 
     <p>
         NO-Upptäckaren • Biologi • Årskurs 4
@@ -216,681 +106,122 @@
 
 </header>
 
-
 <main>
 
+    <section class="plant-intro">
 
-    <!-- INTRO -->
-
-    <section class="lesson-intro">
-
-        <div class="lesson-icon">
+        <div class="plant-intro-icon">
             🌱
         </div>
 
-        <h2>Hur blir ett litet frö till en stor växt?</h2>
+        <h2>
+            Upptäck hur växter lever och växer
+        </h2>
 
         <p>
-            Växter förändras under hela sitt liv.
-            Ett frö kan börja gro, en liten planta kan växa
-            och så småningom kan växten bilda blommor,
-            frukter och nya frön.
+            Utforska växternas delar, hur de får energi,
+            hur de växer, förökar sig och påverkas av sin miljö.
         </p>
 
     </section>
 
+    <section class="plant-topics">
 
-    <!-- DEL 1 -->
-
-    <section class="lesson-card">
-
-        <h2>🌰 1. Allt kan börja med ett frö</h2>
-
-        <p>
-            Många växter börjar sitt liv som frön.
-            Ett frö innehåller en liten växt som ännu inte
-            har utvecklats färdigt.
-        </p>
-
-        <p>
-            Fröet innehåller också näring som den unga
-            växten kan använda när den börjar utvecklas.
-        </p>
-
-        <div class="fact-box">
-
-            <strong>💡 Visste du?</strong>
-
+        <a href="./vaxtersdelar.html" class="plant-topic">
+            <div class="plant-topic-icon">🌿</div>
+            <h3>Växtens delar</h3>
             <p>
-                Frön kan vara mycket olika. Vissa är små och
-                lätta medan andra är stora och tunga.
-                De kan också ha olika former och färger.
+                Lär dig om rötter, stam, blad, blommor,
+                frukter och frön.
             </p>
+        </a>
 
-        </div>
-
-    </section>
-
-
-    <!-- DEL 2 -->
-
-    <section class="lesson-card">
-
-        <h2>💧 2. När fröet börjar gro</h2>
-
-        <p>
-            När ett frö får tillgång till vatten kan det
-            börja svälla. Då kan fröet börja gro.
-        </p>
-
-        <p>
-            Den första roten börjar växa ut ur fröet.
-            Roten växer vanligtvis nedåt i jorden.
-        </p>
-
-        <p>
-            Efter roten börjar en liten skottdel växa.
-            Den kan växa uppåt mot ljuset.
-        </p>
-
-        <div class="growth-steps">
-
-            <div class="growth-step">
-                <div class="number">🌰</div>
-                <h3>Frö</h3>
-                <p>Fröet ligger i marken.</p>
-            </div>
-
-            <div class="growth-step">
-                <div class="number">💧</div>
-                <h3>Vatten</h3>
-                <p>Fröet tar upp vatten.</p>
-            </div>
-
-            <div class="growth-step">
-                <div class="number">🌱</div>
-                <h3>Grodd</h3>
-                <p>Rot och skott börjar växa.</p>
-            </div>
-
-            <div class="growth-step">
-                <div class="number">🌿</div>
-                <h3>Planta</h3>
-                <p>Plantan fortsätter att utvecklas.</p>
-            </div>
-
-        </div>
-
-        <div class="mini-question">
-
-            <strong>🤔 Fundera:</strong>
-
+        <a href="./fotosyntes.html" class="plant-topic">
+            <div class="plant-topic-icon">☀️</div>
+            <h3>Växternas energi</h3>
             <p>
-                Varför tror du att roten växer nedåt
-                medan skottet växer uppåt?
+                Upptäck hur växter använder ljus,
+                vatten och koldioxid för att leva.
             </p>
+        </a>
 
-        </div>
-
-    </section>
-
-
-    <!-- DEL 3 -->
-
-    <section class="lesson-card">
-
-        <h2>☀️ 3. Vad behöver en växt för att växa?</h2>
-
-        <p>
-            Växter behöver flera saker för att kunna växa
-            och utvecklas.
-        </p>
-
-        <ul>
-
-            <li>💧 Vatten</li>
-            <li>☀️ Ljus</li>
-            <li>🌬️ Koldioxid från luften</li>
-            <li>🌱 Näringsämnen från marken</li>
-            <li>🌡️ En lämplig temperatur</li>
-
-        </ul>
-
-        <p>
-            Olika växter har olika behov. En växt som lever
-            i en torr miljö kan till exempel vara anpassad
-            till att klara längre perioder utan vatten.
-        </p>
-
-        <div class="fact-box">
-
-            <strong>🔬 Viktigt att komma ihåg</strong>
-
+        <a href="./vaxer.html" class="plant-topic">
+            <div class="plant-topic-icon">🌱</div>
+            <h3>Så växer växter</h3>
             <p>
-                Växter behöver inte mat på samma sätt som
-                människor och djur. Genom fotosyntesen kan
-                växter tillverka energirik näring med hjälp
-                av ljus, vatten och koldioxid.
+                Undersök vad växter behöver för att
+                kunna växa och utvecklas.
             </p>
+        </a>
 
-        </div>
-
-    </section>
-
-
-    <!-- DEL 4 -->
-
-    <section class="lesson-card">
-
-        <h2>🌿 4. Rötter, stam och blad arbetar tillsammans</h2>
-
-        <p>
-            En växt består av olika delar som har olika
-            uppgifter.
-        </p>
-
-        <h3>🌱 Rötterna</h3>
-
-        <p>
-            Rötterna håller fast växten i marken och hjälper
-            växten att ta upp vatten och näringsämnen.
-        </p>
-
-        <h3>🌿 Stammen</h3>
-
-        <p>
-            Stammen håller upp växtens blad och andra delar.
-            I växten transporteras vatten och andra ämnen
-            mellan olika delar.
-        </p>
-
-        <h3>🍃 Bladen</h3>
-
-        <p>
-            Bladen fångar upp ljus och är viktiga för
-            fotosyntesen. Genom små öppningar i bladen kan
-            växten också utbyta gaser med luften.
-        </p>
-
-    </section>
-
-
-    <!-- DEL 5 -->
-
-    <section class="lesson-card">
-
-        <h2>📏 5. Växter förändras när de växer</h2>
-
-        <p>
-            När en växt växer blir den ofta större och
-            utvecklar nya delar.
-        </p>
-
-        <p>
-            En liten planta kan till exempel först utveckla
-            några blad. Senare kan den få fler blad,
-            större rötter och en kraftigare stam.
-        </p>
-
-        <p>
-            Hos många växter är tillväxten tydlig under
-            perioder då det finns gott om ljus och vatten.
-        </p>
-
-        <div class="mini-question">
-
-            <strong>🔎 Titta noga!</strong>
-
+        <a href="./fortplantning.html" class="plant-topic">
+            <div class="plant-topic-icon">🌸</div>
+            <h3>Blommor och fortplantning</h3>
             <p>
-                Om du jämför en liten planta med en stor växt,
-                vilka skillnader kan du upptäcka?
+                Lär dig hur blommor, pollen och frön
+                hänger ihop.
             </p>
+        </a>
 
-        </div>
-
-    </section>
-
-
-    <!-- DEL 6 -->
-
-    <section class="lesson-card">
-
-        <h2>🌡️ 6. Miljön påverkar växternas tillväxt</h2>
-
-        <p>
-            Växter påverkas av sin omgivning.
-            Om förhållandena förändras kan växtens tillväxt
-            också förändras.
-        </p>
-
-        <h3>💧 Vatten</h3>
-
-        <p>
-            Om en växt får för lite vatten kan den börja
-            sloka och tillväxten kan påverkas.
-        </p>
-
-        <h3>☀️ Ljus</h3>
-
-        <p>
-            Ljus behövs för fotosyntesen.
-            Växter kan också förändra sitt växtsätt beroende
-            på hur mycket ljus de får.
-        </p>
-
-        <h3>🌡️ Temperatur</h3>
-
-        <p>
-            Temperatur påverkar många processer hos växter.
-            Olika växter trivs bäst vid olika temperaturer.
-        </p>
-
-        <div class="fact-box">
-
-            <strong>💡 Kom ihåg</strong>
-
+        <a href="./fronspridning.html" class="plant-topic">
+            <div class="plant-topic-icon">🌰</div>
+            <h3>Frön och spridning</h3>
             <p>
-                En växt behöver en miljö där dess behov kan
-                tillgodoses. Därför hittar man olika växter
-                på olika platser.
+                Upptäck hur växter sprider sina frön
+                till nya platser.
             </p>
+        </a>
 
-        </div>
-
-    </section>
-
-
-    <!-- DEL 7 -->
-
-    <section class="lesson-card">
-
-        <h2>🌸 7. När växten blir vuxen</h2>
-
-        <p>
-            När en växt har vuxit tillräckligt kan den börja
-            föröka sig.
-        </p>
-
-        <p>
-            Hos många blomväxter innebär det att växten
-            bildar blommor.
-        </p>
-
-        <p>
-            Efter pollinering och befruktning kan frön bildas.
-            Fröna kan sedan spridas och ge upphov till nya
-            växter.
-        </p>
-
-        <div class="fact-box">
-
-            <strong>🔄 Växtens livscykel</strong>
-
+        <a href="./vaxtermiljo.html" class="plant-topic">
+            <div class="plant-topic-icon">🌍</div>
+            <h3>Växter och miljön</h3>
             <p>
-                Frö → grodd → planta → vuxen växt →
-                blomma → frö
+                Undersök hur växter påverkas av ljus,
+                vatten, temperatur och andra faktorer.
             </p>
+        </a>
 
-        </div>
-
-    </section>
-
-
-    <!-- DEL 8 -->
-
-    <section class="lesson-card">
-
-        <h2>🔄 8. Växtens livscykel</h2>
-
-        <p>
-            En livscykel visar hur en organism förändras
-            under sitt liv och hur nya individer kan bildas.
-        </p>
-
-        <p>
-            Hos många blomväxter kan man beskriva livscykeln
-            ungefär så här:
-        </p>
-
-        <div class="growth-steps">
-
-            <div class="growth-step">
-                <div class="number">1</div>
-                <h3>Frö</h3>
-                <p>En ny växt kan börja sitt liv.</p>
-            </div>
-
-            <div class="growth-step">
-                <div class="number">2</div>
-                <h3>Grodd</h3>
-                <p>Fröet börjar utvecklas.</p>
-            </div>
-
-            <div class="growth-step">
-                <div class="number">3</div>
-                <h3>Växt</h3>
-                <p>Växten växer och utvecklas.</p>
-            </div>
-
-            <div class="growth-step">
-                <div class="number">4</div>
-                <h3>Nya frön</h3>
-                <p>Växten kan bilda nya frön.</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- KUNSKAPSKOLL 1 -->
-
-    <section class="lesson-card">
-
-        <h2>🎯 Kunskapskoll 1</h2>
-
-        <div class="quiz">
-
-            <div class="quiz-question">
-
-                <p>
-                    1. Vad händer ofta först när ett frö börjar gro?
-                </p>
-
-                <button onclick="checkAnswer('q1', false)">
-                    A. En blomma öppnar sig.
-                </button>
-
-                <button onclick="checkAnswer('q1', true)">
-                    B. En rot börjar växa ut.
-                </button>
-
-                <button onclick="checkAnswer('q1', false)">
-                    C. Växten får frukter.
-                </button>
-
-                <div id="q1" class="feedback"></div>
-
-            </div>
-
-
-            <div class="quiz-question">
-
-                <p>
-                    2. Vilket ämne från luften använder växten
-                    vid fotosyntesen?
-                </p>
-
-                <button onclick="checkAnswer('q2', false)">
-                    A. Syre
-                </button>
-
-                <button onclick="checkAnswer('q2', true)">
-                    B. Koldioxid
-                </button>
-
-                <button onclick="checkAnswer('q2', false)">
-                    C. Vattenånga
-                </button>
-
-                <div id="q2" class="feedback"></div>
-
-            </div>
-
-
-            <div class="quiz-question">
-
-                <p>
-                    3. Vilken del hjälper växten att ta upp
-                    vatten från marken?
-                </p>
-
-                <button onclick="checkAnswer('q3', true)">
-                    A. Rötterna
-                </button>
-
-                <button onclick="checkAnswer('q3', false)">
-                    B. Blommorna
-                </button>
-
-                <button onclick="checkAnswer('q3', false)">
-                    C. Frukterna
-                </button>
-
-                <div id="q3" class="feedback"></div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- TÄNK SOM EN NATURVETARE -->
-
-    <section class="lesson-card">
-
-        <h2>🔬 Tänk som en naturvetare</h2>
-
-        <div class="think-box">
-
+        <a href="./vaxtexperiment.html" class="plant-topic">
+            <div class="plant-topic-icon">🧪</div>
+            <h3>Undersök en växt</h3>
             <p>
-                Du planterar två likadana frön.
+                Gör enkla undersökningar och dokumentera
+                vad du upptäcker.
             </p>
+        </a>
 
+        <a href="./vaxterquiz.html" class="plant-topic">
+            <div class="plant-topic-icon">🧠</div>
+            <h3>Kunskapskollen</h3>
             <p>
-                Det ena fröet får vatten varje dag och står
-                ljust.
+                Testa vad du kommer ihåg om växternas värld.
             </p>
-
-            <p>
-                Det andra fröet får nästan inget vatten och
-                står mörkt.
-            </p>
-
-            <p>
-                <strong>Vad tror du kommer att hända?</strong>
-            </p>
-
-            <div class="answer-line"></div>
-
-            <p>
-                <strong>Varför tror du det?</strong>
-            </p>
-
-            <div class="answer-line"></div>
-
-        </div>
+        </a>
 
     </section>
 
+    <div class="plant-navigation">
 
-    <!-- KUNSKAPSKOLL 2 -->
-
-    <section class="lesson-card">
-
-        <h2>🧠 Kunskapskoll 2</h2>
-
-        <div class="quiz">
-
-            <div class="quiz-question">
-
-                <p>
-                    4. Vad behöver växter för att kunna
-                    genomföra fotosyntes?
-                </p>
-
-                <button onclick="checkAnswer('q4', false)">
-                    A. Bara vatten
-                </button>
-
-                <button onclick="checkAnswer('q4', true)">
-                    B. Bland annat ljus, vatten och koldioxid
-                </button>
-
-                <button onclick="checkAnswer('q4', false)">
-                    C. Bara jord
-                </button>
-
-                <div id="q4" class="feedback"></div>
-
-            </div>
-
-
-            <div class="quiz-question">
-
-                <p>
-                    5. Varför är bladen viktiga för växten?
-                </p>
-
-                <button onclick="checkAnswer('q5', true)">
-                    A. De är viktiga för fotosyntesen.
-                </button>
-
-                <button onclick="checkAnswer('q5', false)">
-                    B. De gör att växten kan springa.
-                </button>
-
-                <button onclick="checkAnswer('q5', false)">
-                    C. De fungerar alltid som rötter.
-                </button>
-
-                <div id="q5" class="feedback"></div>
-
-            </div>
-
-
-            <div class="quiz-question">
-
-                <p>
-                    6. Vad kan hända om en växt får för lite vatten?
-                </p>
-
-                <button onclick="checkAnswer('q6', true)">
-                    A. Växten kan börja sloka och tillväxten kan påverkas.
-                </button>
-
-                <button onclick="checkAnswer('q6', false)">
-                    B. Växten börjar automatiskt blomma mer.
-                </button>
-
-                <button onclick="checkAnswer('q6', false)">
-                    C. Växten behöver aldrig mer vatten.
-                </button>
-
-                <div id="q6" class="feedback"></div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- SAMMANFATTNING -->
-
-    <section class="lesson-card">
-
-        <h2>📚 Sammanfatta</h2>
-
-        <p>
-            Nu har du lärt dig att:
-        </p>
-
-        <ul>
-
-            <li>🌰 många växter börjar sitt liv som frön</li>
-
-            <li>💧 frön behöver vatten för att kunna börja gro</li>
-
-            <li>🌱 rötter och skott utvecklas när fröet gror</li>
-
-            <li>☀️ växter behöver ljus för fotosyntesen</li>
-
-            <li>💧 växter behöver vatten</li>
-
-            <li>🌬️ växter använder koldioxid vid fotosyntesen</li>
-
-            <li>🌿 växtens olika delar har olika uppgifter</li>
-
-            <li>🌸 många växter kan bilda blommor och frön</li>
-
-            <li>🔄 växter genomgår en livscykel</li>
-
-        </ul>
-
-    </section>
-
-
-    <!-- NAVIGATION -->
-
-    <div class="navigation">
-
-        <a href="vaxter.html">
-            ← Tillbaka till Växternas värld
+        <a href="./ak4.html">
+            ← Tillbaka till Åk 4
         </a>
 
         <br><br>
 
-        <a href="fortplantning.html">
-            🌸 Nästa: Blommor och fortplantning →
-        </a>
-
-        <br><br>
-
-        <a href="ak4.html">
-            🔬 Till Åk 4
-        </a>
-
-        <br><br>
-
-        <a href="index.html">
+        <a href="./index.html">
             🏠 Till startsidan
         </a>
 
     </div>
 
-
 </main>
-
 
 <footer>
 
-    NO-Upptäckaren • Så växer växter • Årskurs 4
+    NO-Upptäckaren • Växternas värld • Årskurs 4
 
 </footer>
-
-
-<script>
-
-function checkAnswer(question, correct) {
-
-    const feedback = document.getElementById(question);
-
-    feedback.style.display = "block";
-
-    if (correct) {
-
-        feedback.className = "feedback correct";
-
-        feedback.innerHTML =
-            "✅ Rätt! Bra jobbat. Du kan gå vidare.";
-
-    } else {
-
-        feedback.className = "feedback wrong";
-
-        feedback.innerHTML =
-            "❌ Inte riktigt. Läs frågan igen och försök en gång till.";
-
-    }
-
-}
-
-</script>
-
 
 </body>
 
 </html>
-```
