@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="sv">
 
@@ -6,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Blommor och nya växter – NO-Upptäckaren</title>
+    <title>Blommor och fortplantning – NO-Upptäckaren</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -14,7 +13,7 @@
 
         .lesson-intro {
             background: white;
-            border-radius: 22px;
+            border-radius: 20px;
             padding: 35px;
             margin-bottom: 25px;
             text-align: center;
@@ -35,66 +34,58 @@
             line-height: 1.7;
         }
 
-        .lesson-card {
+        .card {
             background: white;
-            border-radius: 22px;
+            border-radius: 20px;
             padding: 30px;
             margin-bottom: 25px;
             box-shadow: 0 6px 18px rgba(0,0,0,0.08);
         }
 
-        .lesson-card h2 {
+        .card h2 {
             font-size: 25px;
             margin-bottom: 15px;
         }
 
-        .lesson-card h3 {
-            font-size: 20px;
-            margin-top: 22px;
+        .card h3 {
+            margin-top: 20px;
             margin-bottom: 10px;
         }
 
-        .lesson-card p,
-        .lesson-card li {
+        .card p {
             font-size: 17px;
             line-height: 1.7;
         }
 
-        .lesson-card ul {
-            padding-left: 25px;
-        }
-
         .fact-box {
             background: #eef7f2;
-            border-radius: 16px;
+            border-radius: 15px;
             padding: 22px;
             margin-top: 20px;
         }
 
-        .flower-parts {
+        .parts-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 18px;
             margin-top: 20px;
         }
 
-        .flower-part {
+        .part {
             background: #f8fafc;
-            border-radius: 16px;
-            padding: 20px;
+            border-radius: 15px;
+            padding: 22px;
         }
 
-        .flower-part-icon {
-            font-size: 35px;
-            float: left;
-            margin-right: 12px;
+        .part-icon {
+            font-size: 38px;
         }
 
-        .flower-part h3 {
-            margin-top: 0;
+        .part h3 {
+            margin: 8px 0;
         }
 
-        .step-grid {
+        .steps {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 15px;
@@ -103,46 +94,30 @@
 
         .step {
             background: #f8fafc;
-            border-radius: 16px;
+            border-radius: 15px;
             padding: 20px;
             text-align: center;
         }
 
-        .step-number {
-            font-size: 34px;
+        .step-icon {
+            font-size: 42px;
             margin-bottom: 10px;
-        }
-
-        .mini-question {
-            background: #fff7ed;
-            border-left: 5px solid #f59e0b;
-            border-radius: 12px;
-            padding: 18px;
-            margin-top: 20px;
         }
 
         .quiz {
             background: #f8fafc;
-            border-radius: 16px;
+            border-radius: 15px;
             padding: 25px;
-        }
-
-        .quiz-question {
-            margin-bottom: 30px;
-        }
-
-        .quiz-question p {
-            font-weight: bold;
         }
 
         .quiz button {
             display: block;
             width: 100%;
-            margin: 9px 0;
-            padding: 14px 16px;
+            margin: 10px 0;
+            padding: 14px;
             background: white;
             border: 2px solid #d1d5db;
-            border-radius: 12px;
+            border-radius: 10px;
             text-align: left;
             font-size: 16px;
             cursor: pointer;
@@ -154,38 +129,47 @@
 
         .feedback {
             display: none;
-            margin-top: 15px;
-            padding: 15px;
+            margin-top: 18px;
+            padding: 18px;
             border-radius: 12px;
-        }
-
-        .correct {
             background: #dcfce7;
+            line-height: 1.6;
         }
 
-        .wrong {
-            background: #fee2e2;
-        }
-
-        .think-box {
-            background: #eef2ff;
-            border-radius: 16px;
+        .activity {
+            background: #fff7ed;
+            border-radius: 15px;
             padding: 25px;
+            margin-top: 20px;
         }
 
-        .think-box p {
+        .activity textarea {
+            width: 100%;
+            min-height: 110px;
+            padding: 12px;
+            margin-top: 10px;
             margin-bottom: 15px;
+            border: 2px solid #d1d5db;
+            border-radius: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            resize: vertical;
         }
 
-        .answer-line {
-            border-bottom: 2px solid #94a3b8;
-            height: 30px;
-            margin-bottom: 20px;
+        .check-button {
+            background: #18332a;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 13px 22px;
+            font-size: 16px;
+            cursor: pointer;
         }
 
         .navigation {
             text-align: center;
-            margin: 35px 0;
+            margin-top: 35px;
+            margin-bottom: 20px;
         }
 
         .navigation a {
@@ -195,11 +179,11 @@
 
         @media (max-width: 800px) {
 
-            .step-grid {
+            .steps {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .flower-parts {
+            .parts-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -207,7 +191,7 @@
 
         @media (max-width: 500px) {
 
-            .step-grid {
+            .steps {
                 grid-template-columns: 1fr;
             }
 
@@ -223,7 +207,7 @@
 
 <header>
 
-    <h1>🌸 BLOMMOR OCH NYA VÄXTER</h1>
+    <h1>🌸 BLOMMOR OCH FORTPLANTNING</h1>
 
     <p>
         NO-Upptäckaren • Biologi • Årskurs 4
@@ -235,125 +219,85 @@
 <main>
 
 
-    <!-- INTRO -->
-
     <section class="lesson-intro">
 
         <div class="lesson-icon">
             🌸
         </div>
 
-        <h2>Hur kan en växt bilda nya växter?</h2>
+        <h2>Hur kan växter få nya växter?</h2>
 
         <p>
-            Blommor är viktiga för många växters fortplantning.
-            I blomman finns delar som tillsammans gör det
-            möjligt för växten att bilda frön.
+            Många växter använder blommor för sin fortplantning.
+            I blomman finns delar som hjälper växten att bilda
+            frön och på så sätt få nya individer.
         </p>
 
     </section>
 
 
-    <!-- DEL 1 -->
+    <section class="card">
 
-    <section class="lesson-card">
-
-        <h2>🌸 1. Blomman är växtens fortplantningsorgan</h2>
+        <h2>🌺 Blomman är en viktig del</h2>
 
         <p>
-            Hos blomväxter är blomman den del av växten
-            som är viktig för fortplantningen.
+            En blomma består av flera olika delar.
+            Delarna har olika uppgifter och tillsammans hjälper
+            de växten med fortplantningen.
         </p>
 
-        <p>
-            Blommor kan se mycket olika ut. De kan ha olika
-            färger, former, storlekar och dofter.
-        </p>
+        <div class="parts-grid">
 
-        <p>
-            Trots skillnaderna har många blommor delar som
-            har viktiga uppgifter när nya frön ska bildas.
-        </p>
+            <div class="part">
 
-        <div class="fact-box">
-
-            <strong>💡 Visste du?</strong>
-
-            <p>
-                Många blommor lockar djur, till exempel
-                insekter. När djuret besöker blomman kan
-                pollen följa med till andra blommor.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- DEL 2 -->
-
-    <section class="lesson-card">
-
-        <h2>🔬 2. Blommans olika delar</h2>
-
-        <p>
-            En blomma kan ha flera olika delar.
-            Delarna har olika uppgifter.
-        </p>
-
-        <div class="flower-parts">
-
-            <div class="flower-part">
-
-                <div class="flower-part-icon">🌼</div>
+                <div class="part-icon">🌼</div>
 
                 <h3>Kronblad</h3>
 
                 <p>
                     Kronbladen kan hjälpa till att locka
-                    pollinerare genom färg och form.
+                    pollinerande djur till blomman.
                 </p>
 
             </div>
 
 
-            <div class="flower-part">
+            <div class="part">
 
-                <div class="flower-part-icon">🟡</div>
+                <div class="part-icon">🌾</div>
 
                 <h3>Ståndare</h3>
 
                 <p>
-                    Ståndaren bildar pollen.
-                    Pollen innehåller de hanliga könscellerna.
+                    Ståndarna bildar pollen.
                 </p>
 
             </div>
 
 
-            <div class="flower-part">
+            <div class="part">
 
-                <div class="flower-part-icon">🌿</div>
+                <div class="part-icon">🌱</div>
 
-                <h3>Stigma</h3>
+                <h3>Pistill</h3>
 
                 <p>
-                    Stigmat är den del av pistillen där
-                    pollen kan fastna.
+                    Pistillen är den del där pollen kan hamna
+                    och där frön senare kan utvecklas.
                 </p>
 
             </div>
 
 
-            <div class="flower-part">
+            <div class="part">
 
-                <div class="flower-part-icon">🌱</div>
+                <div class="part-icon">🐝</div>
 
-                <h3>Fruktämne</h3>
+                <h3>Pollinerare</h3>
 
                 <p>
-                    I fruktämnet finns fröämnen.
-                    Efter befruktning kan frön utvecklas.
+                    Insekter och andra djur kan hjälpa till
+                    att flytta pollen mellan blommor.
                 </p>
 
             </div>
@@ -363,43 +307,28 @@
     </section>
 
 
-    <!-- DEL 3 -->
+    <section class="card">
 
-    <section class="lesson-card">
-
-        <h2>🐝 3. Vad är pollinering?</h2>
+        <h2>🟡 Vad är pollen?</h2>
 
         <p>
-            Pollinering innebär att pollen flyttas från
-            ståndaren till ett stigma.
+            Pollen är mycket små korn som bildas i blommans
+            ståndare.
         </p>
 
         <p>
-            Pollen kan flyttas på olika sätt.
-            Hos vissa växter är vinden viktig.
-            Hos andra växter hjälper djur till.
-        </p>
-
-        <h3>🐝 Insekter som pollinerare</h3>
-
-        <p>
-            Bin, humlor, fjärilar och andra insekter kan
-            besöka blommor för att hitta föda.
-        </p>
-
-        <p>
-            När insekten rör sig mellan blommor kan pollen
-            fastna på kroppen och följa med till nästa blomma.
+            För att en blomma ska kunna bilda frön behöver
+            pollen komma till rätt del av blomman.
         </p>
 
         <div class="fact-box">
 
-            <strong>🔎 Pollinering är inte samma sak som befruktning.</strong>
+            <h3>🔎 Visste du?</h3>
 
             <p>
-                Pollinering handlar om att pollen flyttas.
-                Befruktning sker senare när en könscell från
-                pollen förenas med en honlig könscell.
+                Pollen kan spridas på olika sätt.
+                Vind kan transportera pollen och djur som
+                besöker blommor kan också flytta pollen.
             </p>
 
         </div>
@@ -407,82 +336,50 @@
     </section>
 
 
-    <!-- DEL 4 -->
+    <section class="card">
 
-    <section class="lesson-card">
-
-        <h2>🌬️ 4. Vind eller djur?</h2>
+        <h2>🐝 Pollinering</h2>
 
         <p>
-            Växter kan använda olika sätt för att få pollen
-            att komma till andra blommor.
+            Pollinering innebär att pollen flyttas till
+            den del av blomman där det kan användas i
+            växtens fortplantning.
         </p>
-
-        <h3>🌬️ Vindpollinering</h3>
 
         <p>
-            Hos vindpollinerade växter transporteras pollen
-            med vinden.
+            Många blommande växter får hjälp av insekter.
+            När en insekt besöker en blomma kan pollen fastna
+            på kroppen.
         </p>
-
-        <h3>🐝 Djurpollinering</h3>
 
         <p>
-            Hos många djurpollinerade växter lockar blomman
-            till sig djur med exempelvis färg, doft eller
-            nektar.
+            När insekten sedan besöker en annan blomma kan
+            pollen följa med dit.
         </p>
-
-        <div class="mini-question">
-
-            <strong>🤔 Fundera:</strong>
-
-            <p>
-                Varför kan en färgstark och doftande blomma
-                ha nytta av att locka till sig insekter?
-            </p>
-
-        </div>
 
     </section>
 
 
-    <!-- DEL 5 -->
+    <section class="card">
 
-    <section class="lesson-card">
-
-        <h2>🧬 5. Vad händer efter pollineringen?</h2>
+        <h2>🌸 Från blomma till frö</h2>
 
         <p>
-            När pollen har hamnat på stigmat kan pollenröret
-            växa ner mot fröämnet.
+            Efter pollineringen kan växtens fortplantning
+            fortsätta.
         </p>
 
-        <p>
-            En könscell från pollenet kan då förenas med
-            en honlig könscell. Det kallas befruktning.
-        </p>
-
-        <p>
-            Efter befruktningen kan fröämnet utvecklas
-            till ett frö.
-        </p>
-
-        <p>
-            Hos många växter utvecklas samtidigt delar av
-            blomman till en frukt.
-        </p>
-
-        <div class="step-grid">
+        <div class="steps">
 
             <div class="step">
 
-                <div class="step-number">🌼</div>
+                <div class="step-icon">🌼</div>
 
-                <h3>Blomma</h3>
+                <h3>1. Blomma</h3>
 
                 <p>
-                    Blomman har sina fortplantningsdelar.
+                    Blomman innehåller växtens
+                    fortplantningsdelar.
                 </p>
 
             </div>
@@ -490,12 +387,12 @@
 
             <div class="step">
 
-                <div class="step-number">🐝</div>
+                <div class="step-icon">🐝</div>
 
-                <h3>Pollinering</h3>
+                <h3>2. Pollinering</h3>
 
                 <p>
-                    Pollen flyttas till ett stigma.
+                    Pollen flyttas till rätt del av blomman.
                 </p>
 
             </div>
@@ -503,12 +400,12 @@
 
             <div class="step">
 
-                <div class="step-number">🧬</div>
+                <div class="step-icon">🌱</div>
 
-                <h3>Befruktning</h3>
+                <h3>3. Frö utvecklas</h3>
 
                 <p>
-                    Könsceller förenas.
+                    Efter befruktningen kan ett frö utvecklas.
                 </p>
 
             </div>
@@ -516,12 +413,13 @@
 
             <div class="step">
 
-                <div class="step-number">🌰</div>
+                <div class="step-icon">🌳</div>
 
-                <h3>Frö</h3>
+                <h3>4. Ny växt</h3>
 
                 <p>
-                    Ett frö kan utvecklas.
+                    Ett frö kan senare gro och utvecklas
+                    till en ny växt.
                 </p>
 
             </div>
@@ -531,36 +429,28 @@
     </section>
 
 
-    <!-- DEL 6 -->
+    <section class="card">
 
-    <section class="lesson-card">
-
-        <h2>🍎 6. Från blomma till frukt</h2>
+        <h2>🍎 Frukt och frön</h2>
 
         <p>
-            Efter befruktningen kan fruktämnet utvecklas
-            till en frukt.
+            Hos många blommande växter utvecklas frukten
+            efter blomningen.
         </p>
 
         <p>
-            Fruktens uppgift kan bland annat vara att skydda
-            fröna och hjälpa till med fröspridning.
-        </p>
-
-        <p>
-            Frukter kan därför se mycket olika ut.
-            Några är saftiga och färgglada medan andra är
-            torra och hårda.
+            Frukten kan skydda fröna och kan ibland hjälpa
+            till att sprida dem.
         </p>
 
         <div class="fact-box">
 
-            <strong>🍎 Exempel</strong>
+            <h3>🍓 Exempel</h3>
 
             <p>
                 Ett äpple är en frukt som innehåller frön.
-                När ett djur äter frukten kan fröna senare
-                hamna på en annan plats.
+                Om ett frö får rätt förutsättningar kan det
+                så småningom gro och utvecklas till en ny växt.
             </p>
 
         </div>
@@ -568,309 +458,182 @@
     </section>
 
 
-    <!-- DEL 7 -->
+    <section class="card">
 
-    <section class="lesson-card">
-
-        <h2>🌱 7. Varför är frön viktiga?</h2>
+        <h2>🌬️ Alla växter använder inte djur</h2>
 
         <p>
-            Ett frö innehåller början till en ny växt.
-            Det gör att växten kan få nya individer.
+            Alla växter behöver inte hjälp av insekter
+            för att sprida pollen.
         </p>
 
         <p>
-            Frön kan också hjälpa växter att sprida sig
-            till nya områden.
+            Hos vissa växter kan vinden transportera pollen
+            från en blomma till en annan.
         </p>
 
         <p>
-            När ett frö hamnar på en plats där det finns
-            lämpliga förhållanden kan det börja gro.
+            Det betyder att olika växter kan använda olika
+            sätt för att lyckas med sin fortplantning.
         </p>
 
     </section>
 
 
-    <!-- QUIZ 1 -->
+    <section class="card">
 
-    <section class="lesson-card">
-
-        <h2>🎯 Kunskapskoll 1</h2>
+        <h2>🧠 Kunskapskollen 1</h2>
 
         <div class="quiz">
 
-
-            <div class="quiz-question">
-
-                <p>
-                    1. Vad är pollinering?
-                </p>
-
-                <button onclick="checkAnswer('q1', true)">
-                    A. När pollen flyttas till ett stigma.
-                </button>
-
-                <button onclick="checkAnswer('q1', false)">
-                    B. När ett frö börjar gro.
-                </button>
-
-                <button onclick="checkAnswer('q1', false)">
-                    C. När en växt tar upp vatten.
-                </button>
-
-                <div id="q1" class="feedback"></div>
-
-            </div>
-
-
-            <div class="quiz-question">
-
-                <p>
-                    2. Vilken del av blomman bildar pollen?
-                </p>
-
-                <button onclick="checkAnswer('q2', true)">
-                    A. Ståndaren
-                </button>
-
-                <button onclick="checkAnswer('q2', false)">
-                    B. Kronbladet
-                </button>
-
-                <button onclick="checkAnswer('q2', false)">
-                    C. Roten
-                </button>
-
-                <div id="q2" class="feedback"></div>
-
-            </div>
-
-
-            <div class="quiz-question">
-
-                <p>
-                    3. Vad kan ett fruktämne utvecklas till efter
-                    befruktning?
-                </p>
-
-                <button onclick="checkAnswer('q3', false)">
-                    A. En rot
-                </button>
-
-                <button onclick="checkAnswer('q3', true)">
-                    B. En frukt
-                </button>
-
-                <button onclick="checkAnswer('q3', false)">
-                    C. Ett blad
-                </button>
-
-                <div id="q3" class="feedback"></div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- FÖRDJUPNING -->
-
-    <section class="lesson-card">
-
-        <h2>🔎 Fördjupning: Varför är pollinerare viktiga?</h2>
-
-        <p>
-            Många växter är beroende av att pollen transporteras
-            mellan blommor.
-        </p>
-
-        <p>
-            Insekter och andra djur kan därför ha en viktig
-            roll i växters fortplantning.
-        </p>
-
-        <p>
-            Om antalet pollinerare förändras kan det påverka
-            möjligheten för vissa växter att bilda frön.
-        </p>
-
-        <div class="mini-question">
-
-            <strong>💭 Tänk efter:</strong>
-
             <p>
-                Vad skulle kunna hända med en växt som är
-                beroende av en viss pollinerare om den
-                pollineraren försvinner?
+                <strong>
+                    Vad bildas i ståndarna?
+                </strong>
             </p>
 
+            <button onclick="answer1(1)">
+                A. Pollen
+            </button>
+
+            <button onclick="answer1(2)">
+                B. Rötter
+            </button>
+
+            <button onclick="answer1(3)">
+                C. Jord
+            </button>
+
+            <div id="feedback1" class="feedback"></div>
+
         </div>
 
     </section>
 
 
-    <!-- QUIZ 2 -->
+    <section class="card">
 
-    <section class="lesson-card">
-
-        <h2>🧠 Kunskapskoll 2</h2>
+        <h2>🧠 Kunskapskollen 2</h2>
 
         <div class="quiz">
 
+            <p>
+                <strong>
+                    Vad betyder pollinering?
+                </strong>
+            </p>
 
-            <div class="quiz-question">
+            <button onclick="answer2(1)">
+                A. Att en växt tar upp vatten.
+            </button>
 
-                <p>
-                    4. Vad är skillnaden mellan pollinering
-                    och befruktning?
-                </p>
+            <button onclick="answer2(2)">
+                B. Att pollen flyttas till rätt del av blomman.
+            </button>
 
-                <button onclick="checkAnswer('q4', true)">
-                    A. Pollinering är pollenflyttning,
-                    befruktning innebär att könsceller förenas.
-                </button>
+            <button onclick="answer2(3)">
+                C. Att ett frö börjar gro.
+            </button>
 
-                <button onclick="checkAnswer('q4', false)">
-                    B. De betyder exakt samma sak.
-                </button>
-
-                <button onclick="checkAnswer('q4', false)">
-                    C. Pollinering handlar om rötter.
-                </button>
-
-                <div id="q4" class="feedback"></div>
-
-            </div>
-
-
-            <div class="quiz-question">
-
-                <p>
-                    5. Varför kan blommor ha starka färger
-                    eller dofter?
-                </p>
-
-                <button onclick="checkAnswer('q5', true)">
-                    A. För att locka pollinerare.
-                </button>
-
-                <button onclick="checkAnswer('q5', false)">
-                    B. För att göra rötterna längre.
-                </button>
-
-                <button onclick="checkAnswer('q5', false)">
-                    C. För att hindra alla djur från att komma nära.
-                </button>
-
-                <div id="q5" class="feedback"></div>
-
-            </div>
-
-
-            <div class="quiz-question">
-
-                <p>
-                    6. Vad kan utvecklas från ett frö?
-                </p>
-
-                <button onclick="checkAnswer('q6', false)">
-                    A. En sten
-                </button>
-
-                <button onclick="checkAnswer('q6', true)">
-                    B. En ny växt
-                </button>
-
-                <button onclick="checkAnswer('q6', false)">
-                    C. En insekt
-                </button>
-
-                <div id="q6" class="feedback"></div>
-
-            </div>
-
+            <div id="feedback2" class="feedback"></div>
 
         </div>
 
     </section>
 
 
-    <!-- ELEVUPPGIFT -->
+    <section class="card">
 
-    <section class="lesson-card">
+        <h2>🧠 Kunskapskollen 3</h2>
 
-        <h2>✏️ Tänk och förklara</h2>
-
-        <div class="think-box">
+        <div class="quiz">
 
             <p>
-                Föreställ dig att en blomma inte får besök
-                av några pollinerare.
+                <strong>
+                    Vad kan hjälpa till att flytta pollen?
+                </strong>
             </p>
 
-            <p>
-                <strong>Vad kan det få för konsekvenser?</strong>
-            </p>
+            <button onclick="answer3(1)">
+                A. Bara rötter
+            </button>
 
-            <div class="answer-line"></div>
+            <button onclick="answer3(2)">
+                B. Vind och pollinerande djur
+            </button>
 
-            <p>
-                <strong>Förklara varför.</strong>
-            </p>
+            <button onclick="answer3(3)">
+                C. Bara vatten i marken
+            </button>
 
-            <div class="answer-line"></div>
-
-            <div class="answer-line"></div>
+            <div id="feedback3" class="feedback"></div>
 
         </div>
 
     </section>
 
 
-    <!-- SAMMANFATTNING -->
+    <section class="card">
 
-    <section class="lesson-card">
+        <h2>🔬 Tänk som en naturvetare</h2>
 
-        <h2>📚 Det här ska du kunna</h2>
+        <p>
+            Föreställ dig två olika blommor.
+            Den ena är mycket färgglad och doftar starkt.
+            Den andra är liten och nästan inte synlig.
+        </p>
 
-        <ul>
+        <p>
+            Fundera på varför blommor kan ha olika färger,
+            former och dofter.
+        </p>
 
-            <li>🌸 Blommor är viktiga för många växters fortplantning.</li>
+        <div class="activity">
 
-            <li>🟡 Ståndare bildar pollen.</li>
+            <textarea
+                id="thinking"
+                placeholder="Skriv din förklaring här..."></textarea>
 
-            <li>🐝 Pollinering innebär att pollen flyttas till ett stigma.</li>
+            <button class="check-button" onclick="saveThinking()">
+                💾 Spara mitt svar
+            </button>
 
-            <li>🧬 Befruktning innebär att könsceller förenas.</li>
+            <div id="thinkingFeedback" class="feedback"></div>
 
-            <li>🌰 Efter befruktning kan frön utvecklas.</li>
-
-            <li>🍎 Frukt kan skydda frön och hjälpa till med spridning.</li>
-
-            <li>🐝 Många växter använder djur som pollinerare.</li>
-
-            <li>🌬️ Vissa växter sprider pollen med vinden.</li>
-
-        </ul>
+        </div>
 
     </section>
 
 
-    <!-- NAVIGATION -->
+    <section class="card">
+
+        <h2>📝 Förklara med egna ord</h2>
+
+        <p>
+            Försök förklara hela vägen från blomma till ny växt.
+        </p>
+
+        <div class="activity">
+
+            <textarea
+                id="explain"
+                placeholder="Förklara med dina egna ord..."></textarea>
+
+            <button class="check-button" onclick="saveExplanation()">
+                💾 Spara min förklaring
+            </button>
+
+            <div id="explainFeedback" class="feedback"></div>
+
+        </div>
+
+    </section>
+
 
     <div class="navigation">
 
         <a href="vaxter.html">
             ← Tillbaka till Växternas värld
-        </a>
-
-        <br><br>
-
-        <a href="fronspridning.html">
-            🌰 Nästa: Frön och spridning →
         </a>
 
         <br><br>
@@ -893,32 +656,120 @@
 
 <footer>
 
-    NO-Upptäckaren • Blommor och nya växter • Årskurs 4
+    NO-Upptäckaren • Blommor och fortplantning • Årskurs 4
 
 </footer>
 
 
 <script>
 
-function checkAnswer(question, correct) {
+function answer1(choice) {
 
-    const feedback = document.getElementById(question);
+    const feedback = document.getElementById("feedback1");
 
     feedback.style.display = "block";
 
-    if (correct) {
-
-        feedback.className = "feedback correct";
+    if (choice === 1) {
 
         feedback.innerHTML =
-            "✅ Rätt! Bra jobbat!";
+        "✅ Rätt! Ståndarna bildar pollen.";
 
     } else {
 
-        feedback.className = "feedback wrong";
+        feedback.innerHTML =
+        "❌ Försök igen! Pollen är små korn som bildas i ståndarna.";
+
+    }
+
+}
+
+
+function answer2(choice) {
+
+    const feedback = document.getElementById("feedback2");
+
+    feedback.style.display = "block";
+
+    if (choice === 2) {
 
         feedback.innerHTML =
-            "❌ Inte riktigt. Läs frågan igen och försök en gång till.";
+        "✅ Rätt! Pollinering innebär att pollen flyttas till rätt del av blomman.";
+
+    } else {
+
+        feedback.innerHTML =
+        "❌ Försök igen! Tänk på vad som händer med pollen.";
+
+    }
+
+}
+
+
+function answer3(choice) {
+
+    const feedback = document.getElementById("feedback3");
+
+    feedback.style.display = "block";
+
+    if (choice === 2) {
+
+        feedback.innerHTML =
+        "✅ Rätt! Vind och olika djur kan hjälpa till att flytta pollen.";
+
+    } else {
+
+        feedback.innerHTML =
+        "❌ Försök igen! Fundera på hur pollen kan ta sig från en blomma till en annan.";
+
+    }
+
+}
+
+
+function saveThinking() {
+
+    const answer =
+        document.getElementById("thinking").value.trim();
+
+    const feedback =
+        document.getElementById("thinkingFeedback");
+
+    feedback.style.display = "block";
+
+    if (answer) {
+
+        feedback.innerHTML =
+        "✅ Bra! Du har funderat över hur blommans egenskaper kan hjälpa växten med fortplantningen.";
+
+    } else {
+
+        feedback.innerHTML =
+        "✏️ Skriv först ditt svar i rutan.";
+
+    }
+
+}
+
+
+function saveExplanation() {
+
+    const answer =
+        document.getElementById("explain").value.trim();
+
+    const feedback =
+        document.getElementById("explainFeedback");
+
+    feedback.style.display = "block";
+
+    if (answer) {
+
+        feedback.innerHTML =
+        "✅ Bra jobbat! Du har formulerat en egen förklaring.";
+
+    } else {
+
+        feedback.innerHTML =
+        "✏️ Skriv först din förklaring.";
 
     }
 
@@ -930,4 +781,3 @@ function checkAnswer(question, correct) {
 </body>
 
 </html>
-```
