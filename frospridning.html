@@ -1,1 +1,414 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frön och spridning – NO-Upptäckaren</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<header>
+    <h1>🌰 FRÖN OCH SPRIDNING</h1>
+    <p>NO-Upptäckaren • Biologi • Årskurs 4</p>
+</header>
+
+<main>
+
+<section class="welcome">
+    <h2>🌱 Hur kommer nya växter till?</h2>
+
+    <p>
+        Många växter bildar frön. Ett frö kan utvecklas
+        till en ny växt om det hamnar på en plats där
+        förhållandena är lämpliga.
+    </p>
+
+    <p>
+        Frön kan spridas på flera olika sätt. Vind, vatten,
+        djur och människor kan hjälpa till att transportera
+        frön till nya platser.
+    </p>
+</section>
+
+
+<section class="welcome">
+
+    <h2>🌰 Vad finns i ett frö?</h2>
+
+    <p>
+        Ett frö innehåller ett växtanlag som kan utvecklas
+        till en ny planta. Fröet har också ett skyddande
+        skal. Många frön innehåller dessutom näring som
+        den unga plantan kan använda under den första tiden.
+    </p>
+
+    <div class="example">
+        <h3>💡 Kom ihåg!</h3>
+        <p>
+            Ett frö är inte en färdig liten växt som bara
+            väntar på att komma ut. Det är en struktur som
+            innehåller ett växtanlag som kan utvecklas.
+        </p>
+    </div>
+
+</section>
+
+
+<section class="welcome">
+
+    <h2>🌱 När börjar ett frö växa?</h2>
+
+    <p>
+        När ett frö börjar utvecklas och växa säger man
+        att det gror.
+    </p>
+
+    <p>
+        Vid groning börjar roten vanligtvis växa nedåt
+        medan skottet växer uppåt.
+    </p>
+
+    <div class="steps">
+
+        <div class="step">
+            <h3>1️⃣ Frö</h3>
+            <p>Fröet finns i eller på marken.</p>
+        </div>
+
+        <div class="step">
+            <h3>2️⃣ Vatten</h3>
+            <p>Fröet tar upp vatten.</p>
+        </div>
+
+        <div class="step">
+            <h3>3️⃣ Grodd</h3>
+            <p>Rot och skott börjar utvecklas.</p>
+        </div>
+
+        <div class="step">
+            <h3>4️⃣ Planta</h3>
+            <p>En ung växt fortsätter att växa.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="welcome">
+
+    <h2>🌬️ Spridning med vinden</h2>
+
+    <p>
+        Vissa frön är små och lätta. De kan transporteras
+        med vinden.
+    </p>
+
+    <p>
+        Maskrosens frön har exempelvis en struktur som
+        hjälper dem att färdas med vinden.
+    </p>
+
+    <div class="example">
+        <h3>🔎 Fundera</h3>
+        <p>
+            Varför kan det vara en fördel för ett frö att
+            kunna färdas långt med vinden?
+        </p>
+    </div>
+
+</section>
+
+
+<section class="welcome">
+
+    <h2>🐦 Spridning med djur</h2>
+
+    <p>
+        Djur kan hjälpa växter att sprida sina frön.
+        Ett djur kan äta en frukt och senare lämna
+        fröna på en annan plats.
+    </p>
+
+    <p>
+        Vissa frön kan också fastna i djurens päls
+        och följa med när djuret rör sig.
+    </p>
+
+</section>
+
+
+<section class="welcome">
+
+    <h2>💧 Spridning med vatten</h2>
+
+    <p>
+        Vissa frön kan flyta. Då kan vatten transportera
+        dem till nya platser.
+    </p>
+
+    <p>
+        Detta kan exempelvis ske nära sjöar, vattendrag
+        eller hav.
+    </p>
+
+</section>
+
+
+<section class="welcome">
+
+    <h2>🌍 Varför sprids frön?</h2>
+
+    <p>
+        Om alla frön växte precis bredvid moderplantan
+        skulle de behöva konkurrera om exempelvis ljus,
+        vatten, näring och utrymme.
+    </p>
+
+    <p>
+        Genom att sprida fröna kan växter få möjlighet
+        att etablera sig på nya platser.
+    </p>
+
+</section>
+
+
+<section class="welcome">
+
+    <h2>🧠 Vilken spridning passar bäst?</h2>
+
+    <div class="quiz">
+
+        <p><strong>1. Ett frö är mycket lätt och har en liten "fallskärm". Hur sprids det troligen?</strong></p>
+
+        <button onclick="answer(1,1)">A. Med vinden</button>
+        <button onclick="answer(1,2)">B. Med en sten</button>
+        <button onclick="answer(1,3)">C. Genom solljus</button>
+
+        <div id="feedback1" class="feedback"></div>
+
+
+        <p><strong>2. Ett djur äter en frukt. Vad kan hända med fröna?</strong></p>
+
+        <button onclick="answer(2,1)">A. De kan spridas till en annan plats</button>
+        <button onclick="answer(2,2)">B. De blir automatiskt till blommor</button>
+        <button onclick="answer(2,3)">C. De slutar alltid att fungera</button>
+
+        <div id="feedback2" class="feedback"></div>
+
+
+        <p><strong>3. Vad betyder att ett frö gror?</strong></p>
+
+        <button onclick="answer(3,1)">A. Fröet börjar utvecklas och växa</button>
+        <button onclick="answer(3,2)">B. Fröet blir till jord</button>
+        <button onclick="answer(3,3)">C. Fröet försvinner</button>
+
+        <div id="feedback3" class="feedback"></div>
+
+
+        <p><strong>4. Varför kan fröspridning vara viktig?</strong></p>
+
+        <button onclick="answer(4,1)">A. Nya plantor kan växa på nya platser</button>
+        <button onclick="answer(4,2)">B. Alla växter måste stå på samma plats</button>
+        <button onclick="answer(4,3)">C. Växter behöver aldrig vatten</button>
+
+        <div id="feedback4" class="feedback"></div>
+
+    </div>
+
+</section>
+
+
+<section class="welcome">
+
+    <h2>🔬 Miniundersökning</h2>
+
+    <p>
+        Välj ett frö hemma eller i klassrummet.
+        Undersök det noggrant.
+    </p>
+
+    <p>
+        Titta på:
+    </p>
+
+    <ul>
+        <li>form</li>
+        <li>färg</li>
+        <li>storlek</li>
+        <li>yta</li>
+        <li>om det har någon särskild struktur</li>
+    </ul>
+
+    <p>
+        Fundera sedan på hur fröet skulle kunna spridas.
+    </p>
+
+</section>
+
+
+<section class="welcome">
+
+    <h2>✏️ Tänk som en naturvetare</h2>
+
+    <p>
+        Du hittar ett frö på marken flera meter från
+        närmaste växt.
+    </p>
+
+    <p><strong>Hur kan fröet ha hamnat där?</strong></p>
+
+    <textarea
+        id="svar"
+        rows="5"
+        style="width:100%; padding:12px; border-radius:10px; border:2px solid #ccc;"
+        placeholder="Skriv din förklaring här..."></textarea>
+
+    <br><br>
+
+    <button onclick="visaSvar()">
+        🔎 Visa exempel på förklaring
+    </button>
+
+    <div id="exempelSvar" class="feedback"></div>
+
+</section>
+
+
+<section class="welcome">
+
+    <h2>📚 Begrepp</h2>
+
+    <div class="steps">
+
+        <div class="step">
+            <h3>Frö</h3>
+            <p>En struktur som kan utvecklas till en ny växt.</p>
+        </div>
+
+        <div class="step">
+            <h3>Gro</h3>
+            <p>När ett frö börjar utvecklas och växa.</p>
+        </div>
+
+        <div class="step">
+            <h3>Spridning</h3>
+            <p>När frön transporteras till nya platser.</p>
+        </div>
+
+        <div class="step">
+            <h3>Moderplanta</h3>
+            <p>Den växt som har bildat fröet.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<div style="text-align:center; margin-top:35px;">
+
+    <a href="vaxter.html">← Tillbaka till Växternas värld</a>
+
+    <br><br>
+
+    <a href="vaxtermiljo.html">Nästa: Växter och miljön →</a>
+
+    <br><br>
+
+    <a href="ak4.html">🔬 Till Åk 4</a>
+
+    <br><br>
+
+    <a href="index.html">🏠 Till startsidan</a>
+
+</div>
+
+</main>
+
+
+<footer>
+    NO-Upptäckaren • Frön och spridning • Årskurs 4
+</footer>
+
+
+<script>
+
+function answer(question, choice) {
+
+    const feedback =
+        document.getElementById("feedback" + question);
+
+    feedback.style.display = "block";
+
+    let correct = false;
+
+    if (question === 1 && choice === 1) {
+        correct = true;
+    }
+
+    if (question === 2 && choice === 1) {
+        correct = true;
+    }
+
+    if (question === 3 && choice === 1) {
+        correct = true;
+    }
+
+    if (question === 4 && choice === 1) {
+        correct = true;
+    }
+
+    if (correct) {
+
+        feedback.innerHTML =
+            "✅ Rätt! Bra jobbat!";
+
+        feedback.style.background = "#dcfce7";
+
+    } else {
+
+        feedback.innerHTML =
+            "❌ Inte riktigt. Läs faktatexten igen och försök en gång till.";
+
+        feedback.style.background = "#fee2e2";
+
+    }
+
+}
+
+
+function visaSvar() {
+
+    const svar =
+        document.getElementById("svar").value.trim();
+
+    const exempel =
+        document.getElementById("exempelSvar");
+
+    exempel.style.display = "block";
+
+    if (svar === "") {
+
+        exempel.innerHTML =
+            "✏️ Skriv först din egen förklaring.";
+
+        exempel.style.background = "#fef3c7";
+
+    } else {
+
+        exempel.innerHTML =
+            "🌱 Bra tänkt! Ett frö kan till exempel ha spridits med vinden, med vatten eller med hjälp av ett djur.";
+
+        exempel.style.background = "#dcfce7";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
