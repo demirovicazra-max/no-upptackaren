@@ -1,1 +1,255 @@
+```css
+body {
+    background: #f4f8f2;
+    color: #20352a;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.hero {
+    background: linear-gradient(135deg, #315f3b, #78a96f);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: auto;
+}
+
+.eyebrow {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin: 15px 0;
+}
+
+.hero-text {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.lesson-card {
+    background: white;
+    border-radius: 22px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.lesson-number {
+    width: 45px;
+    height: 45px;
+    background: #315f3b;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.lesson-card h2 {
+    color: #315f3b;
+    margin-top: 18px;
+}
+
+.lesson-card p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.info-box {
+    background: #e9f5e5;
+    border-left: 5px solid #4f8f52;
+    padding: 18px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.adaptation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.adaptation-card {
+    background: #f5faf3;
+    padding: 24px;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.animal-icon {
+    font-size: 55px;
+    margin-bottom: 12px;
+}
+
+.adaptation-card h3 {
+    color: #315f3b;
+    margin-bottom: 8px;
+}
+
+.adaptation-card p {
+    font-size: 15px;
+}
+
+.environment-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.environment {
+    background: #eef7eb;
+    padding: 22px;
+    border-radius: 16px;
+}
+
+.environment span {
+    display: block;
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.environment strong {
+    color: #315f3b;
+    font-size: 19px;
+}
+
+.environment p {
+    font-size: 15px;
+}
+
+.quiz-card {
+    border: 3px solid #d7ead3;
+}
+
+.quiz-question {
+    font-size: 22px !important;
+    font-weight: bold;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.quiz-options button {
+    background: white;
+    border: 2px solid #d2e4cf;
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.quiz-options button:hover {
+    background: #eef7eb;
+}
+
+.quiz-options button.correct {
+    background: #d9f2d5;
+    border-color: #4f9b4f;
+}
+
+.quiz-options button.wrong {
+    background: #fde0e0;
+    border-color: #d9534f;
+}
+
+.quiz-options button:disabled {
+    cursor: default;
+}
+
+.quiz-result {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.quiz-result.success {
+    color: #267333;
+}
+
+.quiz-result.error {
+    color: #b52b2b;
+}
+
+.word-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.word-list div {
+    background: #f5faf3;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.word-list strong {
+    display: block;
+    color: #315f3b;
+    margin-bottom: 5px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin: 35px 0 60px;
+}
+
+.nav-button {
+    padding: 14px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #d2e4cf;
+    background: white;
+    color: #315f3b;
+}
+
+.nav-button.primary {
+    background: #315f3b;
+    color: white;
+    border-color: #315f3b;
+}
+
+@media (max-width: 700px) {
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .adaptation-grid,
+    .environment-box {
+        grid-template-columns: 1fr;
+    }
+
+    .navigation {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-button {
+        text-align: center;
+    }
+}
+```
 
