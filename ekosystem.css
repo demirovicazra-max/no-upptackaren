@@ -1,0 +1,302 @@
+```css
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f4f8f2;
+    color: #20352a;
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    background: linear-gradient(135deg, #245c3a, #6fa66f);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: auto;
+}
+
+.eyebrow {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin: 15px 0;
+}
+
+.hero-text {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.lesson-card {
+    background: white;
+    border-radius: 22px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.lesson-number {
+    width: 45px;
+    height: 45px;
+    background: #245c3a;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.lesson-card h2 {
+    color: #245c3a;
+    margin-top: 18px;
+}
+
+.lesson-card p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.info-box {
+    background: #e9f5e5;
+    border-left: 5px solid #4f8f52;
+    padding: 18px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.concept-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.concept-card {
+    background: #f5faf3;
+    padding: 22px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.concept-icon {
+    display: block;
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.concept-card h3 {
+    color: #245c3a;
+}
+
+.concept-card p {
+    font-size: 15px;
+}
+
+.food-chain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.chain-item {
+    background: #eef7eb;
+    border-radius: 16px;
+    padding: 20px;
+    min-width: 130px;
+    text-align: center;
+}
+
+.chain-item span {
+    display: block;
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.chain-item strong {
+    display: block;
+    color: #245c3a;
+    font-size: 18px;
+}
+
+.chain-item small {
+    display: block;
+    margin-top: 5px;
+}
+
+.arrow {
+    font-size: 28px;
+    color: #4f8f52;
+    font-weight: bold;
+}
+
+.relationship-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.relationship-card {
+    background: #f5faf3;
+    padding: 22px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.relationship-card span {
+    display: block;
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.relationship-card h3 {
+    color: #245c3a;
+}
+
+.relationship-card p {
+    font-size: 15px;
+}
+
+.quiz-card {
+    border: 3px solid #d7ead3;
+}
+
+.quiz-question {
+    font-size: 22px !important;
+    font-weight: bold;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.quiz-options button {
+    background: white;
+    border: 2px solid #d2e4cf;
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.quiz-options button:hover {
+    background: #eef7eb;
+}
+
+.quiz-options button.correct {
+    background: #d9f2d5;
+    border-color: #4f9b4f;
+}
+
+.quiz-options button.wrong {
+    background: #fde0e0;
+    border-color: #d9534f;
+}
+
+.quiz-options button:disabled {
+    cursor: default;
+}
+
+.quiz-result {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.quiz-result.success {
+    color: #267333;
+}
+
+.quiz-result.error {
+    color: #b52b2b;
+}
+
+.word-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.word-list div {
+    background: #f5faf3;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.word-list strong {
+    display: block;
+    color: #245c3a;
+    margin-bottom: 5px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin: 35px 0 60px;
+}
+
+.nav-button {
+    padding: 14px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #d2e4cf;
+    background: white;
+    color: #245c3a;
+}
+
+.nav-button.primary {
+    background: #245c3a;
+    color: white;
+    border-color: #245c3a;
+}
+
+@media (max-width: 700px) {
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .concept-grid,
+    .relationship-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .food-chain {
+        flex-direction: column;
+    }
+
+    .navigation {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-button {
+        text-align: center;
+    }
+}
+```
