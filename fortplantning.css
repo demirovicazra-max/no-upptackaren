@@ -1,1 +1,271 @@
+body {
+    background: #f4f8f2;
+}
 
+.hero {
+    background: linear-gradient(135deg, #2f6b3c, #6fa66f);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.eyebrow {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin: 10px 0;
+}
+
+.hero-text {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.lesson-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.lesson-number {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #2f6b3c;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.lesson-card h2 {
+    color: #244d2d;
+    margin-bottom: 15px;
+}
+
+.lesson-card p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.info-box {
+    background: #eaf5e8;
+    border-left: 5px solid #4f8f52;
+    padding: 18px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.info-box p {
+    margin-bottom: 0;
+}
+
+.concept-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.concept-card {
+    background: #f6faf5;
+    border-radius: 15px;
+    padding: 22px;
+    text-align: center;
+}
+
+.concept-icon {
+    font-size: 42px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.concept-card h3 {
+    color: #2f6b3c;
+    margin-bottom: 8px;
+}
+
+.concept-card p {
+    font-size: 15px;
+}
+
+.process-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.process-step {
+    background: #eef7eb;
+    border-radius: 15px;
+    padding: 18px;
+    min-width: 110px;
+    text-align: center;
+}
+
+.process-step span {
+    display: block;
+    font-size: 35px;
+    margin-bottom: 8px;
+}
+
+.arrow {
+    font-size: 28px;
+    color: #4f8f52;
+    font-weight: bold;
+}
+
+.quiz-card {
+    border: 3px solid #d7ead3;
+}
+
+.quiz-question {
+    font-size: 22px !important;
+    font-weight: bold;
+    color: #244d2d;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.quiz-options button {
+    border: 2px solid #d2e4cf;
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.quiz-options button:hover {
+    background: #eef7eb;
+    transform: translateY(-2px);
+}
+
+.quiz-options button.correct {
+    background: #d9f2d5;
+    border-color: #4f9b4f;
+}
+
+.quiz-options button.wrong {
+    background: #fde0e0;
+    border-color: #d9534f;
+}
+
+.quiz-result {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.quiz-result.success {
+    color: #267333;
+}
+
+.quiz-result.error {
+    color: #b52b2b;
+}
+
+.word-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.word-list div {
+    background: #f6faf5;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.word-list strong {
+    display: block;
+    color: #2f6b3c;
+    margin-bottom: 5px;
+}
+
+.word-list span {
+    color: #444;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 35px 0 60px;
+}
+
+.nav-button {
+    text-decoration: none;
+    padding: 14px 24px;
+    border-radius: 12px;
+    background: white;
+    color: #2f6b3c;
+    border: 2px solid #d2e4cf;
+    font-weight: bold;
+}
+
+.nav-button.primary {
+    background: #2f6b3c;
+    color: white;
+    border-color: #2f6b3c;
+}
+
+.nav-button:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .concept-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-box {
+        flex-direction: column;
+    }
+
+    .arrow {
+        transform: rotate(90deg);
+    }
+
+    .navigation {
+        flex-direction: column;
+    }
+
+    .nav-button {
+        text-align: center;
+    }
+}
