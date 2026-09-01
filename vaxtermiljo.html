@@ -1,1 +1,710 @@
+<!DOCTYPE html>
+<html lang="sv">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Växter och miljön – NO-Upptäckaren</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .intro {
+            background: white;
+            border-radius: 22px;
+            padding: 35px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .intro-icon {
+            font-size: 65px;
+            margin-bottom: 10px;
+        }
+
+        .intro h2 {
+            font-size: 30px;
+            margin: 10px 0 15px;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .card {
+            background: white;
+            border-radius: 22px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .fact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .fact {
+            background: #eef7f2;
+            border-radius: 16px;
+            padding: 22px;
+        }
+
+        .fact-icon {
+            font-size: 42px;
+        }
+
+        .fact h3 {
+            margin-top: 10px;
+        }
+
+        .example {
+            background: #f8fafc;
+            border-left: 5px solid #7aa891;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .quiz {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .question {
+            margin-bottom: 30px;
+        }
+
+        .question:last-child {
+            margin-bottom: 0;
+        }
+
+        .quiz button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 14px 16px;
+            background: white;
+            border: 2px solid #d1d5db;
+            border-radius: 12px;
+            text-align: left;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .quiz button:hover {
+            background: #eef7f2;
+        }
+
+        .feedback {
+            display: none;
+            margin-top: 12px;
+            padding: 15px;
+            border-radius: 12px;
+            background: #dcfce7;
+            font-weight: bold;
+        }
+
+        .activity {
+            background: #fff7ed;
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .activity select {
+            width: 100%;
+            padding: 13px;
+            margin: 10px 0 15px;
+            border: 2px solid #d1d5db;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .activity button {
+            padding: 13px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .activity-result {
+            display: none;
+            margin-top: 18px;
+            padding: 16px;
+            border-radius: 12px;
+            background: #dcfce7;
+        }
+
+        .navigation {
+            text-align: center;
+            margin: 35px 0;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        @media (max-width: 700px) {
+
+            .fact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🌍 VÄXTER OCH MILJÖN</h1>
+
+    <p>
+        NO-Upptäckaren • Biologi • Årskurs 4
+    </p>
+
+</header>
+
+<main>
+
+
+    <section class="intro">
+
+        <div class="intro-icon">
+            🌱
+        </div>
+
+        <h2>
+            Växter är beroende av sin miljö
+        </h2>
+
+        <p>
+            Växter behöver rätt förutsättningar för att kunna
+            leva och växa. Ljus, vatten, temperatur och mark
+            påverkar hur en växt utvecklas.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>☀️ Ljus</h2>
+
+        <p>
+            Växter behöver ljus för fotosyntesen.
+            Ljusets energi används när växten tillverkar
+            druvsocker.
+        </p>
+
+        <p>
+            Därför kan mängden ljus påverka hur en växt växer.
+        </p>
+
+        <div class="example">
+
+            <h3>Fundera</h3>
+
+            <p>
+                Vad tror du händer med en växt som står i ett
+                mörkt rum under lång tid?
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>💧 Vatten</h2>
+
+        <p>
+            Växter behöver vatten för att leva.
+            Vatten tas framför allt upp genom rötterna.
+        </p>
+
+        <p>
+            Vattnet transporteras sedan vidare genom växten.
+        </p>
+
+        <div class="example">
+
+            <h3>För lite vatten</h3>
+
+            <p>
+                Om en växt får för lite vatten kan den börja
+                sloka och till slut vissna.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🌡️ Temperatur</h2>
+
+        <p>
+            Temperatur påverkar växters liv.
+            Olika växter är anpassade till olika klimat.
+        </p>
+
+        <div class="fact-grid">
+
+            <div class="fact">
+
+                <div class="fact-icon">
+                    ❄️
+                </div>
+
+                <h3>Kallt klimat</h3>
+
+                <p>
+                    Vissa växter klarar låga temperaturer
+                    och kalla vintrar.
+                </p>
+
+            </div>
+
+
+            <div class="fact">
+
+                <div class="fact-icon">
+                    ☀️
+                </div>
+
+                <h3>Varmt klimat</h3>
+
+                <p>
+                    Andra växter är anpassade till varmare
+                    miljöer.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🌱 Marken</h2>
+
+        <p>
+            Växternas rötter växer i marken.
+            Där kan växten få vatten och näringsämnen.
+        </p>
+
+        <p>
+            Olika sorters jord kan innehålla olika mycket
+            vatten och näring.
+        </p>
+
+        <div class="example">
+
+            <h3>Exempel</h3>
+
+            <p>
+                En växt som behöver mycket vatten kan trivas
+                bättre i en fuktig miljö än i mycket torr jord.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🌬️ Luft runt växten</h2>
+
+        <p>
+            Växter tar upp koldioxid från luften.
+            Koldioxiden används tillsammans med vatten och
+            ljus i fotosyntesen.
+        </p>
+
+        <p>
+            Växter påverkas därför också av luften omkring dem.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🌍 Många faktorer påverkar samtidigt</h2>
+
+        <p>
+            En växt påverkas inte bara av en enda sak.
+            Ljus, vatten, temperatur, luft och mark kan
+            tillsammans påverka växtens liv.
+        </p>
+
+        <div class="fact-grid">
+
+            <div class="fact">
+                <div class="fact-icon">☀️</div>
+                <h3>Ljus</h3>
+                <p>Behövs för fotosyntesen.</p>
+            </div>
+
+            <div class="fact">
+                <div class="fact-icon">💧</div>
+                <h3>Vatten</h3>
+                <p>Behövs för växtens liv och transport.</p>
+            </div>
+
+            <div class="fact">
+                <div class="fact-icon">🌡️</div>
+                <h3>Temperatur</h3>
+                <p>Påverkar växtens liv och tillväxt.</p>
+            </div>
+
+            <div class="fact">
+                <div class="fact-icon">🌱</div>
+                <h3>Mark</h3>
+                <p>Ger stöd, vatten och näringsämnen.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🔬 Tänk som en naturvetare</h2>
+
+        <div class="activity">
+
+            <h3>Vad tror du påverkar växten mest?</h3>
+
+            <p>
+                Välj den faktor som du tror har störst betydelse
+                för en växt som står inomhus.
+            </p>
+
+            <select id="plantFactor">
+
+                <option value="">
+                    Välj ett alternativ
+                </option>
+
+                <option value="ljus">
+                    ☀️ Ljus
+                </option>
+
+                <option value="vatten">
+                    💧 Vatten
+                </option>
+
+                <option value="temperatur">
+                    🌡️ Temperatur
+                </option>
+
+                <option value="mark">
+                    🌱 Mark
+                </option>
+
+            </select>
+
+            <button onclick="checkFactor()">
+                Kontrollera
+            </button>
+
+            <div id="factorResult" class="activity-result"></div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🧠 Kunskapskollen</h2>
+
+        <div class="quiz">
+
+
+            <div class="question">
+
+                <p>
+                    <strong>
+                        1. Varför behöver växter ljus?
+                    </strong>
+                </p>
+
+                <button onclick="answer(1,1)">
+                    A. För fotosyntesen.
+                </button>
+
+                <button onclick="answer(1,2)">
+                    B. För att kunna höra.
+                </button>
+
+                <button onclick="answer(1,3)">
+                    C. För att kunna springa.
+                </button>
+
+                <div id="feedback1" class="feedback"></div>
+
+            </div>
+
+
+            <div class="question">
+
+                <p>
+                    <strong>
+                        2. Var tas vatten framför allt upp?
+                    </strong>
+                </p>
+
+                <button onclick="answer(2,1)">
+                    A. Genom rötterna.
+                </button>
+
+                <button onclick="answer(2,2)">
+                    B. Genom blommorna.
+                </button>
+
+                <button onclick="answer(2,3)">
+                    C. Genom frukterna.
+                </button>
+
+                <div id="feedback2" class="feedback"></div>
+
+            </div>
+
+
+            <div class="question">
+
+                <p>
+                    <strong>
+                        3. Vad kan hända om en växt får för lite vatten?
+                    </strong>
+                </p>
+
+                <button onclick="answer(3,1)">
+                    A. Den kan börja sloka.
+                </button>
+
+                <button onclick="answer(3,2)">
+                    B. Den börjar alltid flyga.
+                </button>
+
+                <button onclick="answer(3,3)">
+                    C. Den behöver aldrig mer vatten.
+                </button>
+
+                <div id="feedback3" class="feedback"></div>
+
+            </div>
+
+
+            <div class="question">
+
+                <p>
+                    <strong>
+                        4. Vilket ämne från luften används i fotosyntesen?
+                    </strong>
+                </p>
+
+                <button onclick="answer(4,1)">
+                    A. Koldioxid.
+                </button>
+
+                <button onclick="answer(4,2)">
+                    B. Sand.
+                </button>
+
+                <button onclick="answer(4,3)">
+                    C. Salt.
+                </button>
+
+                <div id="feedback4" class="feedback"></div>
+
+            </div>
+
+
+            <div class="question">
+
+                <p>
+                    <strong>
+                        5. Vilka saker kan påverka en växt?
+                    </strong>
+                </p>
+
+                <button onclick="answer(5,1)">
+                    A. Ljus, vatten, temperatur och mark.
+                </button>
+
+                <button onclick="answer(5,2)">
+                    B. Bara färgen på krukan.
+                </button>
+
+                <button onclick="answer(5,3)">
+                    C. Ingenting påverkar växter.
+                </button>
+
+                <div id="feedback5" class="feedback"></div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>💡 Tänk vidare</h2>
+
+        <p>
+            Två likadana växter placeras i två olika miljöer.
+        </p>
+
+        <p>
+            Växt A får mycket ljus och lagom med vatten.
+        </p>
+
+        <p>
+            Växt B får lite ljus och lagom med vatten.
+        </p>
+
+        <div class="example">
+
+            <h3>Fråga</h3>
+
+            <p>
+                Vad tror du kan hända med de två växterna
+                efter några veckor?
+            </p>
+
+            <p>
+                Förklara varför.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <div class="navigation">
+
+        <a href="./vaxter.html">
+            ← Tillbaka till Växternas värld
+        </a>
+
+        <br><br>
+
+        <a href="./ak4.html">
+            🔬 Till Åk 4
+        </a>
+
+        <br><br>
+
+        <a href="./index.html">
+            🏠 Till startsidan
+        </a>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    NO-Upptäckaren • Växter och miljön • Årskurs 4
+
+</footer>
+
+
+<script>
+
+function answer(question, choice) {
+
+    const feedback =
+        document.getElementById("feedback" + question);
+
+    feedback.style.display = "block";
+
+    if (choice === 1) {
+
+        feedback.innerHTML =
+            "✅ Rätt! Bra jobbat.";
+
+    } else {
+
+        feedback.innerHTML =
+            "❌ Försök igen. Läs texten en gång till och fundera.";
+
+    }
+
+}
+
+
+function checkFactor() {
+
+    const factor =
+        document.getElementById("plantFactor").value;
+
+    const result =
+        document.getElementById("factorResult");
+
+    result.style.display = "block";
+
+    if (factor === "") {
+
+        result.innerHTML =
+            "✏️ Välj först en faktor.";
+
+        return;
+
+    }
+
+    result.innerHTML =
+        "🌱 Bra tänkt! Naturvetare undersöker ofta hur olika faktorer påverkar organismer.";
+
+}
+
+</script>
+
+</body>
+
+</html>
