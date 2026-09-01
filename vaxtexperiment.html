@@ -1,1 +1,755 @@
+<!DOCTYPE html>
+<html lang="sv">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Undersök en växt – NO-Upptäckaren</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .intro {
+            background: white;
+            border-radius: 22px;
+            padding: 35px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .intro-icon {
+            font-size: 65px;
+        }
+
+        .intro h2 {
+            font-size: 30px;
+            margin: 15px 0;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .card {
+            background: white;
+            border-radius: 22px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .step {
+            background: #eef7f2;
+            border-radius: 16px;
+            padding: 22px;
+        }
+
+        .step-number {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .material-list {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .material-list p {
+            margin: 8px 0;
+        }
+
+        .activity {
+            background: #fff7ed;
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .activity label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 6px;
+        }
+
+        .activity input,
+        .activity textarea,
+        .activity select {
+            width: 100%;
+            padding: 13px;
+            border: 2px solid #d1d5db;
+            border-radius: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .activity textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .activity button {
+            margin-top: 18px;
+            padding: 14px 22px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .result {
+            display: none;
+            margin-top: 20px;
+            padding: 18px;
+            background: #dcfce7;
+            border-radius: 12px;
+        }
+
+        .quiz {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .question {
+            margin-bottom: 30px;
+        }
+
+        .question:last-child {
+            margin-bottom: 0;
+        }
+
+        .quiz button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 14px;
+            background: white;
+            border: 2px solid #d1d5db;
+            border-radius: 12px;
+            text-align: left;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .quiz button:hover {
+            background: #eef7f2;
+        }
+
+        .feedback {
+            display: none;
+            margin-top: 12px;
+            padding: 15px;
+            border-radius: 12px;
+            background: #dcfce7;
+            font-weight: bold;
+        }
+
+        .navigation {
+            text-align: center;
+            margin: 35px 0;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        @media (max-width: 700px) {
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🧪 UNDERSÖK EN VÄXT</h1>
+
+    <p>
+        NO-Upptäckaren • Biologi • Årskurs 4
+    </p>
+
+</header>
+
+<main>
+
+
+    <section class="intro">
+
+        <div class="intro-icon">
+            🔬
+        </div>
+
+        <h2>
+            Bli växtforskare!
+        </h2>
+
+        <p>
+            I en naturvetenskaplig undersökning ställer du en
+            fråga, gör en plan, observerar och dokumenterar
+            vad du upptäcker.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🔎 Vad kan vi undersöka?</h2>
+
+        <p>
+            Det finns många saker hos växter som går att
+            observera och undersöka.
+        </p>
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="step-number">☀️</div>
+
+                <h3>Ljus</h3>
+
+                <p>
+                    Hur påverkas en växt av olika mängder ljus?
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">💧</div>
+
+                <h3>Vatten</h3>
+
+                <p>
+                    Vad händer om växter får olika mycket vatten?
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">🌱</div>
+
+                <h3>Tillväxt</h3>
+
+                <p>
+                    Hur mycket kan en växt växa under en vecka?
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">🌡️</div>
+
+                <h3>Temperatur</h3>
+
+                <p>
+                    Kan temperatur påverka hur en växt växer?
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🧰 Material</h2>
+
+        <p>
+            Ett enkelt växtexperiment kan göras med material
+            som finns i klassrummet.
+        </p>
+
+        <div class="material-list">
+
+            <p>🌱 Två likadana växter eller frön</p>
+
+            <p>🪴 Två krukor</p>
+
+            <p>💧 Vatten</p>
+
+            <p>📏 Linjal</p>
+
+            <p>☀️ En plats med ljus</p>
+
+            <p>📝 Papper eller digital dokumentation</p>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🧠 Planera undersökningen</h2>
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="step-number">1️⃣</div>
+
+                <h3>Ställ en fråga</h3>
+
+                <p>
+                    Vad vill du ta reda på?
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">2️⃣</div>
+
+                <h3>Gör en förutsägelse</h3>
+
+                <p>
+                    Vad tror du kommer att hända?
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">3️⃣</div>
+
+                <h3>Bestäm hur</h3>
+
+                <p>
+                    Vad ska du göra och vad behöver du mäta?
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">4️⃣</div>
+
+                <h3>Dokumentera</h3>
+
+                <p>
+                    Skriv och mät vad som händer.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>📝 Din undersökningsplan</h2>
+
+        <div class="activity">
+
+            <label for="question">
+                1. Min fråga
+            </label>
+
+            <input
+                id="question"
+                type="text"
+                placeholder="Jag vill ta reda på..."
+            >
+
+
+            <label for="prediction">
+                2. Min förutsägelse
+            </label>
+
+            <textarea
+                id="prediction"
+                placeholder="Jag tror att..."
+            ></textarea>
+
+
+            <label for="measure">
+                3. Vad ska jag mäta eller observera?
+            </label>
+
+            <textarea
+                id="measure"
+                placeholder="Jag ska mäta eller observera..."
+            ></textarea>
+
+
+            <button onclick="savePlan()">
+                💾 Spara min plan
+            </button>
+
+
+            <div id="planResult" class="result"></div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>📏 Dokumentera dina resultat</h2>
+
+        <p>
+            Mät växten vid samma tid varje dag eller vecka.
+            Skriv ner resultatet.
+        </p>
+
+        <div class="activity">
+
+            <label for="measurement">
+                Hur hög är växten?
+            </label>
+
+            <input
+                id="measurement"
+                type="number"
+                placeholder="Till exempel 12"
+            >
+
+            <label for="unit">
+                Enhet
+            </label>
+
+            <select id="unit">
+
+                <option value="cm">
+                    centimeter
+                </option>
+
+                <option value="mm">
+                    millimeter
+                </option>
+
+            </select>
+
+            <button onclick="saveMeasurement()">
+                📊 Registrera mätning
+            </button>
+
+            <div id="measurementResult" class="result"></div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🧠 Kunskapskollen</h2>
+
+        <div class="quiz">
+
+
+            <div class="question">
+
+                <p>
+                    <strong>
+                        1. Vad är viktigt när du gör en undersökning?
+                    </strong>
+                </p>
+
+                <button onclick="answer(1,1)">
+                    A. Att bestämma vad du ska undersöka.
+                </button>
+
+                <button onclick="answer(1,2)">
+                    B. Att aldrig skriva ner något.
+                </button>
+
+                <button onclick="answer(1,3)">
+                    C. Att ändra allt under undersökningen.
+                </button>
+
+                <div id="feedback1" class="feedback"></div>
+
+            </div>
+
+
+            <div class="question">
+
+                <p>
+                    <strong>
+                        2. Varför är det bra att mäta vid samma tid?
+                    </strong>
+                </p>
+
+                <button onclick="answer(2,1)">
+                    A. Då blir resultaten lättare att jämföra.
+                </button>
+
+                <button onclick="answer(2,2)">
+                    B. Då behöver man inte observera.
+                </button>
+
+                <button onclick="answer(2,3)">
+                    C. Då växer växten snabbare.
+                </button>
+
+                <div id="feedback2" class="feedback"></div>
+
+            </div>
+
+
+            <div class="question">
+
+                <p>
+                    <strong>
+                        3. Vad är en förutsägelse?
+                    </strong>
+                </p>
+
+                <button onclick="answer(3,1)">
+                    A. Vad du tror kommer att hända.
+                </button>
+
+                <button onclick="answer(3,2)">
+                    B. Ett resultat som redan är känt.
+                </button>
+
+                <button onclick="answer(3,3)">
+                    C. En lista över material.
+                </button>
+
+                <div id="feedback3" class="feedback"></div>
+
+            </div>
+
+
+            <div class="question">
+
+                <p>
+                    <strong>
+                        4. Varför ska resultaten dokumenteras?
+                    </strong>
+                </p>
+
+                <button onclick="answer(4,1)">
+                    A. För att kunna undersöka och jämföra dem.
+                </button>
+
+                <button onclick="answer(4,2)">
+                    B. För att göra växten större.
+                </button>
+
+                <button onclick="answer(4,3)">
+                    C. För att slippa göra undersökningen.
+                </button>
+
+                <div id="feedback4" class="feedback"></div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>💡 Utmaning</h2>
+
+        <p>
+            Tänk dig att två likadana växter får lika mycket
+            vatten men olika mycket ljus.
+        </p>
+
+        <p>
+            Hur skulle du kunna undersöka om ljuset påverkar
+            växternas tillväxt?
+        </p>
+
+        <div class="example">
+
+            <p>
+                Fundera på:
+            </p>
+
+            <p>
+                🔎 Vad ska vara lika?<br>
+                ☀️ Vad ska vara olika?<br>
+                📏 Vad ska du mäta?<br>
+                📊 Hur ska du dokumentera resultatet?
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <div class="navigation">
+
+        <a href="./vaxter.html">
+            ← Tillbaka till Växternas värld
+        </a>
+
+        <br><br>
+
+        <a href="./ak4.html">
+            🔬 Till Åk 4
+        </a>
+
+        <br><br>
+
+        <a href="./index.html">
+            🏠 Till startsidan
+        </a>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    NO-Upptäckaren • Undersök en växt • Årskurs 4
+
+</footer>
+
+
+<script>
+
+function answer(question, choice) {
+
+    const feedback =
+        document.getElementById("feedback" + question);
+
+    feedback.style.display = "block";
+
+    if (choice === 1) {
+
+        feedback.innerHTML =
+            "✅ Rätt! Bra jobbat.";
+
+    } else {
+
+        feedback.innerHTML =
+            "❌ Försök igen. Läs texten en gång till.";
+
+    }
+
+}
+
+
+function savePlan() {
+
+    const question =
+        document.getElementById("question").value.trim();
+
+    const prediction =
+        document.getElementById("prediction").value.trim();
+
+    const measure =
+        document.getElementById("measure").value.trim();
+
+    const result =
+        document.getElementById("planResult");
+
+    result.style.display = "block";
+
+    if (
+        question === "" ||
+        prediction === "" ||
+        measure === ""
+    ) {
+
+        result.innerHTML =
+            "✏️ Fyll i alla tre delarna innan du sparar planen.";
+
+        return;
+
+    }
+
+    result.innerHTML =
+        "✅ Bra! Din undersökningsplan är komplett. " +
+        "Nu kan du genomföra undersökningen och dokumentera resultaten.";
+
+}
+
+
+function saveMeasurement() {
+
+    const measurement =
+        document.getElementById("measurement").value;
+
+    const unit =
+        document.getElementById("unit").value;
+
+    const result =
+        document.getElementById("measurementResult");
+
+    result.style.display = "block";
+
+    if (measurement === "") {
+
+        result.innerHTML =
+            "✏️ Skriv först hur hög växten är.";
+
+        return;
+
+    }
+
+    result.innerHTML =
+        "📊 Mätningen är registrerad: " +
+        measurement + " " + unit + ".";
+
+}
+
+</script>
+
+</body>
+
+</html>
