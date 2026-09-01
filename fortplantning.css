@@ -1,9 +1,13 @@
+```css
 body {
     background: #f4f8f2;
+    color: #20352a;
+    font-family: Arial, sans-serif;
+    margin: 0;
 }
 
 .hero {
-    background: linear-gradient(135deg, #2f6b3c, #6fa66f);
+    background: linear-gradient(135deg, #2f6b3c, #78a96f);
     color: white;
     padding: 60px 20px;
     text-align: center;
@@ -11,19 +15,18 @@ body {
 
 .hero-content {
     max-width: 900px;
-    margin: 0 auto;
+    margin: auto;
 }
 
 .eyebrow {
     font-size: 14px;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: 2px;
-    margin-bottom: 12px;
 }
 
 .hero h1 {
     font-size: 48px;
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
 .hero-text {
@@ -39,28 +42,27 @@ body {
 
 .lesson-card {
     background: white;
-    border-radius: 20px;
+    border-radius: 22px;
     padding: 30px;
     margin-bottom: 25px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
 .lesson-number {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
+    width: 45px;
+    height: 45px;
     background: #2f6b3c;
     color: white;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    margin-bottom: 15px;
 }
 
 .lesson-card h2 {
-    color: #244d2d;
-    margin-bottom: 15px;
+    color: #2f6b3c;
+    margin-top: 18px;
 }
 
 .lesson-card p {
@@ -69,15 +71,11 @@ body {
 }
 
 .info-box {
-    background: #eaf5e8;
+    background: #e9f5e5;
     border-left: 5px solid #4f8f52;
     padding: 18px;
-    border-radius: 10px;
+    border-radius: 12px;
     margin-top: 20px;
-}
-
-.info-box p {
-    margin-bottom: 0;
 }
 
 .concept-grid {
@@ -88,21 +86,20 @@ body {
 }
 
 .concept-card {
-    background: #f6faf5;
-    border-radius: 15px;
+    background: #f5faf3;
     padding: 22px;
+    border-radius: 16px;
     text-align: center;
 }
 
 .concept-icon {
-    font-size: 42px;
     display: block;
-    margin-bottom: 10px;
+    font-size: 42px;
+    margin-bottom: 12px;
 }
 
 .concept-card h3 {
     color: #2f6b3c;
-    margin-bottom: 8px;
 }
 
 .concept-card p {
@@ -113,13 +110,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
     flex-wrap: wrap;
+    gap: 15px;
     margin-top: 30px;
 }
 
 .process-step {
-    background: #eef7eb;
+    background: #edf7e9;
     border-radius: 15px;
     padding: 18px;
     min-width: 110px;
@@ -134,8 +131,8 @@ body {
 
 .arrow {
     font-size: 28px;
-    color: #4f8f52;
     font-weight: bold;
+    color: #4f8f52;
 }
 
 .quiz-card {
@@ -145,7 +142,6 @@ body {
 .quiz-question {
     font-size: 22px !important;
     font-weight: bold;
-    color: #244d2d;
 }
 
 .quiz-options {
@@ -156,19 +152,17 @@ body {
 }
 
 .quiz-options button {
-    border: 2px solid #d2e4cf;
     background: white;
+    border: 2px solid #d2e4cf;
     border-radius: 12px;
     padding: 16px;
     font-size: 16px;
     text-align: left;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 .quiz-options button:hover {
     background: #eef7eb;
-    transform: translateY(-2px);
 }
 
 .quiz-options button.correct {
@@ -179,6 +173,10 @@ body {
 .quiz-options button.wrong {
     background: #fde0e0;
     border-color: #d9534f;
+}
+
+.quiz-options button:disabled {
+    cursor: default;
 }
 
 .quiz-result {
@@ -201,7 +199,7 @@ body {
 }
 
 .word-list div {
-    background: #f6faf5;
+    background: #f5faf3;
     padding: 16px;
     border-radius: 12px;
 }
@@ -212,35 +210,26 @@ body {
     margin-bottom: 5px;
 }
 
-.word-list span {
-    color: #444;
-}
-
 .navigation {
     display: flex;
     justify-content: space-between;
-    gap: 15px;
     margin: 35px 0 60px;
 }
 
 .nav-button {
-    text-decoration: none;
     padding: 14px 24px;
     border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #d2e4cf;
     background: white;
     color: #2f6b3c;
-    border: 2px solid #d2e4cf;
-    font-weight: bold;
 }
 
 .nav-button.primary {
     background: #2f6b3c;
     color: white;
     border-color: #2f6b3c;
-}
-
-.nav-button:hover {
-    transform: translateY(-2px);
 }
 
 @media (max-width: 700px) {
@@ -263,9 +252,11 @@ body {
 
     .navigation {
         flex-direction: column;
+        gap: 15px;
     }
 
     .nav-button {
         text-align: center;
     }
 }
+```
