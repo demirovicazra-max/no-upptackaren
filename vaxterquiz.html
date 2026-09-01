@@ -1,1 +1,670 @@
+<!DOCTYPE html>
+<html lang="sv">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kunskapskollen – Växter</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .intro {
+            background: white;
+            border-radius: 22px;
+            padding: 35px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .intro-icon {
+            font-size: 65px;
+        }
+
+        .intro h2 {
+            font-size: 30px;
+            margin: 15px 0;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .quiz-card {
+            background: white;
+            border-radius: 22px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .quiz-card h2 {
+            font-size: 24px;
+            margin-bottom: 18px;
+        }
+
+        .question {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 20px;
+        }
+
+        .question:last-child {
+            margin-bottom: 0;
+        }
+
+        .question p {
+            font-size: 18px;
+            line-height: 1.6;
+            font-weight: bold;
+        }
+
+        .answer-button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px;
+            background: white;
+            border: 2px solid #d1d5db;
+            border-radius: 12px;
+            text-align: left;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .answer-button:hover {
+            background: #eef7f2;
+            transform: translateX(3px);
+        }
+
+        .feedback {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .score-box {
+            background: #eef7f2;
+            border-radius: 18px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .score-box h2 {
+            margin-bottom: 10px;
+        }
+
+        .score {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .reset-button {
+            margin-top: 18px;
+            padding: 14px 25px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .navigation {
+            text-align: center;
+            margin: 35px 0;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        @media (max-width: 700px) {
+
+            .quiz-card {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🧠 KUNSKAPSKOLLEN</h1>
+
+    <p>
+        NO-Upptäckaren • Växter • Årskurs 4
+    </p>
+
+</header>
+
+
+<main>
+
+
+    <section class="intro">
+
+        <div class="intro-icon">
+            🌱
+        </div>
+
+        <h2>
+            Vad kan du om växter?
+        </h2>
+
+        <p>
+            Testa dina kunskaper om växternas delar,
+            fotosyntes, tillväxt, blommor, frön och miljö.
+        </p>
+
+    </section>
+
+
+    <section class="quiz-card">
+
+        <h2>🌿 Växtens delar</h2>
+
+
+        <div class="question">
+
+            <p>
+                1. Vilken del av växten tar vanligtvis upp
+                vatten och mineralämnen från marken?
+            </p>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(1, 1)">
+                A. Roten
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(1, 2)">
+                B. Bladet
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(1, 3)">
+                C. Blomman
+            </button>
+
+            <div id="feedback1" class="feedback"></div>
+
+        </div>
+
+
+        <div class="question">
+
+            <p>
+                2. Vilken del hjälper växten att fånga ljus?
+            </p>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(2, 1)">
+                A. Roten
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(2, 2)">
+                B. Bladet
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(2, 3)">
+                C. Fröet
+            </button>
+
+            <div id="feedback2" class="feedback"></div>
+
+        </div>
+
+    </section>
+
+
+    <section class="quiz-card">
+
+        <h2>☀️ Fotosyntes</h2>
+
+
+        <div class="question">
+
+            <p>
+                3. Vad behöver växten för att kunna utföra
+                fotosyntes?
+            </p>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(3, 1)">
+                A. Ljus, vatten och koldioxid
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(3, 2)">
+                B. Bara jord
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(3, 3)">
+                C. Bara vatten
+            </button>
+
+            <div id="feedback3" class="feedback"></div>
+
+        </div>
+
+
+        <div class="question">
+
+            <p>
+                4. Vad bildas bland annat vid fotosyntesen?
+            </p>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(4, 1)">
+                A. Syre och druvsocker
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(4, 2)">
+                B. Jord och sand
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(4, 3)">
+                C. Bara vatten
+            </button>
+
+            <div id="feedback4" class="feedback"></div>
+
+        </div>
+
+    </section>
+
+
+    <section class="quiz-card">
+
+        <h2>🌱 Växternas tillväxt</h2>
+
+
+        <div class="question">
+
+            <p>
+                5. Vad kan påverka hur en växt växer?
+            </p>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(5, 1)">
+                A. Ljus, vatten och temperatur
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(5, 2)">
+                B. Bara färgen på krukan
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(5, 3)">
+                C. Bara storleken på stenen bredvid växten
+            </button>
+
+            <div id="feedback5" class="feedback"></div>
+
+        </div>
+
+
+        <div class="question">
+
+            <p>
+                6. Varför kan det vara bra att mäta växten
+                flera gånger?
+            </p>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(6, 1)">
+                A. För att kunna följa hur den förändras
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(6, 2)">
+                B. För att växten ska växa snabbare
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(6, 3)">
+                C. För att ändra resultatet
+            </button>
+
+            <div id="feedback6" class="feedback"></div>
+
+        </div>
+
+    </section>
+
+
+    <section class="quiz-card">
+
+        <h2>🌸 Blommor och frön</h2>
+
+
+        <div class="question">
+
+            <p>
+                7. Vad är pollen?
+            </p>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(7, 1)">
+                A. Små korn som är viktiga vid växters fortplantning
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(7, 2)">
+                B. Växtens rötter
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(7, 3)">
+                C. Vatten i marken
+            </button>
+
+            <div id="feedback7" class="feedback"></div>
+
+        </div>
+
+
+        <div class="question">
+
+            <p>
+                8. Vad kan utvecklas till en ny växt?
+            </p>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(8, 1)">
+                A. Ett frö
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(8, 2)">
+                B. En sten
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(8, 3)">
+                C. Sand
+            </button>
+
+            <div id="feedback8" class="feedback"></div>
+
+        </div>
+
+    </section>
+
+
+    <section class="quiz-card">
+
+        <h2>🌍 Växter och miljön</h2>
+
+
+        <div class="question">
+
+            <p>
+                9. Varför kan två växter växa olika snabbt?
+            </p>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(9, 1)">
+                A. De kan få olika mycket ljus, vatten eller näring
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(9, 2)">
+                B. Växter påverkas aldrig av sin miljö
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(9, 3)">
+                C. Alla växter växer alltid lika snabbt
+            </button>
+
+            <div id="feedback9" class="feedback"></div>
+
+        </div>
+
+
+        <div class="question">
+
+            <p>
+                10. Vad är viktigt när du gör ett växtexperiment?
+            </p>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(10, 1)">
+                A. Att planera, observera och dokumentera
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(10, 2)">
+                B. Att gissa resultatet och inte kontrollera
+            </button>
+
+            <button class="answer-button"
+                    onclick="checkAnswer(10, 3)">
+                C. Att aldrig skriva ner något
+            </button>
+
+            <div id="feedback10" class="feedback"></div>
+
+        </div>
+
+    </section>
+
+
+    <section class="quiz-card">
+
+        <h2>🏆 Ditt resultat</h2>
+
+        <div class="score-box">
+
+            <h2>
+                Du har fått
+            </h2>
+
+            <div id="score" class="score">
+                0 / 10
+            </div>
+
+            <p id="scoreText">
+                Svara på frågorna för att se ditt resultat.
+            </p>
+
+            <button class="reset-button"
+                    onclick="resetQuiz()">
+                🔄 Börja om
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <div class="navigation">
+
+        <a href="./vaxter.html">
+            ← Tillbaka till Växternas värld
+        </a>
+
+        <br><br>
+
+        <a href="./ak4.html">
+            🔬 Till Åk 4
+        </a>
+
+        <br><br>
+
+        <a href="./index.html">
+            🏠 Till startsidan
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    NO-Upptäckaren • Växter • Årskurs 4
+
+</footer>
+
+
+<script>
+
+const correctAnswers = {
+    1: 1,
+    2: 2,
+    3: 1,
+    4: 1,
+    5: 1,
+    6: 1,
+    7: 1,
+    8: 1,
+    9: 1,
+    10: 1
+};
+
+let score = 0;
+
+let answered = {};
+
+
+function checkAnswer(question, choice) {
+
+    const feedback =
+        document.getElementById("feedback" + question);
+
+    if (answered[question]) {
+        return;
+    }
+
+    answered[question] = true;
+
+    feedback.style.display = "block";
+
+    if (choice === correctAnswers[question]) {
+
+        score++;
+
+        feedback.innerHTML =
+            "✅ Rätt svar! Bra jobbat.";
+
+    } else {
+
+        feedback.innerHTML =
+            "❌ Inte riktigt. Läs frågan igen och fundera på svaret.";
+
+    }
+
+    updateScore();
+
+}
+
+
+function updateScore() {
+
+    const answeredCount =
+        Object.keys(answered).length;
+
+    document.getElementById("score").innerHTML =
+        score + " / 10";
+
+    if (answeredCount === 0) {
+
+        document.getElementById("scoreText").innerHTML =
+            "Svara på frågorna för att se ditt resultat.";
+
+        return;
+
+    }
+
+    if (answeredCount < 10) {
+
+        document.getElementById("scoreText").innerHTML =
+            "Du har svarat på " +
+            answeredCount +
+            " av 10 frågor.";
+
+        return;
+
+    }
+
+    if (score === 10) {
+
+        document.getElementById("scoreText").innerHTML =
+            "🌟 Fantastiskt! Du kan mycket om växter!";
+
+    } else if (score >= 8) {
+
+        document.getElementById("scoreText").innerHTML =
+            "👏 Mycket bra! Du har bra koll på växter.";
+
+    } else if (score >= 5) {
+
+        document.getElementById("scoreText").innerHTML =
+            "👍 Bra jobbat! Läs gärna igenom några delar.";
+
+    } else {
+
+        document.getElementById("scoreText").innerHTML =
+            "🌱 Bra försök! Gå tillbaka och läs igenom området igen.";
+
+    }
+
+}
+
+
+function resetQuiz() {
+
+    score = 0;
+
+    answered = {};
+
+    for (let i = 1; i <= 10; i++) {
+
+        const feedback =
+            document.getElementById("feedback" + i);
+
+        feedback.style.display = "none";
+
+        feedback.innerHTML = "";
+
+    }
+
+    updateScore();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+</script>
+
+
+</body>
+
+</html>
