@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fortplantning | NO-Upptäckaren</title>
-
     <link rel="stylesheet" href="fortplantning.css">
 </head>
 
@@ -14,12 +13,9 @@
 <header class="hero">
     <div class="hero-content">
         <p class="eyebrow">NO-UPPTÄCKAREN • BIOLOGI</p>
-
         <h1>🌱 Fortplantning</h1>
-
         <p class="hero-text">
-            Alla levande organismer behöver kunna få nya individer.
-            Det kallas fortplantning.
+            Lär dig hur djur och växter får nya individer.
         </p>
     </div>
 </header>
@@ -27,9 +23,7 @@
 <main class="container">
 
     <section class="lesson-card">
-
         <div class="lesson-number">1</div>
-
         <h2>Vad betyder fortplantning?</h2>
 
         <p>
@@ -39,139 +33,54 @@
 
         <div class="info-box">
             <strong>Kom ihåg!</strong>
-
             <p>
-                En katt får kattungar.
-                En hund får valpar.
-                En fågel får fågelungar.
+                Katter får kattungar. Hundar får valpar.
                 Växter kan bilda nya växter.
             </p>
         </div>
-
     </section>
 
 
     <section class="lesson-card">
-
         <div class="lesson-number">2</div>
-
         <h2>Fortplantning hos djur</h2>
 
         <p>
-            Många djur fortplantar sig genom att en hona och en hane
-            får avkomma tillsammans.
+            Hos många djur behövs en hona och en hane.
+            Honan kan bilda ägg och hanen kan bilda spermier.
         </p>
 
         <div class="concept-grid">
 
             <div class="concept-card">
-
-                <span class="concept-icon">♀️</span>
-
-                <h3>Hona</h3>
-
-                <p>
-                    Honan kan bilda ägg.
-                </p>
-
-            </div>
-
-
-            <div class="concept-card">
-
-                <span class="concept-icon">♂️</span>
-
-                <h3>Hane</h3>
-
-                <p>
-                    Hanen kan bilda spermier.
-                </p>
-
-            </div>
-
-
-            <div class="concept-card">
-
-                <span class="concept-icon">🐣</span>
-
-                <h3>Avkomma</h3>
-
-                <p>
-                    Den nya individen som föds eller kläcks.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <section class="lesson-card">
-
-        <div class="lesson-number">3</div>
-
-        <h2>Ägg och spermier</h2>
-
-        <p>
-            Hos många djur finns könsceller. Honans könscell är ett
-            ägg och hanens könscell är en spermie.
-        </p>
-
-        <div class="concept-grid">
-
-            <div class="concept-card">
-
                 <span class="concept-icon">🥚</span>
-
                 <h3>Ägg</h3>
-
-                <p>
-                    Honans könscell.
-                </p>
-
+                <p>Honans könscell.</p>
             </div>
 
-
             <div class="concept-card">
-
                 <span class="concept-icon">🔬</span>
-
                 <h3>Spermie</h3>
-
-                <p>
-                    Hanens könscell.
-                </p>
-
+                <p>Hanens könscell.</p>
             </div>
 
-
             <div class="concept-card">
-
-                <span class="concept-icon">🧬</span>
-
-                <h3>Befruktning</h3>
-
-                <p>
-                    När en spermie och ett ägg förenas.
-                </p>
-
+                <span class="concept-icon">🐣</span>
+                <h3>Avkomma</h3>
+                <p>En ny individ.</p>
             </div>
 
         </div>
-
     </section>
 
 
     <section class="lesson-card">
-
-        <div class="lesson-number">4</div>
-
+        <div class="lesson-number">3</div>
         <h2>🌱 Fortplantning hos växter</h2>
 
         <p>
-            Många blomväxter fortplantar sig genom blommor och frön.
-            Pollen kan hjälpa till vid befruktningen.
+            Många blomväxter använder blommor, pollen och frön
+            när de fortplantar sig.
         </p>
 
         <div class="process-box">
@@ -202,21 +111,12 @@
                 <strong>Frö</strong>
             </div>
 
-            <div class="arrow">→</div>
-
-            <div class="process-step">
-                <span>🌿</span>
-                <strong>Ny växt</strong>
-            </div>
-
         </div>
-
     </section>
 
 
-    <section class="lesson-card">
-
-        <div class="lesson-number">5</div>
+    <section class="lesson-card quiz-card">
+        <div class="lesson-number">4</div>
 
         <h2>🧠 Testa dig själv</h2>
 
@@ -226,27 +126,25 @@
 
         <div class="quiz-options">
 
-            <button onclick="checkAnswer(this, false)">
+            <button data-correct="false">
                 A. När en organism växer
             </button>
 
-            <button onclick="checkAnswer(this, true)">
+            <button data-correct="true">
                 B. När en organism får nya individer
             </button>
 
-            <button onclick="checkAnswer(this, false)">
+            <button data-correct="false">
                 C. När en organism behöver äta
             </button>
 
         </div>
 
         <p id="quiz-result" class="quiz-result"></p>
-
     </section>
 
 
     <section class="lesson-card">
-
         <h2>⭐ Viktiga begrepp</h2>
 
         <div class="word-list">
@@ -258,7 +156,7 @@
 
             <div>
                 <strong>Avkomma</strong>
-                <span>En ny individ som kommer från föräldrar.</span>
+                <span>En ny individ.</span>
             </div>
 
             <div>
@@ -282,7 +180,6 @@
             </div>
 
         </div>
-
     </section>
 
 
@@ -300,44 +197,7 @@
 
 </main>
 
-
-<script>
-
-function checkAnswer(button, correct) {
-
-    const result = document.getElementById("quiz-result");
-
-    const buttons =
-        document.querySelectorAll(".quiz-options button");
-
-    buttons.forEach(function(btn) {
-        btn.disabled = true;
-    });
-
-
-    if (correct) {
-
-        button.classList.add("correct");
-
-        result.textContent =
-            "🎉 Rätt! Fortplantning betyder att levande organismer får nya individer.";
-
-        result.classList.add("success");
-
-    } else {
-
-        button.classList.add("wrong");
-
-        result.textContent =
-            "❌ Inte riktigt. Ladda om sidan och försök igen.";
-
-        result.classList.add("error");
-
-    }
-
-}
-
-</script>
+<script src="fortplantning.js"></script>
 
 </body>
 </html>
