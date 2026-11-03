@@ -1,82 +1,127 @@
 <!DOCTYPE html>
+
 <html lang="sv">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NO-Upptäckaren</title>
+```
+<title>NO-Upptäckaren</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
-    <style>
+<style>
 
+    .welcome {
+        background: white;
+        border-radius: 20px;
+        padding: 35px;
+        margin-bottom: 30px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .welcome h2 {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    .welcome p {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    .subjects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+    }
+
+    .subject {
+        display: block;
+        background: white;
+        border-radius: 20px;
+        padding: 30px 20px;
+        text-align: center;
+        text-decoration: none;
+        color: #18332a;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .subject:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.14);
+    }
+
+    .subject .icon {
+        font-size: 55px;
+        margin-bottom: 15px;
+    }
+
+    .subject h3 {
+        font-size: 23px;
+        margin-bottom: 10px;
+    }
+
+    .subject p {
+        color: #52665d;
+        line-height: 1.5;
+    }
+
+    .grade {
+        border-top: 7px solid #16a34a;
+    }
+
+    .coming {
+        border-top: 7px solid #94a3b8;
+    }
+
+    .biology {
+        border-top: 7px solid #16a34a;
+    }
+
+    .concepts {
+        border-top: 7px solid #0d9488;
+    }
+
+    .test {
+        border-top: 7px solid #e59b25;
+    }
+
+    .diary {
+        border-top: 7px solid #6479c8;
+    }
+
+    .section-heading {
+        text-align: center;
+        font-size: 27px;
+        margin: 40px 0 20px;
+        color: #18332a;
+    }
+
+    .subject:focus {
+        outline: 4px solid #2563eb;
+        outline-offset: 4px;
+    }
+
+    @media (max-width: 600px) {
         .welcome {
-            background: white;
-            border-radius: 20px;
-            padding: 35px;
-            margin-bottom: 30px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            padding: 25px 18px;
         }
 
         .welcome h2 {
-            font-size: 30px;
-            margin-bottom: 15px;
+            font-size: 25px;
         }
 
-        .welcome p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
-        .subjects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-        }
-
-        .subject {
-            display: block;
-            background: white;
-            border-radius: 20px;
-            padding: 30px 20px;
-            text-align: center;
-            text-decoration: none;
-            color: #18332a;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .subject:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.14);
-        }
-
-        .subject .icon {
-            font-size: 55px;
-            margin-bottom: 15px;
-        }
-
-        .subject h3 {
+        .section-heading {
             font-size: 23px;
-            margin-bottom: 10px;
         }
+    }
 
-        .subject p {
-            color: #52665d;
-            line-height: 1.5;
-        }
-
-        .grade {
-            border-top: 7px solid #16a34a;
-        }
-
-        .coming {
-            border-top: 7px solid #94a3b8;
-        }
-
-    </style>
+</style>
+```
 
 </head>
 
@@ -84,90 +129,170 @@
 
 <header>
 
-    <h1>🔬 NO-UPPTÄCKAREN</h1>
+```
+<h1>🔬 NO-UPPTÄCKAREN</h1>
 
-    <p>
-        Din interaktiva NO-värld
-    </p>
+<p>
+    Din interaktiva NO-värld
+</p>
+```
 
 </header>
 
-
 <main>
 
+```
+<section class="welcome">
 
-    <section class="welcome">
+    <h2>👋 Välkommen, forskare!</h2>
 
-        <h2>👋 Välkommen, forskare!</h2>
+    <p>
+        Här får du utforska biologi, kemi, fysik och teknik
+        genom texter, undersökningar, begrepp, frågor och quiz.
+    </p>
+
+</section>
+
+
+<h2 class="section-heading">
+    Välj årskurs
+</h2>
+
+
+<section class="subjects">
+
+
+    <a href="ak4.html" class="subject grade">
+
+        <div class="icon">
+            🔬
+        </div>
+
+        <h3>Årskurs 4</h3>
 
         <p>
-            Här får du utforska biologi, kemi, fysik och teknik
-            genom texter, undersökningar, begrepp, frågor och quiz.
+            Utforska NO för årskurs 4.
         </p>
 
-    </section>
+    </a>
 
 
-    <section class="subjects">
+    <div class="subject coming">
 
-
-        <a href="ak4.html" class="subject grade">
-
-            <div class="icon">
-                🔬
-            </div>
-
-            <h3>Årskurs 4</h3>
-
-            <p>
-                Utforska NO för årskurs 4.
-            </p>
-
-        </a>
-
-
-        <div class="subject coming">
-
-            <div class="icon">
-                🧪
-            </div>
-
-            <h3>Årskurs 5</h3>
-
-            <p>
-                Kommer snart.
-            </p>
-
+        <div class="icon">
+            🧪
         </div>
 
+        <h3>Årskurs 5</h3>
 
-        <div class="subject coming">
+        <p>
+            Kommer snart.
+        </p>
 
-            <div class="icon">
-                ⚡
-            </div>
+    </div>
 
-            <h3>Årskurs 6</h3>
 
-            <p>
-                Kommer snart.
-            </p>
+    <div class="subject coming">
 
+        <div class="icon">
+            ⚡
         </div>
 
+        <h3>Årskurs 6</h3>
 
-    </section>
+        <p>
+            Kommer snart.
+        </p>
 
+    </div>
+
+
+</section>
+
+
+<h2 class="section-heading">
+    Biologi – utforska och lär dig
+</h2>
+
+
+<section class="subjects">
+
+
+    <a href="biologi.html" class="subject biology">
+
+        <div class="icon">
+            🌱
+        </div>
+
+        <h3>Biologi</h3>
+
+        <p>
+            Utforska växter, djur, kroppen, naturen och livet.
+        </p>
+
+    </a>
+
+
+    <a href="biologibegrepp.html" class="subject concepts">
+
+        <div class="icon">
+            📚
+        </div>
+
+        <h3>Biologiska begrepp</h3>
+
+        <p>
+            Lär dig viktiga ord och begrepp inom biologi.
+            Träna med sökfunktion och quiz.
+        </p>
+
+    </a>
+
+
+    <a href="biologitest.html" class="subject test">
+
+        <div class="icon">
+            🧠
+        </div>
+
+        <h3>Biologitest</h3>
+
+        <p>
+            Testa dina kunskaper och få återkoppling
+            direkt på dina svar.
+        </p>
+
+    </a>
+
+
+    <a href="forskardagbok.html" class="subject diary">
+
+        <div class="icon">
+            🔎
+        </div>
+
+        <h3>Forskardagbok</h3>
+
+        <p>
+            Skriv hypoteser, dokumentera observationer
+            och följ dina undersökningar.
+        </p>
+
+    </a>
+
+
+</section>
+```
 
 </main>
 
-
 <footer>
 
-    NO-Upptäckaren
+```
+NO-Upptäckaren
+```
 
 </footer>
-
 
 </body>
 
