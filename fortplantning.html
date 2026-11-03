@@ -1,204 +1,830 @@
-```html
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fortplantning | NO-Upptäckaren</title>
-    <link rel="stylesheet" href="fortplantning.css">
+    <title>Växternas fortplantning | NO-Upptäckaren</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f7f1;
+            color: #26372c;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #245b3b;
+            color: white;
+            text-align: center;
+            padding: 30px 18px;
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            margin: 0 0 8px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        main {
+            max-width: 950px;
+            margin: 25px auto;
+            padding: 0 16px 40px;
+        }
+
+        section {
+            background: white;
+            padding: 24px;
+            border-radius: 15px;
+            margin-bottom: 22px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        h2 {
+            color: #245b3b;
+            font-size: 1.65rem;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #245b3b;
+        }
+
+        p {
+            font-size: 1.08rem;
+        }
+
+        .intro {
+            font-size: 1.2rem;
+        }
+
+        .goal {
+            background: #e6f2e7;
+            border-left: 6px solid #3d8653;
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        .concept {
+            background: #f4f8f2;
+            border: 2px solid #dce9dc;
+            border-radius: 12px;
+            padding: 18px;
+            margin: 15px 0;
+        }
+
+        .concept strong {
+            color: #245b3b;
+        }
+
+        .word {
+            display: inline-block;
+            background: #e6f2e7;
+            color: #245b3b;
+            font-weight: bold;
+            padding: 3px 9px;
+            border-radius: 6px;
+        }
+
+        .important {
+            background: #fff5d9;
+            border-left: 5px solid #d49a24;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 16px 0;
+        }
+
+        .step {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            border: 2px solid #dce9dc;
+            border-radius: 12px;
+            padding: 17px;
+            margin: 13px 0;
+        }
+
+        .step-number {
+            flex: 0 0 42px;
+            height: 42px;
+            background: #245b3b;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .step h3 {
+            margin: 0 0 5px;
+        }
+
+        .step p {
+            margin: 0;
+        }
+
+        .process {
+            background: #f4f8f2;
+            border-radius: 12px;
+            padding: 18px;
+            text-align: center;
+            margin: 18px 0;
+        }
+
+        .process-item {
+            background: white;
+            border: 2px solid #cbdcc9;
+            border-radius: 10px;
+            padding: 13px;
+            margin: 8px auto;
+            max-width: 500px;
+            font-weight: bold;
+        }
+
+        .arrow {
+            font-size: 1.7rem;
+            color: #245b3b;
+            font-weight: bold;
+        }
+
+        .question {
+            border: 2px solid #dce9dc;
+            border-radius: 12px;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .question p {
+            font-weight: bold;
+        }
+
+        .answer {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: #f4f7f2;
+            border: 2px solid #cbd9ca;
+            border-radius: 9px;
+            padding: 13px 15px;
+            margin: 9px 0;
+            font-size: 1rem;
+            cursor: pointer;
+            color: #26372c;
+        }
+
+        .answer:hover,
+        .answer:focus {
+            background: #e3f0e3;
+            border-color: #245b3b;
+        }
+
+        .answer.correct {
+            background: #d9f2dc;
+            border-color: #27813b;
+        }
+
+        .answer.wrong {
+            background: #fde4e1;
+            border-color: #bd4438;
+        }
+
+        .answer:disabled {
+            cursor: default;
+            opacity: 1;
+        }
+
+        .feedback {
+            min-height: 28px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #245b3b;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            padding: 13px 19px;
+            margin: 7px 5px 7px 0;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #17432a;
+        }
+
+        .result {
+            display: none;
+            background: #e6f2e7;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 18px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .reflection {
+            background: #f2f6fb;
+            border-left: 5px solid #527ca8;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px;
+            border: 2px solid #cbd9ca;
+            border-radius: 9px;
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        .navigation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #526357;
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 18px;
+            }
+
+            .step {
+                gap: 10px;
+                padding: 13px;
+            }
+
+            .navigation .button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header class="hero">
-    <div class="hero-content">
-        <p class="eyebrow">NO-UPPTÄCKAREN • BIOLOGI</p>
-        <h1>🌱 Fortplantning</h1>
-        <p class="hero-text">
-            Lär dig hur djur och växter får nya individer.
-        </p>
-    </div>
-</header>
+    <header>
+        <h1>Växternas fortplantning</h1>
+        <p>Hur kan en blomma bilda nya frön?</p>
+    </header>
 
-<main class="container">
+    <main>
 
-    <section class="lesson-card">
-        <div class="lesson-number">1</div>
-        <h2>Vad betyder fortplantning?</h2>
+        <section>
+            <h2>Det här ska du lära dig</h2>
 
-        <p>
-            Fortplantning betyder att levande organismer får nya
-            individer. De nya individerna kallas avkomma.
-        </p>
+            <div class="goal">
+                När du är klar ska du kunna:
+                <ul>
+                    <li>förklara vad pollinering är</li>
+                    <li>beskriva hur pollen kan flyttas</li>
+                    <li>förklara vad befruktning betyder</li>
+                    <li>beskriva hur frön och frukter bildas</li>
+                </ul>
+            </div>
 
-        <div class="info-box">
-            <strong>Kom ihåg!</strong>
-            <p>
-                Katter får kattungar. Hundar får valpar.
-                Växter kan bilda nya växter.
+            <p class="intro">
+                Växter behöver kunna bilda nya växter.
+                Många växter gör det med hjälp av blommor och frön.
             </p>
-        </div>
-    </section>
+        </section>
 
+        <section>
+            <h2>1. Blommans delar</h2>
 
-    <section class="lesson-card">
-        <div class="lesson-number">2</div>
-        <h2>Fortplantning hos djur</h2>
+            <p>
+                En blomma har flera delar.
+                Några av delarna behövs för fortplantningen.
+            </p>
 
-        <p>
-            Hos många djur behövs en hona och en hane.
-            Honan kan bilda ägg och hanen kan bilda spermier.
-        </p>
-
-        <div class="concept-grid">
-
-            <div class="concept-card">
-                <span class="concept-icon">🥚</span>
-                <h3>Ägg</h3>
-                <p>Honans könscell.</p>
+            <div class="concept">
+                <h3>Ståndare</h3>
+                <p>
+                    Ståndarna är blommans hanliga delar.
+                    De bildar pollenkorn.
+                </p>
             </div>
 
-            <div class="concept-card">
-                <span class="concept-icon">🔬</span>
-                <h3>Spermie</h3>
-                <p>Hanens könscell.</p>
+            <div class="concept">
+                <h3>Pistill</h3>
+                <p>
+                    Pistillen är blommans honliga del.
+                    Den innehåller bland annat fruktämnet.
+                </p>
             </div>
 
-            <div class="concept-card">
-                <span class="concept-icon">🐣</span>
-                <h3>Avkomma</h3>
-                <p>En ny individ.</p>
+            <div class="concept">
+                <h3>Märke</h3>
+                <p>
+                    Märket sitter längst upp på pistillen.
+                    Pollen kan fastna där.
+                </p>
             </div>
 
-        </div>
-    </section>
-
-
-    <section class="lesson-card">
-        <div class="lesson-number">3</div>
-        <h2>🌱 Fortplantning hos växter</h2>
-
-        <p>
-            Många blomväxter använder blommor, pollen och frön
-            när de fortplantar sig.
-        </p>
-
-        <div class="process-box">
-
-            <div class="process-step">
-                <span>🌼</span>
-                <strong>Blomma</strong>
+            <div class="concept">
+                <h3>Fruktämne</h3>
+                <p>
+                    Fruktämnet finns längst ner i pistillen.
+                    Där finns fröämnen.
+                </p>
             </div>
 
-            <div class="arrow">→</div>
-
-            <div class="process-step">
-                <span>🌾</span>
-                <strong>Pollen</strong>
+            <div class="concept">
+                <h3>Fröämne</h3>
+                <p>
+                    Fröämnet innehåller en äggcell.
+                    Efter befruktning kan det utvecklas till ett frö.
+                </p>
             </div>
 
-            <div class="arrow">→</div>
+            <div class="important">
+                <strong>Viktigt:</strong>
+                Pollen bildas i ståndarna.
+                Fröämnen finns i pistillens fruktämne.
+            </div>
+        </section>
 
-            <div class="process-step">
-                <span>🥚</span>
-                <strong>Befruktning</strong>
+        <section>
+            <h2>2. Vad är pollinering?</h2>
+
+            <p>
+                <span class="word">Pollinering</span>
+                betyder att pollen flyttas till en blommas märke.
+            </p>
+
+            <p>
+                Pollen kan flyttas på olika sätt.
+            </p>
+
+            <div class="concept">
+                <h3>Pollinering med insekter</h3>
+                <p>
+                    Bin och andra insekter besöker blommor.
+                    Pollen kan fastna på deras kroppar.
+                    När de besöker nästa blomma kan pollen flyttas dit.
+                </p>
             </div>
 
-            <div class="arrow">→</div>
-
-            <div class="process-step">
-                <span>🌱</span>
-                <strong>Frö</strong>
+            <div class="concept">
+                <h3>Pollinering med vind</h3>
+                <p>
+                    Vinden kan föra pollen mellan blommor.
+                    Många gräs och träd använder vinden.
+                </p>
             </div>
 
-        </div>
-    </section>
+            <div class="important">
+                <strong>Kom ihåg:</strong>
+                Pollinering är inte samma sak som befruktning.
+                Pollinering handlar om att pollen flyttas.
+            </div>
+        </section>
 
+        <section>
+            <h2>3. Vad är befruktning?</h2>
 
-    <section class="lesson-card quiz-card">
-        <div class="lesson-number">4</div>
+            <p>
+                Efter pollineringen kan befruktning ske.
+            </p>
 
-        <h2>🧠 Testa dig själv</h2>
+            <p>
+                Ett pollenkorn kan börja bilda en pollenslang.
+                Den växer genom pistillen mot ett fröämne.
+            </p>
 
-        <p class="quiz-question">
-            Vad betyder fortplantning?
-        </p>
+            <p>
+                En spermiecell från pollenet kan då nå äggcellen.
+                När de förenas sker befruktning.
+            </p>
 
-        <div class="quiz-options">
+            <div class="important">
+                <strong>Kom ihåg:</strong>
+                Vid befruktning förenas en spermiecell och en äggcell.
+            </div>
+        </section>
 
-            <button data-correct="false">
-                A. När en organism växer
+        <section>
+            <h2>4. Frön och frukter bildas</h2>
+
+            <p>
+                Efter befruktningen kan nya delar utvecklas.
+            </p>
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div>
+                    <h3>Fröämnet utvecklas</h3>
+                    <p>
+                        Det befruktade fröämnet utvecklas till ett frö.
+                    </p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>
+                    <h3>Fruktämnet utvecklas</h3>
+                    <p>
+                        Fruktämnet utvecklas ofta till en frukt.
+                        Frukten kan skydda fröna.
+                    </p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>
+                    <h3>Fröna kan spridas</h3>
+                    <p>
+                        Frön kan spridas med vind, vatten eller djur.
+                    </p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div>
+                    <h3>Ett frö kan gro</h3>
+                    <p>
+                        Om fröet får rätt förutsättningar
+                        kan en ny planta börja växa.
+                    </p>
+                </div>
+            </div>
+
+            <div class="process">
+                <div class="process-item">Pollinering</div>
+                <div class="arrow">↓</div>
+                <div class="process-item">Befruktning</div>
+                <div class="arrow">↓</div>
+                <div class="process-item">Frö och ofta frukt bildas</div>
+                <div class="arrow">↓</div>
+                <div class="process-item">Fröet sprids</div>
+                <div class="arrow">↓</div>
+                <div class="process-item">Fröet kan gro</div>
+                <div class="arrow">↓</div>
+                <div class="process-item">En ny växt börjar växa</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Varför är insekter viktiga?</h2>
+
+            <p>
+                Många blomväxter behöver hjälp med pollineringen.
+                Bin, fjärilar och andra insekter kan hjälpa till.
+            </p>
+
+            <p>
+                När insekter besöker blommor kan pollen följa med.
+                Det gör att pollinering kan ske.
+            </p>
+
+            <p>
+                Utan fungerande pollinering skulle många växter
+                få svårare att bilda frön.
+            </p>
+
+            <div class="important">
+                <strong>Fundera:</strong>
+                Vad skulle hända om det fanns mycket färre pollinerande insekter?
+            </div>
+        </section>
+
+        <section>
+            <h2>6. Testa dina kunskaper</h2>
+
+            <p>
+                Välj ett svar på varje fråga.
+                Du får direkt återkoppling.
+            </p>
+
+            <div id="quiz"></div>
+
+            <button class="button" onclick="showResult()">
+                Se mitt resultat
             </button>
 
-            <button data-correct="true">
-                B. När en organism får nya individer
+            <button class="button" onclick="restartQuiz()">
+                Börja om
             </button>
 
-            <button data-correct="false">
-                C. När en organism behöver äta
-            </button>
+            <div class="result" id="result" aria-live="polite"></div>
+        </section>
 
-        </div>
+        <section>
+            <h2>7. Förklara med egna ord</h2>
 
-        <p id="quiz-result" class="quiz-result"></p>
-    </section>
+            <div class="reflection">
+                <p><strong>1. Vad betyder pollinering?</strong></p>
+                <textarea id="answer1" placeholder="Skriv ditt svar här..."></textarea>
 
+                <p><strong>2. Vad händer vid befruktning?</strong></p>
+                <textarea id="answer2" placeholder="Skriv ditt svar här..."></textarea>
 
-    <section class="lesson-card">
-        <h2>⭐ Viktiga begrepp</h2>
+                <p><strong>3. Hur kan ett frö bli en ny växt?</strong></p>
+                <textarea id="answer3" placeholder="Skriv ditt svar här..."></textarea>
 
-        <div class="word-list">
+                <button class="button" onclick="saveAnswers()">
+                    Spara mina svar
+                </button>
 
-            <div>
-                <strong>Fortplantning</strong>
-                <span>Att få nya individer.</span>
+                <button class="button" onclick="window.print()">
+                    Skriv ut mina svar
+                </button>
+
+                <p id="saveMessage" aria-live="polite"></p>
             </div>
+        </section>
 
-            <div>
-                <strong>Avkomma</strong>
-                <span>En ny individ.</span>
+        <section>
+            <h2>Fortsätt utforska</h2>
+
+            <div class="navigation">
+                <a class="button" href="vaxtersdelar.html">Växtens delar</a>
+                <a class="button" href="fronspridning.html">Fröspridning</a>
+                <a class="button" href="fotosyntes.html">Fotosyntes</a>
+                <a class="button" href="vaxtexperiment.html">Växtexperiment</a>
+                <a class="button" href="biologibegrepp.html">Biologiska begrepp</a>
+                <a class="button" href="biologi.html">Till biologi</a>
+                <a class="button" href="index.html">Till startsidan</a>
             </div>
+        </section>
 
-            <div>
-                <strong>Ägg</strong>
-                <span>Honans könscell.</span>
-            </div>
+    </main>
 
-            <div>
-                <strong>Spermie</strong>
-                <span>Hanens könscell.</span>
-            </div>
+    <footer>
+        NO-Upptäckaren | Biologi årskurs 4–6
+    </footer>
 
-            <div>
-                <strong>Befruktning</strong>
-                <span>När en spermie och ett ägg förenas.</span>
-            </div>
+    <script>
+        const questions = [
+            {
+                question: "Vad betyder pollinering?",
+                answers: [
+                    "Att pollen flyttas till en blommas märke.",
+                    "Att ett frö börjar gro.",
+                    "Att roten tar upp vatten."
+                ],
+                correct: 0,
+                explanation: "Rätt! Pollinering betyder att pollen flyttas till märket."
+            },
+            {
+                question: "Var bildas pollenkorn?",
+                answers: [
+                    "I roten",
+                    "I ståndarna",
+                    "I bladen"
+                ],
+                correct: 1,
+                explanation: "Rätt! Pollenkorn bildas i ståndarna."
+            },
+            {
+                question: "Var finns fröämnena?",
+                answers: [
+                    "I pistillens fruktämne",
+                    "I stammen",
+                    "I kronbladen"
+                ],
+                correct: 0,
+                explanation: "Rätt! Fröämnena finns i fruktämnet."
+            },
+            {
+                question: "Vad kan hjälpa till med pollinering?",
+                answers: [
+                    "Bara rötter",
+                    "Bara blad",
+                    "Insekter och vind"
+                ],
+                correct: 2,
+                explanation: "Rätt! Insekter och vind kan flytta pollen."
+            },
+            {
+                question: "Vad är befruktning?",
+                answers: [
+                    "När vatten kommer till roten.",
+                    "När spermiecellen förenas med äggcellen.",
+                    "När blomman får färg."
+                ],
+                correct: 1,
+                explanation: "Rätt! Befruktning sker när könscellerna förenas."
+            },
+            {
+                question: "Vad kan ett befruktat fröämne utvecklas till?",
+                answers: [
+                    "Ett frö",
+                    "En rot direkt",
+                    "Ett blad"
+                ],
+                correct: 0,
+                explanation: "Rätt! Det befruktade fröämnet utvecklas till ett frö."
+            },
+            {
+                question: "Vad utvecklas ofta från fruktämnet?",
+                answers: [
+                    "En rot",
+                    "En frukt",
+                    "En stam"
+                ],
+                correct: 1,
+                explanation: "Rätt! Fruktämnet utvecklas ofta till en frukt."
+            },
+            {
+                question: "Vad kan hända när ett frö får rätt förutsättningar?",
+                answers: [
+                    "Det kan gro.",
+                    "Det blir pollen direkt.",
+                    "Det blir en blomma på en gång."
+                ],
+                correct: 0,
+                explanation: "Rätt! Fröet kan gro och börja utvecklas till en planta."
+            },
+            {
+                question: "Är pollinering och befruktning samma sak?",
+                answers: [
+                    "Ja, alltid.",
+                    "Nej, det är två olika processer.",
+                    "Ja, men bara på sommaren."
+                ],
+                correct: 1,
+                explanation: "Rätt! Pollinering flyttar pollen. Befruktning förenar könsceller."
+            }
+        ];
 
-            <div>
-                <strong>Frö</strong>
-                <span>Kan utvecklas till en ny växt.</span>
-            </div>
+        let score = 0;
+        let answered = 0;
+        let completed = [];
 
-        </div>
-    </section>
+        function createQuiz() {
+            const quiz = document.getElementById("quiz");
+            quiz.innerHTML = "";
 
+            questions.forEach((q, index) => {
+                const box = document.createElement("div");
+                box.className = "question";
 
-    <div class="navigation">
+                const title = document.createElement("p");
+                title.textContent = (index + 1) + ". " + q.question;
+                box.appendChild(title);
 
-        <a href="biologi.html" class="nav-button">
-            ← Tillbaka
-        </a>
+                q.answers.forEach((answer, answerIndex) => {
+                    const button = document.createElement("button");
+                    button.className = "answer";
+                    button.type = "button";
+                    button.textContent = answer;
 
-        <a href="resultat.html" class="nav-button primary">
-            Fortsätt →
-        </a>
+                    button.addEventListener("click", () => {
+                        checkAnswer(index, answerIndex, box);
+                    });
 
-    </div>
+                    box.appendChild(button);
+                });
 
-</main>
+                const feedback = document.createElement("div");
+                feedback.className = "feedback";
+                feedback.setAttribute("aria-live", "polite");
+                box.appendChild(feedback);
 
-<script src="fortplantning.js"></script>
+                quiz.appendChild(box);
+            });
+        }
+
+        function checkAnswer(questionIndex, answerIndex, box) {
+            if (completed.includes(questionIndex)) {
+                return;
+            }
+
+            completed.push(questionIndex);
+            answered++;
+
+            const question = questions[questionIndex];
+            const buttons = box.querySelectorAll(".answer");
+            const feedback = box.querySelector(".feedback");
+
+            buttons.forEach(button => {
+                button.disabled = true;
+            });
+
+            if (answerIndex === question.correct) {
+                score++;
+                buttons[answerIndex].classList.add("correct");
+                feedback.textContent = question.explanation;
+                feedback.style.color = "#17652b";
+            } else {
+                buttons[answerIndex].classList.add("wrong");
+                buttons[question.correct].classList.add("correct");
+                feedback.textContent =
+                    "Inte riktigt. " + question.explanation;
+                feedback.style.color = "#9a332b";
+            }
+        }
+
+        function showResult() {
+            const result = document.getElementById("result");
+            result.style.display = "block";
+
+            if (answered < questions.length) {
+                result.textContent =
+                    "Du har svarat på " + answered + " av " +
+                    questions.length + " frågor. Fortsätt!";
+                return;
+            }
+
+            result.textContent =
+                "Du fick " + score + " av " +
+                questions.length + " rätt.";
+
+            if (score === questions.length) {
+                result.textContent += " Fantastiskt! Alla rätt!";
+            } else if (score >= 6) {
+                result.textContent += " Bra jobbat!";
+            } else {
+                result.textContent += " Läs igen och försök en gång till.";
+            }
+        }
+
+        function restartQuiz() {
+            score = 0;
+            answered = 0;
+            completed = [];
+
+            document.getElementById("result").style.display = "none";
+            createQuiz();
+        }
+
+        function saveAnswers() {
+            const answers = {
+                answer1: document.getElementById("answer1").value,
+                answer2: document.getElementById("answer2").value,
+                answer3: document.getElementById("answer3").value
+            };
+
+            try {
+                localStorage.setItem(
+                    "noUpptackarenFortplantning",
+                    JSON.stringify(answers)
+                );
+
+                document.getElementById("saveMessage").textContent =
+                    "Dina svar är sparade på den här enheten.";
+            } catch (error) {
+                document.getElementById("saveMessage").textContent =
+                    "Det gick inte att spara svaren.";
+            }
+        }
+
+        function loadAnswers() {
+            try {
+                const saved = localStorage.getItem(
+                    "noUpptackarenFortplantning"
+                );
+
+                if (saved) {
+                    const answers = JSON.parse(saved);
+
+                    document.getElementById("answer1").value =
+                        answers.answer1 || "";
+
+                    document.getElementById("answer2").value =
+                        answers.answer2 || "";
+
+                    document.getElementById("answer3").value =
+                        answers.answer3 || "";
+                }
+            } catch (error) {
+                console.log("Kunde inte läsa sparade svar.");
+            }
+        }
+
+        createQuiz();
+        loadAnswers();
+    </script>
 
 </body>
 </html>
-```
