@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Biologisk mångfald | NO-Upptäckaren</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f7f1;
+    color: #29382d;
+    line-height: 1.6;
+}
+
+header {
+    background: #245b3b;
+    color: white;
+    text-align: center;
+    padding: 32px 18px;
+}
+
+header h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin: 0 0 8px;
+}
+
+header p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+main {
+    max-width: 950px;
+    margin: 25px auto;
+    padding: 0 16px 40px;
+}
+
+section {
+    background: white;
+    padding: 24px;
+    border-radius: 15px;
+    margin-bottom: 22px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+h2 {
+    color: #245b3b;
+    font-size: 1.65rem;
+    margin-top: 0;
+}
+
+h3 {
+    color: #245b3b;
+}
+
+p {
+    font-size: 1.08rem;
+}
+
+.goal {
+    background: #e6f2e7;
+    border-left: 6px solid #3d8653;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.card {
+    border: 2px solid #dce9dc;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 15px 0;
+}
+
+.important {
+    background: #fff5d9;
+    border-left: 5px solid #d49a24;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 16px 0;
+}
+
+.word {
+    display: inline-block;
+    background: #e6f2e7;
+    color: #245b3b;
+    font-weight: bold;
+    padding: 3px 9px;
+    border-radius: 6px;
+}
+
+.example {
+    background: #f3f7f2;
+    border-radius: 10px;
+    padding: 17px;
+    margin: 14px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px;
+    margin: 18px 0;
+}
+
+.grid-item {
+    background: #f3f7f2;
+    border: 2px solid #dce9dc;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.grid-item h3 {
+    margin-top: 0;
+}
+
+.question {
+    border: 2px solid #dce9dc;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 18px 0;
+}
+
+.question p {
+    font-weight: bold;
+}
+
+.answer {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: #f4f7f2;
+    border: 2px solid #cbd9ca;
+    border-radius: 9px;
+    padding: 13px 15px;
+    margin: 9px 0;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #29382d;
+}
+
+.answer:hover,
+.answer:focus {
+    background: #e3f0e3;
+    border-color: #245b3b;
+}
+
+.answer.correct {
+    background: #d9f2dc;
+    border-color: #27813b;
+}
+
+.answer.wrong {
+    background: #fde4e1;
+    border-color: #bd4438;
+}
+
+.answer:disabled {
+    cursor: default;
+    opacity: 1;
+}
+
+.feedback {
+    min-height: 28px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.button {
+    display: inline-block;
+    background: #245b3b;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    padding: 13px 19px;
+    margin: 7px 5px 7px 0;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #17432a;
+}
+
+.result {
+    display: none;
+    background: #e6f2e7;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 18px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    border: 2px solid #cbd9ca;
+    border-radius: 9px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.reflection {
+    background: #f2f6fb;
+    border-left: 5px solid #527ca8;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #526357;
+}
+
+@media (max-width: 600px) {
+    section {
+        padding: 18px;
+    }
+
+    .navigation .button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media print {
+    body {
+        background: white;
+    }
+
+    section {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+    }
+
+    .button,
+    #quiz {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Biologisk mångfald</h1>
+    <p>Varför behöver vi många olika arter?</p>
+</header>
+
+<main>
+
+<section>
+    <h2>Det här ska du lära dig</h2>
+
+    <div class="goal">
+        När du är klar ska du kunna:
+
+        <ul>
+            <li>förklara vad biologisk mångfald betyder</li>
+            <li>beskriva varför olika arter behövs</li>
+            <li>ge exempel på olika livsmiljöer</li>
+            <li>förklara vad som hotar naturen</li>
+            <li>ge exempel på hur vi kan skydda arter</li>
+        </ul>
+    </div>
+
+    <p>
+        På jorden finns miljontals olika organismer.
+        De lever i skogar, hav, sjöar och andra miljöer.
+        Tillsammans bildar de jordens biologiska mångfald.
+    </p>
+</section>
+
+<section>
+    <h2>1. Vad betyder biologisk mångfald?</h2>
+
+    <p>
+        <span class="word">Biologisk mångfald</span>
+        betyder variationen av liv på jorden.
+    </p>
+
+    <p>
+        Det handlar om olika arter,
+        variation inom arter
+        och olika ekosystem.
+    </p>
+
+    <div class="card">
+        <h3>Tre delar av biologisk mångfald</h3>
+
+        <div class="grid">
+
+            <div class="grid-item">
+                <h3>1. Arter</h3>
+                <p>
+                    Det finns många olika arter.
+                    Exempel är vargar, björkar och svampar.
+                </p>
+            </div>
+
+            <div class="grid-item">
+                <h3>2. Variation inom arter</h3>
+                <p>
+                    Individer inom samma art kan vara olika.
+                    De kan ha olika färger och egenskaper.
+                </p>
+            </div>
+
+            <div class="grid-item">
+                <h3>3. Ekosystem</h3>
+                <p>
+                    Det finns många olika livsmiljöer.
+                    Exempel är skogar, sjöar och hav.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="important">
+        <strong>Kom ihåg:</strong>
+        Biologisk mångfald handlar om variation
+        på flera olika nivåer.
+    </div>
+</section>
+
+<section>
+    <h2>2. Många olika arter</h2>
+
+    <p>
+        En art är en grupp organismer
+        som kan få ungar tillsammans.
+    </p>
+
+    <p>
+        Ungarna ska i sin tur kunna få ungar.
+        Det är en förenklad beskrivning av en art.
+    </p>
+
+    <div class="example">
+        <h3>Exempel på olika arter</h3>
+
+        <ul>
+            <li>älg</li>
+            <li>räv</li>
+            <li>björk</li>
+            <li>blåbär</li>
+            <li>kantarell</li>
+            <li>blåmes</li>
+            <li>humla</li>
+        </ul>
+
+        <p>
+            Alla dessa organismer tillhör olika arter.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>3. Variation inom en art</h2>
+
+    <p>
+        Individer av samma art är inte alltid likadana.
+        De kan ha olika egenskaper.
+    </p>
+
+    <div class="card">
+        <h3>Exempel: Människor</h3>
+
+        <p>
+            Människor har olika ögonfärg,
+            hårfärg och andra ärftliga egenskaper.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Exempel: Björkar</h3>
+
+        <p>
+            Björkar kan skilja sig i storlek
+            och hur de växer.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Varför är variation viktig?</h3>
+
+        <p>
+            Variation gör att det finns olika egenskaper
+            inom en art.
+        </p>
+
+        <p>
+            Om miljön förändras kan vissa egenskaper
+            ge individer bättre möjligheter att överleva
+            och få ungar.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>4. Olika ekosystem</h2>
+
+    <p>
+        På jorden finns många olika ekosystem.
+        De har olika klimat, vatten och organismer.
+    </p>
+
+    <div class="grid">
+
+        <div class="grid-item">
+            <h3>Skog</h3>
+            <p>
+                Här finns träd, buskar, svampar,
+                insekter och fåglar.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>Hav</h3>
+            <p>
+                Här lever fiskar, alger,
+                plankton och många andra organismer.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>Äng</h3>
+            <p>
+                Här växer gräs och blommor.
+                Många insekter hittar mat.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>Sjö</h3>
+            <p>
+                Här lever vattenväxter,
+                fiskar och små organismer.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="important">
+        Olika ekosystem ger plats åt olika arter.
+        Därför är det viktigt att skydda olika livsmiljöer.
+    </div>
+</section>
+
+<section>
+    <h2>5. Varför är biologisk mångfald viktig?</h2>
+
+    <div class="card">
+        <h3>Mat</h3>
+
+        <p>
+            Människor får mat från växter och djur.
+            Många grödor behöver pollinering.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Rent vatten</h3>
+
+        <p>
+            Mark, växter och våtmarker kan hjälpa till
+            att fånga upp och rena vatten.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Friskare ekosystem</h3>
+
+        <p>
+            Olika organismer har olika uppgifter.
+            De kan vara producenter, konsumenter
+            eller nedbrytare.
+        </p>
+
+        <p>
+            Många arter bidrar till viktiga processer i naturen.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Mediciner och material</h3>
+
+        <p>
+            Naturen ger oss ämnen och material.
+            Vissa används vid tillverkning av läkemedel.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Upplevelser</h3>
+
+        <p>
+            Naturen ger oss möjlighet att upptäcka,
+            lära och må bra.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>6. Vad hotar den biologiska mångfalden?</h2>
+
+    <div class="card">
+        <h3>Förstörda livsmiljöer</h3>
+
+        <p>
+            Skogar kan avverkas.
+            Våtmarker kan dikas ut.
+            Då försvinner platser där arter lever.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Klimatförändringar</h3>
+
+        <p>
+            Klimatet förändras.
+            Temperatur och nederbörd kan förändras.
+            Arter kan få svårt att klara sin livsmiljö.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Föroreningar</h3>
+
+        <p>
+            Plast, kemikalier och andra föroreningar
+            kan skada organismer och miljöer.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Överfiske och jakt</h3>
+
+        <p>
+            Om människor fångar eller dödar för många djur
+            kan populationerna minska.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Främmande arter</h3>
+
+        <p>
+            Arter som flyttas till nya områden
+            kan ibland sprida sig och påverka arter som redan finns där.
+        </p>
+    </div>
+
+    <div class="important">
+        <strong>Viktigt:</strong>
+        Flera hot kan påverka samma art samtidigt.
+    </div>
+</section>
+
+<section>
+    <h2>7. Hur kan vi skydda biologisk mångfald?</h2>
+
+    <div class="card">
+        <h3>Skydda naturområden</h3>
+        <p>
+            Nationalparker och naturreservat
+            kan skydda viktiga livsmiljöer.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Plantera växter</h3>
+        <p>
+            Blommor och buskar kan ge mat och skydd
+            åt insekter och fåglar.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Skydda vatten</h3>
+        <p>
+            Vi kan minska utsläpp och skräp.
+            Då blir vattenmiljöer bättre för organismer.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Ta hand om skogen</h3>
+        <p>
+            Gamla träd och död ved kan vara viktiga
+            för många arter.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Odla hållbart</h3>
+        <p>
+            Vi kan odla på sätt som tar hänsyn
+            till mark, vatten och andra organismer.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>8. Begrepp att kunna</h2>
+
+    <div class="card">
+        <h3>Biologisk mångfald</h3>
+        <p>Variation av liv på jorden.</p>
+    </div>
+
+    <div class="card">
+        <h3>Art</h3>
+        <p>En grupp organismer med gemensamma kännetecken.</p>
+    </div>
+
+    <div class="card">
+        <h3>Ekosystem</h3>
+        <p>Levande och icke-levande delar i ett område.</p>
+    </div>
+
+    <div class="card">
+        <h3>Livsmiljö</h3>
+        <p>Platsen där en organism lever.</p>
+    </div>
+
+    <div class="card">
+        <h3>Population</h3>
+        <p>Individer av samma art som lever i ett område.</p>
+    </div>
+
+    <div class="card">
+        <h3>Utrotningshotad</h3>
+        <p>En art som riskerar att försvinna helt.</p>
+    </div>
+
+    <div class="card">
+        <h3>Bevarande</h3>
+        <p>Att skydda arter och deras livsmiljöer.</p>
+    </div>
+</section>
+
+<section>
+    <h2>9. Testa dina kunskaper</h2>
+
+    <p>Välj ett svar på varje fråga.</p>
+
+    <div id="quiz"></div>
+
+    <button class="button" onclick="showResult()">
+        Se mitt resultat
+    </button>
+
+    <button class="button" onclick="restartQuiz()">
+        Börja om
+    </button>
+
+    <div id="result" class="result" aria-live="polite"></div>
+</section>
+
+<section>
+    <h2>10. Fundera och förklara</h2>
+
+    <div class="reflection">
+
+        <p>
+            <strong>1. Vad betyder biologisk mångfald?</strong>
+        </p>
+
+        <textarea id="answer1"
+            placeholder="Skriv ditt svar här..."></textarea>
+
+        <p>
+            <strong>2. Varför behöver vi många olika arter?</strong>
+        </p>
+
+        <textarea id="answer2"
+            placeholder="Skriv ditt svar här..."></textarea>
+
+        <p>
+            <strong>3. Vad kan människor göra för att skydda naturen?</strong>
+        </p>
+
+        <textarea id="answer3"
+            placeholder="Skriv ditt svar här..."></textarea>
+
+        <button class="button" onclick="saveAnswers()">
+            Spara mina svar
+        </button>
+
+        <button class="button" onclick="window.print()">
+            Skriv ut
+        </button>
+
+        <p id="saveMessage" aria-live="polite"></p>
+
+    </div>
+</section>
+
+<section>
+    <h2>Fortsätt utforska</h2>
+
+    <div class="navigation">
+        <a class="button" href="ekosystem.html">Ekosystem</a>
+        <a class="button" href="naringskedjor.html">Näringskedjor</a>
+        <a class="button" href="vaxter.html">Växter</a>
+        <a class="button" href="vaxtermiljo.html">Växternas livsmiljöer</a>
+        <a class="button" href="fotosyntes.html">Fotosyntes</a>
+        <a class="button" href="biologibegrepp.html">Biologiska begrepp</a>
+        <a class="button" href="biologitest.html">Biologitest</a>
+        <a class="button" href="biologi.html">Till biologi</a>
+        <a class="button" href="index.html">Till startsidan</a>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    NO-Upptäckaren | Biologi årskurs 4–6
+</footer>
+
+<script>
+const questions = [
+    {
+        question: "Vad betyder biologisk mångfald?",
+        answers: [
+            "Variation av liv på jorden",
+            "Bara många olika träd",
+            "Bara antalet djur"
+        ],
+        correct: 0,
+        explanation: "Rätt! Biologisk mångfald handlar om variation av liv."
+    },
+    {
+        question: "Vilka tre nivåer brukar beskrivas?",
+        answers: [
+            "Arter, variation inom arter och ekosystem",
+            "Bara djur, växter och människor",
+            "Vatten, luft och jord"
+        ],
+        correct: 0,
+        explanation: "Rätt! Biologisk mångfald finns på flera nivåer."
+    },
+    {
+        question: "Vad är en population?",
+        answers: [
+            "Individer av samma art i ett område",
+            "Alla arter på jorden",
+            "En grupp olika ekosystem"
+        ],
+        correct: 0,
+        explanation: "Rätt! En population består av individer av samma art i ett område."
+    },
+    {
+        question: "Vad kan hända när en livsmiljö förstörs?",
+        answers: [
+            "Arter kan förlora platser att leva på",
+            "Alla arter får mer mat",
+            "Alla arter flyttar automatiskt"
+        ],
+        correct: 0,
+        explanation: "Rätt! Förstörda livsmiljöer kan hota arter."
+    },
+    {
+        question: "Vad kan ett naturreservat skydda?",
+        answers: [
+            "Viktiga naturområden och livsmiljöer",
+            "Bara byggnader",
+            "Bara vägar"
+        ],
+        correct: 0,
+        explanation: "Rätt! Naturreservat kan skydda natur och livsmiljöer."
+    },
+    {
+        question: "Vad kan död ved vara viktig för?",
+        answers: [
+            "Svampar, insekter och andra organismer",
+            "Bara stora fåglar",
+            "Inga organismer"
+        ],
+        correct: 0,
+        explanation: "Rätt! Död ved är livsmiljö för många arter."
+    },
+    {
+        question: "Vad betyder utrotningshotad?",
+        answers: [
+            "Att arten riskerar att försvinna helt",
+            "Att arten precis har fötts",
+            "Att arten alltid ökar"
+        ],
+        correct: 0,
+        explanation: "Rätt! En utrotningshotad art riskerar att försvinna."
+    },
+    {
+        question: "Vad kan pollinatörer hjälpa till med?",
+        answers: [
+            "Pollinering av blommor",
+            "Att rena luften från allt syre",
+            "Att skapa solljus"
+        ],
+        correct: 0,
+        explanation: "Rätt! Pollinatörer kan hjälpa blommande växter att bilda frön."
+    },
+    {
+        question: "Vilket är ett hot mot biologisk mångfald?",
+        answers: [
+            "Föroreningar",
+            "Skyddade naturområden",
+            "Blommande ängar"
+        ],
+        correct: 0,
+        explanation: "Rätt! Föroreningar kan skada organismer och livsmiljöer."
+    },
+    {
+        question: "Varför är variation inom en art viktig?",
+        answers: [
+            "Olika egenskaper kan vara användbara när miljön förändras",
+            "Alla individer måste vara exakt lika",
+            "Variation gör att arter inte behöver mat"
+        ],
+        correct: 0,
+        explanation: "Rätt! Variation kan hjälpa en art att klara miljöförändringar."
+    }
+];
+
+let score = 0;
+let answered = 0;
+let completed = [];
+
+function createQuiz() {
+    const quiz = document.getElementById("quiz");
+    quiz.innerHTML = "";
+
+    questions.forEach((q, index) => {
+        const box = document.createElement("div");
+        box.className = "question";
+
+        const title = document.createElement("p");
+        title.textContent = (index + 1) + ". " + q.question;
+        box.appendChild(title);
+
+        q.answers.forEach((answer, answerIndex) => {
+            const button = document.createElement("button");
+            button.className = "answer";
+            button.type = "button";
+            button.textContent = answer;
+
+            button.addEventListener("click", () => {
+                checkAnswer(index, answerIndex, box);
+            });
+
+            box.appendChild(button);
+        });
+
+        const feedback = document.createElement("div");
+        feedback.className = "feedback";
+        feedback.setAttribute("aria-live", "polite");
+        box.appendChild(feedback);
+
+        quiz.appendChild(box);
+    });
+}
+
+function checkAnswer(questionIndex, answerIndex, box) {
+    if (completed.includes(questionIndex)) return;
+
+    completed.push(questionIndex);
+    answered++;
+
+    const question = questions[questionIndex];
+    const buttons = box.querySelectorAll(".answer");
+    const feedback = box.querySelector(".feedback");
+
+    buttons.forEach(button => button.disabled = true);
+
+    if (answerIndex === question.correct) {
+        score++;
+        buttons[answerIndex].classList.add("correct");
+        feedback.textContent = question.explanation;
+        feedback.style.color = "#17652b";
+    } else {
+        buttons[answerIndex].classList.add("wrong");
+        buttons[question.correct].classList.add("correct");
+        feedback.textContent = "Inte riktigt. " + question.explanation;
+        feedback.style.color = "#9a332b";
+    }
+}
+
+function showResult() {
+    const result = document.getElementById("result");
+    result.style.display = "block";
+
+    if (answered < questions.length) {
+        result.textContent =
+            "Du har svarat på " + answered + " av " +
+            questions.length + " frågor. Fortsätt!";
+        return;
+    }
+
+    result.textContent =
+        "Du fick " + score + " av " + questions.length + " rätt.";
+
+    if (score === questions.length) {
+        result.textContent += " Fantastiskt! Alla rätt!";
+    } else if (score >= 6) {
+        result.textContent += " Bra jobbat!";
+    } else {
+        result.textContent += " Läs igen och försök en gång till.";
+    }
+}
+
+function restartQuiz() {
+    score = 0;
+    answered = 0;
+    completed = [];
+
+    document.getElementById("result").style.display = "none";
+    createQuiz();
+}
+
+function saveAnswers() {
+    const answers = {
+        answer1: document.getElementById("answer1").value,
+        answer2: document.getElementById("answer2").value,
+        answer3: document.getElementById("answer3").value
+    };
+
+    try {
+        localStorage.setItem(
+            "noUpptackarenBiologiskMangfald",
+            JSON.stringify(answers)
+        );
+
+        document.getElementById("saveMessage").textContent =
+            "Dina svar är sparade på den här enheten.";
+
+    } catch (error) {
+        document.getElementById("saveMessage").textContent =
+            "Det gick inte att spara svaren.";
+    }
+}
+
+function loadAnswers() {
+    try {
+        const saved = localStorage.getItem(
+            "noUpptackarenBiologiskMangfald"
+        );
+
+        if (saved) {
+            const answers = JSON.parse(saved);
+
+            document.getElementById("answer1").value =
+                answers.answer1 || "";
+
+            document.getElementById("answer2").value =
+                answers.answer2 || "";
+
+            document.getElementById("answer3").value =
+                answers.answer3 || "";
+        }
+    } catch (error) {
+        console.log("Kunde inte läsa sparade svar.");
+    }
+}
+
+createQuiz();
+loadAnswers();
+</script>
+
+</body>
+</html>
