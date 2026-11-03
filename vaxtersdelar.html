@@ -1,827 +1,520 @@
+```html
 <!DOCTYPE html>
 <html lang="sv">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Växternas delar | NO-Upptäckaren</title>
+<link rel="stylesheet" href="style.css">
 
-    <title>Växtens delar – NO-Upptäckaren</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-
-        .book-intro {
-            background: white;
-            border-radius: 22px;
-            padding: 35px;
-            margin-bottom: 25px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-        }
-
-        .book-icon {
-            font-size: 65px;
-            margin-bottom: 10px;
-        }
-
-        .book-intro h2 {
-            font-size: 30px;
-            margin: 10px 0 15px;
-        }
-
-        .book-intro p {
-            font-size: 18px;
-            line-height: 1.7;
-        }
-
-        .fact-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 25px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-        }
-
-        .fact-card h2 {
-            font-size: 25px;
-            margin-bottom: 15px;
-        }
-
-        .fact-card h3 {
-            font-size: 21px;
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-
-        .fact-card p {
-            font-size: 17px;
-            line-height: 1.75;
-        }
-
-        .fact-box {
-            background: #eef7f2;
-            border-radius: 16px;
-            padding: 22px;
-            margin-top: 20px;
-        }
-
-        .fact-box strong {
-            font-size: 18px;
-        }
-
-        .plant-parts {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-            margin-top: 20px;
-        }
-
-        .part {
-            background: #f8fafc;
-            border-radius: 16px;
-            padding: 22px;
-            text-align: center;
-            border: 1px solid #e2e8f0;
-        }
-
-        .part-icon {
-            font-size: 45px;
-            margin-bottom: 10px;
-        }
-
-        .part h3 {
-            margin: 5px 0 10px;
-        }
-
-        .part p {
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        .question {
-            background: #f8fafc;
-            border-radius: 18px;
-            padding: 25px;
-            margin-top: 20px;
-        }
-
-        .question h3 {
-            margin-top: 0;
-        }
-
-        .answer-button {
-            display: block;
-            width: 100%;
-            margin: 10px 0;
-            padding: 15px;
-            background: white;
-            border: 2px solid #d1d5db;
-            border-radius: 12px;
-            text-align: left;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .answer-button:hover {
-            background: #eef7f2;
-            transform: translateX(3px);
-        }
-
-        .feedback {
-            display: none;
-            margin-top: 15px;
-            padding: 17px;
-            border-radius: 12px;
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        .correct {
-            background: #dcfce7;
-        }
-
-        .wrong {
-            background: #fee2e2;
-        }
-
-        .remember {
-            background: #fff7ed;
-            border-radius: 18px;
-            padding: 25px;
-            margin-top: 20px;
-        }
-
-        .remember h3 {
-            margin-top: 0;
-        }
-
-        .summary {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .summary-item {
-            background: #f8fafc;
-            padding: 18px;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .summary-item strong {
-            display: block;
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        .navigation {
-            text-align: center;
-            margin: 35px 0;
-        }
-
-        .navigation a {
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        @media (max-width: 700px) {
-
-            .plant-parts {
-                grid-template-columns: 1fr;
-            }
-
-            .summary {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-    </style>
-
+<style>
+.lesson {
+    background: white;
+    border-radius: 18px;
+    padding: 26px;
+    margin: 22px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,.06);
+}
+.lesson h2 { color: #245b43; }
+.lesson p, .lesson li { font-size: 17px; line-height: 1.7; }
+.plant-grid, .quiz-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+.plant-part {
+    background: #f1f7f2;
+    border-radius: 14px;
+    padding: 18px;
+}
+.plant-part .icon { font-size: 38px; }
+.plant-part h3 { margin: 8px 0; }
+.fact {
+    background: #eaf5ed;
+    padding: 18px;
+    border-left: 5px solid #39845b;
+    border-radius: 8px;
+    margin: 18px 0;
+}
+.activity {
+    background: #f5f7f5;
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 18px;
+}
+.activity button, .quiz button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 13px 15px;
+    margin: 9px 0;
+    border: 2px solid #d6e2d8;
+    border-radius: 10px;
+    background: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover { background: #edf6ef; }
+button:focus-visible, textarea:focus-visible {
+    outline: 3px solid #276749;
+    outline-offset: 3px;
+}
+.feedback {
+    display: none;
+    padding: 13px;
+    border-radius: 10px;
+    margin-top: 10px;
+    background: #e0f3e5;
+    line-height: 1.6;
+}
+.feedback.wrong { background: #fee9e7; }
+.activity textarea {
+    width: 100%;
+    min-height: 85px;
+    padding: 12px;
+    font: inherit;
+    border: 2px solid #cbd5ce;
+    border-radius: 10px;
+    margin: 8px 0 15px;
+}
+.action {
+    background: #276749 !important;
+    color: white;
+    text-align: center !important;
+    border: 0 !important;
+    padding: 14px !important;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.navigation {
+    text-align: center;
+    padding: 25px;
+}
+.navigation a {
+    display: inline-block;
+    padding: 12px 17px;
+    margin: 6px;
+    background: white;
+    border-radius: 9px;
+    text-decoration: none;
+}
+@media(max-width:600px) {
+    .lesson { padding: 19px; }
+}
+</style>
 </head>
-
 
 <body>
 
-
-<header>
-
-    <h1>🌿 VÄXTENS DELAR</h1>
-
-    <p>
-        NO-Upptäckaren • Växternas värld • Årskurs 4
-    </p>
-
+<header class="hero">
+    <div class="hero-content">
+        <p class="eyebrow">NO-UPPTÄCKAREN • BIOLOGI • ÅRSKURS 4</p>
+        <h1>Växternas delar</h1>
+        <p class="hero-text">Upptäck hur växter är uppbyggda och hur de fungerar.</p>
+    </div>
 </header>
 
+<main class="container">
 
-<main>
+<section class="lesson">
+    <h2>Vad består en växt av?</h2>
+    <p>
+        Växter har olika delar som hjälper dem att leva.
+        Rötterna tar upp vatten och näringsämnen.
+        Stjälken håller upp växten.
+        Bladen fångar ljus.
+        Blommor kan bilda frön.
+    </p>
 
-
-    <section class="book-intro">
-
-        <div class="book-icon">
-            🌱
-        </div>
-
-        <h2>Upptäck hur en växt är uppbyggd</h2>
-
+    <div class="fact">
+        <strong>Undersök en växt!</strong>
         <p>
-            En växt består av flera olika delar.
-            Varje del har en viktig uppgift.
-            Tillsammans hjälper delarna växten att leva,
-            växa och föröka sig.
+            Titta på en riktig växt eller en bild.
+            Kan du hitta rot, stjälk, blad och blomma?
         </p>
+    </div>
+</section>
 
-    </section>
+<section class="lesson">
+    <h2>1. Växtens olika delar</h2>
 
-
-    <section class="fact-card">
-
-        <h2>🌱 Växtens viktigaste delar</h2>
-
-        <p>
-            När du tittar på en växt kan du ofta se
-            rötter, stam, blad och ibland blommor,
-            frukter och frön.
-        </p>
-
-        <p>
-            De olika delarna fungerar inte helt var för sig.
-            De samarbetar. Rötterna tar upp vatten och
-            mineralämnen, stammen transporterar ämnen och
-            bladen fångar ljus.
-        </p>
-
-        <div class="plant-parts">
-
-
-            <div class="part">
-
-                <div class="part-icon">
-                    🌿
-                </div>
-
-                <h3>Rötter</h3>
-
-                <p>
-                    Förankrar växten i marken och tar upp
-                    vatten och mineralämnen.
-                </p>
-
-            </div>
-
-
-            <div class="part">
-
-                <div class="part-icon">
-                    🌱
-                </div>
-
-                <h3>Stam</h3>
-
-                <p>
-                    Håller upp växten och hjälper till att
-                    transportera vatten och andra ämnen.
-                </p>
-
-            </div>
-
-
-            <div class="part">
-
-                <div class="part-icon">
-                    🍃
-                </div>
-
-                <h3>Blad</h3>
-
-                <p>
-                    Fångar ljus och är en viktig plats för
-                    fotosyntesen.
-                </p>
-
-            </div>
-
-
-            <div class="part">
-
-                <div class="part-icon">
-                    🌸
-                </div>
-
-                <h3>Blomma</h3>
-
-                <p>
-                    Hos många växter är blomman en del av
-                    växtens fortplantning.
-                </p>
-
-            </div>
-
-
-            <div class="part">
-
-                <div class="part-icon">
-                    🍎
-                </div>
-
-                <h3>Frukt</h3>
-
-                <p>
-                    Hos många blomväxter utvecklas frukten
-                    efter befruktningen och kan innehålla frön.
-                </p>
-
-            </div>
-
-
-            <div class="part">
-
-                <div class="part-icon">
-                    🌰
-                </div>
-
-                <h3>Frö</h3>
-
-                <p>
-                    Ett frö innehåller en liten växtanläggning
-                    och kan utvecklas till en ny växt.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <section class="fact-card">
-
-        <h2>🌿 Rötterna – växtens ankare</h2>
-
-        <p>
-            Rötterna växer vanligtvis ner i marken.
-            De hjälper växten att sitta fast så att den
-            inte lätt blåser omkull.
-        </p>
-
-        <p>
-            Rötterna kan också ta upp vatten och
-            mineralämnen från marken. Vattnet behövs
-            bland annat för att växtens olika delar
-            ska kunna fungera.
-        </p>
-
-        <div class="fact-box">
-
-            <strong>🔎 Visste du?</strong>
-
+    <div class="plant-grid">
+        <div class="plant-part">
+            <div class="icon">🌱</div>
+            <h3>Rot</h3>
             <p>
-                Många växter har ett stort nätverk av
-                tunna rötter. På så sätt kan växten
-                komma åt vatten och mineralämnen på
-                flera platser i marken.
+                Rötterna håller fast växten i marken.
+                De tar upp vatten och näringsämnen.
             </p>
-
         </div>
 
-    </section>
-
-
-    <section class="fact-card">
-
-        <h2>🌱 Stammen – växtens transportväg</h2>
-
-        <p>
-            Stammen håller upp blad, blommor och andra
-            delar av växten.
-        </p>
-
-        <p>
-            Inuti stammen finns vävnader som hjälper
-            till att transportera vatten och andra ämnen
-            mellan växtens olika delar.
-        </p>
-
-        <p>
-            Hos träd och buskar kan stammen bli mycket
-            kraftig och vedartad. Hos många örter är
-            stammen mjukare.
-        </p>
-
-        <div class="fact-box">
-
-            <strong>💡 Tänk efter</strong>
-
+        <div class="plant-part">
+            <div class="icon">🌿</div>
+            <h3>Stjälk</h3>
             <p>
-                Vad skulle hända med en hög växt om
-                stammen inte kunde hålla upp den?
+                Stjälken håller upp växten.
+                Den transporterar vatten och andra ämnen
+                mellan växtens olika delar.
             </p>
-
         </div>
 
-    </section>
-
-
-    <section class="fact-card">
-
-        <h2>🍃 Bladen – där ljuset används</h2>
-
-        <p>
-            Blad är ofta gröna eftersom de innehåller
-            klorofyll. Klorofyll hjälper växten att
-            fånga upp ljus.
-        </p>
-
-        <p>
-            I bladen sker fotosyntesen. Där använder
-            växten ljusenergi för att tillverka
-            energirika ämnen från vatten och koldioxid.
-        </p>
-
-        <p>
-            Vid fotosyntesen bildas också syre som
-            släpps ut till omgivningen.
-        </p>
-
-        <div class="fact-box">
-
-            <strong>☀️ Kom ihåg</strong>
-
+        <div class="plant-part">
+            <div class="icon">🍃</div>
+            <h3>Blad</h3>
             <p>
-                Ljus + vatten + koldioxid → fotosyntes
+                I bladen sker mycket av fotosyntesen.
+                Där använder växten ljusenergi för att
+                tillverka druvsocker.
             </p>
-
         </div>
 
-    </section>
-
-
-    <section class="fact-card">
-
-        <h2>🌸 Blommor – växtens fortplantning</h2>
-
-        <p>
-            Många växter bildar blommor. Blommans olika
-            delar har olika uppgifter.
-        </p>
-
-        <p>
-            Pollen bildas i blommans hanliga delar.
-            För att en ny växt ska kunna bildas behöver
-            pollen kunna nå den honliga delen.
-        </p>
-
-        <p>
-            Pollinering kan ske med hjälp av till exempel
-            insekter eller vind.
-        </p>
-
-        <div class="fact-box">
-
-            <strong>🐝 Exempel</strong>
-
+        <div class="plant-part">
+            <div class="icon">🌼</div>
+            <h3>Blomma</h3>
             <p>
-                När ett bi besöker en blomma kan pollen
-                fastna på biets kropp. När biet besöker
-                en annan blomma kan pollen föras vidare.
+                Blomman är viktig för många växters
+                fortplantning. Efter befruktning kan frön bildas.
             </p>
-
         </div>
 
-    </section>
-
-
-    <section class="fact-card">
-
-        <h2>🌰 Frukter och frön</h2>
-
-        <p>
-            Efter pollinering och befruktning kan frön
-            bildas hos blomväxter.
-        </p>
-
-        <p>
-            Fröet kan innehålla ett embryo, alltså
-            början till en ny växt. Fröet kan också
-            innehålla näring som den unga växten kan
-            använda när den börjar utvecklas.
-        </p>
-
-        <p>
-            Hos många växter utvecklas frukten runt
-            fröna. Frukter kan hjälpa till att skydda
-            fröna och kan även hjälpa till med spridning.
-        </p>
-
-    </section>
-
-
-    <section class="fact-card">
-
-        <h2>🔄 Alla delar samarbetar</h2>
-
-        <p>
-            En växt behöver flera saker för att kunna
-            leva och växa.
-        </p>
-
-        <div class="summary">
-
-            <div class="summary-item">
-
-                <strong>🌿 Rötter</strong>
-
-                Tar upp vatten och mineralämnen.
-
-            </div>
-
-
-            <div class="summary-item">
-
-                <strong>🌱 Stam</strong>
-
-                Håller upp växten och transporterar ämnen.
-
-            </div>
-
-
-            <div class="summary-item">
-
-                <strong>🍃 Blad</strong>
-
-                Fångar ljus och utför fotosyntes.
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <section class="fact-card">
-
-        <h2>🧠 Kunskapskollen 1</h2>
-
-        <div class="question">
-
-            <h3>
-                Vilken del av växten tar framför allt upp
-                vatten från marken?
-            </h3>
-
-            <button class="answer-button" onclick="checkAnswer(1, 1)">
-                A. Rötterna
-            </button>
-
-            <button class="answer-button" onclick="checkAnswer(1, 2)">
-                B. Blommorna
-            </button>
-
-            <button class="answer-button" onclick="checkAnswer(1, 3)">
-                C. Frukterna
-            </button>
-
-            <div id="feedback1" class="feedback"></div>
-
-        </div>
-
-    </section>
-
-
-    <section class="fact-card">
-
-        <h2>🧠 Kunskapskollen 2</h2>
-
-        <div class="question">
-
-            <h3>
-                Vilken del är särskilt viktig för fotosyntesen?
-            </h3>
-
-            <button class="answer-button" onclick="checkAnswer(2, 1)">
-                A. Fröet
-            </button>
-
-            <button class="answer-button" onclick="checkAnswer(2, 2)">
-                B. Bladen
-            </button>
-
-            <button class="answer-button" onclick="checkAnswer(2, 3)">
-                C. Rötterna
-            </button>
-
-            <div id="feedback2" class="feedback"></div>
-
-        </div>
-
-    </section>
-
-
-    <section class="fact-card">
-
-        <h2>🧠 Kunskapskollen 3</h2>
-
-        <div class="question">
-
-            <h3>
-                Vad kan pollen hjälpa till med?
-            </h3>
-
-            <button class="answer-button" onclick="checkAnswer(3, 1)">
-                A. Att transportera pollen mellan blommor
-            </button>
-
-            <button class="answer-button" onclick="checkAnswer(3, 2)">
-                B. Att göra marken till vatten
-            </button>
-
-            <button class="answer-button" onclick="checkAnswer(3, 3)">
-                C. Att få växten att sluta växa
-            </button>
-
-            <div id="feedback3" class="feedback"></div>
-
-        </div>
-
-    </section>
-
-
-    <section class="fact-card">
-
-        <h2>🧠 Kunskapskollen 4</h2>
-
-        <div class="question">
-
-            <h3>
-                Varför är rötterna viktiga för växten?
-            </h3>
-
-            <button class="answer-button" onclick="checkAnswer(4, 1)">
-                A. De gör alltid blommorna färgglada.
-            </button>
-
-            <button class="answer-button" onclick="checkAnswer(4, 2)">
-                B. De hjälper växten att sitta fast och ta upp vatten.
-            </button>
-
-            <button class="answer-button" onclick="checkAnswer(4, 3)">
-                C. De gör att växten kan flyga.
-            </button>
-
-            <div id="feedback4" class="feedback"></div>
-
-        </div>
-
-    </section>
-
-
-    <section class="fact-card">
-
-        <h2>🔬 Tänk som en naturvetare</h2>
-
-        <p>
-            Titta på en växt i din närhet.
-        </p>
-
-        <div class="remember">
-
-            <h3>Fundera på:</h3>
-
+        <div class="plant-part">
+            <div class="icon">🫛</div>
+            <h3>Frukt</h3>
             <p>
-                🌿 Vilka delar kan du se?
+                Hos blomväxter utvecklas frukten från
+                blommans fruktämne. Frukten innehåller ofta frön.
             </p>
-
-            <p>
-                🍃 Vilken del tror du är viktigast för
-                att växten ska fånga ljus?
-            </p>
-
-            <p>
-                🌱 Vilken del finns under marken?
-            </p>
-
-            <p>
-                🌸 Har växten blommor?
-            </p>
-
-            <p>
-                🌰 Kan du hitta frön eller frukter?
-            </p>
-
         </div>
 
-    </section>
+        <div class="plant-part">
+            <div class="icon">🌰</div>
+            <h3>Frö</h3>
+            <p>
+                Ett frö kan gro och utvecklas till en ny växt
+                när förhållandena är lämpliga.
+            </p>
+        </div>
+    </div>
+</section>
 
+<section class="lesson">
+    <h2>2. Hur transporteras vatten?</h2>
 
-    <section class="fact-card">
+    <p>
+        Vattnet tas upp av rötterna.
+        Sedan transporteras det genom tunna ledningsvävnader
+        i växten.
+        Vattnet kan nå hela vägen ut till bladen.
+    </p>
 
-        <h2>⭐ Det här ska du kunna</h2>
-
-        <p>
-            Efter detta avsnitt ska du kunna:
+    <div class="fact">
+        <strong>Följ vattnets väg:</strong>
+        <p style="font-size:20px;text-align:center">
+            💧 Vatten i marken
+            <br>↓<br>
+            🌱 Rot
+            <br>↓<br>
+            🌿 Stjälk
+            <br>↓<br>
+            🍃 Blad
         </p>
-
-        <p>
-            ✅ Namnge några viktiga delar hos en växt.
-        </p>
-
-        <p>
-            ✅ Förklara vad rötterna gör.
-        </p>
-
-        <p>
-            ✅ Förklara varför stammen är viktig.
-        </p>
-
-        <p>
-            ✅ Beskriva varför bladen är viktiga för fotosyntesen.
-        </p>
-
-        <p>
-            ✅ Förklara hur blommor, pollen, frukter och frön
-            hänger ihop.
-        </p>
-
-    </section>
-
-
-    <div class="navigation">
-
-        <a href="vaxter.html">
-            ← Tillbaka till Växternas värld
-        </a>
-
-        <br><br>
-
-        <a href="fotosyntes.html">
-            ☀️ Nästa: Växternas energi
-        </a>
-
-        <br><br>
-
-        <a href="ak4.html">
-            🔬 Till Åk 4
-        </a>
-
-        <br><br>
-
-        <a href="index.html">
-            🏠 Till startsidan
-        </a>
-
     </div>
 
+    <p>
+        Växten använder vatten i fotosyntesen.
+        En del vatten lämnar också växten som vattenånga,
+        framför allt genom små öppningar i bladen.
+    </p>
+</section>
+
+<section class="lesson">
+    <h2>3. Blommans delar</h2>
+
+    <p>
+        En blomma kan ha flera olika delar.
+        De delar som behövs för fortplantningen
+        är bland annat ståndare och pistill.
+    </p>
+
+    <div class="plant-grid">
+        <div class="plant-part">
+            <div class="icon">🌾</div>
+            <h3>Ståndare</h3>
+            <p>
+                Ståndaren bildar pollen.
+                Pollen innehåller hanliga könsceller.
+            </p>
+        </div>
+
+        <div class="plant-part">
+            <div class="icon">🌸</div>
+            <h3>Pistill</h3>
+            <p>
+                Pistillen är blommans honliga fortplantningsdel.
+                Den innehåller bland annat fruktämnet.
+            </p>
+        </div>
+
+        <div class="plant-part">
+            <div class="icon">🌺</div>
+            <h3>Kronblad</h3>
+            <p>
+                Kronbladen kan ha färger och dofter
+                som lockar pollinerande djur.
+            </p>
+        </div>
+
+        <div class="plant-part">
+            <div class="icon">🌿</div>
+            <h3>Foderblad</h3>
+            <p>
+                Foderbladen skyddar ofta blomman
+                när den fortfarande är en knopp.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="lesson">
+    <h2>4. Vad händer i bladen?</h2>
+
+    <p>
+        I växtens gröna delar finns klorofyll.
+        Det är ett grönt färgämne som fångar upp ljusenergi.
+        Med hjälp av ljusenergin kan växten genomföra fotosyntes.
+    </p>
+
+    <div class="fact">
+        <h3>Fotosyntesen</h3>
+        <p style="text-align:center;font-size:18px">
+            Koldioxid + vatten + ljusenergi
+            <br>↓<br>
+            Druvsocker + syre
+        </p>
+        <p>
+            Växten använder druvsockret som energikälla
+            och som byggmaterial när den växer.
+        </p>
+    </div>
+</section>
+
+<section class="lesson">
+    <h2>5. Interaktiv övning – vilken del gör vad?</h2>
+    <p>Välj rätt växtdel till varje uppgift.</p>
+
+    <div class="activity">
+        <h3>Vilken del tar upp vatten från marken?</h3>
+        <button onclick="checkPart(1,'blad')">Bladen</button>
+        <button onclick="checkPart(1,'rot')">Rötterna</button>
+        <button onclick="checkPart(1,'blomma')">Blomman</button>
+        <div id="part1" class="feedback" aria-live="polite"></div>
+    </div>
+
+    <div class="activity">
+        <h3>Vilken del bildar pollen?</h3>
+        <button onclick="checkPart(2,'ståndare')">Ståndaren</button>
+        <button onclick="checkPart(2,'rot')">Roten</button>
+        <button onclick="checkPart(2,'stjälk')">Stjälken</button>
+        <div id="part2" class="feedback" aria-live="polite"></div>
+    </div>
+
+    <div class="activity">
+        <h3>Var sker mycket av fotosyntesen?</h3>
+        <button onclick="checkPart(3,'blad')">I bladen</button>
+        <button onclick="checkPart(3,'rot')">I rötterna</button>
+        <button onclick="checkPart(3,'frö')">I fröna</button>
+        <div id="part3" class="feedback" aria-live="polite"></div>
+    </div>
+</section>
+
+<section class="lesson quiz">
+    <h2>6. Kunskapsquiz</h2>
+    <p>Svara på frågorna. Du får återkoppling direkt.</p>
+
+    <div class="activity">
+        <h3>1. Vad gör rötterna?</h3>
+        <button onclick="quiz(1,false)">De bildar pollen.</button>
+        <button onclick="quiz(1,true)">De tar upp vatten och näringsämnen.</button>
+        <button onclick="quiz(1,false)">De fångar ljus.</button>
+        <div id="q1" class="feedback" aria-live="polite"></div>
+    </div>
+
+    <div class="activity">
+        <h3>2. Vad är klorofyll?</h3>
+        <button onclick="quiz(2,true)">Ett grönt färgämne i växter.</button>
+        <button onclick="quiz(2,false)">Ett slags rot.</button>
+        <button onclick="quiz(2,false)">Ett näringsämne i jorden.</button>
+        <div id="q2" class="feedback" aria-live="polite"></div>
+    </div>
+
+    <div class="activity">
+        <h3>3. Vad bildas vid fotosyntesen?</h3>
+        <button onclick="quiz(3,false)">Jord och vatten.</button>
+        <button onclick="quiz(3,true)">Druvsocker och syre.</button>
+        <button onclick="quiz(3,false)">Pollen och frön.</button>
+        <div id="q3" class="feedback" aria-live="polite"></div>
+    </div>
+
+    <div class="activity">
+        <h3>4. Vad bildar ståndarna?</h3>
+        <button onclick="quiz(4,false)">Frukter.</button>
+        <button onclick="quiz(4,false)">Rötter.</button>
+        <button onclick="quiz(4,true)">Pollen.</button>
+        <div id="q4" class="feedback" aria-live="polite"></div>
+    </div>
+
+    <div id="score" class="fact" aria-live="polite">
+        Du har svarat rätt på 0 av 4 frågor.
+    </div>
+</section>
+
+<section class="lesson">
+    <h2>7. Bli växtforskare</h2>
+
+    <p>
+        Välj en växt som du kan undersöka.
+        Det kan vara en krukväxt, en blomma eller ett träd.
+    </p>
+
+    <div class="activity">
+        <label for="plantName"><strong>Vilken växt undersöker du?</strong></label>
+        <textarea id="plantName" placeholder="Jag undersöker..."></textarea>
+
+        <label for="plantParts"><strong>Vilka delar kan du se?</strong></label>
+        <textarea id="plantParts" placeholder="Jag kan se..."></textarea>
+
+        <label for="plantQuestion"><strong>Vilken fråga vill du undersöka?</strong></label>
+        <textarea id="plantQuestion" placeholder="Jag undrar..."></textarea>
+
+        <label for="plantConclusion"><strong>Vad har du upptäckt?</strong></label>
+        <textarea id="plantConclusion" placeholder="Jag har upptäckt..."></textarea>
+
+        <button class="action" onclick="saveResearch()">Spara min växtundersökning</button>
+        <div id="saveFeedback" class="feedback" aria-live="polite"></div>
+    </div>
+</section>
+
+<section class="lesson">
+    <h2>8. Begrepp att kunna</h2>
+    <ul>
+        <li><strong>Rot:</strong> Tar upp vatten och näringsämnen.</li>
+        <li><strong>Stjälk:</strong> Håller upp växten och transporterar ämnen.</li>
+        <li><strong>Klorofyll:</strong> Grönt färgämne som fångar ljusenergi.</li>
+        <li><strong>Fotosyntes:</strong> Process där växten bildar druvsocker och syre med hjälp av ljusenergi.</li>
+        <li><strong>Ståndare:</strong> Blommans del som bildar pollen.</li>
+        <li><strong>Pistill:</strong> Blommans honliga fortplantningsdel.</li>
+        <li><strong>Frö:</strong> Kan utvecklas till en ny växt.</li>
+    </ul>
+</section>
+
+<div class="navigation">
+    <a href="vaxtermiljo.html">← Växter och miljön</a>
+    <a href="vaxtexperiment.html">Nästa: Växtexperiment →</a>
+    <a href="ak4.html">Till årskurs 4</a>
+    <a href="index.html">Till startsidan</a>
+</div>
 
 </main>
 
-
 <footer>
-
-    NO-Upptäckaren • Växtens delar • Årskurs 4
-
+    NO-Upptäckaren • Växternas delar • Årskurs 4
 </footer>
 
-
 <script>
+const partAnswered = {};
+const quizAnswered = {};
+let quizScore = 0;
 
-function checkAnswer(question, answer) {
+function checkPart(number, choice) {
+    if (partAnswered[number]) return;
+    partAnswered[number] = true;
 
-    const feedback = document.getElementById("feedback" + question);
+    const correct = {
+        1: "rot",
+        2: "ståndare",
+        3: "blad"
+    };
+
+    const feedback = document.getElementById("part" + number);
+
+    if (choice === correct[number]) {
+        feedback.className = "feedback";
+        feedback.textContent = "Rätt! Du har hittat rätt växtdel.";
+    } else {
+        feedback.className = "feedback wrong";
+        feedback.textContent = "Inte riktigt. Läs faktatexten igen.";
+    }
+
+    feedback.style.display = "block";
+}
+
+function quiz(number, correct) {
+    if (quizAnswered[number]) return;
+    quizAnswered[number] = true;
+
+    const feedback = document.getElementById("q" + number);
+
+    if (correct) {
+        quizScore++;
+        feedback.className = "feedback";
+        feedback.textContent = "Rätt svar! Bra arbetat.";
+    } else {
+        feedback.className = "feedback wrong";
+        feedback.textContent = "Inte riktigt. Läs frågan och faktatexten igen.";
+    }
 
     feedback.style.display = "block";
 
-    if (
-        (question === 1 && answer === 1) ||
-        (question === 2 && answer === 2) ||
-        (question === 3 && answer === 1) ||
-        (question === 4 && answer === 2)
-    ) {
-
-        feedback.className = "feedback correct";
-
-        feedback.innerHTML =
-            "✅ Rätt svar! Bra jobbat. Du har förstått innehållet.";
-
-    } else {
-
-        feedback.className = "feedback wrong";
-
-        feedback.innerHTML =
-            "❌ Inte riktigt. Läs faktatexten ovan igen och försök en gång till.";
-
-    }
-
+    document.getElementById("score").innerHTML =
+        "Du har svarat rätt på <strong>" + quizScore +
+        " av 4</strong> frågor.";
 }
 
+function saveResearch() {
+    const data = {
+        name: document.getElementById("plantName").value,
+        parts: document.getElementById("plantParts").value,
+        question: document.getElementById("plantQuestion").value,
+        conclusion: document.getElementById("plantConclusion").value
+    };
+
+    if (!data.name.trim() || !data.parts.trim()) {
+        showSaveMessage("Skriv vilken växt du undersöker och vilka delar du ser.", true);
+        return;
+    }
+
+    try {
+        localStorage.setItem("noUpptackaren_vaxtersdelar", JSON.stringify(data));
+        showSaveMessage("Din undersökning är sparad på den här enheten.", false);
+    } catch (error) {
+        showSaveMessage("Det gick inte att spara. Försök igen.", true);
+    }
+}
+
+function showSaveMessage(message, error) {
+    const box = document.getElementById("saveFeedback");
+    box.textContent = message;
+    box.className = error ? "feedback wrong" : "feedback";
+    box.style.display = "block";
+}
+
+window.addEventListener("DOMContentLoaded", function() {
+    try {
+        const saved = localStorage.getItem("noUpptackaren_vaxtersdelar");
+        if (!saved) return;
+
+        const data = JSON.parse(saved);
+        document.getElementById("plantName").value = data.name || "";
+        document.getElementById("plantParts").value = data.parts || "";
+        document.getElementById("plantQuestion").value = data.question || "";
+        document.getElementById("plantConclusion").value = data.conclusion || "";
+    } catch (error) {
+        console.log("Kunde inte läsa sparade svar.");
+    }
+});
 </script>
 
-
 </body>
-
 </html>
+```
