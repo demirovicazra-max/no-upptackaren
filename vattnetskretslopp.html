@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vattnets kretslopp | NO-Upptäckaren</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f0f7fb;
+    color: #263b48;
+    line-height: 1.6;
+}
+
+header {
+    background: #17658a;
+    color: white;
+    text-align: center;
+    padding: 32px 18px;
+}
+
+header h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin: 0 0 8px;
+}
+
+header p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+main {
+    max-width: 950px;
+    margin: 25px auto;
+    padding: 0 16px 40px;
+}
+
+section {
+    background: white;
+    padding: 24px;
+    border-radius: 15px;
+    margin-bottom: 22px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+h2 {
+    color: #17658a;
+    font-size: 1.65rem;
+    margin-top: 0;
+}
+
+h3 {
+    color: #17658a;
+}
+
+p {
+    font-size: 1.08rem;
+}
+
+.goal {
+    background: #e3f2f9;
+    border-left: 6px solid #2786ad;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.card {
+    border: 2px solid #d7e9f1;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 15px 0;
+}
+
+.important {
+    background: #fff5d9;
+    border-left: 5px solid #d49a24;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 16px 0;
+}
+
+.word {
+    display: inline-block;
+    background: #e3f2f9;
+    color: #17658a;
+    font-weight: bold;
+    padding: 3px 9px;
+    border-radius: 6px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px;
+    margin: 18px 0;
+}
+
+.grid-item {
+    background: #f1f8fb;
+    border: 2px solid #d7e9f1;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.grid-item h3 {
+    margin-top: 0;
+}
+
+.button {
+    display: inline-block;
+    background: #17658a;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    padding: 13px 19px;
+    margin: 7px 5px 7px 0;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #104967;
+}
+
+.step-box {
+    background: #f1f8fb;
+    border: 2px solid #c9e2ee;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px 0;
+    min-height: 170px;
+}
+
+.step-number {
+    display: inline-block;
+    background: #17658a;
+    color: white;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    text-align: center;
+    line-height: 38px;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.step-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.progress {
+    height: 12px;
+    background: #dceaf0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: #2786ad;
+    transition: width 0.3s;
+}
+
+.question {
+    border: 2px solid #d7e9f1;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 18px 0;
+}
+
+.question p {
+    font-weight: bold;
+}
+
+.answer {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: #f1f8fb;
+    border: 2px solid #c9e2ee;
+    border-radius: 9px;
+    padding: 13px 15px;
+    margin: 9px 0;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #263b48;
+}
+
+.answer:hover,
+.answer:focus {
+    background: #e1f0f7;
+    border-color: #17658a;
+}
+
+.answer.correct {
+    background: #d9f2dc;
+    border-color: #27813b;
+}
+
+.answer.wrong {
+    background: #fde4e1;
+    border-color: #bd4438;
+}
+
+.answer:disabled {
+    cursor: default;
+    opacity: 1;
+}
+
+.feedback {
+    min-height: 28px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.result {
+    display: none;
+    background: #e3f2f9;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 18px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    border: 2px solid #c9e2ee;
+    border-radius: 9px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #526775;
+}
+
+@media (max-width: 600px) {
+    section {
+        padding: 18px;
+    }
+
+    .navigation .button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media print {
+    body {
+        background: white;
+    }
+
+    section {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+    }
+
+    .button,
+    #quiz,
+    .step-controls {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Vattnets kretslopp</h1>
+    <p>Vattnet rör sig hela tiden genom naturen</p>
+</header>
+
+<main>
+
+<section>
+    <h2>Det här ska du lära dig</h2>
+
+    <div class="goal">
+        När du är klar ska du kunna:
+
+        <ul>
+            <li>beskriva vad vattnets kretslopp är</li>
+            <li>förklara vad avdunstning betyder</li>
+            <li>förklara hur moln bildas</li>
+            <li>ge exempel på olika sorters nederbörd</li>
+            <li>beskriva hur vatten kommer tillbaka till sjöar och hav</li>
+            <li>förklara varför vattnets kretslopp är viktigt</li>
+        </ul>
+    </div>
+
+    <p>
+        Vatten finns överallt i naturen.
+        Det finns i hav, sjöar, floder och mark.
+        Det finns också i luften och i levande organismer.
+    </p>
+
+    <p>
+        Vattnet rör sig hela tiden.
+        Det kallas <span class="word">vattnets kretslopp</span>.
+    </p>
+</section>
+
+<section>
+    <h2>1. Vad är vattnets kretslopp?</h2>
+
+    <p>
+        Solen värmer vatten på jordens yta.
+        En del av vattnet blir vattenånga.
+        Vattenångan stiger upp i luften.
+    </p>
+
+    <p>
+        Högre upp kyls vattenångan ner.
+        Då kan små vattendroppar bildas.
+        Dropparna kan bilda moln.
+    </p>
+
+    <p>
+        Vattnet faller sedan ner som nederbörd.
+        Det kan vara regn, snö eller hagel.
+    </p>
+
+    <p>
+        Vattnet kan rinna till sjöar och hav.
+        Det kan också tränga ner i marken.
+        Sedan fortsätter kretsloppet.
+    </p>
+
+    <div class="important">
+        Vattnet försvinner inte ur kretsloppet.
+        Det byter plats och form.
+    </div>
+</section>
+
+<section>
+    <h2>2. Vattnets väg genom naturen</h2>
+
+    <p>
+        Följ vattnet steg för steg.
+        Klicka på knapparna för att läsa.
+    </p>
+
+    <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="step-box" aria-live="polite">
+        <h3 id="stepTitle">Steg 1: Solen värmer vattnet</h3>
+        <p id="stepText">
+            Solen värmer vatten i hav, sjöar och mark.
+        </p>
+        <p id="stepExtra">
+            Solens energi driver vattnets kretslopp.
+        </p>
+    </div>
+
+    <div class="step-controls">
+        <button class="button" onclick="previousStep()">
+            Föregående
+        </button>
+
+        <button class="button" onclick="nextStep()">
+            Nästa steg
+        </button>
+
+        <button class="button" onclick="resetSteps()">
+            Börja om
+        </button>
+    </div>
+</section>
+
+<section>
+    <h2>3. Viktiga delar av kretsloppet</h2>
+
+    <div class="card">
+        <h3>Avdunstning</h3>
+
+        <p>
+            <span class="word">Avdunstning</span>
+            betyder att flytande vatten blir vattenånga.
+        </p>
+
+        <p>
+            Solens värme gör att vatten avdunstar.
+            Det händer bland annat från hav och sjöar.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Kondensation</h3>
+
+        <p>
+            <span class="word">Kondensation</span>
+            betyder att vattenånga blir små vattendroppar.
+        </p>
+
+        <p>
+            När fuktig luft kyls ner kan vattenånga kondensera.
+            Små droppar kan bilda moln.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Nederbörd</h3>
+
+        <p>
+            <span class="word">Nederbörd</span>
+            är vatten som faller från molnen.
+        </p>
+
+        <p>Exempel:</p>
+
+        <ul>
+            <li>regn</li>
+            <li>snö</li>
+            <li>hagel</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Avrinning</h3>
+
+        <p>
+            <span class="word">Avrinning</span>
+            betyder att vatten rinner över marken.
+        </p>
+
+        <p>
+            Vattnet kan rinna till bäckar,
+            floder, sjöar och hav.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Infiltration</h3>
+
+        <p>
+            <span class="word">Infiltration</span>
+            betyder att vatten tränger ner i marken.
+        </p>
+
+        <p>
+            Vattnet kan sedan röra sig genom marken
+            och bli en del av grundvattnet.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Grundvatten</h3>
+
+        <p>
+            <span class="word">Grundvatten</span>
+            är vatten som finns i markens hålrum
+            och sprickor i berggrunden.
+        </p>
+
+        <p>
+            Grundvatten kan rinna vidare
+            och bidra med vatten till sjöar och vattendrag.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Transpiration</h3>
+
+        <p>
+            <span class="word">Transpiration</span>
+            är när växter släpper ut vattenånga.
+        </p>
+
+        <p>
+            Vatten tas upp av rötterna.
+            En del av vattnet lämnar växten genom bladen.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>4. Interaktiv uppgift: Följ vattnet</h2>
+
+    <p>
+        Tänk dig att du är en vattendroppe i havet.
+        Vad kan hända med dig?
+    </p>
+
+    <div class="grid">
+
+        <div class="grid-item">
+            <h3>1. I havet</h3>
+            <p>
+                Solen värmer vattnet.
+                En del av det avdunstar.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>2. I luften</h3>
+            <p>
+                Vattenångan stiger.
+                Den kyls ner och kan bilda droppar.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>3. I molnet</h3>
+            <p>
+                Små vattendroppar samlas.
+                Molnet kan förändras.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>4. Till marken</h3>
+            <p>
+                Vattnet faller som regn eller snö.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>5. Genom marken</h3>
+            <p>
+                Vattnet kan rinna på marken
+                eller tränga ner i jorden.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>6. Tillbaka</h3>
+            <p>
+                Vattnet kan nå en sjö eller ett hav.
+                Kretsloppet fortsätter.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>5. Varför är vattnets kretslopp viktigt?</h2>
+
+    <p>
+        Alla levande organismer behöver vatten.
+        Växter behöver vatten för att leva och växa.
+        Djur behöver vatten för sina kroppar.
+        Människor behöver rent vatten varje dag.
+    </p>
+
+    <div class="grid">
+
+        <div class="grid-item">
+            <h3>För växter</h3>
+            <p>
+                Vatten tas upp av rötterna.
+                Växter använder vatten vid fotosyntesen.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>För djur</h3>
+            <p>
+                Djur behöver vatten för kroppens funktioner.
+                Många djur lever också i vatten.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>För människor</h3>
+            <p>
+                Vi behöver vatten för att dricka,
+                laga mat och sköta vår hygien.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="important">
+        Vattnet cirkulerar i naturen.
+        Men rent dricksvatten finns inte överallt.
+        Därför behöver vi skydda våra vattenmiljöer.
+    </div>
+</section>
+
+<section>
+    <h2>6. Vad påverkar vattnets kretslopp?</h2>
+
+    <div class="card">
+        <h3>Temperatur</h3>
+        <p>
+            Värme kan öka avdunstningen.
+            Temperaturen påverkar också om nederbörden faller
+            som regn eller snö.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Vegetation</h3>
+        <p>
+            Växter tar upp vatten från marken.
+            De släpper också ut vattenånga genom transpiration.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Mark och berg</h3>
+        <p>
+            Vatten kan tränga ner i marken.
+            Hur lätt det går beror på markens egenskaper.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Städer och vägar</h3>
+        <p>
+            Asfalt och betong släpper igenom lite vatten.
+            Därför kan mer regnvatten rinna på ytan.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Klimatförändringar</h3>
+        <p>
+            Ett varmare klimat påverkar avdunstning
+            och nederbördsmönster.
+            Det kan förändra tillgången på vatten.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>7. Testa dina kunskaper</h2>
+
+    <p>Välj ett svar på varje fråga.</p>
+
+    <div id="quiz"></div>
+
+    <button class="button" onclick="showResult()">
+        Se mitt resultat
+    </button>
+
+    <button class="button" onclick="restartQuiz()">
+        Börja om
+    </button>
+
+    <div id="result" class="result" aria-live="polite"></div>
+</section>
+
+<section>
+    <h2>8. Förklara med egna ord</h2>
+
+    <p>
+        Skriv dina svar.
+        Använd gärna begreppen från lektionen.
+    </p>
+
+    <p><strong>1. Vad betyder avdunstning?</strong></p>
+    <textarea id="answer1" placeholder="Skriv ditt svar här..."></textarea>
+
+    <p><strong>2. Hur bildas moln?</strong></p>
+    <textarea id="answer2" placeholder="Skriv ditt svar här..."></textarea>
+
+    <p><strong>3. Vad är nederbörd?</strong></p>
+    <textarea id="answer3" placeholder="Skriv ditt svar här..."></textarea>
+
+    <p><strong>4. Hur kan vatten komma tillbaka till havet?</strong></p>
+    <textarea id="answer4" placeholder="Skriv ditt svar här..."></textarea>
+
+    <p><strong>5. Varför behöver människor och djur vatten?</strong></p>
+    <textarea id="answer5" placeholder="Skriv ditt svar här..."></textarea>
+
+    <button class="button" onclick="saveAnswers()">
+        Spara mina svar
+    </button>
+
+    <button class="button" onclick="window.print()">
+        Skriv ut
+    </button>
+
+    <p id="saveMessage" aria-live="polite"></p>
+</section>
+
+<section>
+    <h2>9. Begrepp att kunna</h2>
+
+    <div class="card">
+        <h3>Vattnets kretslopp</h3>
+        <p>Vattnets rörelse genom naturen.</p>
+    </div>
+
+    <div class="card">
+        <h3>Avdunstning</h3>
+        <p>När flytande vatten blir vattenånga.</p>
+    </div>
+
+    <div class="card">
+        <h3>Kondensation</h3>
+        <p>När vattenånga blir små vattendroppar.</p>
+    </div>
+
+    <div class="card">
+        <h3>Nederbörd</h3>
+        <p>Vatten som faller från molnen.</p>
+    </div>
+
+    <div class="card">
+        <h3>Avrinning</h3>
+        <p>Vatten som rinner över marken.</p>
+    </div>
+
+    <div class="card">
+        <h3>Infiltration</h3>
+        <p>När vatten tränger ner i marken.</p>
+    </div>
+
+    <div class="card">
+        <h3>Grundvatten</h3>
+        <p>Vatten som finns i markens hålrum och sprickor i berggrunden.</p>
+    </div>
+
+    <div class="card">
+        <h3>Transpiration</h3>
+        <p>När växter släpper ut vattenånga.</p>
+    </div>
+</section>
+
+<section>
+    <h2>Fortsätt utforska</h2>
+
+    <div class="navigation">
+        <a class="button" href="vaxtermiljo.html">Växters livsmiljö</a>
+        <a class="button" href="ekosystem.html">Ekosystem</a>
+        <a class="button" href="fotosyntes.html">Fotosyntes</a>
+        <a class="button" href="biologiskmangfald.html">Biologisk mångfald</a>
+        <a class="button" href="biologibegrepp.html">Biologiska begrepp</a>
+        <a class="button" href="biologi.html">Till biologi</a>
+        <a class="button" href="index.html">Till startsidan</a>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    NO-Upptäckaren | NO årskurs 4–6
+</footer>
+
+<script>
+const steps = [
+    {
+        title: "Solen värmer vattnet",
+        text: "Solen värmer vatten i hav, sjöar och mark.",
+        extra: "Solens energi driver vattnets kretslopp."
+    },
+    {
+        title: "Avdunstning",
+        text: "En del av vattnet blir vattenånga och stiger upp i luften.",
+        extra: "Vattenånga är vatten i gasform."
+    },
+    {
+        title: "Kondensation",
+        text: "Vattenångan kyls ner. Små vattendroppar kan bildas.",
+        extra: "Dropparna kan tillsammans bilda moln."
+    },
+    {
+        title: "Nederbörd",
+        text: "Vatten faller från molnen som regn, snö eller hagel.",
+        extra: "Nederbörden når marken, sjöar och hav."
+    },
+    {
+        title: "Vattnet rör sig på marken",
+        text: "En del vatten rinner över marken till bäckar, sjöar och hav.",
+        extra: "Detta kallas avrinning."
+    },
+    {
+        title: "Vattnet tränger ner i marken",
+        text: "En del vatten tränger ner genom marken.",
+        extra: "Detta kallas infiltration. Vattnet kan bli grundvatten."
+    },
+    {
+        title: "Växter släpper ut vattenånga",
+        text: "Växter tar upp vatten genom rötterna. En del lämnar växten genom bladen.",
+        extra: "Detta kallas transpiration."
+    },
+    {
+        title: "Kretsloppet fortsätter",
+        text: "Vattnet rör sig vidare genom naturen.",
+        extra: "Solen och gravitationen hjälper till att driva kretsloppet."
+    }
+];
+
+let currentStep = 0;
+
+function showStep() {
+    const step = steps[currentStep];
+
+    document.getElementById("stepTitle").textContent =
+        "Steg " + (currentStep + 1) + ": " + step.title;
+
+    document.getElementById("stepText").textContent = step.text;
+
+    document.getElementById("stepExtra").textContent = step.extra;
+
+    document.getElementById("progressBar").style.width =
+        ((currentStep + 1) / steps.length * 100) + "%";
+}
+
+function nextStep() {
+    if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep();
+    }
+}
+
+function previousStep() {
+    if (currentStep > 0) {
+        currentStep--;
+        showStep();
+    }
+}
+
+function resetSteps() {
+    currentStep = 0;
+    showStep();
+}
+
+const questions = [
+    {
+        question: "Vad driver främst vattnets kretslopp?",
+        answers: [
+            "Solens energi och gravitationen",
+            "Människors transporter",
+            "Månens ljus"
+        ],
+        correct: 0,
+        explanation: "Rätt! Solens energi och gravitationen driver kretsloppet."
+    },
+    {
+        question: "Vad betyder avdunstning?",
+        answers: [
+            "Flytande vatten blir vattenånga",
+            "Vattenånga blir is",
+            "Regn faller från molnen"
+        ],
+        correct: 0,
+        explanation: "Rätt! Vid avdunstning blir flytande vatten vattenånga."
+    },
+    {
+        question: "Vad betyder kondensation?",
+        answers: [
+            "Vattenånga kyls ner och bildar små droppar",
+            "Vatten rinner ner i marken",
+            "Vatten fryser alltid till is"
+        ],
+        correct: 0,
+        explanation: "Rätt! Kondensation kan bidra till att moln bildas."
+    },
+    {
+        question: "Vad är nederbörd?",
+        answers: [
+            "Vatten som faller från molnen",
+            "Vatten som bara finns i havet",
+            "Vatten som växter tar upp"
+        ],
+        correct: 0,
+        explanation: "Rätt! Regn, snö och hagel är nederbörd."
+    },
+    {
+        question: "Vad kallas det när vatten tränger ner i marken?",
+        answers: [
+            "Infiltration",
+            "Avdunstning",
+            "Kondensation"
+        ],
+        correct: 0,
+        explanation: "Rätt! Infiltration betyder att vatten tränger ner i marken."
+    },
+    {
+        question: "Vad är grundvatten?",
+        answers: [
+            "Vatten i markens hålrum och sprickor i berggrunden",
+            "Vatten som bara finns i moln",
+            "Vatten som alltid är fruset"
+        ],
+        correct: 0,
+        explanation: "Rätt! Grundvatten finns under markytan."
+    },
+    {
+        question: "Vad betyder transpiration?",
+        answers: [
+            "När växter släpper ut vattenånga",
+            "När havet blir salt",
+            "När regn blir snö"
+        ],
+        correct: 0,
+        explanation: "Rätt! Växter släpper ut vattenånga, främst genom bladen."
+    },
+    {
+        question: "Vad är avrinning?",
+        answers: [
+            "Vatten som rinner över marken",
+            "Vatten som blir vattenånga",
+            "Vatten som bildar moln"
+        ],
+        correct: 0,
+        explanation: "Rätt! Avrinning för vatten vidare över marken."
+    },
+    {
+        question: "Vilket påstående om vattnets kretslopp stämmer?",
+        answers: [
+            "Vattnet rör sig och byter form",
+            "Allt vatten försvinner efter regn",
+            "Vattnet finns bara i havet"
+        ],
+        correct: 0,
+        explanation: "Rätt! Vatten rör sig mellan mark, vatten, luft och levande organismer."
+    },
+    {
+        question: "Varför behöver vi skydda våra vattenmiljöer?",
+        answers: [
+            "Människor och andra organismer behöver vatten",
+            "Vatten behövs bara av fiskar",
+            "Vatten är oviktigt för växter"
+        ],
+        correct: 0,
+        explanation: "Rätt! Vatten är viktigt för allt känt liv."
+    }
+];
+
+let score = 0;
+let answered = 0;
+let completed = [];
+
+function createQuiz() {
+    const quiz = document.getElementById("quiz");
+    quiz.innerHTML = "";
+
+    questions.forEach((q, index) => {
+        const box = document.createElement("div");
+        box.className = "question";
+
+        const title = document.createElement("p");
+        title.textContent = (index + 1) + ". " + q.question;
+        box.appendChild(title);
+
+        q.answers.forEach((answer, answerIndex) => {
+            const button = document.createElement("button");
+            button.className = "answer";
+            button.type = "button";
+            button.textContent = answer;
+
+            button.addEventListener("click", () => {
+                checkAnswer(index, answerIndex, box);
+            });
+
+            box.appendChild(button);
+        });
+
+        const feedback = document.createElement("div");
+        feedback.className = "feedback";
+        feedback.setAttribute("aria-live", "polite");
+        box.appendChild(feedback);
+
+        quiz.appendChild(box);
+    });
+}
+
+function checkAnswer(questionIndex, answerIndex, box) {
+    if (completed.includes(questionIndex)) return;
+
+    completed.push(questionIndex);
+    answered++;
+
+    const question = questions[questionIndex];
+    const buttons = box.querySelectorAll(".answer");
+    const feedback = box.querySelector(".feedback");
+
+    buttons.forEach(button => button.disabled = true);
+
+    if (answerIndex === question.correct) {
+        score++;
+        buttons[answerIndex].classList.add("correct");
+        feedback.textContent = question.explanation;
+        feedback.style.color = "#17652b";
+    } else {
+        buttons[answerIndex].classList.add("wrong");
+        buttons[question.correct].classList.add("correct");
+        feedback.textContent = "Inte riktigt. " + question.explanation;
+        feedback.style.color = "#9a332b";
+    }
+}
+
+function showResult() {
+    const result = document.getElementById("result");
+    result.style.display = "block";
+
+    if (answered < questions.length) {
+        result.textContent =
+            "Du har svarat på " + answered + " av " +
+            questions.length + " frågor. Fortsätt!";
+        return;
+    }
+
+    result.textContent =
+        "Du fick " + score + " av " + questions.length + " rätt.";
+
+    if (score === questions.length) {
+        result.textContent += " Fantastiskt! Alla rätt!";
+    } else if (score >= 7) {
+        result.textContent += " Mycket bra jobbat!";
+    } else if (score >= 5) {
+        result.textContent += " Bra jobbat! Läs gärna igen.";
+    } else {
+        result.textContent += " Öva lite till och försök igen.";
+    }
+}
+
+function restartQuiz() {
+    score = 0;
+    answered = 0;
+    completed = [];
+
+    document.getElementById("result").style.display = "none";
+    createQuiz();
+}
+
+function saveAnswers() {
+    const answers = {
+        answer1: document.getElementById("answer1").value,
+        answer2: document.getElementById("answer2").value,
+        answer3: document.getElementById("answer3").value,
+        answer4: document.getElementById("answer4").value,
+        answer5: document.getElementById("answer5").value
+    };
+
+    try {
+        localStorage.setItem(
+            "noUpptackarenVattnetsKretslopp",
+            JSON.stringify(answers)
+        );
+
+        document.getElementById("saveMessage").textContent =
+            "Dina svar är sparade på den här enheten.";
+
+    } catch (error) {
+        document.getElementById("saveMessage").textContent =
+            "Det gick inte att spara svaren.";
+    }
+}
+
+function loadAnswers() {
+    try {
+        const saved = localStorage.getItem(
+            "noUpptackarenVattnetsKretslopp"
+        );
+
+        if (saved) {
+            const answers = JSON.parse(saved);
+
+            document.getElementById("answer1").value =
+                answers.answer1 || "";
+
+            document.getElementById("answer2").value =
+                answers.answer2 || "";
+
+            document.getElementById("answer3").value =
+                answers.answer3 || "";
+
+            document.getElementById("answer4").value =
+                answers.answer4 || "";
+
+            document.getElementById("answer5").value =
+                answers.answer5 || "";
+        }
+    } catch (error) {
+        console.log("Kunde inte läsa sparade svar.");
+    }
+}
+
+showStep();
+createQuiz();
+loadAnswers();
+</script>
+
+</body>
+</html>
