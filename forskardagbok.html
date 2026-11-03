@@ -1,796 +1,668 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Min forskardagbok – NO-Upptäckaren</title>
+<title>Forskardagbok – NO-Upptäckaren</title>
 
 <link rel="stylesheet" href="style.css">
 
 <style>
-:root {
-  --green: #286b45;
-  --light-green: #edf7ef;
-  --border: #d8e5da;
-  --text: #203020;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  color: var(--text);
-  background: #f7f9f7;
-  font-family: Arial, sans-serif;
-}
-
 .diary-container {
-  max-width: 950px;
-  margin: auto;
-  padding: 22px;
-}
-
-.diary-header {
-  background: var(--light-green);
-  padding: 25px;
-  border-radius: 18px;
-  margin-bottom: 24px;
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 20px;
 }
 
 .diary-section {
-  background: white;
-  border: 2px solid var(--border);
-  border-radius: 16px;
-  padding: 22px;
-  margin-bottom: 20px;
+    background: white;
+    padding: 25px;
+    margin-bottom: 22px;
+    border-radius: 18px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
 }
 
 .diary-section h2 {
-  margin-top: 0;
-  color: var(--green);
+    color: #236b45;
+    margin-top: 0;
+}
+
+.diary-section p {
+    line-height: 1.6;
+    font-size: 17px;
 }
 
 label {
-  display: block;
-  font-weight: bold;
-  margin: 16px 0 7px;
+    display: block;
+    font-weight: bold;
+    margin: 15px 0 7px;
 }
 
 input,
-textarea,
-select {
-  width: 100%;
-  padding: 13px;
-  border: 2px solid #cbd8cd;
-  border-radius: 9px;
-  font-size: 1rem;
-  font-family: inherit;
-  background: white;
-  color: var(--text);
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px;
+    border: 2px solid #cbd5d1;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: inherit;
 }
 
 textarea {
-  min-height: 110px;
-  resize: vertical;
-  line-height: 1.5;
+    min-height: 100px;
+    resize: vertical;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
-  outline: 3px solid #a8d6b2;
-  border-color: var(--green);
+button,
+.action-button {
+    display: inline-block;
+    padding: 14px 20px;
+    margin: 8px 5px 8px 0;
+    border: none;
+    border-radius: 10px;
+    background: #247346;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.help-text {
-  color: #526252;
-  font-size: 0.95rem;
-  line-height: 1.5;
+button:hover,
+.action-button:hover {
+    opacity: 0.9;
 }
 
-.button-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 18px;
+.secondary {
+    background: #315b91;
 }
 
-.diary-button {
-  padding: 13px 19px;
-  border: none;
-  border-radius: 10px;
-  background: var(--green);
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
+.danger {
+    background: #a93232;
 }
 
-.diary-button:hover,
-.diary-button:focus-visible {
-  background: #1d5033;
+.observation {
+    background: #f0f7f1;
+    padding: 16px;
+    border-radius: 12px;
+    margin: 12px 0;
 }
 
-.diary-button.secondary {
-  background: #e8eee9;
-  color: #203020;
-}
-
-.diary-button.danger {
-  background: #a83232;
-}
-
-.status-message {
-  min-height: 25px;
-  margin-top: 12px;
-  font-weight: bold;
-  color: var(--green);
-}
-
-.observation-form {
-  background: #f5f8f5;
-  padding: 18px;
-  border-radius: 12px;
-  margin-top: 15px;
-}
-
-.observation-card {
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 16px;
-  margin-top: 12px;
-  background: white;
-}
-
-.observation-card h3 {
-  margin-top: 0;
-}
-
-.observation-card button {
-  margin-top: 10px;
-}
-
-.observation-list {
-  margin-top: 20px;
+.observation strong {
+    color: #236b45;
 }
 
 .chart-container {
-  margin-top: 20px;
-  background: #f8faf8;
-  padding: 16px;
-  border-radius: 12px;
-  overflow-x: auto;
+    width: 100%;
+    overflow-x: auto;
 }
 
 canvas {
-  display: block;
-  width: 100%;
-  min-width: 300px;
-  height: 280px;
+    width: 100%;
+    max-width: 800px;
+    height: 300px;
+    border: 1px solid #d5ded8;
+    border-radius: 12px;
 }
 
-.chart-empty {
-  padding: 20px;
-  text-align: center;
-  color: #526252;
-}
-
-.diary-navigation {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 30px;
-}
-
-.diary-navigation a {
-  padding: 11px 16px;
-  background: #e8eee9;
-  border-radius: 9px;
-  text-decoration: none;
-  color: #203020;
-}
-
-@media print {
-  body {
-    background: white;
-  }
-
-  .diary-container {
-    max-width: 100%;
-    padding: 0;
-  }
-
-  .diary-button,
-  .button-row,
-  .diary-navigation,
-  .observation-form {
-    display: none !important;
-  }
-
-  .diary-section,
-  .diary-header {
-    break-inside: avoid;
-    border: 1px solid #999;
-  }
-
-  input,
-  textarea {
-    border: 1px solid #999;
-  }
+.status {
+    font-weight: bold;
+    color: #236b45;
+    min-height: 24px;
 }
 
 @media (max-width: 600px) {
-  .diary-container {
-    padding: 12px;
-  }
+    .diary-container {
+        padding: 12px;
+    }
 
-  .diary-section,
-  .diary-header {
-    padding: 17px;
-  }
+    .diary-section {
+        padding: 18px;
+    }
+
+    button,
+    .action-button {
+        display: block;
+        text-align: center;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<main class="diary-container">
-
-<header class="diary-header">
-  <h1>Min forskardagbok</h1>
-
-  <p><strong>NO-Upptäckaren · Biologi · Årskurs 4–6</strong></p>
-
-  <p>
-    Här dokumenterar du din undersökning.
-    Du samlar information, gör observationer
-    och följer vad som händer.
-  </p>
-
-  <p class="help-text">
-    Dina anteckningar sparas automatiskt i den här webbläsaren.
-    De delas inte automatiskt med din lärare.
-  </p>
+<header>
+    <h1>Forskardagbok</h1>
+    <p>Jag undersöker hur ett frö växer.</p>
 </header>
 
-<!-- DEL 1 -->
+<main class="diary-container">
 
 <section class="diary-section">
-  <h2>1. Min undersökning</h2>
 
-  <label for="studentName">Mitt namn</label>
-  <input id="studentName" type="text" placeholder="Skriv ditt namn">
+    <h2>Min undersökning</h2>
 
-  <label for="experimentTitle">Undersökningens namn</label>
-  <input id="experimentTitle" type="text"
-         placeholder="Exempel: Hur växer en böna?">
+    <p>
+        En forskare undersöker, observerar och dokumenterar.
+        Här samlar du allt du upptäcker.
+    </p>
 
-  <label for="startDate">Startdatum</label>
-  <input id="startDate" type="date">
+    <label for="studentName">Mitt namn</label>
+    <input id="studentName" type="text" placeholder="Skriv ditt namn">
 
-  <label for="researchQuestion">Frågeställning</label>
-  <textarea id="researchQuestion"
+    <label for="startDate">Startdatum</label>
+    <input id="startDate" type="date">
+
+    <label for="researchQuestion">Min undersökningsfråga</label>
+    <textarea id="researchQuestion"
     placeholder="Vad vill jag ta reda på?"></textarea>
+
 </section>
 
-<!-- DEL 2 -->
 
 <section class="diary-section">
-  <h2>2. Min hypotes</h2>
 
-  <p class="help-text">
-    En hypotes är vad du tror kommer att hända.
-    Förklara gärna varför du tror det.
-  </p>
+    <h2>1. Min hypotes</h2>
 
-  <label for="hypothesis">Min hypotes</label>
-  <textarea id="hypothesis"
-    placeholder="Jag tror att... eftersom..."></textarea>
+    <p>
+        Vad tror du kommer att hända?
+        Vad tror du att fröet behöver?
+    </p>
+
+    <label for="hypothesis">Min hypotes</label>
+    <textarea id="hypothesis"
+    placeholder="Jag tror att..."></textarea>
+
 </section>
 
-<!-- DEL 3 -->
 
 <section class="diary-section">
-  <h2>3. Material och metod</h2>
 
-  <label for="materials">Vilket material behöver jag?</label>
-  <textarea id="materials"
-    placeholder="Exempel: böna, jord, kruka och vatten."></textarea>
+    <h2>2. Material</h2>
 
-  <label for="method">Hur ska jag göra?</label>
-  <textarea id="method"
-    placeholder="Beskriv steg för steg hur du ska genomföra undersökningen."></textarea>
+    <label for="materials">Det här använder jag</label>
+    <textarea id="materials"
+    placeholder="Jag behöver..."></textarea>
+
 </section>
 
-<!-- DEL 4 -->
 
 <section class="diary-section">
-  <h2>4. Mina observationer</h2>
 
-  <p class="help-text">
-    Skriv vad du ser. Försök att använda samma sätt
-    att mäta varje gång.
-  </p>
+    <h2>3. Genomförande</h2>
 
-  <div class="observation-form">
+    <label for="method">Så gjorde jag</label>
+    <textarea id="method"
+    placeholder="Först gjorde jag... Sedan..."></textarea>
+
+</section>
+
+
+<section class="diary-section">
+
+    <h2>4. Mina observationer</h2>
+
+    <p>
+        Skriv vad du ser.
+        Du kan också mäta växtens höjd.
+    </p>
 
     <label for="observationDate">Datum</label>
     <input id="observationDate" type="date">
 
-    <label for="plantHeight">Växtens höjd i centimeter</label>
-    <input id="plantHeight" type="number"
-           min="0" step="0.1" placeholder="Exempel: 4.5">
-
-    <label for="observationText">Vad ser jag?</label>
+    <label for="observationText">Vad har hänt?</label>
     <textarea id="observationText"
-      placeholder="Beskriv vad som har hänt."></textarea>
+    placeholder="Jag ser att..."></textarea>
 
-    <label for="observationConditions">Andra saker jag har lagt märke till</label>
-    <textarea id="observationConditions"
-      placeholder="Exempel: Bladen har blivit större."></textarea>
+    <label for="plantHeight">Växtens höjd i centimeter</label>
+    <input id="plantHeight" type="number" min="0" step="0.1"
+    placeholder="Exempel: 2.5">
 
-    <div class="button-row">
-      <button class="diary-button" id="addObservation"
-              type="button">
-        Lägg till observation
-      </button>
+    <button type="button" id="addObservation">
+        Spara observation
+    </button>
+
+    <p class="status" id="observationStatus" aria-live="polite"></p>
+
+    <div id="observationList"></div>
+
+</section>
+
+
+<section class="diary-section">
+
+    <h2>5. Växtens tillväxt</h2>
+
+    <p>
+        Här kan du se hur växtens höjd förändras
+        under experimentet.
+    </p>
+
+    <div class="chart-container">
+        <canvas id="growthChart" width="800" height="300">
+            Diagram över växtens tillväxt.
+        </canvas>
     </div>
 
-    <p class="status-message" id="observationStatus"
-       aria-live="polite"></p>
-
-  </div>
-
-  <div class="observation-list" id="observationList">
-    <h3>Mina anteckningar</h3>
-    <p class="help-text">Här visas dina observationer.</p>
-  </div>
-</section>
-
-<!-- DEL 5 -->
-
-<section class="diary-section">
-  <h2>5. Min tillväxtkurva</h2>
-
-  <p class="help-text">
-    Diagrammet visar hur växtens höjd förändras
-    när du lägger till nya mätningar.
-  </p>
-
-  <div class="chart-container">
-    <canvas id="growthChart"
-            width="800" height="300"
-            role="img"
-            aria-label="Diagram över växtens höjd vid olika mättillfällen">
-    </canvas>
-
-    <p class="chart-empty" id="chartEmpty">
-      Lägg till mätningar för att skapa din tillväxtkurva.
+    <p id="chartMessage" aria-live="polite">
+        Lägg till mätningar för att se diagrammet.
     </p>
-  </div>
+
 </section>
 
-<!-- DEL 6 -->
 
 <section class="diary-section">
-  <h2>6. Mitt resultat</h2>
 
-  <p class="help-text">
-    Vad visade din undersökning?
-    Beskriv vad som faktiskt hände.
-  </p>
+    <h2>6. Resultat</h2>
 
-  <label for="result">Mitt resultat</label>
-  <textarea id="result"
-    placeholder="Jag såg att..."></textarea>
+    <label for="results">Vad visade undersökningen?</label>
+    <textarea id="results"
+    placeholder="Jag upptäckte att..."></textarea>
+
 </section>
 
-<!-- DEL 7 -->
 
 <section class="diary-section">
-  <h2>7. Min slutsats</h2>
 
-  <p class="help-text">
-    Vad har du kommit fram till?
-    Stämde din hypotes?
-  </p>
+    <h2>7. Min slutsats</h2>
 
-  <label for="conclusion">Min slutsats</label>
-  <textarea id="conclusion"
-    placeholder="Jag har kommit fram till att..."></textarea>
+    <p>
+        Vad har du lärt dig?
+        Stämde din hypotes?
+    </p>
 
-  <label for="improvement">Vad skulle jag kunna ändra nästa gång?</label>
-  <textarea id="improvement"
-    placeholder="Nästa gång skulle jag kunna..."></textarea>
+    <label for="conclusion">Min slutsats</label>
+    <textarea id="conclusion"
+    placeholder="Jag har lärt mig att..."></textarea>
+
 </section>
 
-<!-- SPARA OCH SKRIV UT -->
 
 <section class="diary-section">
-  <h2>Min forskardagbok är klar</h2>
 
-  <p>
-    Dina uppgifter sparas automatiskt medan du arbetar.
-    Du kan också skriva ut dagboken.
-  </p>
+    <h2>8. Nästa gång</h2>
 
-  <div class="button-row">
-    <button class="diary-button" id="saveButton" type="button">
-      Spara nu
-    </button>
+    <label for="improvements">Vad skulle jag kunna göra annorlunda?</label>
+    <textarea id="improvements"
+    placeholder="Nästa gång skulle jag..."></textarea>
 
-    <button class="diary-button secondary"
-            id="printButton" type="button">
-      Skriv ut dagboken
-    </button>
-
-    <button class="diary-button danger"
-            id="clearButton" type="button">
-      Radera dagboken
-    </button>
-  </div>
-
-  <p class="status-message" id="saveStatus"
-     aria-live="polite"></p>
 </section>
 
-<footer class="diary-navigation">
-  <a href="biologi.html">Till biologin</a>
-  <a href="vaxtexperiment.html">Till växtexperiment</a>
-  <a href="index.html">Till startsidan</a>
-</footer>
+
+<section class="diary-section">
+
+    <h2>Spara och skriv ut</h2>
+
+    <p>
+        Dina anteckningar sparas i den här webbläsaren
+        på den enhet du använder.
+    </p>
+
+    <button type="button" id="saveDiary">
+        Spara forskardagboken
+    </button>
+
+    <button type="button" class="secondary" id="printDiary">
+        Skriv ut forskardagboken
+    </button>
+
+    <button type="button" class="danger" id="clearDiary">
+        Radera forskardagboken
+    </button>
+
+    <p class="status" id="saveStatus" aria-live="polite"></p>
+
+</section>
+
+
+<section class="diary-section">
+
+    <a href="vaxtexperiment.html" class="action-button">
+        Till växtexperimentet
+    </a>
+
+    <a href="biologi.html" class="action-button secondary">
+        Till biologi
+    </a>
+
+    <a href="index.html" class="action-button secondary">
+        Till startsidan
+    </a>
+
+</section>
 
 </main>
 
+<footer>
+    NO-Upptäckaren
+</footer>
+
+
 <script>
-const STORAGE_KEY = "noUpptackarenForskardagbok";
 
 const fieldIds = [
-  "studentName",
-  "experimentTitle",
-  "startDate",
-  "researchQuestion",
-  "hypothesis",
-  "materials",
-  "method",
-  "result",
-  "conclusion",
-  "improvement"
+    "studentName",
+    "startDate",
+    "researchQuestion",
+    "hypothesis",
+    "materials",
+    "method",
+    "results",
+    "conclusion",
+    "improvements"
 ];
+
+const STORAGE_KEY = "noUpptackarenForskardagbok";
 
 let observations = [];
 
-const $ = id => document.getElementById(id);
 
-function getDiaryData() {
-  const data = {};
+function saveDiary() {
 
-  fieldIds.forEach(id => {
-    data[id] = $(id).value;
-  });
+    const diary = {};
 
-  data.observations = observations;
+    fieldIds.forEach(function(id) {
+        diary[id] = document.getElementById(id).value;
+    });
 
-  return data;
-}
+    diary.observations = observations;
 
-function saveDiary(showMessage = false) {
-  try {
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify(getDiaryData())
-    );
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(diary));
 
-    if (showMessage) {
-      $("saveStatus").textContent =
-        "Din forskardagbok har sparats i webbläsaren.";
+        document.getElementById("saveStatus").textContent =
+            "Forskardagboken är sparad på den här enheten.";
+
+    } catch (error) {
+
+        document.getElementById("saveStatus").textContent =
+            "Det gick inte att spara. Kontrollera webbläsarens lagringsutrymme.";
     }
-  } catch (error) {
-    $("saveStatus").textContent =
-      "Det gick inte att spara. Kontrollera webbläsarens lagringsinställningar.";
-  }
 }
+
 
 function loadDiary() {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
 
-    if (!saved) return;
+    try {
 
-    const data = JSON.parse(saved);
+        const saved = localStorage.getItem(STORAGE_KEY);
 
-    fieldIds.forEach(id => {
-      if (typeof data[id] === "string") {
-        $(id).value = data[id];
-      }
-    });
+        if (!saved) {
+            return;
+        }
 
-    observations = Array.isArray(data.observations)
-      ? data.observations
-      : [];
+        const diary = JSON.parse(saved);
 
-    renderObservations();
-    drawChart();
+        fieldIds.forEach(function(id) {
 
-  } catch (error) {
-    $("saveStatus").textContent =
-      "Det gick inte att läsa den sparade dagboken.";
-  }
+            if (typeof diary[id] === "string") {
+                document.getElementById(id).value = diary[id];
+            }
+
+        });
+
+        if (Array.isArray(diary.observations)) {
+            observations = diary.observations.filter(function(item) {
+                return item &&
+                    typeof item.date === "string" &&
+                    typeof item.text === "string" &&
+                    Number.isFinite(Number(item.height));
+            });
+        }
+
+        renderObservations();
+
+    } catch (error) {
+
+        document.getElementById("saveStatus").textContent =
+            "Det gick inte att läsa den tidigare sparade dagboken.";
+    }
 }
+
 
 function addObservation() {
-  const date = $("observationDate").value;
-  const heightInput = $("plantHeight").value;
-  const text = $("observationText").value.trim();
-  const conditions = $("observationConditions").value.trim();
 
-  if (!date || !text) {
-    $("observationStatus").textContent =
-      "Fyll i datum och beskriv vad du har observerat.";
-    return;
-  }
+    const date = document.getElementById("observationDate").value;
+    const text = document.getElementById("observationText").value.trim();
+    const heightValue = document.getElementById("plantHeight").value;
 
-  let height = null;
+    const height = Number(heightValue);
 
-  if (heightInput !== "") {
-    height = Number(heightInput);
+    if (!date || !text || heightValue === "" ||
+        !Number.isFinite(height) || height < 0) {
 
-    if (!Number.isFinite(height) || height < 0) {
-      $("observationStatus").textContent =
-        "Ange en giltig höjd som är noll eller större.";
-      return;
-    }
-  }
+        document.getElementById("observationStatus").textContent =
+            "Fyll i datum, observation och en giltig höjd.";
 
-  observations.push({
-    id: Date.now(),
-    date,
-    height,
-    text,
-    conditions
-  });
-
-  observations.sort((a, b) => a.date.localeCompare(b.date));
-
-  $("plantHeight").value = "";
-  $("observationText").value = "";
-  $("observationConditions").value = "";
-
-  $("observationStatus").textContent =
-    "Din observation har lagts till.";
-
-  renderObservations();
-  drawChart();
-  saveDiary();
-}
-
-function renderObservations() {
-  const container = $("observationList");
-
-  container.innerHTML = "";
-
-  const heading = document.createElement("h3");
-  heading.textContent = "Mina anteckningar";
-  container.appendChild(heading);
-
-  if (observations.length === 0) {
-    const empty = document.createElement("p");
-    empty.className = "help-text";
-    empty.textContent = "Du har inte lagt till några observationer ännu.";
-    container.appendChild(empty);
-    return;
-  }
-
-  observations.forEach((item, index) => {
-    const card = document.createElement("article");
-    card.className = "observation-card";
-
-    const title = document.createElement("h3");
-    title.textContent = "Observation " + (index + 1);
-    card.appendChild(title);
-
-    const date = document.createElement("p");
-    date.textContent = "Datum: " + item.date;
-    card.appendChild(date);
-
-    if (item.height !== null) {
-      const height = document.createElement("p");
-      height.textContent = "Växtens höjd: " + item.height + " cm";
-      card.appendChild(height);
+        return;
     }
 
-    const description = document.createElement("p");
-    description.textContent = "Observation: " + item.text;
-    card.appendChild(description);
-
-    if (item.conditions) {
-      const conditions = document.createElement("p");
-      conditions.textContent =
-        "Övriga anteckningar: " + item.conditions;
-      card.appendChild(conditions);
-    }
-
-    const removeButton = document.createElement("button");
-    removeButton.type = "button";
-    removeButton.className = "diary-button danger";
-    removeButton.textContent = "Ta bort observation";
-
-    removeButton.addEventListener("click", () => {
-      observations = observations.filter(
-        observation => observation.id !== item.id
-      );
-
-      renderObservations();
-      drawChart();
-      saveDiary();
+    observations.push({
+        date: date,
+        text: text,
+        height: height
     });
 
-    card.appendChild(removeButton);
-    container.appendChild(card);
-  });
+    observations.sort(function(a, b) {
+        return a.date.localeCompare(b.date);
+    });
+
+    document.getElementById("observationText").value = "";
+    document.getElementById("plantHeight").value = "";
+
+    renderObservations();
+    saveDiary();
+
+    document.getElementById("observationStatus").textContent =
+        "Din observation är sparad.";
 }
+
+
+function renderObservations() {
+
+    const list = document.getElementById("observationList");
+
+    list.innerHTML = "";
+
+    observations.forEach(function(item, index) {
+
+        const box = document.createElement("div");
+        box.className = "observation";
+
+        const heading = document.createElement("strong");
+        heading.textContent = "Observation " + (index + 1) +
+            " – " + item.date;
+
+        const description = document.createElement("p");
+        description.textContent = item.text;
+
+        const measurement = document.createElement("p");
+        measurement.textContent = "Växtens höjd: " +
+            item.height + " cm";
+
+        box.appendChild(heading);
+        box.appendChild(description);
+        box.appendChild(measurement);
+
+        list.appendChild(box);
+
+    });
+
+    drawChart();
+}
+
 
 function drawChart() {
-  const canvas = $("growthChart");
-  const ctx = canvas.getContext("2d");
 
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const canvas = document.getElementById("growthChart");
+    const context = canvas.getContext("2d");
 
-  const measurements = observations.filter(
-    item => item.height !== null
-  );
+    context.clearRect(0, 0, canvas.width, canvas.height);
 
-  $("chartEmpty").style.display =
-    measurements.length === 0 ? "block" : "none";
+    const message = document.getElementById("chartMessage");
 
-  if (measurements.length === 0) return;
-
-  const left = 65;
-  const right = 30;
-  const top = 25;
-  const bottom = 55;
-
-  const width = canvas.width - left - right;
-  const height = canvas.height - top - bottom;
-
-  const maxValue = Math.max(
-    5,
-    ...measurements.map(item => item.height)
-  );
-
-  const roundedMax = Math.ceil(maxValue / 5) * 5;
-
-  ctx.strokeStyle = "#aab8aa";
-  ctx.lineWidth = 2;
-
-  ctx.beginPath();
-  ctx.moveTo(left, top);
-  ctx.lineTo(left, canvas.height - bottom);
-  ctx.lineTo(canvas.width - right, canvas.height - bottom);
-  ctx.stroke();
-
-  ctx.font = "14px Arial";
-  ctx.fillStyle = "#203020";
-
-  for (let i = 0; i <= 5; i++) {
-    const value = roundedMax * i / 5;
-    const y = canvas.height - bottom - height * i / 5;
-
-    ctx.fillText(value.toFixed(0), 20, y + 5);
-
-    ctx.strokeStyle = "#e0e8e0";
-    ctx.lineWidth = 1;
-
-    ctx.beginPath();
-    ctx.moveTo(left, y);
-    ctx.lineTo(canvas.width - right, y);
-    ctx.stroke();
-  }
-
-  const points = measurements.map((item, index) => {
-    const x = measurements.length === 1
-      ? left + width / 2
-      : left + width * index / (measurements.length - 1);
-
-    const y =
-      canvas.height - bottom -
-      (item.height / roundedMax) * height;
-
-    return { x, y, item };
-  });
-
-  ctx.strokeStyle = "#286b45";
-  ctx.lineWidth = 3;
-
-  ctx.beginPath();
-
-  points.forEach((point, index) => {
-    if (index === 0) {
-      ctx.moveTo(point.x, point.y);
-    } else {
-      ctx.lineTo(point.x, point.y);
+    if (observations.length === 0) {
+        message.textContent =
+            "Lägg till mätningar för att se diagrammet.";
+        return;
     }
-  });
 
-  ctx.stroke();
+    message.textContent =
+        "Diagrammet visar växtens uppmätta höjd i centimeter.";
 
-  points.forEach(point => {
-    ctx.fillStyle = "#286b45";
-    ctx.beginPath();
-    ctx.arc(point.x, point.y, 6, 0, Math.PI * 2);
-    ctx.fill();
+    const padding = 55;
+    const chartWidth = canvas.width - padding * 2;
+    const chartHeight = canvas.height - padding * 2;
 
-    ctx.fillStyle = "#203020";
-    ctx.font = "12px Arial";
-    ctx.textAlign = "center";
-
-    ctx.fillText(
-      point.item.height + " cm",
-      point.x,
-      point.y - 12
+    const maxHeight = Math.max(
+        5,
+        ...observations.map(function(item) {
+            return item.height;
+        })
     );
 
-    ctx.fillText(
-      point.item.date,
-      point.x,
-      canvas.height - 25
-    );
-  });
+    context.strokeStyle = "#52665d";
+    context.lineWidth = 2;
 
-  ctx.textAlign = "left";
+    context.beginPath();
+    context.moveTo(padding, padding);
+    context.lineTo(padding, canvas.height - padding);
+    context.lineTo(canvas.width - padding, canvas.height - padding);
+    context.stroke();
+
+    context.font = "14px Arial";
+    context.fillStyle = "#18332a";
+
+    context.fillText("Höjd (cm)", 10, 25);
+
+    for (let i = 0; i <= 4; i++) {
+
+        const value = maxHeight * i / 4;
+        const y = canvas.height - padding -
+            (value / maxHeight) * chartHeight;
+
+        context.fillText(value.toFixed(1), 10, y + 5);
+
+        context.strokeStyle = "#e0e7e2";
+        context.beginPath();
+        context.moveTo(padding, y);
+        context.lineTo(canvas.width - padding, y);
+        context.stroke();
+    }
+
+    const points = observations.map(function(item, index) {
+
+        const x = observations.length === 1
+            ? padding + chartWidth / 2
+            : padding + index * chartWidth / (observations.length - 1);
+
+        const y = canvas.height - padding -
+            (item.height / maxHeight) * chartHeight;
+
+        return {
+            x: x,
+            y: y,
+            item: item
+        };
+
+    });
+
+    context.strokeStyle = "#247346";
+    context.lineWidth = 3;
+    context.beginPath();
+
+    points.forEach(function(point, index) {
+
+        if (index === 0) {
+            context.moveTo(point.x, point.y);
+        } else {
+            context.lineTo(point.x, point.y);
+        }
+
+    });
+
+    context.stroke();
+
+    points.forEach(function(point, index) {
+
+        context.fillStyle = "#247346";
+        context.beginPath();
+        context.arc(point.x, point.y, 6, 0, Math.PI * 2);
+        context.fill();
+
+        context.fillStyle = "#18332a";
+        context.font = "12px Arial";
+
+        context.fillText(
+            point.item.height + " cm",
+            point.x - 18,
+            point.y - 12
+        );
+
+        context.fillText(
+            "Mätning " + (index + 1),
+            point.x - 25,
+            canvas.height - 20
+        );
+
+    });
+
 }
 
-fieldIds.forEach(id => {
-  $(id).addEventListener("input", () => {
-    saveDiary();
-  });
 
-  $(id).addEventListener("change", () => {
-    saveDiary();
-  });
-});
+document.getElementById("addObservation")
+    .addEventListener("click", addObservation);
 
-$("addObservation").addEventListener("click", addObservation);
+document.getElementById("saveDiary")
+    .addEventListener("click", saveDiary);
 
-$("saveButton").addEventListener("click", () => {
-  saveDiary(true);
-});
+document.getElementById("printDiary")
+    .addEventListener("click", function() {
+        window.print();
+    });
 
-$("printButton").addEventListener("click", () => {
-  window.print();
-});
+document.getElementById("clearDiary")
+    .addEventListener("click", function() {
 
-$("clearButton").addEventListener("click", () => {
-  const confirmed = confirm(
-    "Vill du verkligen radera hela forskardagboken? " +
-    "Detta går inte att ångra."
-  );
+        const confirmed = confirm(
+            "Vill du verkligen radera hela forskardagboken?"
+        );
 
-  if (!confirmed) return;
+        if (!confirmed) {
+            return;
+        }
 
-  localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(STORAGE_KEY);
 
-  fieldIds.forEach(id => {
-    $(id).value = "";
-  });
+        fieldIds.forEach(function(id) {
+            document.getElementById(id).value = "";
+        });
 
-  observations = [];
+        observations = [];
 
-  renderObservations();
-  drawChart();
+        renderObservations();
 
-  $("saveStatus").textContent =
-    "Forskardagboken har raderats.";
-});
+        document.getElementById("observationStatus").textContent = "";
+        document.getElementById("saveStatus").textContent =
+            "Forskardagboken är raderad.";
+    });
+
 
 loadDiary();
 
-if (!$("observationDate").value) {
-  $("observationDate").value =
-    new Date().toISOString().slice(0, 10);
+if (!document.getElementById("startDate").value) {
+    document.getElementById("startDate").value =
+        new Date().toISOString().slice(0, 10);
 }
+
+if (!document.getElementById("observationDate").value) {
+    document.getElementById("observationDate").value =
+        new Date().toISOString().slice(0, 10);
+}
+
 </script>
 
 </body>
