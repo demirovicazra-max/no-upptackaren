@@ -1,676 +1,415 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biologitest – NO-Upptäckaren</title>
 
-  <title>Biologitest – NO-Upptäckaren</title>
+<style>
+* {
+    box-sizing: border-box;
+}
 
-  <link rel="stylesheet" href="style.css">
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f6f2;
+    color: #26372b;
+    line-height: 1.6;
+}
 
-  <style>
-    :root {
-      --green: #286b45;
-      --light-green: #edf7ef;
-      --border: #d8e5da;
-      --text: #203020;
+header {
+    background: #246b45;
+    color: white;
+    text-align: center;
+    padding: 28px 16px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+main {
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 0 16px;
+}
+
+.panel {
+    background: white;
+    padding: 22px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.question {
+    border: 1px solid #dce7dd;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 18px 0;
+}
+
+.question h3 {
+    margin-top: 0;
+}
+
+label {
+    display: block;
+    background: #f3f7f3;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 9px 0;
+    cursor: pointer;
+}
+
+label:hover {
+    background: #e4f0e6;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+textarea {
+    width: 100%;
+    min-height: 90px;
+    padding: 12px;
+    border: 2px solid #ccd9ce;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+button, .link-button {
+    display: inline-block;
+    background: #246b45;
+    color: white;
+    border: none;
+    padding: 13px 20px;
+    border-radius: 9px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 8px 5px 8px 0;
+}
+
+button:hover, .link-button:hover {
+    background: #174b30;
+}
+
+.feedback {
+    display: none;
+    padding: 18px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.correct {
+    background: #e0f3e3;
+    border-left: 6px solid #268044;
+}
+
+.incorrect {
+    background: #fff0df;
+    border-left: 6px solid #d58b27;
+}
+
+.result-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #246b45;
+}
+
+.small {
+    color: #59675d;
+    font-size: 0.95rem;
+}
+
+.navigation {
+    margin: 25px 0;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.6rem;
     }
 
-    body {
-      color: var(--text);
+    .panel {
+        padding: 16px;
     }
-
-    .test-container {
-      max-width: 850px;
-      margin: 0 auto;
-      padding: 24px;
-    }
-
-    .test-header,
-    .question-card,
-    .result-card {
-      background: white;
-      border: 2px solid var(--border);
-      border-radius: 18px;
-      padding: 24px;
-      margin-bottom: 22px;
-    }
-
-    .test-header {
-      background: var(--light-green);
-    }
-
-    .progress-track {
-      height: 12px;
-      background: #e4e9e4;
-      border-radius: 20px;
-      overflow: hidden;
-      margin: 20px 0;
-    }
-
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: var(--green);
-      transition: width 0.25s ease;
-    }
-
-    .question-number {
-      color: var(--green);
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .question-text {
-      font-size: 1.25rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .answer-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .answer-button {
-      display: block;
-      width: 100%;
-      text-align: left;
-      padding: 16px;
-      border: 2px solid var(--border);
-      border-radius: 12px;
-      background: #fff;
-      color: var(--text);
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    .answer-button:hover:not(:disabled),
-    .answer-button:focus-visible {
-      border-color: var(--green);
-      background: var(--light-green);
-    }
-
-    .answer-button:disabled {
-      cursor: default;
-      opacity: 1;
-    }
-
-    .answer-button.correct {
-      border-color: #23834a;
-      background: #e5f6e9;
-    }
-
-    .answer-button.incorrect {
-      border-color: #b83232;
-      background: #fff0f0;
-    }
-
-    .feedback {
-      display: none;
-      margin-top: 18px;
-      padding: 16px;
-      border-radius: 12px;
-      line-height: 1.6;
-    }
-
-    .feedback.visible {
-      display: block;
-    }
-
-    .feedback.good {
-      background: #e5f6e9;
-      border: 1px solid #23834a;
-    }
-
-    .feedback.try-again {
-      background: #fff4df;
-      border: 1px solid #c58a22;
-    }
-
-    .test-button {
-      display: inline-block;
-      padding: 14px 22px;
-      border: 0;
-      border-radius: 12px;
-      background: var(--green);
-      color: white;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .test-button:hover,
-    .test-button:focus-visible {
-      background: #1d5033;
-    }
-
-    .test-button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .result-card {
-      display: none;
-      text-align: center;
-      background: var(--light-green);
-    }
-
-    .result-card.visible {
-      display: block;
-    }
-
-    .result-score {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: var(--green);
-      margin: 12px 0;
-    }
-
-    .result-message {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    .test-navigation {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .back-links {
-      margin-top: 30px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .back-links a {
-      display: inline-block;
-      padding: 10px 16px;
-      background: #eef2f5;
-      border-radius: 10px;
-      color: #203040;
-      text-decoration: none;
-    }
-
-    @media (max-width: 600px) {
-      .test-container {
-        padding: 14px;
-      }
-
-      .test-header,
-      .question-card,
-      .result-card {
-        padding: 18px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
-  <main class="test-container">
 
-    <header class="test-header">
-      <h1>Biologitest</h1>
+<header>
+    <h1>Biologitestet</h1>
+    <p>Visa vad du har lärt dig om livet och naturen</p>
+</header>
 
-      <p>
-        Testa dina kunskaper om växter, djur, celler,
-        ekologi och naturvetenskapliga undersökningar.
-      </p>
+<main>
 
-      <p>
-        <strong>Så gör du:</strong>
-        Läs frågan. Välj ett svar. Läs återkopplingen.
-      </p>
+<section class="panel">
+    <h2>Innan du börjar</h2>
+    <p>Testet innehåller 12 frågor.</p>
+    <p>Välj ett svar på varje fråga.</p>
+    <p>På de sista frågorna skriver du egna svar.</p>
+    <p class="small">
+        Dina fritextsvar rättas inte automatiskt.
+        Din lärare behöver läsa dem.
+    </p>
+    <label for="studentName">Ditt namn</label>
+    <input id="studentName" type="text"
+        placeholder="Skriv ditt namn"
+        style="width:100%;padding:12px;border:2px solid #ccd9ce;border-radius:8px;font-size:1rem;">
+</section>
 
-      <div class="progress-track" aria-label="Testets progression">
-        <div class="progress-bar" id="progressBar"></div>
-      </div>
+<form id="biologyQuiz">
 
-      <p id="progressText" aria-live="polite">
-        Fråga 1 av 15
-      </p>
-    </header>
+<section class="panel">
+<h2>Del 1 – Växter</h2>
 
-    <section class="question-card" id="questionCard">
-      <div class="question-number" id="questionNumber">
-        FRÅGA 1
-      </div>
+<div class="question">
+<h3>1. Vilken del av växten tar oftast upp vatten från marken?</h3>
+<label><input type="radio" name="q1" value="a"> Blomman</label>
+<label><input type="radio" name="q1" value="b"> Roten</label>
+<label><input type="radio" name="q1" value="c"> Bladet</label>
+</div>
 
-      <h2 class="question-text" id="questionText"></h2>
+<div class="question">
+<h3>2. Vad behöver växter för fotosyntesen?</h3>
+<label><input type="radio" name="q2" value="a"> Ljus, vatten och koldioxid</label>
+<label><input type="radio" name="q2" value="b"> Sand och socker</label>
+<label><input type="radio" name="q2" value="c"> Jord och syre</label>
+</div>
 
-      <div class="answer-list" id="answerList"></div>
+<div class="question">
+<h3>3. Vad bildas vid fotosyntesen?</h3>
+<label><input type="radio" name="q3" value="a"> Salt och vatten</label>
+<label><input type="radio" name="q3" value="b"> Socker och syre</label>
+<label><input type="radio" name="q3" value="c"> Jord och koldioxid</label>
+</div>
 
-      <div
-        class="feedback"
-        id="feedback"
-        role="status"
-        aria-live="polite"
-      ></div>
+<div class="question">
+<h3>4. Vilken del av växten fångar upp ljus?</h3>
+<label><input type="radio" name="q4" value="a"> Bladen</label>
+<label><input type="radio" name="q4" value="b"> Rötterna</label>
+<label><input type="radio" name="q4" value="c"> Fröna</label>
+</div>
+</section>
 
-      <div class="test-navigation">
-        <button
-          class="test-button"
-          id="nextButton"
-          type="button"
-          disabled
-        >
-          Nästa fråga
-        </button>
-      </div>
-    </section>
+<section class="panel">
+<h2>Del 2 – Frön och celler</h2>
 
-    <section class="result-card" id="resultCard">
-      <h2>Du är klar!</h2>
+<div class="question">
+<h3>5. Vad behöver de flesta frön för att börja gro?</h3>
+<label><input type="radio" name="q5" value="a"> Vatten, syre och lämplig temperatur</label>
+<label><input type="radio" name="q5" value="b"> Bara solljus</label>
+<label><input type="radio" name="q5" value="c"> Bara jord</label>
+</div>
 
-      <p class="result-score" id="resultScore"></p>
+<div class="question">
+<h3>6. Vad är en cell?</h3>
+<label><input type="radio" name="q6" value="a"> En sorts sten</label>
+<label><input type="radio" name="q6" value="b"> En grundläggande byggsten i levande organismer</label>
+<label><input type="radio" name="q6" value="c"> En sorts blomma</label>
+</div>
 
-      <p class="result-message" id="resultMessage"></p>
+<div class="question">
+<h3>7. Vilken del finns i växtceller och innehåller klorofyll?</h3>
+<label><input type="radio" name="q7" value="a"> Kloroplast</label>
+<label><input type="radio" name="q7" value="b"> Rot</label>
+<label><input type="radio" name="q7" value="c"> Blomblad</label>
+</div>
+</section>
 
-      <button
-        class="test-button"
-        id="restartButton"
-        type="button"
-      >
-        Gör testet igen
-      </button>
-    </section>
+<section class="panel">
+<h2>Del 3 – Djur och natur</h2>
 
-    <footer class="back-links">
-      <a href="biologi.html">Till biologin</a>
-      <a href="biologibegrepp.html">Träna biologiska begrepp</a>
-      <a href="index.html">Till startsidan</a>
-    </footer>
+<div class="question">
+<h3>8. Vad är ett ekosystem?</h3>
+<label><input type="radio" name="q8" value="a"> Bara en grupp växter</label>
+<label><input type="radio" name="q8" value="b"> Levande organismer och miljön de lever i</label>
+<label><input type="radio" name="q8" value="c"> Bara en grupp djur</label>
+</div>
 
-  </main>
+<div class="question">
+<h3>9. Vad är en producent i ett ekosystem?</h3>
+<label><input type="radio" name="q9" value="a"> En organism som tillverkar sin egen näring, till exempel en grön växt</label>
+<label><input type="radio" name="q9" value="b"> Ett djur som jagar andra djur</label>
+<label><input type="radio" name="q9" value="c"> En organism som bara äter kött</label>
+</div>
 
-  <script>
-    const questions = [
-      {
-        category: "Växter",
-        question: "Vad behöver en växt för att kunna fotosyntetisera?",
-        answers: [
-          "Ljus, vatten och koldioxid",
-          "Bara jord och syre",
-          "Bara vatten och socker",
-          "Mörker och koldioxid"
-        ],
-        correct: 0,
-        explanation:
-          "Växten använder ljus, vatten och koldioxid. " +
-          "Fotosyntesen bildar socker och syre."
-      },
+<div class="question">
+<h3>10. Vad visar en näringskedja?</h3>
+<label><input type="radio" name="q10" value="a"> Hur vatten rinner</label>
+<label><input type="radio" name="q10" value="b"> Vem som äter vem i ett ekosystem</label>
+<label><input type="radio" name="q10" value="c"> Hur växter växer</label>
+</div>
+</section>
 
-      {
-        category: "Växter",
-        question: "Vilken del av växten tar oftast upp vatten från marken?",
-        answers: [
-          "Blomman",
-          "Rötterna",
-          "Bladen",
-          "Frukten"
-        ],
-        correct: 1,
-        explanation:
-          "Rötterna tar upp vatten och mineralämnen från marken."
-      },
+<section class="panel">
+<h2>Del 4 – Förklara med egna ord</h2>
 
-      {
-        category: "Växter",
-        question: "Vad är ett frö?",
-        answers: [
-          "En liten sten",
-          "En del av marken",
-          "En struktur som kan utvecklas till en ny växt",
-          "Ett färdigt träd"
-        ],
-        correct: 2,
-        explanation:
-          "Ett frö innehåller ett växtembryo och kan gro under rätt förhållanden."
-      },
+<div class="question">
+<h3>11. Förklara vad fotosyntes är.</h3>
+<p class="small">
+Tips: Tänk på ljus, vatten, koldioxid, socker och syre.
+</p>
+<textarea name="q11"
+    placeholder="Skriv ditt svar här..."></textarea>
+</div>
 
-      {
-        category: "Celler",
-        question: "Vad är en cell?",
-        answers: [
-          "En sorts blomma",
-          "En byggsten i levande organismer",
-          "En typ av jord",
-          "En sorts mineral"
-        ],
-        correct: 1,
-        explanation:
-          "Cellen är en grundläggande byggsten hos levande organismer."
-      },
+<div class="question">
+<h3>12. Vad kan hända om en växt inte får vatten?</h3>
+<textarea name="q12"
+    placeholder="Skriv ditt svar här..."></textarea>
+</div>
 
-      {
-        category: "Celler",
-        question: "Vilken struktur finns i växtceller men inte i djurceller?",
-        answers: [
-          "Cellmembran",
-          "Cellkärna",
-          "Cellvägg",
-          "Cytoplasma"
-        ],
-        correct: 2,
-        explanation:
-          "Växtceller har en cellvägg som ger stadga. " +
-          "Djurceller saknar cellvägg."
-      },
+</section>
 
-      {
-        category: "Djur",
-        question: "Vad menas med att ett djur är anpassat till sin miljö?",
-        answers: [
-          "Att djuret alltid lever på samma plats",
-          "Att egenskaper hjälper djuret att leva i miljön",
-          "Att djuret aldrig behöver mat",
-          "Att djuret kan ändra art"
-        ],
-        correct: 1,
-        explanation:
-          "En anpassning kan hjälpa ett djur att hitta mat, " +
-          "skydd eller överleva i sin miljö."
-      },
+<section class="panel">
+<button type="button" onclick="checkQuiz()">
+Rätta mina svar
+</button>
+<button type="reset" onclick="resetQuiz()">
+Börja om
+</button>
 
-      {
-        category: "Ekologi",
-        question: "Vad är ett ekosystem?",
-        answers: [
-          "Bara växterna i en skog",
-          "Bara djuren i en sjö",
-          "Organismerna och den miljö de lever i",
-          "En enda art"
-        ],
-        correct: 2,
-        explanation:
-          "Ett ekosystem består av organismer och den miljö " +
-          "som de samspelar med."
-      },
+<div id="result" class="feedback"></div>
+</section>
 
-      {
-        category: "Ekologi",
-        question: "Vad är en producent i en näringskedja?",
-        answers: [
-          "En organism som tillverkar sin egen näring",
-          "Ett djur som äter andra djur",
-          "En svamp som bryter ner material",
-          "En organism som alltid är störst"
-        ],
-        correct: 0,
-        explanation:
-          "Växter är producenter. De kan använda fotosyntesen " +
-          "för att bilda energirikt socker."
-      },
+</form>
 
-      {
-        category: "Ekologi",
-        question: "Vad gör nedbrytare?",
-        answers: [
-          "Tillverkar solljus",
-          "Bryter ner döda organismer och rester",
-          "Stoppar fotosyntesen",
-          "Gör vatten till jord"
-        ],
-        correct: 1,
-        explanation:
-          "Nedbrytare, till exempel svampar och bakterier, " +
-          "bryter ner dött organiskt material."
-      },
+<nav class="navigation">
+<a class="link-button" href="biologi.html">Till biologisidan</a>
+<a class="link-button" href="biologiprogression.html">Till biologins lärstig</a>
+<a class="link-button" href="index.html">Till startsidan</a>
+</nav>
 
-      {
-        category: "Evolution",
-        question: "Vad betyder evolution?",
-        answers: [
-          "Att en individ växer",
-          "Att vädret ändras",
-          "Att populationer förändras över generationer",
-          "Att alla djur blir likadana"
-        ],
-        correct: 2,
-        explanation:
-          "Evolution handlar om förändringar i ärftliga egenskaper " +
-          "hos populationer över generationer."
-      },
+</main>
 
-      {
-        category: "Evolution",
-        question: "Vad är en ärftlig egenskap?",
-        answers: [
-          "En egenskap som kan föras vidare från föräldrar till avkomma",
-          "En egenskap som alltid beror på träning",
-          "En egenskap som bara finns hos växter",
-          "En egenskap som försvinner direkt"
-        ],
-        correct: 0,
-        explanation:
-          "Ärftliga egenskaper kan föras vidare genom genetiskt material."
-      },
+<script>
+const answers = {
+    q1: "b",
+    q2: "a",
+    q3: "b",
+    q4: "a",
+    q5: "a",
+    q6: "b",
+    q7: "a",
+    q8: "b",
+    q9: "a",
+    q10: "b"
+};
 
-      {
-        category: "Undersökningar",
-        question: "Vad är en hypotes?",
-        answers: [
-          "Ett resultat",
-          "En fråga utan svar",
-          "En gissning som inte går att undersöka",
-          "En förutsägelse som kan undersökas"
-        ],
-        correct: 3,
-        explanation:
-          "En hypotes är en förutsägelse som kan prövas genom en undersökning."
-      },
-
-      {
-        category: "Undersökningar",
-        question: "Varför gör man observationer?",
-        answers: [
-          "För att hitta på resultat",
-          "För att samla information om det man undersöker",
-          "För att slippa dokumentera",
-          "För att alltid få samma resultat"
-        ],
-        correct: 1,
-        explanation:
-          "Observationer hjälper oss att samla information " +
-          "om det som händer."
-      },
-
-      {
-        category: "Undersökningar",
-        question: "Vad ska en slutsats bygga på?",
-        answers: [
-          "Vad man hoppas ska hända",
-          "En kompis svar",
-          "Undersökningens resultat",
-          "En slumpmässig gissning"
-        ],
-        correct: 2,
-        explanation:
-          "En slutsats ska bygga på resultatet och kopplas till frågan."
-      },
-
-      {
-        category: "Natur",
-        question: "Vad är biologisk mångfald?",
-        answers: [
-          "Variation av liv",
-          "Bara många träd",
-          "Bara olika sorters fåglar",
-          "En sorts växt"
-        ],
-        correct: 0,
-        explanation:
-          "Biologisk mångfald handlar om variationen av liv, " +
-          "till exempel arter och ekosystem."
-      }
-    ];
-
-    let currentQuestion = 0;
+function checkQuiz() {
+    const form = document.getElementById("biologyQuiz");
+    const result = document.getElementById("result");
     let score = 0;
-    let answered = false;
+    let answered = 0;
+    let details = "";
 
-    const questionNumber = document.getElementById("questionNumber");
-    const questionText = document.getElementById("questionText");
-    const answerList = document.getElementById("answerList");
-    const feedback = document.getElementById("feedback");
-    const nextButton = document.getElementById("nextButton");
-    const progressBar = document.getElementById("progressBar");
-    const progressText = document.getElementById("progressText");
-    const questionCard = document.getElementById("questionCard");
-    const resultCard = document.getElementById("resultCard");
-    const resultScore = document.getElementById("resultScore");
-    const resultMessage = document.getElementById("resultMessage");
-    const restartButton = document.getElementById("restartButton");
-
-    function showQuestion() {
-      answered = false;
-
-      const question = questions[currentQuestion];
-
-      questionNumber.textContent =
-        "FRÅGA " + (currentQuestion + 1) + " · " + question.category;
-
-      questionText.textContent = question.question;
-
-      answerList.innerHTML = "";
-      feedback.textContent = "";
-      feedback.className = "feedback";
-
-      nextButton.disabled = true;
-
-      nextButton.textContent =
-        currentQuestion === questions.length - 1
-          ? "Visa resultat"
-          : "Nästa fråga";
-
-      progressText.textContent =
-        "Fråga " + (currentQuestion + 1) +
-        " av " + questions.length;
-
-      progressBar.style.width =
-        (currentQuestion / questions.length * 100) + "%";
-
-      question.answers.forEach((answer, index) => {
-        const button = document.createElement("button");
-
-        button.type = "button";
-        button.className = "answer-button";
-        button.textContent =
-          String.fromCharCode(65 + index) + ". " + answer;
-
-        button.addEventListener("click", () => {
-          checkAnswer(index, button);
-        });
-
-        answerList.appendChild(button);
-      });
-    }
-
-    function checkAnswer(selectedIndex, selectedButton) {
-      if (answered) return;
-
-      answered = true;
-
-      const question = questions[currentQuestion];
-      const buttons = answerList.querySelectorAll("button");
-
-      buttons.forEach(button => {
-        button.disabled = true;
-      });
-
-      const correctButton = buttons[question.correct];
-
-      if (selectedIndex === question.correct) {
-        score++;
-
-        selectedButton.classList.add("correct");
-
-        feedback.className = "feedback visible good";
-        feedback.textContent =
-          "Rätt svar! " + question.explanation;
-      } else {
-        selectedButton.classList.add("incorrect");
-        correctButton.classList.add("correct");
-
-        feedback.className = "feedback visible try-again";
-        feedback.textContent =
-          "Inte riktigt. Rätt svar är: " +
-          question.answers[question.correct] +
-          ". " + question.explanation;
-      }
-
-      nextButton.disabled = false;
-    }
-
-    function showResult() {
-      questionCard.style.display = "none";
-      resultCard.classList.add("visible");
-
-      progressBar.style.width = "100%";
-      progressText.textContent = "Testet är klart!";
-
-      resultScore.textContent =
-        score + " av " + questions.length + " rätt";
-
-      const percentage = Math.round(
-        score / questions.length * 100
-      );
-
-      if (percentage === 100) {
-        resultMessage.textContent =
-          "Fantastiskt! Du svarade rätt på alla frågor.";
-      } else if (percentage >= 80) {
-        resultMessage.textContent =
-          "Mycket bra! Du har god koll på biologin.";
-      } else if (percentage >= 60) {
-        resultMessage.textContent =
-          "Bra arbete! Träna gärna vidare på några begrepp.";
-      } else {
-        resultMessage.textContent =
-          "Fortsätt träna! Läs biologisidorna och försök igen.";
-      }
-
-      try {
-        localStorage.setItem(
-          "noUpptackarenBiologitestResultat",
-          JSON.stringify({
-            score: score,
-            total: questions.length,
-            percentage: percentage,
-            date: new Date().toISOString()
-          })
+    for (let i = 1; i <= 10; i++) {
+        const selected = form.querySelector(
+            'input[name="q' + i + '"]:checked'
         );
-      } catch (error) {
-        console.log("Resultatet kunde inte sparas i webbläsaren.");
-      }
+
+        if (selected) {
+            answered++;
+
+            if (selected.value === answers["q" + i]) {
+                score++;
+                details += "<p>Fråga " + i + ": Rätt svar.</p>";
+            } else {
+                details += "<p>Fråga " + i +
+                    ": Inte riktigt. Försök igen nästa gång.</p>";
+            }
+        } else {
+            details += "<p>Fråga " + i + ": Du har inte svarat.</p>";
+        }
     }
 
-    nextButton.addEventListener("click", () => {
-      if (!answered) return;
+    if (answered < 10) {
+        result.className = "feedback incorrect";
+        result.style.display = "block";
+        result.innerHTML =
+            "<h2>Du behöver svara på alla flervalsfrågor.</h2>" +
+            "<p>Du har svarat på " + answered + " av 10 frågor.</p>" +
+            details;
+        result.scrollIntoView({behavior: "smooth"});
+        return;
+    }
 
-      if (currentQuestion < questions.length - 1) {
-        currentQuestion++;
-        showQuestion();
-      } else {
-        showResult();
-      }
+    const name = document.getElementById("studentName").value.trim();
+    const q11 = form.querySelector('[name="q11"]').value.trim();
+    const q12 = form.querySelector('[name="q12"]').value.trim();
+
+    let writtenMessage = "";
+
+    if (q11.length === 0 || q12.length === 0) {
+        writtenMessage =
+            "<p><strong>Kom ihåg:</strong> Du behöver också svara på fråga 11 och 12.</p>";
+    } else {
+        writtenMessage =
+            "<p>Du har skrivit svar på båda förklaringsfrågorna. " +
+            "Din lärare behöver läsa och bedöma dem.</p>";
+    }
+
+    let message = "";
+
+    if (score >= 9) {
+        message = "Mycket bra arbetat!";
+    } else if (score >= 7) {
+        message = "Bra arbetat! Fortsätt träna.";
+    } else if (score >= 5) {
+        message = "Du är på väg. Repetera och försök igen.";
+    } else {
+        message = "Träna mer på begreppen och gör ett nytt försök.";
+    }
+
+    result.className = "feedback correct";
+    result.style.display = "block";
+
+    result.innerHTML =
+        "<h2>Ditt resultat</h2>" +
+        "<p>" + (name ? "Elev: " + escapeHTML(name) : "Elevnamn saknas") + "</p>" +
+        '<div class="result-number">' + score + " av 10 poäng</div>" +
+        "<h3>" + message + "</h3>" +
+        "<h3>Genomgång av frågorna</h3>" +
+        details +
+        writtenMessage +
+        "<p><strong>Observera:</strong> Poängen gäller endast flervalsfrågorna. " +
+        "De två egna svaren behöver bedömas av läraren.</p>";
+
+    result.scrollIntoView({behavior: "smooth"});
+}
+
+function escapeHTML(text) {
+    return text.replace(/[&<>"']/g, function(character) {
+        const replacements = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;"
+        };
+        return replacements[character];
     });
+}
 
-    restartButton.addEventListener("click", () => {
-      currentQuestion = 0;
-      score = 0;
-      answered = false;
+function resetQuiz() {
+    const result = document.getElementById("result");
+    result.style.display = "none";
+    result.innerHTML = "";
+}
+</script>
 
-      questionCard.style.display = "block";
-      resultCard.classList.remove("visible");
-
-      showQuestion();
-    });
-
-    showQuestion();
-  </script>
 </body>
 </html>
