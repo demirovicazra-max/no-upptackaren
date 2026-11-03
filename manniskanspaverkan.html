@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Människans påverkan på naturen | NO-Upptäckaren</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f7f1;
+    color: #29382d;
+    line-height: 1.6;
+}
+
+header {
+    background: #245b3b;
+    color: white;
+    text-align: center;
+    padding: 32px 18px;
+}
+
+header h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin: 0 0 8px;
+}
+
+header p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+main {
+    max-width: 950px;
+    margin: 25px auto;
+    padding: 0 16px 40px;
+}
+
+section {
+    background: white;
+    padding: 24px;
+    border-radius: 15px;
+    margin-bottom: 22px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+h2 {
+    color: #245b3b;
+    font-size: 1.65rem;
+    margin-top: 0;
+}
+
+h3 {
+    color: #245b3b;
+}
+
+p {
+    font-size: 1.08rem;
+}
+
+.goal {
+    background: #e6f2e7;
+    border-left: 6px solid #3d8653;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.card {
+    border: 2px solid #dce9dc;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 15px 0;
+}
+
+.important {
+    background: #fff5d9;
+    border-left: 5px solid #d49a24;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 16px 0;
+}
+
+.word {
+    display: inline-block;
+    background: #e6f2e7;
+    color: #245b3b;
+    font-weight: bold;
+    padding: 3px 9px;
+    border-radius: 6px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px;
+    margin: 18px 0;
+}
+
+.grid-item {
+    background: #f3f7f2;
+    border: 2px solid #dce9dc;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.grid-item h3 {
+    margin-top: 0;
+}
+
+.question {
+    border: 2px solid #dce9dc;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 18px 0;
+}
+
+.question p {
+    font-weight: bold;
+}
+
+.answer {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: #f4f7f2;
+    border: 2px solid #cbd9ca;
+    border-radius: 9px;
+    padding: 13px 15px;
+    margin: 9px 0;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #29382d;
+}
+
+.answer:hover,
+.answer:focus {
+    background: #e3f0e3;
+    border-color: #245b3b;
+}
+
+.answer.correct {
+    background: #d9f2dc;
+    border-color: #27813b;
+}
+
+.answer.wrong {
+    background: #fde4e1;
+    border-color: #bd4438;
+}
+
+.answer:disabled {
+    cursor: default;
+    opacity: 1;
+}
+
+.feedback {
+    min-height: 28px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.button {
+    display: inline-block;
+    background: #245b3b;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    padding: 13px 19px;
+    margin: 7px 5px 7px 0;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #17432a;
+}
+
+.result {
+    display: none;
+    background: #e6f2e7;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 18px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    border: 2px solid #cbd9ca;
+    border-radius: 9px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+select {
+    width: 100%;
+    padding: 13px;
+    border: 2px solid #b9cdb9;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin: 7px 0 15px;
+    background: white;
+}
+
+.activity {
+    background: #f3f7f2;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 15px 0;
+}
+
+.activity-result {
+    background: #e6f2e7;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 12px;
+    min-height: 50px;
+}
+
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #526357;
+}
+
+@media (max-width: 600px) {
+    section {
+        padding: 18px;
+    }
+
+    .navigation .button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media print {
+    body {
+        background: white;
+    }
+
+    section {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+    }
+
+    .button,
+    #quiz,
+    .activity {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Människans påverkan på naturen</h1>
+    <p>Hur kan vi leva mer hållbart?</p>
+</header>
+
+<main>
+
+<section>
+    <h2>Det här ska du lära dig</h2>
+
+    <div class="goal">
+        När du är klar ska du kunna:
+
+        <ul>
+            <li>ge exempel på naturresurser</li>
+            <li>förklara skillnaden mellan förnybara och icke-förnybara resurser</li>
+            <li>beskriva hur människor påverkar naturen</li>
+            <li>förklara vad hållbar utveckling betyder</li>
+            <li>ge exempel på hållbara val</li>
+        </ul>
+    </div>
+
+    <p>
+        Människor använder naturen varje dag.
+        Vi behöver vatten, mat, energi och material.
+        Våra val påverkar miljön och andra organismer.
+    </p>
+</section>
+
+<section>
+    <h2>1. Vad är naturresurser?</h2>
+
+    <p>
+        <span class="word">Naturresurser</span>
+        är sådant från naturen som människor använder.
+    </p>
+
+    <div class="grid">
+
+        <div class="grid-item">
+            <h3>Vatten</h3>
+            <p>
+                Vi använder vatten till dryck,
+                matlagning och odling.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>Skog</h3>
+            <p>
+                Skogen ger oss trä.
+                Den är också livsmiljö för många arter.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>Jord</h3>
+            <p>
+                Jord används vid odling.
+                Många organismer lever i marken.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>Mineraler</h3>
+            <p>
+                Mineraler används bland annat
+                i byggnader och elektronik.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>Vind och solljus</h3>
+            <p>
+                Vind och solljus kan användas
+                för att producera energi.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>Fisk och växter</h3>
+            <p>
+                Vi använder olika arter som mat
+                och som råvaror.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>2. Förnybara och icke-förnybara resurser</h2>
+
+    <div class="card">
+        <h3>Förnybara resurser</h3>
+
+        <p>
+            En förnybar resurs kan återskapas
+            genom naturliga processer.
+        </p>
+
+        <p>Exempel:</p>
+
+        <ul>
+            <li>solenergi</li>
+            <li>vind</li>
+            <li>skog som växer tillbaka</li>
+            <li>vatten som cirkulerar i naturen</li>
+        </ul>
+
+        <p>
+            En förnybar resurs kan ändå ta slut lokalt
+            eller användas snabbare än den återbildas.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Icke-förnybara resurser</h3>
+
+        <p>
+            Dessa resurser nybildas mycket långsamt.
+            De kan ta miljontals år att bildas.
+        </p>
+
+        <p>Exempel:</p>
+
+        <ul>
+            <li>olja</li>
+            <li>kol</li>
+            <li>naturgas</li>
+            <li>många metaller och mineraler</li>
+        </ul>
+
+        <p>
+            När vi använder dem kan tillgången minska.
+        </p>
+    </div>
+
+    <div class="important">
+        Förnybar betyder inte obegränsad.
+        Vi behöver använda resurser på ett ansvarsfullt sätt.
+    </div>
+</section>
+
+<section>
+    <h2>3. Hur påverkar människor naturen?</h2>
+
+    <div class="card">
+        <h3>Skogsavverkning</h3>
+
+        <p>
+            Människor avverkar träd för att få trä
+            och skapa plats för andra verksamheter.
+        </p>
+
+        <p>
+            Om viktiga livsmiljöer försvinner
+            kan växter och djur påverkas.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Jordbruk</h3>
+
+        <p>
+            Jordbruk ger oss mat.
+            Men odling kan också påverka mark och vatten.
+        </p>
+
+        <p>
+            Gödsel och bekämpningsmedel kan spridas
+            till vattenmiljöer.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Transporter</h3>
+
+        <p>
+            Bilar, flyg och lastbilar transporterar människor
+            och varor.
+        </p>
+
+        <p>
+            Många transporter använder fossila bränslen.
+            Det kan ge utsläpp av växthusgaser.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Industri</h3>
+
+        <p>
+            Industrier tillverkar produkter och material.
+            Produktionen kan kräva energi och råvaror.
+        </p>
+
+        <p>
+            Utsläpp kan påverka luft, mark och vatten.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Avfall och plast</h3>
+
+        <p>
+            Skräp kan hamna i naturen.
+            Djur kan skadas av skräp och plast.
+        </p>
+
+        <p>
+            Små plastpartiklar kallas mikroplast.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>4. Klimatförändringar</h2>
+
+    <p>
+        Jordens klimat har alltid förändrats.
+        Men människans utsläpp har förstärkt
+        den nuvarande globala uppvärmningen.
+    </p>
+
+    <div class="card">
+        <h3>Vad är växthuseffekten?</h3>
+
+        <p>
+            Solens energi värmer jordens yta.
+            Jorden skickar sedan ut värme.
+        </p>
+
+        <p>
+            Växthusgaser i atmosfären håller kvar
+            en del av värmen.
+        </p>
+
+        <p>
+            Det gör jorden tillräckligt varm för liv.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Vad händer när växthuseffekten förstärks?</h3>
+
+        <p>
+            Människor släpper ut extra växthusgaser.
+            Exempel är koldioxid och metan.
+        </p>
+
+        <p>
+            Då stannar mer värme kvar i klimatsystemet.
+            Jordens medeltemperatur stiger.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Möjliga följder</h3>
+
+        <ul>
+            <li>högre medeltemperatur</li>
+            <li>smältande glaciärer</li>
+            <li>stigande havsnivåer</li>
+            <li>förändrade nederbördsmönster</li>
+            <li>större risk för vissa typer av extremväder</li>
+            <li>förändrade livsmiljöer för växter och djur</li>
+        </ul>
+    </div>
+
+    <div class="important">
+        Den naturliga växthuseffekten behövs.
+        Problemet är att människan förstärker den.
+    </div>
+</section>
+
+<section>
+    <h2>5. Vad betyder hållbar utveckling?</h2>
+
+    <p>
+        <span class="word">Hållbar utveckling</span>
+        betyder att vi tar hand om våra resurser
+        och skapar goda livsvillkor.
+    </p>
+
+    <p>
+        Vi ska kunna leva bra i dag
+        utan att förstöra möjligheterna för framtida generationer.
+    </p>
+
+    <div class="grid">
+
+        <div class="grid-item">
+            <h3>Ekologisk hållbarhet</h3>
+
+            <p>
+                Vi skyddar naturen,
+                klimatet och den biologiska mångfalden.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>Social hållbarhet</h3>
+
+            <p>
+                Människor ska ha goda livsvillkor,
+                trygghet och rättigheter.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>Ekonomisk hållbarhet</h3>
+
+            <p>
+                Vi använder resurser klokt
+                och skapar en ekonomi som fungerar långsiktigt.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="important">
+        De tre delarna hör ihop.
+        Hållbar utveckling behöver ta hänsyn till alla tre.
+    </div>
+</section>
+
+<section>
+    <h2>6. De tre R:en</h2>
+
+    <div class="card">
+        <h3>1. Reduce – minska</h3>
+
+        <p>
+            Köp färre saker.
+            Undvik onödigt avfall.
+            Använd mindre resurser.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>2. Reuse – återanvänd</h3>
+
+        <p>
+            Använd saker flera gånger.
+            Laga sådant som gått sönder.
+            Ge bort saker du inte behöver.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>3. Recycle – återvinn</h3>
+
+        <p>
+            Sortera material som kan återvinnas.
+            Då kan material användas igen.
+        </p>
+    </div>
+
+    <div class="important">
+        Det bästa avfallet är ofta det som aldrig uppstår.
+    </div>
+</section>
+
+<section>
+    <h2>7. Hållbara val i vardagen</h2>
+
+    <div class="grid">
+
+        <div class="grid-item">
+            <h3>Mat</h3>
+            <p>
+                Planera inköp.
+                Ta vara på rester.
+                Minska matsvinnet.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>Transport</h3>
+            <p>
+                Gå, cykla eller åk kollektivt
+                när det passar.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>Energi</h3>
+            <p>
+                Släck lampor när de inte behövs.
+                Använd energi klokt.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>Vatten</h3>
+            <p>
+                Undvik att slösa med rent vatten.
+                Stäng av kranen när du borstar tänderna.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>Konsumtion</h3>
+            <p>
+                Fundera på om du behöver köpa nytt.
+                Låna och reparera när det går.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <h3>Naturen</h3>
+            <p>
+                Släng inte skräp.
+                Visa hänsyn till djur och växter.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>8. Interaktiv uppgift: Vilket val är mest hållbart?</h2>
+
+    <p>
+        Läs situationen.
+        Välj ett alternativ.
+        Fundera på varför.
+    </p>
+
+    <div class="activity">
+
+        <label for="scenario">
+            <strong>Välj en situation</strong>
+        </label>
+
+        <select id="scenario" onchange="showScenario()">
+            <option value="">Välj situation</option>
+            <option value="food">Du har matrester kvar.</option>
+            <option value="transport">Du ska åka en kort sträcka.</option>
+            <option value="clothes">Du behöver nya kläder.</option>
+            <option value="waste">Du ska slänga en tom förpackning.</option>
+            <option value="nature">Du hittar skräp i naturen.</option>
+        </select>
+
+        <div id="scenarioQuestion" aria-live="polite">
+            Välj en situation för att börja.
+        </div>
+
+        <div id="scenarioAnswers"></div>
+
+        <div id="scenarioFeedback"
+             class="activity-result"
+             aria-live="polite">
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>9. Testa dina kunskaper</h2>
+
+    <p>Välj ett svar på varje fråga.</p>
+
+    <div id="quiz"></div>
+
+    <button class="button" onclick="showResult()">
+        Se mitt resultat
+    </button>
+
+    <button class="button" onclick="restartQuiz()">
+        Börja om
+    </button>
+
+    <div id="result" class="result" aria-live="polite"></div>
+</section>
+
+<section>
+    <h2>10. Fundera och förklara</h2>
+
+    <p>
+        Skriv med egna ord.
+        Du kan använda begreppen från lektionen.
+    </p>
+
+    <p><strong>1. Vad är en naturresurs?</strong></p>
+    <textarea id="answer1"
+        placeholder="Skriv ditt svar här..."></textarea>
+
+    <p><strong>2. Vad betyder hållbar utveckling?</strong></p>
+    <textarea id="answer2"
+        placeholder="Skriv ditt svar här..."></textarea>
+
+    <p><strong>3. Hur kan människor minska sin påverkan på naturen?</strong></p>
+    <textarea id="answer3"
+        placeholder="Skriv ditt svar här..."></textarea>
+
+    <p><strong>4. Ge ett exempel på ett hållbart val.</strong></p>
+    <textarea id="answer4"
+        placeholder="Skriv ditt svar här..."></textarea>
+
+    <button class="button" onclick="saveAnswers()">
+        Spara mina svar
+    </button>
+
+    <button class="button" onclick="window.print()">
+        Skriv ut
+    </button>
+
+    <p id="saveMessage" aria-live="polite"></p>
+</section>
+
+<section>
+    <h2>11. Begrepp att kunna</h2>
+
+    <div class="card">
+        <h3>Naturresurs</h3>
+        <p>Något från naturen som människor använder.</p>
+    </div>
+
+    <div class="card">
+        <h3>Förnybar resurs</h3>
+        <p>En resurs som kan återskapas naturligt.</p>
+    </div>
+
+    <div class="card">
+        <h3>Icke-förnybar resurs</h3>
+        <p>En resurs som nybildas mycket långsamt.</p>
+    </div>
+
+    <div class="card">
+        <h3>Växthusgas</h3>
+        <p>En gas som bidrar till växthuseffekten.</p>
+    </div>
+
+    <div class="card">
+        <h3>Utsläpp</h3>
+        <p>Ämnen eller partiklar som släpps ut i miljön.</p>
+    </div>
+
+    <div class="card">
+        <h3>Hållbar utveckling</h3>
+        <p>Att möta dagens behov utan att förstöra framtidens möjligheter.</p>
+    </div>
+
+    <div class="card">
+        <h3>Återanvändning</h3>
+        <p>Att använda en sak igen.</p>
+    </div>
+
+    <div class="card">
+        <h3>Återvinning</h3>
+        <p>Att ta tillvara material för att använda det igen.</p>
+    </div>
+</section>
+
+<section>
+    <h2>Fortsätt utforska</h2>
+
+    <div class="navigation">
+        <a class="button" href="biologiskmangfald.html">Biologisk mångfald</a>
+        <a class="button" href="naringskedjor.html">Näringskedjor</a>
+        <a class="button" href="ekosystem.html">Ekosystem</a>
+        <a class="button" href="fotosyntes.html">Fotosyntes</a>
+        <a class="button" href="biologibegrepp.html">Biologiska begrepp</a>
+        <a class="button" href="biologitest.html">Biologitest</a>
+        <a class="button" href="biologi.html">Till biologi</a>
+        <a class="button" href="index.html">Till startsidan</a>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    NO-Upptäckaren | Biologi årskurs 4–6
+</footer>
+
+<script>
+const questions = [
+    {
+        question: "Vad är en naturresurs?",
+        answers: [
+            "Något från naturen som människor använder",
+            "Enbart tillverkade produkter",
+            "Enbart avfall"
+        ],
+        correct: 0,
+        explanation: "Rätt! Vatten, skog och mineraler är naturresurser."
+    },
+    {
+        question: "Vilket är ett exempel på en förnybar energikälla?",
+        answers: [
+            "Vind",
+            "Kol",
+            "Olja"
+        ],
+        correct: 0,
+        explanation: "Rätt! Vind är en förnybar energikälla."
+    },
+    {
+        question: "Vilket är en icke-förnybar resurs?",
+        answers: [
+            "Olja",
+            "Solljus",
+            "Vind"
+        ],
+        correct: 0,
+        explanation: "Rätt! Olja bildas mycket långsamt."
+    },
+    {
+        question: "Vad kan skogsavverkning leda till?",
+        answers: [
+            "Att livsmiljöer försvinner",
+            "Att alla arter ökar",
+            "Att inga ekosystem förändras"
+        ],
+        correct: 0,
+        explanation: "Rätt! Avverkning kan påverka arters livsmiljöer."
+    },
+    {
+        question: "Vad är en växthusgas?",
+        answers: [
+            "En gas som bidrar till växthuseffekten",
+            "En gas som bara finns i växthus",
+            "En gas som alltid är farlig"
+        ],
+        correct: 0,
+        explanation: "Rätt! Koldioxid och metan är exempel på växthusgaser."
+    },
+    {
+        question: "Vad händer när växthuseffekten förstärks?",
+        answers: [
+            "Mer värme hålls kvar i klimatsystemet",
+            "Solen slutar lysa",
+            "Allt vatten försvinner"
+        ],
+        correct: 0,
+        explanation: "Rätt! Den förstärkta växthuseffekten bidrar till global uppvärmning."
+    },
+    {
+        question: "Vilka är de tre delarna av hållbar utveckling?",
+        answers: [
+            "Ekologisk, social och ekonomisk",
+            "Biologisk, kemisk och fysisk",
+            "Lokal, nationell och global"
+        ],
+        correct: 0,
+        explanation: "Rätt! Hållbar utveckling har ekologiska, sociala och ekonomiska delar."
+    },
+    {
+        question: "Vad betyder återanvändning?",
+        answers: [
+            "Att använda en sak igen",
+            "Att alltid köpa nytt",
+            "Att kasta allt i samma påse"
+        ],
+        correct: 0,
+        explanation: "Rätt! Återanvändning betyder att använda något igen."
+    },
+    {
+        question: "Vad kan minska matsvinn?",
+        answers: [
+            "Planera inköp och ta vara på rester",
+            "Kasta mat varje dag",
+            "Köpa mer mat än man behöver"
+        ],
+        correct: 0,
+        explanation: "Rätt! Planering kan hjälpa oss att minska matsvinn."
+    },
+    {
+        question: "Varför ska vi skydda naturen?",
+        answers: [
+            "För att människor och andra arter behöver fungerande ekosystem",
+            "För att alla arter ska bli likadana",
+            "För att naturen inte ska förändras alls"
+        ],
+        correct: 0,
+        explanation: "Rätt! Vi är beroende av naturens resurser och ekosystem."
+    }
+];
+
+let score = 0;
+let answered = 0;
+let completed = [];
+
+function createQuiz() {
+    const quiz = document.getElementById("quiz");
+    quiz.innerHTML = "";
+
+    questions.forEach((q, index) => {
+        const box = document.createElement("div");
+        box.className = "question";
+
+        const title = document.createElement("p");
+        title.textContent = (index + 1) + ". " + q.question;
+        box.appendChild(title);
+
+        q.answers.forEach((answer, answerIndex) => {
+            const button = document.createElement("button");
+            button.className = "answer";
+            button.type = "button";
+            button.textContent = answer;
+
+            button.addEventListener("click", () => {
+                checkAnswer(index, answerIndex, box);
+            });
+
+            box.appendChild(button);
+        });
+
+        const feedback = document.createElement("div");
+        feedback.className = "feedback";
+        feedback.setAttribute("aria-live", "polite");
+        box.appendChild(feedback);
+
+        quiz.appendChild(box);
+    });
+}
+
+function checkAnswer(questionIndex, answerIndex, box) {
+    if (completed.includes(questionIndex)) return;
+
+    completed.push(questionIndex);
+    answered++;
+
+    const question = questions[questionIndex];
+    const buttons = box.querySelectorAll(".answer");
+    const feedback = box.querySelector(".feedback");
+
+    buttons.forEach(button => button.disabled = true);
+
+    if (answerIndex === question.correct) {
+        score++;
+        buttons[answerIndex].classList.add("correct");
+        feedback.textContent = question.explanation;
+        feedback.style.color = "#17652b";
+    } else {
+        buttons[answerIndex].classList.add("wrong");
+        buttons[question.correct].classList.add("correct");
+        feedback.textContent = "Inte riktigt. " + question.explanation;
+        feedback.style.color = "#9a332b";
+    }
+}
+
+function showResult() {
+    const result = document.getElementById("result");
+    result.style.display = "block";
+
+    if (answered < questions.length) {
+        result.textContent =
+            "Du har svarat på " + answered + " av " +
+            questions.length + " frågor. Fortsätt!";
+        return;
+    }
+
+    result.textContent =
+        "Du fick " + score + " av " + questions.length + " rätt.";
+
+    if (score === questions.length) {
+        result.textContent += " Fantastiskt! Alla rätt!";
+    } else if (score >= 6) {
+        result.textContent += " Bra jobbat!";
+    } else {
+        result.textContent += " Läs igen och försök igen.";
+    }
+}
+
+function restartQuiz() {
+    score = 0;
+    answered = 0;
+    completed = [];
+
+    document.getElementById("result").style.display = "none";
+    createQuiz();
+}
+
+const scenarios = {
+    food: {
+        question: "Du har matrester kvar. Vad gör du?",
+        answers: [
+            "Sparar maten och äter den senare",
+            "Slänger all mat direkt"
+        ],
+        correct: 0,
+        explanation: "Bra val! Att ta vara på mat kan minska matsvinnet."
+    },
+
+    transport: {
+        question: "Du ska åka en kort sträcka. Vad kan vara ett bra val?",
+        answers: [
+            "Gå eller cykla om det är möjligt",
+            "Alltid ta bilen ensam"
+        ],
+        correct: 0,
+        explanation: "Bra val! Att gå eller cykla kan minska utsläpp från transporter."
+    },
+
+    clothes: {
+        question: "Du behöver nya kläder. Vad kan vara ett hållbart val?",
+        answers: [
+            "Undersöka om du kan köpa begagnat eller laga gamla kläder",
+            "Kasta alla gamla kläder och köpa nytt"
+        ],
+        correct: 0,
+        explanation: "Bra val! Återanvändning kan minska behovet av nya resurser."
+    },
+
+    waste: {
+        question: "Du har en tom förpackning. Vad gör du?",
+        answers: [
+            "Sorterar den enligt kommunens regler",
+            "Slänger den i naturen"
+        ],
+        correct: 0,
+        explanation: "Bra val! Rätt sortering gör att material kan tas tillvara."
+    },
+
+    nature: {
+        question: "Du hittar skräp i naturen. Vad kan du göra?",
+        answers: [
+            "Plocka upp det om det är säkert",
+            "Lämna mer skräp på platsen"
+        ],
+        correct: 0,
+        explanation: "Bra val! Skräp hör inte hemma i naturen. Plocka bara upp sådant som är säkert att hantera."
+    }
+};
+
+function showScenario() {
+    const selected = document.getElementById("scenario").value;
+    const questionBox = document.getElementById("scenarioQuestion");
+    const answerBox = document.getElementById("scenarioAnswers");
+    const feedback = document.getElementById("scenarioFeedback");
+
+    answerBox.innerHTML = "";
+    feedback.textContent = "";
+
+    if (!selected) {
+        questionBox.textContent = "Välj en situation för att börja.";
+        return;
+    }
+
+    const scenario = scenarios[selected];
+    questionBox.textContent = scenario.question;
+
+    scenario.answers.forEach((answer, index) => {
+        const button = document.createElement("button");
+        button.className = "answer";
+        button.type = "button";
+        button.textContent = answer;
+
+        button.addEventListener("click", () => {
+            answerBox.querySelectorAll("button").forEach(b => {
+                b.disabled = true;
+            });
+
+            if (index === scenario.correct) {
+                button.classList.add("correct");
+                feedback.textContent = scenario.explanation;
+            } else {
+                button.classList.add("wrong");
+                feedback.textContent =
+                    "Fundera en gång till. " + scenario.explanation;
+            }
+        });
+
+        answerBox.appendChild(button);
+    });
+}
+
+function saveAnswers() {
+    const answers = {
+        answer1: document.getElementById("answer1").value,
+        answer2: document.getElementById("answer2").value,
+        answer3: document.getElementById("answer3").value,
+        answer4: document.getElementById("answer4").value
+    };
+
+    try {
+        localStorage.setItem(
+            "noUpptackarenManniskansPaverkan",
+            JSON.stringify(answers)
+        );
+
+        document.getElementById("saveMessage").textContent =
+            "Dina svar är sparade på den här enheten.";
+
+    } catch (error) {
+        document.getElementById("saveMessage").textContent =
+            "Det gick inte att spara svaren.";
+    }
+}
+
+function loadAnswers() {
+    try {
+        const saved = localStorage.getItem(
+            "noUpptackarenManniskansPaverkan"
+        );
+
+        if (saved) {
+            const answers = JSON.parse(saved);
+
+            document.getElementById("answer1").value =
+                answers.answer1 || "";
+
+            document.getElementById("answer2").value =
+                answers.answer2 || "";
+
+            document.getElementById("answer3").value =
+                answers.answer3 || "";
+
+            document.getElementById("answer4").value =
+                answers.answer4 || "";
+        }
+    } catch (error) {
+        console.log("Kunde inte läsa sparade svar.");
+    }
+}
+
+createQuiz();
+loadAnswers();
+</script>
+
+</body>
+</html>
