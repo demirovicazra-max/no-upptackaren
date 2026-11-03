@@ -1,728 +1,995 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Växternas behov och livsmiljöer | NO-Upptäckaren</title>
 
-<title>Växter och miljön | NO-Upptäckaren</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-<link rel="stylesheet" href="style.css">
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f7f1;
+            color: #26372c;
+            line-height: 1.6;
+        }
 
-<style>
-.miljo-intro {
-    background: white;
-    border-radius: 20px;
-    padding: 35px;
-    margin-bottom: 25px;
-    text-align: center;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.07);
-}
+        header {
+            background: #245b3b;
+            color: white;
+            text-align: center;
+            padding: 30px 18px;
+        }
 
-.miljo-intro .icon {
-    font-size: 65px;
-}
+        header h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            margin: 0 0 8px;
+        }
 
-.miljo-intro h2 {
-    font-size: 29px;
-    margin: 12px 0;
-}
+        header p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
 
-.miljo-intro p {
-    font-size: 18px;
-    line-height: 1.7;
-}
+        main {
+            max-width: 950px;
+            margin: 25px auto;
+            padding: 0 16px 40px;
+        }
 
-.miljo-card {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    margin-bottom: 25px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.07);
-}
+        section {
+            background: white;
+            padding: 24px;
+            border-radius: 15px;
+            margin-bottom: 22px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+        }
 
-.miljo-card h2 {
-    font-size: 25px;
-    margin-bottom: 15px;
-}
+        h2 {
+            color: #245b3b;
+            font-size: 1.65rem;
+            margin-top: 0;
+        }
 
-.miljo-card p,
-.miljo-card li {
-    font-size: 17px;
-    line-height: 1.7;
-}
+        h3 {
+            color: #245b3b;
+        }
 
-.fact-box {
-    background: #eef7f2;
-    padding: 22px;
-    border-radius: 15px;
-    margin-top: 20px;
-}
+        p {
+            font-size: 1.08rem;
+        }
 
-.fact-box strong {
-    font-size: 18px;
-}
+        .intro {
+            font-size: 1.2rem;
+        }
 
-.factor-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 18px;
-    margin-top: 22px;
-}
+        .goal {
+            background: #e6f2e7;
+            border-left: 6px solid #3d8653;
+            padding: 16px;
+            border-radius: 8px;
+        }
 
-.factor-card {
-    background: #f7faf8;
-    border: 1px solid #dcebe1;
-    border-radius: 15px;
-    padding: 22px;
-    text-align: center;
-}
+        .concept {
+            border: 2px solid #dce9dc;
+            border-radius: 13px;
+            padding: 19px;
+            margin: 16px 0;
+        }
 
-.factor-card .factor-icon {
-    font-size: 43px;
-}
+        .concept-icon {
+            font-size: 2.6rem;
+        }
 
-.factor-card h3 {
-    margin: 12px 0 8px;
-    font-size: 20px;
-}
+        .concept h3 {
+            margin: 5px 0;
+        }
 
-.factor-card p {
-    font-size: 16px;
-}
+        .important {
+            background: #fff5d9;
+            border-left: 5px solid #d49a24;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 16px 0;
+        }
 
-.process {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-}
+        .word {
+            display: inline-block;
+            background: #e6f2e7;
+            color: #245b3b;
+            font-weight: bold;
+            padding: 3px 9px;
+            border-radius: 6px;
+        }
 
-.process-item {
-    background: #f1f7f3;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-}
+        .habitat {
+            background: #f4f8f2;
+            border-radius: 12px;
+            padding: 18px;
+            margin: 16px 0;
+            border: 2px solid #dce9dc;
+        }
 
-.process-item span {
-    display: block;
-    font-size: 38px;
-    margin-bottom: 10px;
-}
+        .habitat h3 {
+            margin-top: 0;
+        }
 
-.process-item strong {
-    font-size: 17px;
-}
+        .adaptation {
+            border-left: 5px solid #54845b;
+            background: #f1f7ef;
+            padding: 14px;
+            margin: 12px 0;
+            border-radius: 7px;
+        }
 
-.quiz-question {
-    background: #f7faf8;
-    padding: 20px;
-    border-radius: 14px;
-    margin: 22px 0;
-}
+        .comparison {
+            overflow-x: auto;
+        }
 
-.quiz-question h3 {
-    margin-bottom: 15px;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            min-width: 450px;
+        }
 
-.quiz-options button {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    margin: 10px 0;
-    border: 2px solid #d7e2da;
-    border-radius: 12px;
-    background: white;
-    text-align: left;
-    font-size: 16px;
-    cursor: pointer;
-}
+        th,
+        td {
+            border: 1px solid #cbd9ca;
+            padding: 12px;
+            text-align: left;
+        }
 
-.quiz-options button:hover {
-    background: #eef7f2;
-}
+        th {
+            background: #e6f2e7;
+            color: #245b3b;
+        }
 
-.quiz-options button:focus-visible {
-    outline: 3px solid #276749;
-    outline-offset: 3px;
-}
+        .question {
+            border: 2px solid #dce9dc;
+            border-radius: 12px;
+            padding: 18px;
+            margin: 18px 0;
+        }
 
-.feedback {
-    display: none;
-    padding: 15px;
-    margin-top: 12px;
-    border-radius: 12px;
-    background: #dcfce7;
-    line-height: 1.6;
-}
+        .question p {
+            font-weight: bold;
+        }
 
-.feedback.wrong {
-    background: #fee2e2;
-}
+        .answer {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: #f4f7f2;
+            border: 2px solid #cbd9ca;
+            border-radius: 9px;
+            padding: 13px 15px;
+            margin: 9px 0;
+            font-size: 1rem;
+            cursor: pointer;
+            color: #26372c;
+        }
 
-.task-area {
-    background: #f7faf8;
-    padding: 22px;
-    border-radius: 15px;
-    margin-top: 20px;
-}
+        .answer:hover,
+        .answer:focus {
+            background: #e3f0e3;
+            border-color: #245b3b;
+        }
 
-.task-area label {
-    display: block;
-    font-weight: bold;
-    margin: 18px 0 8px;
-}
+        .answer.correct {
+            background: #d9f2dc;
+            border-color: #27813b;
+        }
 
-.task-area textarea {
-    width: 100%;
-    min-height: 90px;
-    padding: 13px;
-    border: 2px solid #d1d5db;
-    border-radius: 10px;
-    font-size: 16px;
-    font-family: inherit;
-    resize: vertical;
-}
+        .answer.wrong {
+            background: #fde4e1;
+            border-color: #bd4438;
+        }
 
-.action-button {
-    background: #276749;
-    color: white;
-    border: none;
-    padding: 14px 22px;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 15px;
-}
+        .answer:disabled {
+            cursor: default;
+            opacity: 1;
+        }
 
-.action-button:hover {
-    background: #1f5139;
-}
+        .feedback {
+            min-height: 28px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
 
-.navigation {
-    text-align: center;
-    padding: 25px;
-}
+        .button {
+            display: inline-block;
+            background: #245b3b;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            padding: 13px 19px;
+            margin: 7px 5px 7px 0;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-.navigation a {
-    display: inline-block;
-    margin: 8px;
-    padding: 13px 20px;
-    border-radius: 10px;
-    background: white;
-    text-decoration: none;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.07);
-}
+        .button:hover {
+            background: #17432a;
+        }
 
-.navigation a:hover {
-    background: #eef7f2;
-}
+        .result {
+            display: none;
+            background: #e6f2e7;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 18px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
 
-@media(max-width:600px) {
-    .miljo-card,
-    .miljo-intro {
-        padding: 22px;
-    }
-}
-</style>
+        .reflection {
+            background: #f2f6fb;
+            border-left: 5px solid #527ca8;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px;
+            border: 2px solid #cbd9ca;
+            border-radius: 9px;
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        .navigation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #526357;
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 18px;
+            }
+
+            .navigation .button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header class="hero">
-    <div class="hero-content">
-        <p class="eyebrow">NO-UPPTÄCKAREN • BIOLOGI • ÅRSKURS 4</p>
-        <h1>Växter och miljön</h1>
-        <p class="hero-text">
-            Upptäck vad växter behöver och hur miljön påverkar deras liv.
-        </p>
-    </div>
-</header>
+    <header>
+        <h1>Växternas behov och livsmiljöer</h1>
+        <p>Vad behöver växter för att leva och växa?</p>
+    </header>
 
-<main class="container">
+    <main>
 
-<section class="miljo-intro">
-    <div class="icon">🌱</div>
-    <h2>Varför växer växter på olika platser?</h2>
-    <p>
-        En växt behöver rätt förutsättningar för att kunna leva.
-        Olika växter trivs på olika platser.
-        Vissa växer i skogen. Andra växer på ängar, i vatten
-        eller på torra och soliga platser.
-    </p>
-</section>
+        <section>
+            <h2>Det här ska du lära dig</h2>
 
+            <div class="goal">
+                När du är klar ska du kunna:
 
-<section class="miljo-card">
-    <h2>1. Vad behöver en växt?</h2>
+                <ul>
+                    <li>berätta vad växter behöver</li>
+                    <li>förklara varför ljus och vatten är viktiga</li>
+                    <li>beskriva vad mineralämnen är</li>
+                    <li>förklara vad en livsmiljö är</li>
+                    <li>ge exempel på hur växter anpassar sig</li>
+                </ul>
+            </div>
 
-    <p>
-        Växter behöver flera saker för att kunna växa och leva.
-        De behöver ljus, vatten, koldioxid och näringsämnen.
-        Temperaturen påverkar också hur bra växten kan växa.
-    </p>
-
-    <div class="factor-grid">
-
-        <div class="factor-card">
-            <div class="factor-icon">☀️</div>
-            <h3>Ljus</h3>
-            <p>
-                Växten använder ljusenergi i fotosyntesen.
-                Ljuset hjälper växten att tillverka druvsocker.
+            <p class="intro">
+                Växter lever på många olika platser.
+                De kan växa i skogar, ängar, sjöar och öknar.
+                Men alla växter behöver vissa saker för att leva.
             </p>
-        </div>
+        </section>
 
-        <div class="factor-card">
-            <div class="factor-icon">💧</div>
-            <h3>Vatten</h3>
+        <section>
+            <h2>1. Ljus</h2>
+
+            <div class="concept">
+                <div class="concept-icon" aria-hidden="true">☀️</div>
+
+                <h3>Växter behöver ljus.</h3>
+
+                <p>
+                    Ljus ger energi till fotosyntesen.
+                    Växten använder energin för att bilda socker.
+                </p>
+
+                <p>
+                    Sockret används som byggmaterial och energikälla.
+                    Det hjälper växten att växa.
+                </p>
+
+                <div class="important">
+                    <strong>Kom ihåg:</strong>
+                    Utan tillräckligt med ljus kan växten få svårt
+                    att växa och må bra.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Vatten</h2>
+
+            <div class="concept">
+                <div class="concept-icon" aria-hidden="true">💧</div>
+
+                <h3>Växter behöver vatten.</h3>
+
+                <p>
+                    Rötterna tar ofta upp vatten från marken.
+                    Vattnet transporteras vidare genom växten.
+                </p>
+
+                <p>
+                    Vatten behövs i fotosyntesen.
+                    Det hjälper också växtens celler att fungera.
+                </p>
+
+                <p>
+                    Utan tillräckligt med vatten kan växten vissna.
+                </p>
+
+                <div class="important">
+                    <strong>Kom ihåg:</strong>
+                    Vatten är viktigt för växtens liv.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Koldioxid</h2>
+
+            <div class="concept">
+                <div class="concept-icon" aria-hidden="true">🌬️</div>
+
+                <h3>Växter behöver koldioxid.</h3>
+
+                <p>
+                    Koldioxid är en gas som finns i luften.
+                    Växten tar in koldioxid genom små öppningar i bladen.
+                </p>
+
+                <p>
+                    Koldioxiden används vid fotosyntesen.
+                    Tillsammans med vatten och ljusenergi
+                    bildar växten socker och syre.
+                </p>
+
+                <div class="important">
+                    <strong>Kom ihåg:</strong>
+                    Koldioxid kommer från luften.
+                </div>
+            </div>
+
+            <a class="button" href="fotosyntes.html">
+                Läs om fotosyntesen
+            </a>
+        </section>
+
+        <section>
+            <h2>4. Mineralämnen</h2>
+
+            <div class="concept">
+                <div class="concept-icon" aria-hidden="true">🌱</div>
+
+                <h3>Växter behöver mineralämnen.</h3>
+
+                <p>
+                    Mineralämnen är näringsämnen som växten behöver.
+                    Rötterna tar upp dem från marken eller vattnet.
+                </p>
+
+                <p>
+                    Växten använder mineralämnen när den bygger
+                    nya celler och olika ämnen.
+                </p>
+
+                <p>
+                    Kväve är ett exempel på ett viktigt mineralämne.
+                    Det behövs bland annat för att bilda proteiner.
+                </p>
+
+                <div class="important">
+                    <strong>Kom ihåg:</strong>
+                    Växten behöver mineralämnen för att utvecklas.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Temperatur</h2>
+
+            <div class="concept">
+                <div class="concept-icon" aria-hidden="true">🌡️</div>
+
+                <h3>Temperaturen påverkar växten.</h3>
+
+                <p>
+                    Växter behöver en temperatur som passar dem.
+                    Olika växter trivs vid olika temperaturer.
+                </p>
+
+                <p>
+                    Om det blir mycket kallt kan växtens processer
+                    gå långsammare.
+                </p>
+
+                <p>
+                    För hög värme kan också skada växten.
+                    Då kan den förlora mycket vatten.
+                </p>
+
+                <div class="important">
+                    <strong>Kom ihåg:</strong>
+                    Alla växter har inte samma temperaturbehov.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>6. Vad är en livsmiljö?</h2>
+
             <p>
-                Växten tar upp vatten genom rötterna.
-                Vatten behövs bland annat i fotosyntesen.
+                En <span class="word">livsmiljö</span>
+                är platsen där en organism lever.
             </p>
-        </div>
 
-        <div class="factor-card">
-            <div class="factor-icon">🌬️</div>
-            <h3>Koldioxid</h3>
             <p>
-                Växten tar upp koldioxid från luften.
-                Koldioxid används i fotosyntesen.
+                En växts livsmiljö påverkar hur den kan växa.
+                Där finns olika mängder ljus, vatten och näring.
             </p>
-        </div>
 
-        <div class="factor-card">
-            <div class="factor-icon">🌍</div>
-            <h3>Näringsämnen</h3>
+            <div class="habitat">
+                <h3>Skogen</h3>
+
+                <p>
+                    I skogen finns träd, buskar och örter.
+                    Vissa växter får mycket ljus.
+                    Andra växer där det är skuggigt.
+                </p>
+
+                <p>
+                    Växter nära marken kan behöva klara mindre ljus.
+                </p>
+            </div>
+
+            <div class="habitat">
+                <h3>Ängen</h3>
+
+                <p>
+                    På en äng finns ofta mycket solljus.
+                    Där kan gräs och blommande växter växa.
+                </p>
+
+                <p>
+                    Många insekter hittar mat bland blommorna.
+                </p>
+            </div>
+
+            <div class="habitat">
+                <h3>Öknen</h3>
+
+                <p>
+                    I öknar kan det vara mycket torrt.
+                    Vissa växter klarar långa perioder utan regn.
+                </p>
+
+                <p>
+                    De kan lagra vatten eller ha små blad.
+                </p>
+            </div>
+
+            <div class="habitat">
+                <h3>Vattenmiljön</h3>
+
+                <p>
+                    Vissa växter lever i vatten.
+                    De kan växa i sjöar och dammar.
+                </p>
+
+                <p>
+                    Näckrosor har blad som flyter på vattenytan.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>7. Växter är anpassade till olika miljöer</h2>
+
             <p>
-                Rötterna tar upp näringsämnen från marken.
-                De behövs för växtens tillväxt.
+                <span class="word">Anpassning</span>
+                är en egenskap som hjälper en organism
+                att klara sin livsmiljö.
             </p>
-        </div>
 
-    </div>
+            <div class="adaptation">
+                <h3>Växter i torra miljöer</h3>
 
-    <div class="fact-box">
-        <strong>Kom ihåg!</strong>
-        <p>
-            Fotosyntesen sker främst i växtens gröna delar.
-            Med hjälp av ljusenergi, vatten och koldioxid
-            bildar växten druvsocker och syre.
-        </p>
-    </div>
-</section>
+                <p>
+                    Kaktusar har ofta tjocka stammar.
+                    De kan lagra vatten.
+                </p>
 
+                <p>
+                    Deras taggar är ombildade blad.
+                    De kan minska vattenförlusten.
+                </p>
+            </div>
 
-<section class="miljo-card">
-    <h2>2. Olika växter trivs på olika platser</h2>
+            <div class="adaptation">
+                <h3>Växter i skuggiga miljöer</h3>
 
-    <p>
-        En livsmiljö är platsen där en växt eller ett djur lever.
-        Miljön kan vara ljus eller mörk, torr eller fuktig,
-        varm eller kall.
-    </p>
+                <p>
+                    Vissa växter klarar att leva med lite ljus.
+                    De kan ha stora blad.
+                </p>
 
-    <div class="process">
+                <p>
+                    Stora blad kan fånga upp mer av det ljus
+                    som når växten.
+                </p>
+            </div>
 
-        <div class="process-item">
-            <span>🌲</span>
-            <strong>Skogen</strong>
+            <div class="adaptation">
+                <h3>Växter i vatten</h3>
+
+                <p>
+                    Näckrosens blad flyter på vattenytan.
+                    Bladen kan fånga solljus där.
+                </p>
+            </div>
+
+            <div class="adaptation">
+                <h3>Växter i kalla miljöer</h3>
+
+                <p>
+                    Vissa barrträd har smala barr.
+                    Formen kan minska vattenförlusten.
+                </p>
+
+                <p>
+                    Många barrträd kan behålla sina barr
+                    under vintern.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Jämför olika livsmiljöer</h2>
+
+            <div class="comparison">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Livsmiljö</th>
+                            <th>Förhållanden</th>
+                            <th>Exempel på växt</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Öken</td>
+                            <td>Mycket torrt</td>
+                            <td>Kaktus</td>
+                        </tr>
+
+                        <tr>
+                            <td>Skog</td>
+                            <td>Olika mängd ljus</td>
+                            <td>Ormbunke</td>
+                        </tr>
+
+                        <tr>
+                            <td>Äng</td>
+                            <td>Ofta mycket ljus</td>
+                            <td>Prästkrage</td>
+                        </tr>
+
+                        <tr>
+                            <td>Sjö</td>
+                            <td>Vattenmiljö</td>
+                            <td>Näckros</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2>Vad händer om växten saknar något?</h2>
+
+            <div class="concept">
+                <h3>För lite vatten</h3>
+                <p>
+                    Växten kan vissna.
+                    Den kan få svårt att transportera ämnen.
+                </p>
+            </div>
+
+            <div class="concept">
+                <h3>För lite ljus</h3>
+                <p>
+                    Fotosyntesen kan minska.
+                    Växten kan växa långsammare.
+                </p>
+            </div>
+
+            <div class="concept">
+                <h3>För lite mineralämnen</h3>
+                <p>
+                    Växten kan få svårt att bilda nya delar.
+                    Bladen kan också förändras i färg.
+                </p>
+            </div>
+
+            <div class="concept">
+                <h3>Olämplig temperatur</h3>
+                <p>
+                    Växtens tillväxt kan påverkas.
+                    Mycket höga eller låga temperaturer kan skada den.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Testa dina kunskaper</h2>
+
             <p>
-                Här växer granar, tallar, mossor och blåbär.
+                Välj ett svar på varje fråga.
+                Du får direkt återkoppling.
             </p>
-        </div>
-
-        <div class="process-item">
-            <span>🌼</span>
-            <strong>Ängen</strong>
-            <p>
-                Här växer gräs, klöver och många blommande växter.
-            </p>
-        </div>
-
-        <div class="process-item">
-            <span>🌾</span>
-            <strong>Våtmarken</strong>
-            <p>
-                Här finns växter som trivs i mycket fuktig mark.
-            </p>
-        </div>
-
-        <div class="process-item">
-            <span>🌵</span>
-            <strong>Torra platser</strong>
-            <p>
-                Vissa växter har egenskaper som hjälper dem
-                att klara långa perioder med lite vatten.
-            </p>
-        </div>
-
-    </div>
-</section>
-
-
-<section class="miljo-card">
-    <h2>3. Hur anpassar sig växter?</h2>
-
-    <p>
-        Växter har olika egenskaper som hjälper dem
-        att överleva i sin miljö.
-        Sådana egenskaper kallas anpassningar.
-    </p>
-
-    <div class="factor-grid">
-
-        <div class="factor-card">
-            <div class="factor-icon">🌵</div>
-            <h3>Kaktus</h3>
-            <p>
-                Kaktusar har ofta tjocka stammar som kan lagra vatten.
-                Taggarna hjälper till att minska vattenförlusten
-                och kan skydda mot djur.
-            </p>
-        </div>
-
-        <div class="factor-card">
-            <div class="factor-icon">🌲</div>
-            <h3>Gran</h3>
-            <p>
-                Granen har barr som har ett skyddande vaxlager.
-                Det hjälper barren att minska vattenförlusten.
-            </p>
-        </div>
-
-        <div class="factor-card">
-            <div class="factor-icon">🪷</div>
-            <h3>Vattenväxt</h3>
-            <p>
-                Vissa vattenväxter har breda blad som flyter
-                på vattenytan.
-            </p>
-        </div>
-
-    </div>
-
-    <div class="fact-box">
-        <strong>Viktigt begrepp: Anpassning</strong>
-        <p>
-            En anpassning är en egenskap som hjälper en organism
-            att klara förhållandena i sin livsmiljö.
-        </p>
-    </div>
-</section>
-
-
-<section class="miljo-card">
-    <h2>4. När människan förändrar miljön</h2>
-
-    <p>
-        Människor påverkar växternas livsmiljöer på många sätt.
-        När vi bygger hus, vägar och parker förändras naturen.
-    </p>
-
-    <div class="factor-grid">
-
-        <div class="factor-card">
-            <div class="factor-icon">🏗️</div>
-            <h3>Byggande</h3>
-            <p>
-                När skog och mark byggs bort kan växter förlora
-                sina växtplatser.
-            </p>
-        </div>
-
-        <div class="factor-card">
-            <div class="factor-icon">🌳</div>
-            <h3>Plantering</h3>
-            <p>
-                När människor planterar träd och blommor
-                kan nya livsmiljöer skapas.
-            </p>
-        </div>
 
-        <div class="factor-card">
-            <div class="factor-icon">🗑️</div>
-            <h3>Nedskräpning</h3>
-            <p>
-                Skräp kan skada naturen och påverka
-                växter och djur.
-            </p>
-        </div>
-
-    </div>
-</section>
-
-
-<section class="miljo-card">
-    <h2>5. Testa dig själv</h2>
-
-    <p>Välj det svar som stämmer bäst.</p>
-
-    <div class="quiz-question">
-        <h3>Fråga 1. Vad använder växten ljus till?</h3>
-
-        <div class="quiz-options">
-            <button onclick="answer(1, false)">A. Att skapa jord</button>
-            <button onclick="answer(1, true)">B. Att få energi till fotosyntesen</button>
-            <button onclick="answer(1, false)">C. Att bilda rötter direkt</button>
-        </div>
-
-        <div id="feedback1" class="feedback" aria-live="polite"></div>
-    </div>
-
-    <div class="quiz-question">
-        <h3>Fråga 2. Var tar växten oftast upp vatten?</h3>
-
-        <div class="quiz-options">
-            <button onclick="answer(2, false)">A. Genom blommorna</button>
-            <button onclick="answer(2, true)">B. Genom rötterna</button>
-            <button onclick="answer(2, false)">C. Genom fröna</button>
-        </div>
-
-        <div id="feedback2" class="feedback" aria-live="polite"></div>
-    </div>
-
-    <div class="quiz-question">
-        <h3>Fråga 3. Vad betyder anpassning?</h3>
-
-        <div class="quiz-options">
-            <button onclick="answer(3, true)">A. En egenskap som hjälper en organism i sin miljö</button>
-            <button onclick="answer(3, false)">B. När en växt får vatten</button>
-            <button onclick="answer(3, false)">C. När ett frö faller till marken</button>
-        </div>
-
-        <div id="feedback3" class="feedback" aria-live="polite"></div>
-    </div>
-
-    <div class="quiz-question">
-        <h3>Fråga 4. Vad kan hända när en skog byggs bort?</h3>
-
-        <div class="quiz-options">
-            <button onclick="answer(4, false)">A. Alla växter växer bättre</button>
-            <button onclick="answer(4, true)">B. Växter kan förlora sina livsmiljöer</button>
-            <button onclick="answer(4, false)">C. Alla djur får mer mat</button>
-        </div>
-
-        <div id="feedback4" class="feedback" aria-live="polite"></div>
-    </div>
-
-    <div id="quizResult" class="fact-box" aria-live="polite">
-        Du har svarat rätt på <strong>0 av 4</strong> frågor.
-    </div>
-
-</section>
-
-
-<section class="miljo-card">
-    <h2>6. Bli en växtforskare</h2>
-
-    <p>
-        Nu ska du undersöka hur miljön påverkar en växt.
-        Tänk dig att du har två likadana växter.
-    </p>
-
-    <div class="task-area">
-
-        <h3>Undersökning: Vad händer utan ljus?</h3>
-
-        <p>
-            Växt A står på en ljus plats.
-            Växt B står på en mörk plats.
-            Båda får lika mycket vatten.
-        </p>
-
-        <label for="hypothesis">
-            1. Vad tror du kommer att hända?
-        </label>
-
-        <textarea
-            id="hypothesis"
-            placeholder="Jag tror att..."
-        ></textarea>
-
-        <label for="observation">
-            2. Vad skulle du behöva observera?
-        </label>
-
-        <textarea
-            id="observation"
-            placeholder="Jag skulle titta på..."
-        ></textarea>
-
-        <label for="explanation">
-            3. Varför behöver växter ljus?
-        </label>
-
-        <textarea
-            id="explanation"
-            placeholder="Växter behöver ljus eftersom..."
-        ></textarea>
-
-        <button class="action-button" onclick="saveTask()">
-            Spara mina svar
-        </button>
-
-        <div id="taskFeedback" class="feedback" aria-live="polite"></div>
-
-    </div>
-</section>
-
-
-<section class="miljo-card">
-    <h2>7. Begrepp att kunna</h2>
-
-    <div class="factor-grid">
-
-        <div class="factor-card">
-            <h3>Livsmiljö</h3>
-            <p>Platsen där en organism lever.</p>
-        </div>
-
-        <div class="factor-card">
-            <h3>Anpassning</h3>
-            <p>En egenskap som hjälper en organism att överleva.</p>
-        </div>
-
-        <div class="factor-card">
-            <h3>Fotosyntes</h3>
-            <p>Processen där växten använder ljusenergi, vatten och koldioxid för att bilda druvsocker och syre.</p>
-        </div>
-
-        <div class="factor-card">
-            <h3>Näringsämnen</h3>
-            <p>Ämnen som växten behöver för att växa och utvecklas.</p>
-        </div>
-
-    </div>
-</section>
-
-
-<div class="navigation">
-
-    <a href="fronspridning.html">
-        ← Tillbaka: Frön och spridning
-    </a>
-
-    <a href="vaxter.html">
-        Växternas värld
-    </a>
-
-    <a href="ak4.html">
-        Till årskurs 4
-    </a>
-
-    <a href="index.html">
-        Till startsidan
-    </a>
-
-</div>
-
-</main>
-
-<footer>
-    NO-Upptäckaren • Växter och miljön • Årskurs 4
-</footer>
-
-
-<script>
-
-let correctAnswers = 0;
-let answeredQuestions = [];
-
-function answer(question, correct) {
-
-    const feedback = document.getElementById("feedback" + question);
-
-    if (answeredQuestions.includes(question)) {
-        return;
-    }
-
-    answeredQuestions.push(question);
-
-    if (correct) {
-
-        correctAnswers++;
-
-        feedback.className = "feedback";
-        feedback.innerHTML = "Rätt svar! Bra arbetat.";
-
-    } else {
-
-        feedback.className = "feedback wrong";
-        feedback.innerHTML =
-            "Inte riktigt. Läs faktatexten igen och försök förstå varför.";
-
-    }
-
-    feedback.style.display = "block";
-
-    document.getElementById("quizResult").innerHTML =
-        "Du har svarat rätt på <strong>" +
-        correctAnswers +
-        " av 4</strong> frågor.";
-
-}
-
-function saveTask() {
-
-    const hypothesis = document.getElementById("hypothesis").value.trim();
-    const observation = document.getElementById("observation").value.trim();
-    const explanation = document.getElementById("explanation").value.trim();
-
-    const feedback = document.getElementById("taskFeedback");
-
-    if (!hypothesis || !observation || !explanation) {
-
-        feedback.className = "feedback wrong";
-        feedback.innerHTML =
-            "Skriv något i alla tre rutorna innan du sparar.";
-
-        feedback.style.display = "block";
-
-        return;
-    }
-
-    const result = {
-        hypothesis: hypothesis,
-        observation: observation,
-        explanation: explanation
-    };
-
-    localStorage.setItem(
-        "noUpptackaren_vaxtermiljo",
-        JSON.stringify(result)
-    );
-
-    feedback.className = "feedback";
-    feedback.innerHTML =
-        "Dina svar är sparade i den här webbläsaren. Bra jobbat, forskare!";
-
-    feedback.style.display = "block";
-
-}
-
-window.addEventListener("DOMContentLoaded", function() {
-
-    const saved = localStorage.getItem("noUpptackaren_vaxtermiljo");
-
-    if (saved) {
-
-        const result = JSON.parse(saved);
-
-        document.getElementById("hypothesis").value =
-            result.hypothesis || "";
-
-        document.getElementById("observation").value =
-            result.observation || "";
-
-        document.getElementById("explanation").value =
-            result.explanation || "";
-
-    }
-
-});
-
-</script>
+            <div id="quiz"></div>
+
+            <button class="button" onclick="showResult()">
+                Se mitt resultat
+            </button>
+
+            <button class="button" onclick="restartQuiz()">
+                Börja om
+            </button>
+
+            <div class="result" id="result" aria-live="polite"></div>
+        </section>
+
+        <section>
+            <h2>Fundera och förklara</h2>
+
+            <div class="reflection">
+
+                <p>
+                    <strong>1. Vad behöver en växt för att leva?</strong>
+                </p>
+
+                <textarea id="answer1"
+                    placeholder="Skriv ditt svar här..."></textarea>
+
+                <p>
+                    <strong>2. Varför har kaktusen taggar?</strong>
+                </p>
+
+                <textarea id="answer2"
+                    placeholder="Skriv ditt svar här..."></textarea>
+
+                <p>
+                    <strong>3. Hur kan växter klara sig i olika miljöer?</strong>
+                </p>
+
+                <textarea id="answer3"
+                    placeholder="Skriv ditt svar här..."></textarea>
+
+                <button class="button" onclick="saveAnswers()">
+                    Spara mina svar
+                </button>
+
+                <button class="button" onclick="window.print()">
+                    Skriv ut mina svar
+                </button>
+
+                <p id="saveMessage" aria-live="polite"></p>
+
+            </div>
+        </section>
+
+        <section>
+            <h2>Fortsätt utforska</h2>
+
+            <div class="navigation">
+                <a class="button" href="vaxter.html">Växter</a>
+                <a class="button" href="vaxtersdelar.html">Växtens delar</a>
+                <a class="button" href="fotosyntes.html">Fotosyntes</a>
+                <a class="button" href="vaxtenslivscykel.html">Växtens livscykel</a>
+                <a class="button" href="vaxtexperiment.html">Växtexperiment</a>
+                <a class="button" href="biologibegrepp.html">Biologiska begrepp</a>
+                <a class="button" href="biologi.html">Till biologi</a>
+                <a class="button" href="index.html">Till startsidan</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        NO-Upptäckaren | Biologi årskurs 4–6
+    </footer>
+
+    <script>
+        const questions = [
+            {
+                question: "Vad använder växten ljus till?",
+                answers: [
+                    "Till fotosyntesen",
+                    "Till att dricka vatten",
+                    "Till att bilda jord"
+                ],
+                correct: 0,
+                explanation: "Rätt! Ljusenergi behövs i fotosyntesen."
+            },
+            {
+                question: "Varifrån tar växten oftast upp vatten?",
+                answers: [
+                    "Från luften genom blommorna",
+                    "Från marken genom rötterna",
+                    "Från solen"
+                ],
+                correct: 1,
+                explanation: "Rätt! Rötterna tar oftast upp vatten från marken."
+            },
+            {
+                question: "Vad är koldioxid?",
+                answers: [
+                    "En gas i luften",
+                    "En sorts jord",
+                    "Ett mineral i roten"
+                ],
+                correct: 0,
+                explanation: "Rätt! Koldioxid är en gas som finns i luften."
+            },
+            {
+                question: "Vad är mineralämnen?",
+                answers: [
+                    "Näringsämnen som växten behöver",
+                    "Små insekter",
+                    "En sorts solljus"
+                ],
+                correct: 0,
+                explanation: "Rätt! Växter behöver mineralämnen för att utvecklas."
+            },
+            {
+                question: "Vad är en livsmiljö?",
+                answers: [
+                    "Platsen där en organism lever",
+                    "En växts blomma",
+                    "En sorts frö"
+                ],
+                correct: 0,
+                explanation: "Rätt! En livsmiljö är platsen där en organism lever."
+            },
+            {
+                question: "Varför har kaktusar ofta tjocka stammar?",
+                answers: [
+                    "De kan lagra vatten",
+                    "De kan flyga",
+                    "De behöver inte ljus"
+                ],
+                correct: 0,
+                explanation: "Rätt! Kaktusar kan lagra vatten i sina stammar."
+            },
+            {
+                question: "Varför har näckrosen blad på vattenytan?",
+                answers: [
+                    "Bladen kan fånga ljus",
+                    "Bladen ska bli rötter",
+                    "Bladen ska fånga fiskar"
+                ],
+                correct: 0,
+                explanation: "Rätt! Bladen kan fånga solljus vid vattenytan."
+            },
+            {
+                question: "Vad kan hända om en växt får för lite vatten?",
+                answers: [
+                    "Den kan vissna",
+                    "Den börjar flyga",
+                    "Den bildar alltid fler blommor"
+                ],
+                correct: 0,
+                explanation: "Rätt! För lite vatten kan göra att växten vissnar."
+            },
+            {
+                question: "Vad påverkar temperaturen?",
+                answers: [
+                    "Växtens processer och tillväxt",
+                    "Bara blommans färg",
+                    "Bara frönas storlek"
+                ],
+                correct: 0,
+                explanation: "Rätt! Temperaturen påverkar växtens processer."
+            },
+            {
+                question: "Vad betyder anpassning?",
+                answers: [
+                    "En egenskap som hjälper organismen i sin miljö",
+                    "Att växten alltid flyttar",
+                    "Att växten slutar växa"
+                ],
+                correct: 0,
+                explanation: "Rätt! Anpassningar kan hjälpa organismer att klara sin livsmiljö."
+            }
+        ];
+
+        let score = 0;
+        let answered = 0;
+        let completed = [];
+
+        function createQuiz() {
+            const quiz = document.getElementById("quiz");
+            quiz.innerHTML = "";
+
+            questions.forEach((q, index) => {
+                const box = document.createElement("div");
+                box.className = "question";
+
+                const title = document.createElement("p");
+                title.textContent = (index + 1) + ". " + q.question;
+                box.appendChild(title);
+
+                q.answers.forEach((answer, answerIndex) => {
+                    const button = document.createElement("button");
+                    button.className = "answer";
+                    button.type = "button";
+                    button.textContent = answer;
+
+                    button.addEventListener("click", () => {
+                        checkAnswer(index, answerIndex, box);
+                    });
+
+                    box.appendChild(button);
+                });
+
+                const feedback = document.createElement("div");
+                feedback.className = "feedback";
+                feedback.setAttribute("aria-live", "polite");
+                box.appendChild(feedback);
+
+                quiz.appendChild(box);
+            });
+        }
+
+        function checkAnswer(questionIndex, answerIndex, box) {
+            if (completed.includes(questionIndex)) {
+                return;
+            }
+
+            completed.push(questionIndex);
+            answered++;
+
+            const question = questions[questionIndex];
+            const buttons = box.querySelectorAll(".answer");
+            const feedback = box.querySelector(".feedback");
+
+            buttons.forEach(button => {
+                button.disabled = true;
+            });
+
+            if (answerIndex === question.correct) {
+                score++;
+                buttons[answerIndex].classList.add("correct");
+                feedback.textContent = question.explanation;
+                feedback.style.color = "#17652b";
+            } else {
+                buttons[answerIndex].classList.add("wrong");
+                buttons[question.correct].classList.add("correct");
+                feedback.textContent =
+                    "Inte riktigt. " + question.explanation;
+                feedback.style.color = "#9a332b";
+            }
+        }
+
+        function showResult() {
+            const result = document.getElementById("result");
+            result.style.display = "block";
+
+            if (answered < questions.length) {
+                result.textContent =
+                    "Du har svarat på " + answered + " av " +
+                    questions.length + " frågor. Fortsätt!";
+                return;
+            }
+
+            result.textContent =
+                "Du fick " + score + " av " +
+                questions.length + " rätt.";
+
+            if (score === questions.length) {
+                result.textContent += " Fantastiskt! Alla rätt!";
+            } else if (score >= 6) {
+                result.textContent += " Bra jobbat!";
+            } else {
+                result.textContent += " Läs igen och försök en gång till.";
+            }
+        }
+
+        function restartQuiz() {
+            score = 0;
+            answered = 0;
+            completed = [];
+
+            document.getElementById("result").style.display = "none";
+            createQuiz();
+        }
+
+        function saveAnswers() {
+            const answers = {
+                answer1: document.getElementById("answer1").value,
+                answer2: document.getElementById("answer2").value,
+                answer3: document.getElementById("answer3").value
+            };
+
+            try {
+                localStorage.setItem(
+                    "noUpptackarenVaxtermiljo",
+                    JSON.stringify(answers)
+                );
+
+                document.getElementById("saveMessage").textContent =
+                    "Dina svar är sparade på den här enheten.";
+
+            } catch (error) {
+                document.getElementById("saveMessage").textContent =
+                    "Det gick inte att spara svaren.";
+            }
+        }
+
+        function loadAnswers() {
+            try {
+                const saved = localStorage.getItem(
+                    "noUpptackarenVaxtermiljo"
+                );
+
+                if (saved) {
+                    const answers = JSON.parse(saved);
+
+                    document.getElementById("answer1").value =
+                        answers.answer1 || "";
+
+                    document.getElementById("answer2").value =
+                        answers.answer2 || "";
+
+                    document.getElementById("answer3").value =
+                        answers.answer3 || "";
+                }
+
+            } catch (error) {
+                console.log("Kunde inte läsa sparade svar.");
+            }
+        }
+
+        createQuiz();
+        loadAnswers();
+    </script>
 
 </body>
 </html>
