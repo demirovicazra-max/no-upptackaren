@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biologisk självbedömning – NO-Upptäckaren</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f6f2;
+    color: #26372b;
+    line-height: 1.6;
+}
+
+header {
+    background: #246b45;
+    color: white;
+    text-align: center;
+    padding: 28px 18px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+main {
+    max-width: 950px;
+    margin: 25px auto;
+    padding: 0 16px;
+}
+
+.panel {
+    background: white;
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccd9ce;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    margin-top: 6px;
+}
+
+textarea {
+    min-height: 85px;
+    resize: vertical;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.area {
+    border: 1px solid #dce7dd;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 18px 0;
+}
+
+.area h3 {
+    color: #246b45;
+    margin-top: 0;
+}
+
+.goal {
+    background: #f1f6f1;
+    padding: 14px;
+    border-radius: 9px;
+    margin: 12px 0;
+}
+
+.goal label {
+    font-weight: normal;
+    margin: 9px 0;
+    cursor: pointer;
+}
+
+.goal input {
+    margin-right: 8px;
+    transform: scale(1.2);
+}
+
+button,
+.nav-button {
+    display: inline-block;
+    background: #246b45;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    padding: 13px 19px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 8px 5px 8px 0;
+}
+
+button:hover,
+.nav-button:hover {
+    background: #174b30;
+}
+
+.result {
+    display: none;
+    background: #e5f2e7;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.result h2 {
+    color: #246b45;
+}
+
+.result-item {
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.small {
+    font-size: 0.92rem;
+    color: #58665b;
+}
+
+.teacher-note {
+    background: #fff5df;
+    border-left: 5px solid #d69a32;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.navigation a {
+    background: #344d3b;
+    color: white;
+    text-decoration: none;
+    padding: 12px 17px;
+    border-radius: 9px;
+}
+
+@media print {
+    body {
+        background: white;
+    }
+
+    header {
+        background: white;
+        color: black;
+        border-bottom: 2px solid black;
+    }
+
+    button,
+    .navigation {
+        display: none;
+    }
+
+    .panel {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        break-inside: avoid;
+    }
+}
+
+@media(max-width:600px) {
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    .panel {
+        padding: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Min biologiska utveckling</h1>
+    <p>Självbedömning och lärarstöd – årskurs 4–6</p>
+</header>
+
+<main>
+
+<section class="panel">
+    <h2>Vem är jag?</h2>
+
+    <label for="student">Elevens namn</label>
+    <input type="text" id="student"
+        placeholder="Skriv ditt namn">
+
+    <label for="class">Klass</label>
+    <input type="text" id="class"
+        placeholder="Skriv din klass">
+
+    <label for="date">Datum</label>
+    <input type="date" id="date">
+</section>
+
+<section class="panel">
+    <h2>Så använder du självbedömningen</h2>
+
+    <p>Läs varje mål.</p>
+    <p>Fundera på vad du kan göra.</p>
+    <p>Välj det alternativ som passar dig bäst.</p>
+
+    <div class="goal">
+        <strong>Jag kan redan</strong>
+        <p>Jag kan visa detta själv.</p>
+    </div>
+
+    <div class="goal">
+        <strong>Jag tränar på det</strong>
+        <p>Jag kan lite, men behöver öva mer.</p>
+    </div>
+
+    <div class="goal">
+        <strong>Jag behöver hjälp</strong>
+        <p>Jag behöver stöd för att komma vidare.</p>
+    </div>
+</section>
+
+<form id="assessment">
+
+<section class="panel">
+    <h2>Område 1 – Biologiska begrepp och samband</h2>
+
+    <p>
+        Jag visar vad jag vet om växter, djur,
+        människor och naturen.
+    </p>
+
+    <div class="area">
+        <h3>Växter och fotosyntes</h3>
+
+        <div class="goal">
+            <p>Jag kan förklara vad en växt behöver för att leva.</p>
+            <label><input type="radio" name="g1" value="3"> Jag kan redan</label>
+            <label><input type="radio" name="g1" value="2"> Jag tränar på det</label>
+            <label><input type="radio" name="g1" value="1"> Jag behöver hjälp</label>
+        </div>
+
+        <div class="goal">
+            <p>Jag kan beskriva växtens olika delar och deras uppgifter.</p>
+            <label><input type="radio" name="g2" value="3"> Jag kan redan</label>
+            <label><input type="radio" name="g2" value="2"> Jag tränar på det</label>
+            <label><input type="radio" name="g2" value="1"> Jag behöver hjälp</label>
+        </div>
+
+        <div class="goal">
+            <p>Jag kan beskriva fotosyntesen med några biologiska begrepp.</p>
+            <label><input type="radio" name="g3" value="3"> Jag kan redan</label>
+            <label><input type="radio" name="g3" value="2"> Jag tränar på det</label>
+            <label><input type="radio" name="g3" value="1"> Jag behöver hjälp</label>
+        </div>
+    </div>
+
+    <div class="area">
+        <h3>Djur och ekosystem</h3>
+
+        <div class="goal">
+            <p>Jag kan beskriva vad ett ekosystem är.</p>
+            <label><input type="radio" name="g4" value="3"> Jag kan redan</label>
+            <label><input type="radio" name="g4" value="2"> Jag tränar på det</label>
+            <label><input type="radio" name="g4" value="1"> Jag behöver hjälp</label>
+        </div>
+
+        <div class="goal">
+            <p>Jag kan förklara hur organismer påverkar varandra.</p>
+            <label><input type="radio" name="g5" value="3"> Jag kan redan</label>
+            <label><input type="radio" name="g5" value="2"> Jag tränar på det</label>
+            <label><input type="radio" name="g5" value="1"> Jag behöver hjälp</label>
+        </div>
+    </div>
+</section>
+
+<section class="panel">
+    <h2>Område 2 – Resonemang om miljö och hälsa</h2>
+
+    <div class="area">
+        <div class="goal">
+            <p>Jag kan ge exempel på hur människan påverkar naturen.</p>
+            <label><input type="radio" name="g6" value="3"> Jag kan redan</label>
+            <label><input type="radio" name="g6" value="2"> Jag tränar på det</label>
+            <label><input type="radio" name="g6" value="1"> Jag behöver hjälp</label>
+        </div>
+
+        <div class="goal">
+            <p>Jag kan beskriva varför växter och djur behöver en fungerande livsmiljö.</p>
+            <label><input type="radio" name="g7" value="3"> Jag kan redan</label>
+            <label><input type="radio" name="g7" value="2"> Jag tränar på det</label>
+            <label><input type="radio" name="g7" value="1"> Jag behöver hjälp</label>
+        </div>
+
+        <div class="goal">
+            <p>Jag kan använda fakta för att förklara mina tankar om natur och miljö.</p>
+            <label><input type="radio" name="g8" value="3"> Jag kan redan</label>
+            <label><input type="radio" name="g8" value="2"> Jag tränar på det</label>
+            <label><input type="radio" name="g8" value="1"> Jag behöver hjälp</label>
+        </div>
+    </div>
+</section>
+
+<section class="panel">
+    <h2>Område 3 – Systematiska undersökningar</h2>
+
+    <div class="area">
+        <div class="goal">
+            <p>Jag kan formulera en fråga som jag vill undersöka.</p>
+            <label><input type="radio" name="g9" value="3"> Jag kan redan</label>
+            <label><input type="radio" name="g9" value="2"> Jag tränar på det</label>
+            <label><input type="radio" name="g9" value="1"> Jag behöver hjälp</label>
+        </div>
+
+        <div class="goal">
+            <p>Jag kan planera och genomföra en enkel undersökning på ett säkert sätt.</p>
+            <label><input type="radio" name="g10" value="3"> Jag kan redan</label>
+            <label><input type="radio" name="g10" value="2"> Jag tränar på det</label>
+            <label><input type="radio" name="g10" value="1"> Jag behöver hjälp</label>
+        </div>
+
+        <div class="goal">
+            <p>Jag kan dokumentera mina observationer med text, bilder eller tabeller.</p>
+            <label><input type="radio" name="g11" value="3"> Jag kan redan</label>
+            <label><input type="radio" name="g11" value="2"> Jag tränar på det</label>
+            <label><input type="radio" name="g11" value="1"> Jag behöver hjälp</label>
+        </div>
+
+        <div class="goal">
+            <p>Jag kan beskriva vad undersökningen visade.</p>
+            <label><input type="radio" name="g12" value="3"> Jag kan redan</label>
+            <label><input type="radio" name="g12" value="2"> Jag tränar på det</label>
+            <label><input type="radio" name="g12" value="1"> Jag behöver hjälp</label>
+        </div>
+    </div>
+</section>
+
+<section class="panel">
+    <h2>Min egen reflektion</h2>
+
+    <label for="proud">Det här är jag särskilt nöjd med:</label>
+    <textarea id="proud"></textarea>
+
+    <label for="difficult">Det här behöver jag träna mer på:</label>
+    <textarea id="difficult"></textarea>
+
+    <label for="next">Det här vill jag lära mig härnäst:</label>
+    <textarea id="next"></textarea>
+</section>
+
+<section class="panel">
+    <h2>Lärarens observationer</h2>
+
+    <p class="small">
+        Den här delen fylls i av läraren.
+        Självbedömningen är ett komplement till
+        lärarens observationer och övriga bedömningsunderlag.
+    </p>
+
+    <label for="teacherKnowledge">
+        Begrepp och biologiska samband
+    </label>
+    <textarea id="teacherKnowledge"></textarea>
+
+    <label for="teacherReasoning">
+        Resonemang om miljö och hälsa
+    </label>
+    <textarea id="teacherReasoning"></textarea>
+
+    <label for="teacherInvestigation">
+        Systematiska undersökningar
+    </label>
+    <textarea id="teacherInvestigation"></textarea>
+
+    <label for="teacherNext">
+        Nästa undervisningssteg
+    </label>
+    <textarea id="teacherNext"></textarea>
+</section>
+
+<section class="panel">
+    <button type="button" onclick="showResult()">
+        Visa sammanställning
+    </button>
+
+    <button type="button" onclick="window.print()">
+        Skriv ut / Spara som PDF
+    </button>
+
+    <button type="button" onclick="saveData()">
+        Spara på den här enheten
+    </button>
+
+    <button type="button" onclick="loadData()">
+        Hämta sparat arbete
+    </button>
+
+    <button type="reset" onclick="resetResult()">
+        Börja om
+    </button>
+
+    <div id="result" class="result"></div>
+</section>
+
+</form>
+
+<section class="panel teacher-note">
+    <h3>Viktigt för läraren</h3>
+
+    <p>
+        Självbedömningen visar elevens egen uppfattning
+        om sitt lärande. Den är inte ett automatiskt
+        betygsunderlag och ska inte räknas om till E, C eller A.
+    </p>
+
+    <p>
+        Läraren behöver väga samman elevens kunskaper,
+        resonemang, undersökningar och övriga underlag
+        i förhållande till betygskriterierna.
+    </p>
+
+    <p>
+        Innehållet är ett stöd för undervisning i biologi
+        i årskurs 4–6 enligt Lgr22.
+    </p>
+</section>
+
+<nav class="navigation">
+    <a href="biologi.html">Biologisidan</a>
+    <a href="biologiprogression.html">Biologins lärstig</a>
+    <a href="biologitest.html">Biologitestet</a>
+    <a href="index.html">Startsidan</a>
+</nav>
+
+</main>
+
+<script>
+document.getElementById("date").value =
+    new Date().getFullYear() + "-" +
+    String(new Date().getMonth() + 1).padStart(2, "0") + "-" +
+    String(new Date().getDate()).padStart(2, "0");
+
+function showResult() {
+    const form = document.getElementById("assessment");
+    const result = document.getElementById("result");
+
+    let answered = 0;
+    let can = 0;
+    let training = 0;
+    let help = 0;
+
+    let output = "";
+
+    for (let i = 1; i <= 12; i++) {
+        const selected = form.querySelector(
+            'input[name="g' + i + '"]:checked'
+        );
+
+        if (!selected) continue;
+
+        answered++;
+
+        if (selected.value === "3") can++;
+        if (selected.value === "2") training++;
+        if (selected.value === "1") help++;
+    }
+
+    if (answered < 12) {
+        alert("Du har svarat på " + answered +
+            " av 12 mål. Besvara gärna alla mål.");
+    }
+
+    output += "<h2>Min sammanställning</h2>";
+    output += "<p><strong>Elev:</strong> " +
+        escapeHTML(document.getElementById("student").value || "Ej angivet") +
+        "</p>";
+
+    output += "<div class='result-item'><strong>Jag kan redan:</strong> " +
+        can + " mål</div>";
+
+    output += "<div class='result-item'><strong>Jag tränar på:</strong> " +
+        training + " mål</div>";
+
+    output += "<div class='result-item'><strong>Jag behöver hjälp med:</strong> " +
+        help + " mål</div>";
+
+    output += "<p>Besvarade mål: " + answered + " av 12.</p>";
+
+    output += "<p>Detta är elevens egen skattning, inte ett betyg.</p>";
+
+    result.innerHTML = output;
+    result.style.display = "block";
+    result.scrollIntoView({behavior: "smooth"});
+}
+
+function saveData() {
+    const data = {};
+
+    document.querySelectorAll(
+        "#assessment input, #assessment textarea"
+    ).forEach(element => {
+        if (element.type === "radio") {
+            if (element.checked) {
+                data[element.name] = element.value;
+            }
+        } else {
+            data[element.id] = element.value;
+        }
+    });
+
+    localStorage.setItem(
+        "biologiskSjalvbedomning",
+        JSON.stringify(data)
+    );
+
+    alert("Arbetet har sparats på den här enheten.");
+}
+
+function loadData() {
+    const saved = localStorage.getItem(
+        "biologiskSjalvbedomning"
+    );
+
+    if (!saved) {
+        alert("Det finns inget sparat arbete på den här enheten.");
+        return;
+    }
+
+    const data = JSON.parse(saved);
+
+    Object.keys(data).forEach(key => {
+        const radio = document.querySelector(
+            'input[name="' + key + '"][value="' + data[key] + '"]'
+        );
+
+        if (radio) {
+            radio.checked = true;
+            return;
+        }
+
+        const element = document.getElementById(key);
+
+        if (element) {
+            element.value = data[key];
+        }
+    });
+
+    alert("Ditt sparade arbete har hämtats.");
+}
+
+function resetResult() {
+    document.getElementById("result").style.display = "none";
+    document.getElementById("result").innerHTML = "";
+}
+
+function escapeHTML(text) {
+    return text.replace(/[&<>"']/g, function(character) {
+        const replacements = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;"
+        };
+
+        return replacements[character];
+    });
+}
+</script>
+
+</body>
+</html>
