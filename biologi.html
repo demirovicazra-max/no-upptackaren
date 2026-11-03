@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Biologi – NO-Upptäckaren</title>
+
   <link rel="stylesheet" href="style.css">
 
   <style>
@@ -46,7 +48,7 @@
     }
 
     .biology-card:hover,
-    .biology-card:focus {
+    .biology-card:focus-visible {
       transform: translateY(-3px);
       box-shadow: 0 5px 14px rgba(0, 0, 0, 0.10);
       border-color: #75a875;
@@ -87,7 +89,7 @@
     }
 
     .learning-path a:hover,
-    .learning-path a:focus {
+    .learning-path a:focus-visible {
       background: #40317e;
     }
 
@@ -132,47 +134,72 @@
 
     <section class="biology-intro">
       <h2>Välkommen till biologin!</h2>
+
       <p>
         I biologin undersöker vi livet omkring oss.
         Vi lär oss om växter, djur, människokroppen och naturen.
       </p>
+
       <p>
-        Du kan läsa, undersöka, träna på begrepp och testa
-        dina kunskaper.
+        Du kan läsa, undersöka, träna på begrepp
+        och testa dina kunskaper.
       </p>
     </section>
 
     <section class="learning-path">
       <h2>Din lärstig i biologi</h2>
+
       <p>
         Följ din utveckling och se vad du ska lära dig
         i biologi under årskurs 4, 5 och 6.
       </p>
+
       <a href="biologiprogression.html">
         Öppna min lärstig
       </a>
     </section>
 
+    <!-- BEGREPPSBIBLIOTEK OCH TEST -->
+
     <section class="biology-section">
-      <h2>Begreppsbibliotek</h2>
+      <h2>Träna och testa dina kunskaper</h2>
 
       <div class="biology-grid">
+
         <a class="biology-card" href="biologibegrepp.html">
           <div class="icon">📚</div>
+
           <h3>Biologiska begrepp</h3>
+
           <p>
             Lär dig viktiga biologiska ord.
             Sök efter begrepp, läs förklaringar
             och träna med frågor.
           </p>
         </a>
+
+        <a class="biology-card" href="biologitest.html">
+          <div class="icon">🧠</div>
+
+          <h3>Biologitest</h3>
+
+          <p>
+            Testa dina kunskaper om växter, djur,
+            celler, ekologi och naturvetenskapliga
+            undersökningar.
+          </p>
+        </a>
+
       </div>
     </section>
+
+    <!-- VÄXTER -->
 
     <section class="biology-section">
       <h2>Växter</h2>
 
       <div class="biology-grid">
+
         <a class="biology-card" href="vaxter.html">
           <div class="icon">🌱</div>
           <h3>Växter</h3>
@@ -220,25 +247,33 @@
           <h3>Växtquiz</h3>
           <p>Testa vad du har lärt dig om växter.</p>
         </a>
+
       </div>
     </section>
+
+    <!-- CELLER -->
 
     <section class="biology-section">
       <h2>Celler</h2>
 
       <div class="biology-grid">
+
         <a class="biology-card" href="celler.html">
           <div class="icon">🧬</div>
           <h3>Cellen</h3>
           <p>Lär dig om livets minsta byggstenar.</p>
         </a>
+
       </div>
     </section>
+
+    <!-- DJUR OCH MÄNNISKAN -->
 
     <section class="biology-section">
       <h2>Djur och människan</h2>
 
       <div class="biology-grid">
+
         <a class="biology-card" href="djur.html">
           <div class="icon">🐾</div>
           <h3>Djur</h3>
@@ -256,13 +291,17 @@
           <h3>Kroppen</h3>
           <p>Utforska människokroppens olika delar.</p>
         </a>
+
       </div>
     </section>
+
+    <!-- NATUR OCH EKOLOGI -->
 
     <section class="biology-section">
       <h2>Natur och ekologi</h2>
 
       <div class="biology-grid">
+
         <a class="biology-card" href="natur.html">
           <div class="icon">🌳</div>
           <h3>Naturen</h3>
@@ -274,17 +313,24 @@
           <h3>Ekosystem</h3>
           <p>Undersök hur organismer samspelar med varandra.</p>
         </a>
+
       </div>
     </section>
+
+    <!-- ANPASSNING OCH EVOLUTION -->
 
     <section class="biology-section">
       <h2>Anpassning och evolution</h2>
 
       <div class="biology-grid">
+
         <a class="biology-card" href="anpassning.html">
           <div class="icon">🦊</div>
           <h3>Anpassning</h3>
-          <p>Lär dig hur organismer kan vara anpassade till sin miljö.</p>
+          <p>
+            Lär dig hur organismer kan vara anpassade
+            till sin miljö.
+          </p>
         </a>
 
         <a class="biology-card" href="evolution.html">
@@ -292,13 +338,17 @@
           <h3>Evolution</h3>
           <p>Undersök hur arter förändras över lång tid.</p>
         </a>
+
       </div>
     </section>
+
+    <!-- NATURVETENSKAPLIGA UNDERSÖKNINGAR -->
 
     <section class="biology-section">
       <h2>Undersökningar</h2>
 
       <div class="biology-grid">
+
         <a class="biology-card" href="experiment.html">
           <div class="icon">🔍</div>
           <h3>Experiment</h3>
@@ -334,8 +384,11 @@
           <h3>Slutsats</h3>
           <p>Förklara vad du har kommit fram till.</p>
         </a>
+
       </div>
     </section>
+
+    <!-- NAVIGATION -->
 
     <footer class="biology-footer">
       <a href="ak4.html">Till årskurs 4</a>
