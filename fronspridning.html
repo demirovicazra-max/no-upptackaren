@@ -1,713 +1,789 @@
-
 <!DOCTYPE html>
 <html lang="sv">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Frön och spridning – NO-Upptäckaren</title>
-
-    <link rel="stylesheet" href="style.css">
+    <title>Fröspridning | NO-Upptäckaren</title>
 
     <style>
-
-        .intro {
-            background: white;
-            border-radius: 22px;
-            padding: 35px;
-            margin-bottom: 25px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-        }
-
-        .intro-icon {
-            font-size: 65px;
-            margin-bottom: 10px;
-        }
-
-        .intro h2 {
-            font-size: 30px;
-            margin: 10px 0 15px;
-        }
-
-        .intro p {
-            font-size: 18px;
-            line-height: 1.7;
-        }
-
-        .card {
-            background: white;
-            border-radius: 22px;
-            padding: 30px;
-            margin-bottom: 25px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-        }
-
-        .card h2 {
-            font-size: 25px;
-            margin-bottom: 15px;
-        }
-
-        .card h3 {
-            font-size: 20px;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            font-size: 17px;
-            line-height: 1.7;
-        }
-
-        .fact-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-            margin-top: 20px;
-        }
-
-        .fact {
-            background: #eef7f2;
-            border-radius: 16px;
-            padding: 22px;
-        }
-
-        .fact-icon {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
-
-        .fact h3 {
-            margin-top: 0;
-        }
-
-        .example {
-            background: #f8fafc;
-            border-left: 5px solid #7aa891;
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-            margin-top: 20px;
-        }
-
-        .step {
-            background: #f8fafc;
-            border-radius: 16px;
-            padding: 22px;
-        }
-
-        .step-number {
-            font-size: 34px;
-            margin-bottom: 8px;
-        }
-
-        .quiz {
-            background: #f8fafc;
-            border-radius: 16px;
-            padding: 25px;
-        }
-
-        .question {
-            margin-bottom: 30px;
-        }
-
-        .question:last-child {
-            margin-bottom: 0;
-        }
-
-        .quiz button {
-            display: block;
-            width: 100%;
-            margin: 10px 0;
-            padding: 14px 16px;
-            background: white;
-            border: 2px solid #d1d5db;
-            border-radius: 12px;
-            text-align: left;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .quiz button:hover {
-            background: #eef7f2;
-        }
-
-        .feedback {
-            display: none;
-            margin-top: 12px;
-            padding: 15px;
-            border-radius: 12px;
-            background: #dcfce7;
-            font-weight: bold;
-        }
-
-        .activity {
-            background: #fff7ed;
-            border-radius: 16px;
-            padding: 25px;
-        }
-
-        .activity input {
-            width: 100%;
-            padding: 13px;
-            margin: 8px 0 15px;
-            border: 2px solid #d1d5db;
-            border-radius: 10px;
-            font-size: 16px;
+        * {
             box-sizing: border-box;
         }
 
-        .activity button {
-            padding: 13px 20px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f7f1;
+            color: #26372c;
+            line-height: 1.6;
         }
 
-        .activity-result {
-            display: none;
-            margin-top: 18px;
+        header {
+            background: #245b3b;
+            color: white;
+            text-align: center;
+            padding: 30px 18px;
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            margin: 0 0 8px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        main {
+            max-width: 950px;
+            margin: 25px auto;
+            padding: 0 16px 40px;
+        }
+
+        section {
+            background: white;
+            padding: 24px;
+            border-radius: 15px;
+            margin-bottom: 22px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        h2 {
+            color: #245b3b;
+            font-size: 1.65rem;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #245b3b;
+        }
+
+        p {
+            font-size: 1.08rem;
+        }
+
+        .intro {
+            font-size: 1.2rem;
+        }
+
+        .goal {
+            background: #e6f2e7;
+            border-left: 6px solid #3d8653;
             padding: 16px;
-            background: #dcfce7;
+            border-radius: 8px;
+        }
+
+        .method {
+            border: 2px solid #dce9dc;
+            border-radius: 13px;
+            padding: 20px;
+            margin: 17px 0;
+        }
+
+        .method-icon {
+            font-size: 2.7rem;
+            margin-bottom: 5px;
+        }
+
+        .method h3 {
+            margin: 0 0 8px;
+            font-size: 1.35rem;
+        }
+
+        .example {
+            background: #f1f7ef;
+            border-radius: 9px;
+            padding: 12px;
+            margin-top: 12px;
+        }
+
+        .important {
+            background: #fff5d9;
+            border-left: 5px solid #d49a24;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 16px 0;
+        }
+
+        .word {
+            display: inline-block;
+            background: #e6f2e7;
+            color: #245b3b;
+            font-weight: bold;
+            padding: 3px 9px;
+            border-radius: 6px;
+        }
+
+        .process {
+            background: #f4f8f2;
             border-radius: 12px;
+            padding: 18px;
+            text-align: center;
+            margin: 18px 0;
+        }
+
+        .process-item {
+            background: white;
+            border: 2px solid #cbdcc9;
+            border-radius: 10px;
+            padding: 13px;
+            margin: 8px auto;
+            max-width: 500px;
+            font-weight: bold;
+        }
+
+        .arrow {
+            font-size: 1.7rem;
+            color: #245b3b;
+            font-weight: bold;
+        }
+
+        .question {
+            border: 2px solid #dce9dc;
+            border-radius: 12px;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .question p {
+            font-weight: bold;
+        }
+
+        .answer {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: #f4f7f2;
+            border: 2px solid #cbd9ca;
+            border-radius: 9px;
+            padding: 13px 15px;
+            margin: 9px 0;
+            font-size: 1rem;
+            cursor: pointer;
+            color: #26372c;
+        }
+
+        .answer:hover,
+        .answer:focus {
+            background: #e3f0e3;
+            border-color: #245b3b;
+        }
+
+        .answer.correct {
+            background: #d9f2dc;
+            border-color: #27813b;
+        }
+
+        .answer.wrong {
+            background: #fde4e1;
+            border-color: #bd4438;
+        }
+
+        .answer:disabled {
+            cursor: default;
+            opacity: 1;
+        }
+
+        .feedback {
+            min-height: 28px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #245b3b;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            padding: 13px 19px;
+            margin: 7px 5px 7px 0;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #17432a;
+        }
+
+        .result {
+            display: none;
+            background: #e6f2e7;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 18px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .reflection {
+            background: #f2f6fb;
+            border-left: 5px solid #527ca8;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px;
+            border: 2px solid #cbd9ca;
+            border-radius: 9px;
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            resize: vertical;
         }
 
         .navigation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        footer {
             text-align: center;
-            margin: 35px 0;
+            padding: 25px;
+            color: #526357;
         }
 
-        .navigation a {
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        @media (max-width: 700px) {
-
-            .fact-grid,
-            .steps {
-                grid-template-columns: 1fr;
+        @media (max-width: 600px) {
+            section {
+                padding: 18px;
             }
 
-            .card {
-                padding: 22px;
+            .navigation .button {
+                width: 100%;
+                text-align: center;
             }
-
         }
-
     </style>
-
 </head>
 
 <body>
 
-<header>
+    <header>
+        <h1>Fröspridning</h1>
+        <p>Hur hittar frön nya platser att växa på?</p>
+    </header>
 
-    <h1>🌰 FRÖN OCH SPRIDNING</h1>
+    <main>
 
-    <p>
-        NO-Upptäckaren • Biologi • Årskurs 4
-    </p>
+        <section>
+            <h2>Det här ska du lära dig</h2>
 
-</header>
+            <div class="goal">
+                När du är klar ska du kunna:
+                <ul>
+                    <li>förklara vad fröspridning betyder</li>
+                    <li>beskriva hur vinden sprider frön</li>
+                    <li>beskriva hur vatten och djur sprider frön</li>
+                    <li>förklara hur vissa växter sprider frön själva</li>
+                    <li>förstå varför fröspridning är viktig</li>
+                </ul>
+            </div>
 
-<main>
+            <p class="intro">
+                Växter kan inte gå till nya platser.
+                Men deras frön kan flytta sig.
+                Det kallas fröspridning.
+            </p>
+        </section>
 
-    <section class="intro">
-
-        <div class="intro-icon">
-            🌱
-        </div>
-
-        <h2>
-            Hur kommer nya växter till nya platser?
-        </h2>
-
-        <p>
-            Växter kan inte själva gå eller flyga till nya platser.
-            Därför behöver deras frön kunna spridas.
-            Här får du lära dig hur det går till.
-        </p>
-
-    </section>
-
-
-    <section class="card">
-
-        <h2>🌱 Vad är ett frö?</h2>
-
-        <p>
-            Ett frö kan ge upphov till en ny växt.
-            Inuti fröet finns ett mycket litet växtembryo.
-        </p>
-
-        <p>
-            Fröet innehåller också näring som den unga växten
-            kan använda när den börjar växa.
-        </p>
-
-        <div class="example">
-
-            <h3>Kom ihåg!</h3>
+        <section>
+            <h2>Vad är fröspridning?</h2>
 
             <p>
-                Ett frö behöver få rätt förutsättningar för att
-                kunna börja gro.
+                <span class="word">Fröspridning</span>
+                betyder att frön flyttas från moderplantan.
             </p>
-
-        </div>
-
-    </section>
-
-
-    <section class="card">
-
-        <h2>🌍 Varför sprider växter sina frön?</h2>
-
-        <p>
-            Om alla frön hamnade precis bredvid moderplantan
-            skulle många unga plantor behöva konkurrera om
-            samma ljus, vatten, näring och utrymme.
-        </p>
-
-        <p>
-            Genom att frön sprids kan nya växter växa på
-            andra platser.
-        </p>
-
-    </section>
-
-
-    <section class="card">
-
-        <h2>🧭 Olika sätt att sprida frön</h2>
-
-        <div class="fact-grid">
-
-            <div class="fact">
-
-                <div class="fact-icon">💨</div>
-
-                <h3>Med vinden</h3>
-
-                <p>
-                    Vissa frön är små och lätta.
-                    De kan transporteras med vinden.
-                </p>
-
-                <p>
-                    Exempel är maskrosens frön.
-                </p>
-
-            </div>
-
-
-            <div class="fact">
-
-                <div class="fact-icon">🐦</div>
-
-                <h3>Med djur</h3>
-
-                <p>
-                    Djur kan äta frukter och sedan sprida
-                    fröna på andra platser.
-                </p>
-
-            </div>
-
-
-            <div class="fact">
-
-                <div class="fact-icon">💧</div>
-
-                <h3>Med vatten</h3>
-
-                <p>
-                    Vissa frön och frukter kan flyta
-                    och transporteras med vatten.
-                </p>
-
-            </div>
-
-
-            <div class="fact">
-
-                <div class="fact-icon">🌱</div>
-
-                <h3>Genom att falla</h3>
-
-                <p>
-                    En del frön faller helt enkelt ner
-                    från växten till marken.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <section class="card">
-
-        <h2>🦔 Frön som följer med djur</h2>
-
-        <p>
-            Alla frön sprids inte genom att djur äter dem.
-            Vissa frön kan fastna i djurens päls.
-        </p>
-
-        <p>
-            Fröna kan ha små hakar eller andra former
-            som gör att de fastnar.
-        </p>
-
-        <div class="example">
-
-            <h3>Exempel</h3>
 
             <p>
-                Ett djur går genom en växt.
-                Ett frö fastnar i pälsen.
-                När fröet senare lossnar kan det hamna
-                långt från moderplantan.
+                Moderplantan är växten som bildade fröet.
+                Fröet kan hamna på en ny plats.
             </p>
-
-        </div>
-
-    </section>
-
-
-    <section class="card">
-
-        <h2>💨 Varför kan vissa frön flyga?</h2>
-
-        <p>
-            Frön som sprids med vinden är ofta små och lätta.
-            En del har former som hjälper dem att fånga vinden.
-        </p>
-
-        <div class="steps">
-
-            <div class="step">
-
-                <div class="step-number">1️⃣</div>
-
-                <h3>Fröet lossnar</h3>
-
-                <p>
-                    Fröet lossnar från växten.
-                </p>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">2️⃣</div>
-
-                <h3>Vinden tar tag</h3>
-
-                <p>
-                    Luftens rörelse transporterar fröet.
-                </p>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">3️⃣</div>
-
-                <h3>Fröet landar</h3>
-
-                <p>
-                    Till slut hamnar fröet på marken.
-                </p>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">4️⃣</div>
-
-                <h3>Fröet kan gro</h3>
-
-                <p>
-                    Om förutsättningarna är bra kan en
-                    ny växt börja växa.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <section class="card">
-
-        <h2>🔬 Undersök en fröspridning</h2>
-
-        <div class="activity">
-
-            <h3>Fundera som en naturvetare</h3>
 
             <p>
-                Tänk på ett frö som sprids med vinden.
-                Vad tror du händer om vinden blir starkare?
+                Om fröet får rätt förutsättningar kan det gro.
+                Då kan en ny växt börja växa.
             </p>
 
-            <label for="answer">
-                Skriv din tanke:
-            </label>
+            <div class="important">
+                <strong>Kom ihåg:</strong>
+                Fröspridning hjälper växter att nå nya platser.
+            </div>
+        </section>
 
-            <input
-                type="text"
-                id="answer"
-                placeholder="Jag tror att..."
-            >
+        <section>
+            <h2>1. Frön sprids med vinden</h2>
 
-            <button onclick="showAnswer()">
-                Visa min tanke
+            <div class="method">
+                <div class="method-icon" aria-hidden="true">🌬️</div>
+                <h3>Vind</h3>
+
+                <p>
+                    Vissa frön är mycket lätta.
+                    De kan flyga eller sväva med vinden.
+                </p>
+
+                <p>
+                    Några frön har små hår eller vingar.
+                    Det gör att vinden lättare kan föra dem iväg.
+                </p>
+
+                <div class="example">
+                    <strong>Exempel:</strong>
+                    Maskrosens frön har små fallskärmsliknande hår.
+                    Vinden kan föra dem långt bort.
+                </div>
+            </div>
+
+            <div class="important">
+                <strong>Fundera:</strong>
+                Varför är det bra att ett frö är lätt?
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Frön sprids med djur</h2>
+
+            <div class="method">
+                <div class="method-icon" aria-hidden="true">🐾</div>
+                <h3>Djur</h3>
+
+                <p>
+                    Djur kan sprida frön på olika sätt.
+                </p>
+
+                <p>
+                    Vissa frön har små hakar.
+                    De kan fastna i djurens päls.
+                </p>
+
+                <p>
+                    Andra frön finns inuti frukter.
+                    Djur äter frukterna.
+                    Frön kan sedan komma ut med spillningen.
+                </p>
+
+                <div class="example">
+                    <strong>Exempel:</strong>
+                    Kardborrefrön kan fastna i päls och kläder.
+                    Fåglar kan sprida frön genom att äta bär.
+                </div>
+            </div>
+
+            <div class="important">
+                <strong>Kom ihåg:</strong>
+                Djur kan transportera frön till nya platser.
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Frön sprids med vatten</h2>
+
+            <div class="method">
+                <div class="method-icon" aria-hidden="true">💧</div>
+                <h3>Vatten</h3>
+
+                <p>
+                    Vissa frön och frukter kan flyta.
+                    Vattnet kan föra dem till en ny plats.
+                </p>
+
+                <p>
+                    Frön kan spridas med bäckar, floder och hav.
+                </p>
+
+                <div class="example">
+                    <strong>Exempel:</strong>
+                    Kokosnötter kan flyta på havet.
+                    De kan föras till andra stränder.
+                </div>
+            </div>
+
+            <div class="important">
+                <strong>Fundera:</strong>
+                Vilka egenskaper behöver ett frö ha för att flyta?
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Växten sprider sina frön själv</h2>
+
+            <div class="method">
+                <div class="method-icon" aria-hidden="true">🌱</div>
+                <h3>Självspridning</h3>
+
+                <p>
+                    Vissa växter har frukter som öppnas med kraft.
+                    Då kan fröna kastas iväg.
+                </p>
+
+                <p>
+                    Fröna hamnar en bit från moderplantan.
+                </p>
+
+                <div class="example">
+                    <strong>Exempel:</strong>
+                    Hos vissa arter av nävor och ärtväxter
+                    kan frukten öppnas och sprida fröna.
+                </div>
+            </div>
+
+            <div class="important">
+                <strong>Kom ihåg:</strong>
+                Växten behöver inte alltid vind, vatten eller djur.
+            </div>
+        </section>
+
+        <section>
+            <h2>Varför är fröspridning viktigt?</h2>
+
+            <p>
+                Om alla frön stannade nära moderplantan
+                skulle många plantor växa mycket nära varandra.
+            </p>
+
+            <p>
+                Då kan de behöva dela på ljus, vatten och plats.
+            </p>
+
+            <p>
+                Fröspridning kan hjälpa växter att:
+            </p>
+
+            <ul>
+                <li>nå nya platser</li>
+                <li>växa längre bort från moderplantan</li>
+                <li>sprida sig till nya områden</li>
+                <li>minska konkurrensen nära moderplantan</li>
+            </ul>
+
+            <div class="important">
+                <strong>Viktigt:</strong>
+                Ett frö behöver också rätt förutsättningar.
+                Det behöver bland annat vatten, syre och lämplig temperatur för att gro.
+            </div>
+        </section>
+
+        <section>
+            <h2>Sammanfattning</h2>
+
+            <div class="process">
+                <div class="process-item">🌬️ Vind – frön flyger eller svävar</div>
+                <div class="process-item">🐾 Djur – frön fastnar eller äts</div>
+                <div class="process-item">💧 Vatten – frön flyter iväg</div>
+                <div class="process-item">🌱 Självspridning – frön kastas iväg</div>
+            </div>
+
+            <p>
+                Fröspridning gör att växter kan nå nya platser.
+                Där kan nya plantor börja växa.
+            </p>
+        </section>
+
+        <section>
+            <h2>Testa dina kunskaper</h2>
+
+            <p>
+                Välj ett svar på varje fråga.
+                Du får direkt återkoppling.
+            </p>
+
+            <div id="quiz"></div>
+
+            <button class="button" onclick="showResult()">
+                Se mitt resultat
             </button>
 
-            <div id="activityResult" class="activity-result">
-                🌱 Bra! Du har gjort en förutsägelse.
-                En naturvetare kan sedan undersöka om
-                resultatet stämmer.
+            <button class="button" onclick="restartQuiz()">
+                Börja om
+            </button>
+
+            <div class="result" id="result" aria-live="polite"></div>
+        </section>
+
+        <section>
+            <h2>Fundera och förklara</h2>
+
+            <div class="reflection">
+                <p><strong>1. Hur kan vinden sprida frön?</strong></p>
+                <textarea id="answer1" placeholder="Skriv ditt svar här..."></textarea>
+
+                <p><strong>2. Hur kan djur sprida frön?</strong></p>
+                <textarea id="answer2" placeholder="Skriv ditt svar här..."></textarea>
+
+                <p><strong>3. Varför är fröspridning viktig?</strong></p>
+                <textarea id="answer3" placeholder="Skriv ditt svar här..."></textarea>
+
+                <button class="button" onclick="saveAnswers()">
+                    Spara mina svar
+                </button>
+
+                <button class="button" onclick="window.print()">
+                    Skriv ut mina svar
+                </button>
+
+                <p id="saveMessage" aria-live="polite"></p>
             </div>
+        </section>
 
-        </div>
+        <section>
+            <h2>Fortsätt utforska</h2>
 
-    </section>
-
-
-    <section class="card">
-
-        <h2>🧠 Kunskapskollen</h2>
-
-        <div class="quiz">
-
-
-            <div class="question">
-
-                <p>
-                    <strong>1. Varför sprider växter sina frön?</strong>
-                </p>
-
-                <button onclick="answer(1, 1)">
-                    A. För att nya växter kan växa på andra platser.
-                </button>
-
-                <button onclick="answer(1, 2)">
-                    B. För att växter ska kunna springa.
-                </button>
-
-                <button onclick="answer(1, 3)">
-                    C. För att frön inte behöver vatten.
-                </button>
-
-                <div id="feedback1" class="feedback"></div>
-
+            <div class="navigation">
+                <a class="button" href="vaxtersdelar.html">Växtens delar</a>
+                <a class="button" href="fortplantning.html">Fortplantning</a>
+                <a class="button" href="fotosyntes.html">Fotosyntes</a>
+                <a class="button" href="vaxtexperiment.html">Växtexperiment</a>
+                <a class="button" href="biologibegrepp.html">Biologiska begrepp</a>
+                <a class="button" href="biologi.html">Till biologi</a>
+                <a class="button" href="index.html">Till startsidan</a>
             </div>
-
-
-            <div class="question">
-
-                <p>
-                    <strong>2. Vilket frö kan spridas med vinden?</strong>
-                </p>
-
-                <button onclick="answer(2, 1)">
-                    A. Ett litet och lätt frö.
-                </button>
-
-                <button onclick="answer(2, 2)">
-                    B. Ett mycket tungt frö.
-                </button>
-
-                <button onclick="answer(2, 3)">
-                    C. En sten.
-                </button>
-
-                <div id="feedback2" class="feedback"></div>
-
-            </div>
-
-
-            <div class="question">
-
-                <p>
-                    <strong>3. Hur kan djur hjälpa växter att sprida frön?</strong>
-                </p>
-
-                <button onclick="answer(3, 1)">
-                    A. Djur kan äta frukter och sprida fröna.
-                </button>
-
-                <button onclick="answer(3, 2)">
-                    B. Djur kan göra om frön till vatten.
-                </button>
-
-                <button onclick="answer(3, 3)">
-                    C. Djur stoppar alltid frön från att växa.
-                </button>
-
-                <div id="feedback3" class="feedback"></div>
-
-            </div>
-
-
-            <div class="question">
-
-                <p>
-                    <strong>4. Vilket är ett annat sätt för frön att spridas?</strong>
-                </p>
-
-                <button onclick="answer(4, 1)">
-                    A. Med vatten.
-                </button>
-
-                <button onclick="answer(4, 2)">
-                    B. Med eld.
-                </button>
-
-                <button onclick="answer(4, 3)">
-                    C. Med stenar som växer.
-                </button>
-
-                <div id="feedback4" class="feedback"></div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <section class="card">
-
-        <h2>💡 Tänk vidare</h2>
-
-        <p>
-            Föreställ dig att en växt bara kunde sprida
-            sina frön precis bredvid sig själv.
-        </p>
-
-        <p>
-            Vad skulle kunna hända om många nya växter
-            började växa på samma lilla plats?
-        </p>
-
-        <p>
-            Fundera på:
-        </p>
-
-        <p>
-            🌱 vatten<br>
-            ☀️ ljus<br>
-            🌿 utrymme<br>
-            🪨 näring i marken
-        </p>
-
-    </section>
-
-
-    <div class="navigation">
-
-        <a href="./vaxter.html">
-            ← Tillbaka till Växternas värld
-        </a>
-
-        <br><br>
-
-        <a href="./ak4.html">
-            🔬 Till Åk 4
-        </a>
-
-        <br><br>
-
-        <a href="./index.html">
-            🏠 Till startsidan
-        </a>
-
-    </div>
-
-</main>
-
-
-<footer>
-
-    NO-Upptäckaren • Frön och spridning • Årskurs 4
-
-</footer>
-
-
-<script>
-
-function answer(question, choice) {
-
-    const feedback = document.getElementById("feedback" + question);
-
-    feedback.style.display = "block";
-
-    if (
-        (question === 1 && choice === 1) ||
-        (question === 2 && choice === 1) ||
-        (question === 3 && choice === 1) ||
-        (question === 4 && choice === 1)
-    ) {
-
-        feedback.innerHTML =
-            "✅ Rätt! Bra jobbat.";
-
-    } else {
-
-        feedback.innerHTML =
-            "❌ Försök igen. Läs frågan och fundera på vad du har lärt dig.";
-
-    }
-
-}
-
-
-function showAnswer() {
-
-    const input = document.getElementById("answer");
-    const result = document.getElementById("activityResult");
-
-    if (input.value.trim() === "") {
-
-        result.style.display = "block";
-
-        result.innerHTML =
-            "✏️ Skriv först din tanke i rutan.";
-
-        return;
-
-    }
-
-    result.style.display = "block";
-
-    result.innerHTML =
-        "🌱 Bra! Du har gjort en förutsägelse. " +
-        "En naturvetare kan sedan undersöka om resultatet stämmer.";
-
-}
-
-</script>
+        </section>
+
+    </main>
+
+    <footer>
+        NO-Upptäckaren | Biologi årskurs 4–6
+    </footer>
+
+    <script>
+        const questions = [
+            {
+                question: "Vad betyder fröspridning?",
+                answers: [
+                    "Att frön flyttas från moderplantan.",
+                    "Att växten tar upp vatten.",
+                    "Att blomman blir grön."
+                ],
+                correct: 0,
+                explanation: "Rätt! Fröspridning betyder att frön flyttas."
+            },
+            {
+                question: "Hur kan maskrosens frön spridas?",
+                answers: [
+                    "Med fiskar",
+                    "Med vinden",
+                    "Med rötterna"
+                ],
+                correct: 1,
+                explanation: "Rätt! Maskrosens lätta frön kan föras med vinden."
+            },
+            {
+                question: "Hur kan kardborre spridas?",
+                answers: [
+                    "Fröna fastnar i djurens päls.",
+                    "Fröna flyter alltid på havet.",
+                    "Fröna växer fast i marken direkt."
+                ],
+                correct: 0,
+                explanation: "Rätt! Kardborrefrön kan fastna i päls och kläder."
+            },
+            {
+                question: "Hur kan kokosnötter spridas?",
+                answers: [
+                    "Med eld",
+                    "Med vatten",
+                    "Med fågelsång"
+                ],
+                correct: 1,
+                explanation: "Rätt! Kokosnötter kan flyta och spridas med vatten."
+            },
+            {
+                question: "Vad är självspridning?",
+                answers: [
+                    "När frukten öppnas och kastar iväg frön.",
+                    "När ett djur äter ett frö.",
+                    "När vinden blåser på en blomma."
+                ],
+                correct: 0,
+                explanation: "Rätt! Vissa frukter öppnas och sprider frön med kraft."
+            },
+            {
+                question: "Varför är fröspridning viktig?",
+                answers: [
+                    "Växter kan nå nya platser.",
+                    "Alla frön blir blommor direkt.",
+                    "Växter behöver aldrig vatten."
+                ],
+                correct: 0,
+                explanation: "Rätt! Fröspridning hjälper växter att nå nya platser."
+            },
+            {
+                question: "Vad behöver ett frö för att gro?",
+                answers: [
+                    "Vatten, syre och lämplig temperatur.",
+                    "Bara solljus.",
+                    "Bara jord."
+                ],
+                correct: 0,
+                explanation: "Rätt! Fröet behöver bland annat vatten, syre och lämplig temperatur."
+            },
+            {
+                question: "Vad är en moderplanta?",
+                answers: [
+                    "En växt som bildade fröet.",
+                    "En växt som aldrig får frön.",
+                    "En växt som lever i vatten."
+                ],
+                correct: 0,
+                explanation: "Rätt! Moderplantan är växten som bildade fröet."
+            }
+        ];
+
+        let score = 0;
+        let answered = 0;
+        let completed = [];
+
+        function createQuiz() {
+            const quiz = document.getElementById("quiz");
+            quiz.innerHTML = "";
+
+            questions.forEach((q, index) => {
+                const box = document.createElement("div");
+                box.className = "question";
+
+                const title = document.createElement("p");
+                title.textContent = (index + 1) + ". " + q.question;
+                box.appendChild(title);
+
+                q.answers.forEach((answer, answerIndex) => {
+                    const button = document.createElement("button");
+                    button.className = "answer";
+                    button.type = "button";
+                    button.textContent = answer;
+
+                    button.addEventListener("click", () => {
+                        checkAnswer(index, answerIndex, box);
+                    });
+
+                    box.appendChild(button);
+                });
+
+                const feedback = document.createElement("div");
+                feedback.className = "feedback";
+                feedback.setAttribute("aria-live", "polite");
+                box.appendChild(feedback);
+
+                quiz.appendChild(box);
+            });
+        }
+
+        function checkAnswer(questionIndex, answerIndex, box) {
+            if (completed.includes(questionIndex)) {
+                return;
+            }
+
+            completed.push(questionIndex);
+            answered++;
+
+            const question = questions[questionIndex];
+            const buttons = box.querySelectorAll(".answer");
+            const feedback = box.querySelector(".feedback");
+
+            buttons.forEach(button => {
+                button.disabled = true;
+            });
+
+            if (answerIndex === question.correct) {
+                score++;
+                buttons[answerIndex].classList.add("correct");
+                feedback.textContent = question.explanation;
+                feedback.style.color = "#17652b";
+            } else {
+                buttons[answerIndex].classList.add("wrong");
+                buttons[question.correct].classList.add("correct");
+                feedback.textContent =
+                    "Inte riktigt. " + question.explanation;
+                feedback.style.color = "#9a332b";
+            }
+        }
+
+        function showResult() {
+            const result = document.getElementById("result");
+            result.style.display = "block";
+
+            if (answered < questions.length) {
+                result.textContent =
+                    "Du har svarat på " + answered + " av " +
+                    questions.length + " frågor. Fortsätt!";
+                return;
+            }
+
+            result.textContent =
+                "Du fick " + score + " av " +
+                questions.length + " rätt.";
+
+            if (score === questions.length) {
+                result.textContent += " Fantastiskt! Alla rätt!";
+            } else if (score >= 5) {
+                result.textContent += " Bra jobbat!";
+            } else {
+                result.textContent += " Läs igen och försök en gång till.";
+            }
+        }
+
+        function restartQuiz() {
+            score = 0;
+            answered = 0;
+            completed = [];
+
+            document.getElementById("result").style.display = "none";
+            createQuiz();
+        }
+
+        function saveAnswers() {
+            const answers = {
+                answer1: document.getElementById("answer1").value,
+                answer2: document.getElementById("answer2").value,
+                answer3: document.getElementById("answer3").value
+            };
+
+            try {
+                localStorage.setItem(
+                    "noUpptackarenFrospridning",
+                    JSON.stringify(answers)
+                );
+
+                document.getElementById("saveMessage").textContent =
+                    "Dina svar är sparade på den här enheten.";
+            } catch (error) {
+                document.getElementById("saveMessage").textContent =
+                    "Det gick inte att spara svaren.";
+            }
+        }
+
+        function loadAnswers() {
+            try {
+                const saved = localStorage.getItem(
+                    "noUpptackarenFrospridning"
+                );
+
+                if (saved) {
+                    const answers = JSON.parse(saved);
+
+                    document.getElementById("answer1").value =
+                        answers.answer1 || "";
+
+                    document.getElementById("answer2").value =
+                        answers.answer2 || "";
+
+                    document.getElementById("answer3").value =
+                        answers.answer3 || "";
+                }
+            } catch (error) {
+                console.log("Kunde inte läsa sparade svar.");
+            }
+        }
+
+        createQuiz();
+        loadAnswers();
+    </script>
 
 </body>
-
 </html>
