@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Växtens livscykel | NO-Upptäckaren</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f7f1;
+            color: #26372c;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #245b3b;
+            color: white;
+            text-align: center;
+            padding: 30px 18px;
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            margin: 0 0 8px;
+        }
+
+        main {
+            max-width: 950px;
+            margin: 25px auto;
+            padding: 0 16px 40px;
+        }
+
+        section {
+            background: white;
+            padding: 24px;
+            border-radius: 15px;
+            margin-bottom: 22px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        h2 {
+            color: #245b3b;
+            font-size: 1.65rem;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #245b3b;
+        }
+
+        p {
+            font-size: 1.08rem;
+        }
+
+        .intro {
+            font-size: 1.2rem;
+        }
+
+        .goal {
+            background: #e6f2e7;
+            border-left: 6px solid #3d8653;
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        .stage {
+            border: 2px solid #dce9dc;
+            border-radius: 13px;
+            padding: 20px;
+            margin: 16px 0;
+        }
+
+        .stage-number {
+            display: inline-block;
+            background: #245b3b;
+            color: white;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            text-align: center;
+            line-height: 36px;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .stage-icon {
+            font-size: 2.7rem;
+            margin: 8px 0;
+        }
+
+        .stage h3 {
+            margin-top: 0;
+        }
+
+        .important {
+            background: #fff5d9;
+            border-left: 5px solid #d49a24;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 16px 0;
+        }
+
+        .word {
+            display: inline-block;
+            background: #e6f2e7;
+            color: #245b3b;
+            font-weight: bold;
+            padding: 3px 9px;
+            border-radius: 6px;
+        }
+
+        .cycle {
+            background: #f4f8f2;
+            border-radius: 12px;
+            padding: 18px;
+            text-align: center;
+            margin: 18px 0;
+        }
+
+        .cycle-item {
+            background: white;
+            border: 2px solid #cbdcc9;
+            border-radius: 10px;
+            padding: 13px;
+            margin: 8px auto;
+            max-width: 500px;
+            font-weight: bold;
+        }
+
+        .arrow {
+            font-size: 1.7rem;
+            color: #245b3b;
+            font-weight: bold;
+        }
+
+        .interactive-box {
+            background: #f4f8f2;
+            padding: 18px;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        .choice-button,
+        .answer {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: white;
+            border: 2px solid #cbd9ca;
+            border-radius: 9px;
+            padding: 13px 15px;
+            margin: 9px 0;
+            font-size: 1rem;
+            cursor: pointer;
+            color: #26372c;
+        }
+
+        .choice-button:hover,
+        .answer:hover,
+        .choice-button:focus,
+        .answer:focus {
+            background: #e3f0e3;
+            border-color: #245b3b;
+        }
+
+        .choice-button.selected {
+            background: #d9f2dc;
+            border-color: #27813b;
+        }
+
+        .answer.correct {
+            background: #d9f2dc;
+            border-color: #27813b;
+        }
+
+        .answer.wrong {
+            background: #fde4e1;
+            border-color: #bd4438;
+        }
+
+        .answer:disabled {
+            cursor: default;
+            opacity: 1;
+        }
+
+        .feedback {
+            min-height: 28px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #245b3b;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            padding: 13px 19px;
+            margin: 7px 5px 7px 0;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #17432a;
+        }
+
+        .result {
+            display: none;
+            background: #e6f2e7;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 18px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .reflection {
+            background: #f2f6fb;
+            border-left: 5px solid #527ca8;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px;
+            border: 2px solid #cbd9ca;
+            border-radius: 9px;
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        .navigation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #526357;
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 18px;
+            }
+
+            .navigation .button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            header {
+                background: white;
+                color: black;
+            }
+
+            .button,
+            .navigation,
+            #quiz {
+                display: none;
+            }
+
+            section {
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Växtens livscykel</h1>
+        <p>Från ett litet frö till en ny generation växter.</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Det här ska du lära dig</h2>
+
+            <div class="goal">
+                När du är klar ska du kunna:
+
+                <ul>
+                    <li>beskriva hur ett frö börjar gro</li>
+                    <li>förklara vad en groddplanta är</li>
+                    <li>beskriva hur en planta växer</li>
+                    <li>förklara hur en blomväxt kan bilda nya frön</li>
+                    <li>beskriva växtens livscykel</li>
+                </ul>
+            </div>
+
+            <p class="intro">
+                En växt utvecklas steg för steg.
+                Många växter börjar sitt liv som frön.
+                Ett frö kan utvecklas till en ny planta.
+            </p>
+        </section>
+
+        <section>
+            <h2>Växtens livscykel</h2>
+
+            <div class="cycle">
+
+                <div class="cycle-item">🌰 Frö</div>
+                <div class="arrow">↓</div>
+
+                <div class="cycle-item">🌱 Groddning</div>
+                <div class="arrow">↓</div>
+
+                <div class="cycle-item">🌿 Groddplanta</div>
+                <div class="arrow">↓</div>
+
+                <div class="cycle-item">🪴 Ung planta</div>
+                <div class="arrow">↓</div>
+
+                <div class="cycle-item">🌻 Vuxen växt</div>
+                <div class="arrow">↓</div>
+
+                <div class="cycle-item">🌼 Blomma och nya frön</div>
+                <div class="arrow">↓</div>
+
+                <div class="cycle-item">🌰 Ett nytt frö kan gro</div>
+
+            </div>
+
+            <p>
+                Livscykeln visar hur en växt utvecklas.
+                Sedan kan en ny generation börja växa.
+            </p>
+        </section>
+
+        <section>
+            <h2>Steg 1. Fröet</h2>
+
+            <div class="stage">
+                <div class="stage-icon">🌰</div>
+
+                <h3>Allt börjar med ett frö.</h3>
+
+                <p>
+                    Ett frö innehåller ett litet växtembryo.
+                    Embryot kan utvecklas till en ny planta.
+                </p>
+
+                <p>
+                    Fröet har ofta ett skyddande skal.
+                    Det kan också innehålla lagrad näring.
+                </p>
+
+                <div class="important">
+                    <strong>Viktigt:</strong>
+                    Fröet kan vila innan det börjar gro.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Steg 2. Fröet börjar gro</h2>
+
+            <div class="stage">
+                <div class="stage-icon">💧</div>
+
+                <h3>Fröet tar upp vatten.</h3>
+
+                <p>
+                    Fröet sväller när det tar upp vatten.
+                    Då kan groddningen börja.
+                </p>
+
+                <p>
+                    Fröet behöver också syre.
+                    Temperaturen måste vara lämplig.
+                </p>
+
+                <div class="important">
+                    <strong>Kom ihåg:</strong>
+                    Vatten, syre och rätt temperatur behövs
+                    för att många frön ska gro.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Steg 3. Groddplantan växer fram</h2>
+
+            <div class="stage">
+                <div class="stage-icon">🌱</div>
+
+                <h3>En liten rot börjar växa.</h3>
+
+                <p>
+                    Roten växer ofta ut först.
+                    Den växer nedåt i jorden.
+                </p>
+
+                <p>
+                    Sedan växer ett skott uppåt.
+                    Skottet kan utveckla blad.
+                </p>
+
+                <p>
+                    Den unga växten kallas groddplanta.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Steg 4. Plantan växer</h2>
+
+            <div class="stage">
+                <div class="stage-icon">🌿</div>
+
+                <h3>Plantan får fler blad.</h3>
+
+                <p>
+                    Bladen börjar fånga ljus.
+                    Växten kan utföra fotosyntes.
+                </p>
+
+                <p>
+                    Vid fotosyntesen använder växten:
+                </p>
+
+                <ul>
+                    <li>ljusenergi</li>
+                    <li>vatten</li>
+                    <li>koldioxid</li>
+                </ul>
+
+                <p>
+                    Då bildas socker och syre.
+                    Sockret hjälper växten att växa.
+                </p>
+
+                <a class="button" href="fotosyntes.html">
+                    Lär dig om fotosyntesen
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Steg 5. Den vuxna växten</h2>
+
+            <div class="stage">
+                <div class="stage-icon">🌻</div>
+
+                <h3>Växten fortsätter att utvecklas.</h3>
+
+                <p>
+                    Många blomväxter kan nu bilda blommor.
+                    Blommorna har viktiga delar för fortplantning.
+                </p>
+
+                <p>
+                    Pollen kan flyttas mellan blommor.
+                    Det kallas pollinering.
+                </p>
+
+                <p>
+                    Efter pollinering kan befruktning ske.
+                    Då kan frön börja utvecklas.
+                </p>
+
+                <a class="button" href="fortplantning.html">
+                    Lär dig om fortplantning
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Steg 6. Nya frön bildas</h2>
+
+            <div class="stage">
+                <div class="stage-icon">🍎</div>
+
+                <h3>Frön kan utvecklas efter befruktning.</h3>
+
+                <p>
+                    Hos blomväxter utvecklas fröämnen
+                    till frön efter befruktning.
+                </p>
+
+                <p>
+                    Fruktämnet utvecklas ofta till en frukt.
+                    Frukten kan skydda fröna.
+                </p>
+
+                <p>
+                    Fröna kan sedan spridas till nya platser.
+                </p>
+
+                <a class="button" href="fronspridning.html">
+                    Lär dig om fröspridning
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Växten behöver olika saker</h2>
+
+            <p>
+                Under livet behöver växten flera saker
+                för att kunna utvecklas.
+            </p>
+
+            <div class="stage">
+                <h3>Vatten</h3>
+                <p>
+                    Vatten behövs för växtens processer
+                    och transport av ämnen.
+                </p>
+            </div>
+
+            <div class="stage">
+                <h3>Ljus</h3>
+                <p>
+                    Ljus ger energi till fotosyntesen.
+                </p>
+            </div>
+
+            <div class="stage">
+                <h3>Koldioxid</h3>
+                <p>
+                    Koldioxid kommer från luften.
+                    Växten använder den vid fotosyntesen.
+                </p>
+            </div>
+
+            <div class="stage">
+                <h3>Mineralämnen</h3>
+                <p>
+                    Rötterna tar upp mineralämnen från marken.
+                    Växten behöver dem för att växa.
+                </p>
+            </div>
+
+            <div class="stage">
+                <h3>Syre</h3>
+                <p>
+                    Fröet behöver syre för cellandning
+                    när det börjar gro.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Interaktiv övning: Sätt stegen i ordning</h2>
+
+            <p>
+                Klicka på stegen i rätt ordning.
+                Börja med det som händer först.
+            </p>
+
+            <div class="interactive-box">
+
+                <div id="orderProgress">
+                    Du har valt 0 av 6 steg.
+                </div>
+
+                <div id="orderChoices"></div>
+
+                <div id="orderFeedback"
+                    class="feedback"
+                    aria-live="polite">
+                </div>
+
+                <button class="button" onclick="resetOrder()">
+                    Börja om
+                </button>
+
+            </div>
+        </section>
+
+        <section>
+            <h2>Testa dina kunskaper</h2>
+
+            <p>
+                Välj ett svar på varje fråga.
+                Du får direkt återkoppling.
+            </p>
+
+            <div id="quiz"></div>
+
+            <button class="button" onclick="showResult()">
+                Se mitt resultat
+            </button>
+
+            <button class="button" onclick="restartQuiz()">
+                Börja om
+            </button>
+
+            <div class="result" id="result" aria-live="polite"></div>
+        </section>
+
+        <section>
+            <h2>Förklara med egna ord</h2>
+
+            <div class="reflection">
+
+                <p>
+                    <strong>1. Vad behöver ett frö för att gro?</strong>
+                </p>
+
+                <textarea id="answer1"
+                    placeholder="Skriv ditt svar här..."></textarea>
+
+                <p>
+                    <strong>2. Vad händer när plantan börjar växa?</strong>
+                </p>
+
+                <textarea id="answer2"
+                    placeholder="Skriv ditt svar här..."></textarea>
+
+                <p>
+                    <strong>3. Hur kan en vuxen blomväxt bilda nya frön?</strong>
+                </p>
+
+                <textarea id="answer3"
+                    placeholder="Skriv ditt svar här..."></textarea>
+
+                <button class="button" onclick="saveAnswers()">
+                    Spara mina svar
+                </button>
+
+                <button class="button" onclick="window.print()">
+                    Skriv ut mina svar
+                </button>
+
+                <p id="saveMessage" aria-live="polite"></p>
+
+            </div>
+        </section>
+
+        <section>
+            <h2>Fortsätt utforska</h2>
+
+            <div class="navigation">
+                <a class="button" href="vaxtersdelar.html">
+                    Växtens delar
+                </a>
+
+                <a class="button" href="fotosyntes.html">
+                    Fotosyntes
+                </a>
+
+                <a class="button" href="fortplantning.html">
+                    Fortplantning
+                </a>
+
+                <a class="button" href="fronspridning.html">
+                    Fröspridning
+                </a>
+
+                <a class="button" href="vaxtexperiment.html">
+                    Växtexperiment
+                </a>
+
+                <a class="button" href="biologi.html">
+                    Till biologi
+                </a>
+
+                <a class="button" href="index.html">
+                    Till startsidan
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        NO-Upptäckaren | Biologi årskurs 4–6
+    </footer>
+
+    <script>
+        // ÖVNING: SÄTT LIVSCYKELNS STEG I RÄTT ORDNING
+
+        const orderSteps = [
+            "Frö",
+            "Groddning",
+            "Groddplanta",
+            "Ung planta",
+            "Vuxen växt",
+            "Nya frön bildas"
+        ];
+
+        const shuffledSteps = [
+            "Vuxen växt",
+            "Groddplanta",
+            "Nya frön bildas",
+            "Frö",
+            "Ung planta",
+            "Groddning"
+        ];
+
+        let currentStep = 0;
+
+        function createOrderExercise() {
+            const container = document.getElementById("orderChoices");
+            container.innerHTML = "";
+
+            shuffledSteps.forEach(step => {
+                const button = document.createElement("button");
+
+                button.className = "choice-button";
+                button.textContent = step;
+                button.type = "button";
+
+                button.addEventListener("click", () => {
+                    chooseOrderStep(step, button);
+                });
+
+                container.appendChild(button);
+            });
+
+            updateOrderProgress();
+        }
+
+        function chooseOrderStep(step, button) {
+            const feedback = document.getElementById("orderFeedback");
+
+            if (button.disabled) {
+                return;
+            }
+
+            if (step === orderSteps[currentStep]) {
+                button.classList.add("selected");
+                button.disabled = true;
+
+                currentStep++;
+
+                feedback.textContent = "Rätt! Bra jobbat.";
+                feedback.style.color = "#17652b";
+
+                updateOrderProgress();
+
+                if (currentStep === orderSteps.length) {
+                    feedback.textContent =
+                        "Fantastiskt! Du har lagt alla steg i rätt ordning.";
+                }
+
+            } else {
+                feedback.textContent =
+                    "Inte riktigt. Fundera på vilket steg som kommer först.";
+                feedback.style.color = "#9a332b";
+            }
+        }
+
+        function updateOrderProgress() {
+            document.getElementById("orderProgress").textContent =
+                "Du har valt " + currentStep +
+                " av " + orderSteps.length + " steg.";
+        }
+
+        function resetOrder() {
+            currentStep = 0;
+            document.getElementById("orderFeedback").textContent = "";
+            createOrderExercise();
+        }
+
+
+        // KUNSKAPSTEST
+
+        const questions = [
+            {
+                question: "Vad finns inuti ett frö?",
+                answers: [
+                    "Ett växtembryo",
+                    "En färdig blomma",
+                    "En liten insekt"
+                ],
+                correct: 0,
+                explanation: "Rätt! Fröet innehåller ett växtembryo."
+            },
+            {
+                question: "Vad behöver många frön för att gro?",
+                answers: [
+                    "Vatten, syre och lämplig temperatur",
+                    "Bara solljus",
+                    "Bara jord"
+                ],
+                correct: 0,
+                explanation: "Rätt! Vatten, syre och lämplig temperatur behövs."
+            },
+            {
+                question: "Vilken del växer ofta ut först?",
+                answers: [
+                    "Blomman",
+                    "Roten",
+                    "Frukten"
+                ],
+                correct: 1,
+                explanation: "Rätt! Roten växer ofta ut först."
+            },
+            {
+                question: "Vad är en groddplanta?",
+                answers: [
+                    "En mycket ung växt som har börjat växa",
+                    "Ett gammalt träd",
+                    "Ett färdigt frö"
+                ],
+                correct: 0,
+                explanation: "Rätt! En groddplanta är en ung växt."
+            },
+            {
+                question: "Vad använder växten i fotosyntesen?",
+                answers: [
+                    "Ljus, vatten och koldioxid",
+                    "Bara jord och syre",
+                    "Bara vatten"
+                ],
+                correct: 0,
+                explanation: "Rätt! Växten använder ljus, vatten och koldioxid."
+            },
+            {
+                question: "Vad kallas det när pollen flyttas till blommans märke?",
+                answers: [
+                    "Groning",
+                    "Pollinering",
+                    "Fröspridning"
+                ],
+                correct: 1,
+                explanation: "Rätt! Det kallas pollinering."
+            },
+            {
+                question: "Vad kan bildas efter befruktning?",
+                answers: [
+                    "Frön",
+                    "Bara nya rötter",
+                    "Bara nya blad"
+                ],
+                correct: 0,
+                explanation: "Rätt! Befruktade fröämnen kan utvecklas till frön."
+            },
+            {
+                question: "Vad kan frön göra när de sprids?",
+                answers: [
+                    "Nå nya platser",
+                    "Sluta utvecklas för alltid",
+                    "Bli till vatten"
+                ],
+                correct: 0,
+                explanation: "Rätt! Frön kan nå nya platser och börja växa där."
+            }
+        ];
+
+        let score = 0;
+        let answered = 0;
+        let completed = [];
+
+        function createQuiz() {
+            const quiz = document.getElementById("quiz");
+            quiz.innerHTML = "";
+
+            questions.forEach((q, index) => {
+                const box = document.createElement("div");
+                box.className = "stage";
+
+                const title = document.createElement("p");
+                title.textContent = (index + 1) + ". " + q.question;
+
+                box.appendChild(title);
+
+                q.answers.forEach((answer, answerIndex) => {
+                    const button = document.createElement("button");
+
+                    button.className = "answer";
+                    button.type = "button";
+                    button.textContent = answer;
+
+                    button.addEventListener("click", () => {
+                        checkAnswer(index, answerIndex, box);
+                    });
+
+                    box.appendChild(button);
+                });
+
+                const feedback = document.createElement("div");
+                feedback.className = "feedback";
+                feedback.setAttribute("aria-live", "polite");
+
+                box.appendChild(feedback);
+                quiz.appendChild(box);
+            });
+        }
+
+        function checkAnswer(questionIndex, answerIndex, box) {
+            if (completed.includes(questionIndex)) {
+                return;
+            }
+
+            completed.push(questionIndex);
+            answered++;
+
+            const question = questions[questionIndex];
+            const buttons = box.querySelectorAll(".answer");
+            const feedback = box.querySelector(".feedback");
+
+            buttons.forEach(button => {
+                button.disabled = true;
+            });
+
+            if (answerIndex === question.correct) {
+                score++;
+
+                buttons[answerIndex].classList.add("correct");
+
+                feedback.textContent = question.explanation;
+                feedback.style.color = "#17652b";
+
+            } else {
+                buttons[answerIndex].classList.add("wrong");
+                buttons[question.correct].classList.add("correct");
+
+                feedback.textContent =
+                    "Inte riktigt. " + question.explanation;
+
+                feedback.style.color = "#9a332b";
+            }
+        }
+
+        function showResult() {
+            const result = document.getElementById("result");
+
+            result.style.display = "block";
+
+            if (answered < questions.length) {
+                result.textContent =
+                    "Du har svarat på " + answered +
+                    " av " + questions.length + " frågor. Fortsätt!";
+                return;
+            }
+
+            result.textContent =
+                "Du fick " + score + " av " +
+                questions.length + " rätt.";
+
+            if (score === questions.length) {
+                result.textContent += " Fantastiskt! Alla rätt!";
+            } else if (score >= 5) {
+                result.textContent += " Bra jobbat!";
+            } else {
+                result.textContent += " Läs igen och försök en gång till.";
+            }
+        }
+
+        function restartQuiz() {
+            score = 0;
+            answered = 0;
+            completed = [];
+
+            document.getElementById("result").style.display = "none";
+
+            createQuiz();
+        }
+
+
+        // SPARA ELEVENS SVAR
+
+        function saveAnswers() {
+            const answers = {
+                answer1: document.getElementById("answer1").value,
+                answer2: document.getElementById("answer2").value,
+                answer3: document.getElementById("answer3").value
+            };
+
+            try {
+                localStorage.setItem(
+                    "noUpptackarenVaxtensLivscykel",
+                    JSON.stringify(answers)
+                );
+
+                document.getElementById("saveMessage").textContent =
+                    "Dina svar är sparade på den här enheten.";
+
+            } catch (error) {
+                document.getElementById("saveMessage").textContent =
+                    "Det gick inte att spara svaren.";
+            }
+        }
+
+        function loadAnswers() {
+            try {
+                const saved = localStorage.getItem(
+                    "noUpptackarenVaxtensLivscykel"
+                );
+
+                if (saved) {
+                    const answers = JSON.parse(saved);
+
+                    document.getElementById("answer1").value =
+                        answers.answer1 || "";
+
+                    document.getElementById("answer2").value =
+                        answers.answer2 || "";
+
+                    document.getElementById("answer3").value =
+                        answers.answer3 || "";
+                }
+
+            } catch (error) {
+                console.log("Kunde inte läsa sparade svar.");
+            }
+        }
+
+        createOrderExercise();
+        createQuiz();
+        loadAnswers();
+
+    </script>
+
+</body>
+</html>
