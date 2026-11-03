@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Väder, vind och klimat | NO-Upptäckaren</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f7fb;color:#263746;line-height:1.6}
+header{background:#285f86;color:white;text-align:center;padding:32px 18px}
+header h1{font-size:clamp(2rem,5vw,2.8rem);margin:0}
+main{max-width:950px;margin:25px auto;padding:0 16px 40px}
+section{background:white;padding:24px;border-radius:14px;margin-bottom:22px;box-shadow:0 3px 12px #0000000d}
+h2,h3{color:#285f86}
+h2{margin-top:0}
+p,li{font-size:1.06rem}
+.card{border:2px solid #d8e7f0;border-radius:12px;padding:16px;margin:14px 0}
+.goal{background:#e6f2f9;border-left:6px solid #397da5;padding:16px;border-radius:8px}
+.important{background:#fff4d8;border-left:5px solid #d49a24;padding:15px;border-radius:8px;margin:15px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.grid article{background:#f2f8fb;border:2px solid #d8e7f0;border-radius:12px;padding:16px}
+button,.button{background:#285f86;color:white;border:0;border-radius:9px;padding:12px 17px;margin:6px 5px 6px 0;font-size:1rem;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block}
+button:hover,.button:hover{background:#174766}
+.answer{display:block;width:100%;text-align:left;background:#f1f7fb;color:#263746;border:2px solid #d4e4ed}
+.answer.correct{background:#d9f2dc;border-color:#27813b}
+.answer.wrong{background:#fde4e1;border-color:#bd4438}
+.answer:disabled{opacity:1;cursor:default}
+.question{border:2px solid #d8e7f0;border-radius:12px;padding:16px;margin:16px 0}
+.feedback{font-weight:bold;min-height:25px}
+textarea{width:100%;min-height:90px;padding:12px;border:2px solid #cbdde8;border-radius:8px;font:1rem Arial;resize:vertical}
+select{width:100%;padding:12px;border:2px solid #cbdde8;border-radius:8px;font-size:1rem}
+.result{display:none;background:#e6f2f9;padding:18px;border-radius:10px;margin-top:15px;font-weight:bold}
+.navigation{display:flex;flex-wrap:wrap;gap:6px}
+footer{text-align:center;padding:25px;color:#526775}
+@media(max-width:600px){section{padding:18px}.navigation .button{width:100%;text-align:center}}
+@media print{.button,button,#quiz{display:none}section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Väder, vind och klimat</h1>
+<p>Varför förändras vädret?</p>
+</header>
+
+<main>
+
+<section>
+<h2>Det här ska du lära dig</h2>
+<div class="goal">
+<ul>
+<li>förklara vad väder är</li>
+<li>förklara skillnaden mellan väder och klimat</li>
+<li>beskriva hur vind bildas</li>
+<li>känna igen olika sorters nederbörd</li>
+<li>förklara hur solen påverkar vädret</li>
+</ul>
+</div>
+<p>Vi ser vädret varje dag. Ibland skiner solen. Ibland regnar det eller blåser. Vädret kan förändras snabbt.</p>
+</section>
+
+<section>
+<h2>1. Vad är väder?</h2>
+<p><strong>Väder</strong> beskriver hur luften är på en viss plats vid en viss tid.</p>
+<div class="grid">
+<article><h3>Temperatur</h3><p>Temperaturen visar hur varmt eller kallt det är.</p></article>
+<article><h3>Nederbörd</h3><p>Nederbörd är vatten som faller från molnen.</p></article>
+<article><h3>Vind</h3><p>Vind är luft som rör sig.</p></article>
+<article><h3>Moln</h3><p>Moln består av små vattendroppar eller iskristaller.</p></article>
+<article><h3>Lufttryck</h3><p>Lufttryck är trycket från luften omkring oss.</p></article>
+<article><h3>Fuktighet</h3><p>Luftfuktighet beskriver hur mycket vattenånga luften innehåller.</p></article>
+</div>
+</section>
+
+<section>
+<h2>2. Hur bildas vind?</h2>
+<p>Solen värmer jordytan olika mycket. Luften nära marken kan därför få olika temperatur.</p>
+<p>Varm luft blir mindre tät och stiger ofta. Kallare luft kan röra sig in och ta dess plats.</p>
+<p>Den rörelsen bidrar till att vind bildas.</p>
+<div class="important">Vind är luft i rörelse. Vindens riktning beskriver varifrån vinden kommer.</div>
+</section>
+
+<section>
+<h2>3. Hur bildas moln?</h2>
+<p>Vatten avdunstar från hav, sjöar och mark. Vattenångan stiger med luften.</p>
+<p>När luften kyls ner kan vattenångan kondensera. Då bildas små vattendroppar eller iskristaller.</p>
+<p>Många små droppar tillsammans kan bilda ett moln.</p>
+</section>
+
+<section>
+<h2>4. Olika sorters nederbörd</h2>
+<div class="grid">
+<article><h3>Regn</h3><p>Flytande vattendroppar faller från molnen.</p></article>
+<article><h3>Snö</h3><p>Iskristaller bildas och faller som snöflingor.</p></article>
+<article><h3>Hagel</h3><p>Iskulor bildas i kraftiga moln med starka uppvindar.</p></article>
+<article><h3>Duggregn</h3><p>Mycket små vattendroppar faller från molnen.</p></article>
+</div>
+</section>
+
+<section>
+<h2>5. Vad är klimat?</h2>
+<p><strong>Klimat</strong> beskriver hur vädret brukar vara i ett område under lång tid.</p>
+<p>Forskare använder ofta mätningar från minst 30 år när de beskriver klimatets normala förhållanden.</p>
+<div class="card">
+<h3>Väder och klimat är inte samma sak</h3>
+<p>Väder handlar om nu och den närmaste tiden.</p>
+<p>Klimat handlar om mönster under många år.</p>
+</div>
+<p>Det kan snöa en dag på sommaren i ett område. Det betyder inte att områdets klimat har blivit kallt.</p>
+</section>
+
+<section>
+<h2>6. Klimatzoner</h2>
+<div class="grid">
+<article><h3>Tropiska områden</h3><p>Områden nära ekvatorn har ofta varmt klimat året runt.</p></article>
+<article><h3>Tempererade områden</h3><p>Här finns ofta tydliga årstider.</p></article>
+<article><h3>Polarområden</h3><p>Här är klimatet ofta mycket kallt.</p></article>
+</div>
+<p>Sverige ligger i den norra delen av den tempererade klimatzonen, men klimatet varierar mellan olika delar av landet.</p>
+</section>
+
+<section>
+<h2>7. Väder och klimat förändras</h2>
+<p>Jordens klimat har förändrats naturligt genom historien. I dag förstärker människans utsläpp av växthusgaser den globala uppvärmningen.</p>
+<p>Det kan påverka temperatur, nederbörd, isar och havsnivåer.</p>
+<div class="important">En varm dag betyder inte att klimatet har förändrats. Klimatförändringar handlar om förändringar som märks över lång tid.</div>
+</section>
+
+<section>
+<h2>8. Interaktiv uppgift: Vad beskriver ordet?</h2>
+<p>Välj ett begrepp och läs förklaringen.</p>
+<select id="term" onchange="showTerm()">
+<option value="">Välj ett begrepp</option>
+<option value="väder">Väder</option>
+<option value="klimat">Klimat</option>
+<option value="vind">Vind</option>
+<option value="nederbörd">Nederbörd</option>
+<option value="temperatur">Temperatur</option>
+<option value="luftfuktighet">Luftfuktighet</option>
+</select>
+<div class="card" id="termResult" aria-live="polite">Förklaringen visas här.</div>
+</section>
+
+<section>
+<h2>9. Kunskapstest</h2>
+<div id="quiz"></div>
+<button onclick="showResult()">Se mitt resultat</button>
+<button onclick="restartQuiz()">Börja om</button>
+<div id="result" class="result" aria-live="polite"></div>
+</section>
+
+<section>
+<h2>10. Förklara med egna ord</h2>
+<p>1. Vad är skillnaden mellan väder och klimat?</p>
+<textarea id="a1"></textarea>
+<p>2. Hur bildas vind?</p>
+<textarea id="a2"></textarea>
+<p>3. Hur kan moln bildas?</p>
+<textarea id="a3"></textarea>
+<p>4. Ge exempel på olika sorters nederbörd.</p>
+<textarea id="a4"></textarea>
+<button onclick="saveAnswers()">Spara mina svar</button>
+<button onclick="window.print()">Skriv ut</button>
+<p id="saveMessage" aria-live="polite"></p>
+</section>
+
+<section>
+<h2>Begrepp att kunna</h2>
+<div class="card"><h3>Väder</h3><p>Hur luften är på en plats vid en viss tid.</p></div>
+<div class="card"><h3>Klimat</h3><p>Vädrets vanliga mönster under lång tid.</p></div>
+<div class="card"><h3>Vind</h3><p>Luft som rör sig.</p></div>
+<div class="card"><h3>Nederbörd</h3><p>Vatten som faller från molnen.</p></div>
+<div class="card"><h3>Kondensation</h3><p>När vattenånga övergår till små vattendroppar.</p></div>
+<div class="card"><h3>Temperatur</h3><p>Ett mått på hur varmt eller kallt något är.</p></div>
+</section>
+
+<section>
+<h2>Fortsätt utforska</h2>
+<div class="navigation">
+<a class="button" href="vattnetskretslopp.html">Vattnets kretslopp</a>
+<a class="button" href="vattnetsbetydelse.html">Vattnets betydelse</a>
+<a class="button" href="vattenmiljoer.html">Vattenmiljöer</a>
+<a class="button" href="biologi.html">Biologi</a>
+<a class="button" href="index.html">Startsidan</a>
+</div>
+</section>
+
+</main>
+
+<footer>NO-Upptäckaren | NO årskurs 4–6</footer>
+
+<script>
+const terms={
+väder:"Väder beskriver hur luften är just nu eller under en kort period.",
+klimat:"Klimat beskriver vädrets mönster under många år.",
+vind:"Vind är luft som rör sig.",
+nederbörd:"Nederbörd är vatten som faller från molnen.",
+temperatur:"Temperatur visar hur varmt eller kallt något är.",
+luftfuktighet:"Luftfuktighet beskriver hur mycket vattenånga luften innehåller."
+};
+
+function showTerm(){
+const value=document.getElementById("term").value;
+document.getElementById("termResult").textContent=terms[value]||"Förklaringen visas här.";
+}
+
+const questions=[
+{q:"Vad beskriver väder?",a:["Hur luften är vid en viss tid","Hur klimatet varit i tusen år","Hur många djur som finns"],c:0,e:"Rätt! Väder beskriver luftens förhållanden vid en viss tid."},
+{q:"Vad beskriver klimat?",a:["Vädrets mönster under lång tid","Vädret just denna minut","Enbart temperaturen i dag"],c:0,e:"Rätt! Klimat handlar om långvariga mönster."},
+{q:"Vad är vind?",a:["Luft i rörelse","Vatten i rörelse","Ljus från solen"],c:0,e:"Rätt! Vind är luft som rör sig."},
+{q:"Vad är nederbörd?",a:["Vatten som faller från moln","Vatten som bara finns i havet","Vatten som finns i växter"],c:0,e:"Rätt! Regn, snö och hagel är nederbörd."},
+{q:"Hur kan moln bildas?",a:["Vattenånga kyls och kondenserar","Stenar smälter","Solen slocknar"],c:0,e:"Rätt! Vattenånga kan bilda små droppar eller iskristaller."},
+{q:"Vad mäter en termometer?",a:["Temperatur","Vindriktning","Nederbörd"],c:0,e:"Rätt! En termometer mäter temperatur."},
+{q:"Vilket är en form av nederbörd?",a:["Hagel","Solljus","Vind"],c:0,e:"Rätt! Hagel är nederbörd."},
+{q:"Hur lång tidsperiod används ofta för klimatnormaler?",a:["30 år","En dag","En vecka"],c:0,e:"Rätt! Klimatnormaler bygger ofta på perioder om 30 år."}
+];
+
+let score=0,answered=[];
+function createQuiz(){
+const root=document.getElementById("quiz");root.innerHTML="";
+questions.forEach((q,i)=>{
+const box=document.createElement("div");box.className="question";
+const title=document.createElement("p");title.textContent=(i+1)+". "+q.q;box.appendChild(title);
+q.a.forEach((answer,j)=>{
+const b=document.createElement("button");b.className="answer";b.textContent=answer;
+b.onclick=()=>check(i,j,box);box.appendChild(b);
+});
+const f=document.createElement("div");f.className="feedback";box.appendChild(f);root.appendChild(box);
+});
+}
+function check(i,j,box){
+if(answered.includes(i))return;
+answered.push(i);
+const q=questions[i],buttons=box.querySelectorAll(".answer");
+buttons.forEach(b=>b.disabled=true);
+const f=box.querySelector(".feedback");
+if(j===q.c){score++;buttons[j].classList.add("correct");f.textContent=q.e;f.style.color="#17652b";}
+else{buttons[j].classList.add("wrong");buttons[q.c].classList.add("correct");f.textContent="Inte riktigt. "+q.e;f.style.color="#9a332b";}
+}
+function showResult(){
+const r=document.getElementById("result");r.style.display="block";
+if(answered.length<questions.length){r.textContent="Du har svarat på "+answered.length+" av "+questions.length+" frågor.";return;}
+r.textContent="Du fick "+score+" av "+questions.length+" rätt.";
+}
+function restartQuiz(){score=0;answered=[];document.getElementById("result").style.display="none";createQuiz();}
+function saveAnswers(){
+const data={};
+["a1","a2","a3","a4"].forEach(id=>data[id]=document.getElementById(id).value);
+try{
+localStorage.setItem("noVaderVindKlimat",JSON.stringify(data));
+document.getElementById("saveMessage").textContent="Dina svar är sparade på den här enheten.";
+}catch(e){document.getElementById("saveMessage").textContent="Det gick inte att spara svaren.";}
+}
+function loadAnswers(){
+try{
+const data=JSON.parse(localStorage.getItem("noVaderVindKlimat")||"{}");
+["a1","a2","a3","a4"].forEach(id=>document.getElementById(id).value=data[id]||"");
+}catch(e){}
+}
+createQuiz();loadAnswers();
+</script>
+
+</body>
+</html>
