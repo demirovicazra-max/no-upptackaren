@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Näringskedjor och näringsvävar | NO-Upptäckaren</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f7f1;
+    color: #29382d;
+    line-height: 1.6;
+}
+
+header {
+    background: #245b3b;
+    color: white;
+    text-align: center;
+    padding: 32px 18px;
+}
+
+header h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin: 0 0 8px;
+}
+
+header p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+main {
+    max-width: 950px;
+    margin: 25px auto;
+    padding: 0 16px 40px;
+}
+
+section {
+    background: white;
+    padding: 24px;
+    border-radius: 15px;
+    margin-bottom: 22px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+h2 {
+    color: #245b3b;
+    font-size: 1.65rem;
+    margin-top: 0;
+}
+
+h3 {
+    color: #245b3b;
+}
+
+p {
+    font-size: 1.08rem;
+}
+
+.goal {
+    background: #e6f2e7;
+    border-left: 6px solid #3d8653;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.card {
+    border: 2px solid #dce9dc;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 15px 0;
+}
+
+.important {
+    background: #fff5d9;
+    border-left: 5px solid #d49a24;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 16px 0;
+}
+
+.word {
+    display: inline-block;
+    background: #e6f2e7;
+    color: #245b3b;
+    font-weight: bold;
+    padding: 3px 9px;
+    border-radius: 6px;
+}
+
+.chain {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin: 22px 0;
+}
+
+.chain-item {
+    background: #e6f2e7;
+    border: 2px solid #8eae91;
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+    font-weight: bold;
+    min-width: 110px;
+}
+
+.arrow {
+    font-size: 1.5rem;
+    color: #245b3b;
+    font-weight: bold;
+}
+
+.diagram {
+    background: #f4f8f2;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 16px 0;
+    text-align: center;
+}
+
+.diagram div {
+    margin: 8px;
+}
+
+.diagram-item {
+    display: inline-block;
+    background: #e6f2e7;
+    border: 2px solid #8eae91;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-weight: bold;
+}
+
+.question {
+    border: 2px solid #dce9dc;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 18px 0;
+}
+
+.question p {
+    font-weight: bold;
+}
+
+.answer {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: #f4f7f2;
+    border: 2px solid #cbd9ca;
+    border-radius: 9px;
+    padding: 13px 15px;
+    margin: 9px 0;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #29382d;
+}
+
+.answer:hover,
+.answer:focus {
+    background: #e3f0e3;
+    border-color: #245b3b;
+}
+
+.answer.correct {
+    background: #d9f2dc;
+    border-color: #27813b;
+}
+
+.answer.wrong {
+    background: #fde4e1;
+    border-color: #bd4438;
+}
+
+.answer:disabled {
+    cursor: default;
+    opacity: 1;
+}
+
+.feedback {
+    min-height: 28px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.button {
+    display: inline-block;
+    background: #245b3b;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    padding: 13px 19px;
+    margin: 7px 5px 7px 0;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #17432a;
+}
+
+.result {
+    display: none;
+    background: #e6f2e7;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 18px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+select {
+    width: 100%;
+    padding: 13px;
+    border: 2px solid #b9cdb9;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin: 7px 0 15px;
+    background: white;
+}
+
+.builder {
+    background: #f4f8f2;
+    border-radius: 12px;
+    padding: 18px;
+}
+
+.builder-result {
+    background: #e6f2e7;
+    border-radius: 10px;
+    padding: 16px;
+    margin-top: 15px;
+    min-height: 55px;
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    border: 2px solid #cbd9ca;
+    border-radius: 9px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #526357;
+}
+
+@media (max-width: 600px) {
+    section {
+        padding: 18px;
+    }
+
+    .chain {
+        flex-direction: column;
+    }
+
+    .arrow {
+        transform: rotate(90deg);
+    }
+
+    .navigation .button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media print {
+    body {
+        background: white;
+    }
+
+    section {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+    }
+
+    .button,
+    #quiz,
+    .builder {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Näringskedjor och näringsvävar</h1>
+    <p>Vem äter vem i naturen?</p>
+</header>
+
+<main>
+
+<section>
+    <h2>Det här ska du lära dig</h2>
+
+    <div class="goal">
+        När du är klar ska du kunna:
+
+        <ul>
+            <li>förklara vad en näringskedja är</li>
+            <li>förklara vad en näringsväv är</li>
+            <li>känna igen producenter och konsumenter</li>
+            <li>förstå vad pilarna betyder</li>
+            <li>beskriva hur arter påverkar varandra</li>
+            <li>bygga en egen näringskedja</li>
+        </ul>
+    </div>
+
+    <p>
+        Alla organismer behöver energi.
+        Djur får energi genom att äta.
+        Växter fångar ljusenergi genom fotosyntesen.
+    </p>
+</section>
+
+<section>
+    <h2>1. Vad är en näringskedja?</h2>
+
+    <p>
+        En <span class="word">näringskedja</span>
+        visar hur energi förs vidare mellan organismer
+        när de äter varandra.
+    </p>
+
+    <div class="card">
+        <h3>Exempel från en äng</h3>
+
+        <div class="chain">
+            <div class="chain-item">Gräs</div>
+            <div class="arrow">→</div>
+            <div class="chain-item">Gräshoppa</div>
+            <div class="arrow">→</div>
+            <div class="chain-item">Groda</div>
+            <div class="arrow">→</div>
+            <div class="chain-item">Orm</div>
+        </div>
+
+        <p>
+            Gräshoppan äter gräs.
+            Grodan äter gräshoppan.
+            Ormen kan äta grodan.
+        </p>
+    </div>
+
+    <div class="important">
+        <strong>Viktigt om pilarna:</strong>
+        Pilen visar vart energin förs.
+        Den pekar från det som blir uppätet
+        till den organism som äter.
+    </div>
+</section>
+
+<section>
+    <h2>2. Producent, konsument och nedbrytare</h2>
+
+    <div class="card">
+        <h3>Producent</h3>
+
+        <p>
+            En producent tillverkar energirika ämnen.
+            Växter gör det genom fotosyntesen.
+        </p>
+
+        <p>Exempel: gräs, träd och blåbärsris.</p>
+    </div>
+
+    <div class="card">
+        <h3>Förstahandskonsument</h3>
+
+        <p>
+            En förstahandskonsument äter producenter.
+            Den är ofta ett växtätande djur.
+        </p>
+
+        <p>Exempel: hare, rådjur och gräshoppa.</p>
+    </div>
+
+    <div class="card">
+        <h3>Andrahandskonsument</h3>
+
+        <p>
+            En andrahandskonsument äter förstahandskonsumenter.
+        </p>
+
+        <p>Exempel: groda och vissa fåglar.</p>
+    </div>
+
+    <div class="card">
+        <h3>Tredjehandskonsument</h3>
+
+        <p>
+            En tredjehandskonsument kan äta andra konsumenter.
+        </p>
+
+        <p>Exempel: orm eller rovfågel i vissa näringskedjor.</p>
+    </div>
+
+    <div class="card">
+        <h3>Nedbrytare</h3>
+
+        <p>
+            Nedbrytare bryter ner döda organismer.
+            Svampar och bakterier är exempel.
+        </p>
+
+        <p>
+            Näringsämnen kan då återföras till marken.
+        </p>
+    </div>
+
+    <div class="important">
+        En art kan ha olika roller i olika näringskedjor.
+        Rollen beror på vad den äter.
+    </div>
+</section>
+
+<section>
+    <h2>3. Flera exempel på näringskedjor</h2>
+
+    <div class="card">
+        <h3>I skogen</h3>
+
+        <div class="chain">
+            <div class="chain-item">Blåbärsris</div>
+            <div class="arrow">→</div>
+            <div class="chain-item">Skogshare</div>
+            <div class="arrow">→</div>
+            <div class="chain-item">Räv</div>
+        </div>
+
+        <p>
+            Haren kan äta blåbärsris.
+            Räven kan äta haren.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>I sjön</h3>
+
+        <div class="chain">
+            <div class="chain-item">Växtplankton</div>
+            <div class="arrow">→</div>
+            <div class="chain-item">Djurplankton</div>
+            <div class="arrow">→</div>
+            <div class="chain-item">Småfisk</div>
+            <div class="arrow">→</div>
+            <div class="chain-item">Gädda</div>
+        </div>
+
+        <p>
+            Djurplankton kan äta växtplankton.
+            Småfisk kan äta djurplankton.
+            Gäddan kan äta småfisk.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>På ängen</h3>
+
+        <div class="chain">
+            <div class="chain-item">Gräs</div>
+            <div class="arrow">→</div>
+            <div class="chain-item">Mus</div>
+            <div class="arrow">→</div>
+            <div class="chain-item">Uggla</div>
+        </div>
+
+        <p>
+            Musen kan äta frön och växtdelar.
+            Ugglan kan äta musen.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>4. Vad är en näringsväv?</h2>
+
+    <p>
+        I naturen äter de flesta djur flera olika sorters mat.
+        Ett djur kan också bli uppätet av flera andra djur.
+    </p>
+
+    <p>
+        Därför hänger många näringskedjor ihop.
+        Då bildas en <span class="word">näringsväv</span>.
+    </p>
+
+    <div class="diagram">
+        <h3>En förenklad näringsväv</h3>
+
+        <div>
+            <span class="diagram-item">Gräs</span>
+        </div>
+
+        <div>↓</div>
+
+        <div>
+            <span class="diagram-item">Mus</span>
+            <span class="diagram-item">Hare</span>
+            <span class="diagram-item">Gräshoppa</span>
+        </div>
+
+        <div>↓</div>
+
+        <div>
+            <span class="diagram-item">Uggla</span>
+            <span class="diagram-item">Räv</span>
+            <span class="diagram-item">Groda</span>
+        </div>
+
+        <p>
+            Flera arter kan ingå i olika näringskedjor.
+            Det gör sambanden mer komplicerade.
+        </p>
+    </div>
+
+    <div class="important">
+        En näringskedja visar ett samband.
+        En näringsväv visar flera samband samtidigt.
+    </div>
+</section>
+
+<section>
+    <h2>5. Vad händer om en art försvinner?</h2>
+
+    <p>
+        Alla arter påverkar andra delar av ekosystemet.
+        Om en art minskar kan flera andra arter påverkas.
+    </p>
+
+    <div class="card">
+        <h3>Exempel: Färre harar</h3>
+
+        <p>
+            Tänk dig att det blir färre harar i ett område.
+        </p>
+
+        <ul>
+            <li>Rävar kan få mindre mat.</li>
+            <li>Vissa växter kan bli mindre uppätna.</li>
+            <li>Andra växtätare kan få mindre konkurrens om maten.</li>
+        </ul>
+
+        <p>
+            Det här är möjliga följder.
+            Resultatet beror på hela ekosystemet.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Exempel: Färre pollinatörer</h3>
+
+        <p>
+            Om pollinatörer minskar kan vissa blommande växter
+            få svårare att bilda frön.
+        </p>
+
+        <p>
+            Det kan också påverka djur som äter frön och frukter.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>6. Bygg din egen näringskedja</h2>
+
+    <p>
+        Välj organismer i rätt ordning.
+        Börja med en producent.
+    </p>
+
+    <div class="builder">
+
+        <label for="producer">
+            <strong>1. Välj en producent</strong>
+        </label>
+
+        <select id="producer">
+            <option value="">Välj producent</option>
+            <option value="Gräs">Gräs</option>
+            <option value="Blåbärsris">Blåbärsris</option>
+            <option value="Växtplankton">Växtplankton</option>
+        </select>
+
+        <label for="consumer1">
+            <strong>2. Välj en förstahandskonsument</strong>
+        </label>
+
+        <select id="consumer1">
+            <option value="">Välj djur</option>
+            <option value="Gräshoppa">Gräshoppa</option>
+            <option value="Skogshare">Skogshare</option>
+            <option value="Djurplankton">Djurplankton</option>
+        </select>
+
+        <label for="consumer2">
+            <strong>3. Välj en andrahandskonsument</strong>
+        </label>
+
+        <select id="consumer2">
+            <option value="">Välj djur</option>
+            <option value="Groda">Groda</option>
+            <option value="Räv">Räv</option>
+            <option value="Småfisk">Småfisk</option>
+        </select>
+
+        <label for="consumer3">
+            <strong>4. Välj en tredje organism</strong>
+        </label>
+
+        <select id="consumer3">
+            <option value="">Välj djur</option>
+            <option value="Orm">Orm</option>
+            <option value="Uggla">Uggla</option>
+            <option value="Gädda">Gädda</option>
+        </select>
+
+        <button class="button" onclick="buildChain()">
+            Bygg min näringskedja
+        </button>
+
+        <div id="chainResult" class="builder-result" aria-live="polite">
+            Din näringskedja visas här.
+        </div>
+
+        <p id="chainExplanation"></p>
+    </div>
+
+    <div class="important">
+        Alla kombinationer är inte biologiskt rimliga.
+        Fundera på om varje djur verkligen kan äta organismen före.
+    </div>
+</section>
+
+<section>
+    <h2>7. Testa dina kunskaper</h2>
+
+    <p>Välj ett svar på varje fråga.</p>
+
+    <div id="quiz"></div>
+
+    <button class="button" onclick="showResult()">
+        Se mitt resultat
+    </button>
+
+    <button class="button" onclick="restartQuiz()">
+        Börja om
+    </button>
+
+    <div id="result" class="result" aria-live="polite"></div>
+</section>
+
+<section>
+    <h2>8. Fundera och förklara</h2>
+
+    <p>
+        Skriv med egna ord.
+        Du kan använda begreppen från lektionen.
+    </p>
+
+    <p><strong>1. Vad visar en näringskedja?</strong></p>
+    <textarea id="answer1" placeholder="Skriv ditt svar här..."></textarea>
+
+    <p><strong>2. Vad är skillnaden mellan en näringskedja och en näringsväv?</strong></p>
+    <textarea id="answer2" placeholder="Skriv ditt svar här..."></textarea>
+
+    <p><strong>3. Vad kan hända om en art försvinner?</strong></p>
+    <textarea id="answer3" placeholder="Skriv ditt svar här..."></textarea>
+
+    <button class="button" onclick="saveAnswers()">
+        Spara mina svar
+    </button>
+
+    <button class="button" onclick="window.print()">
+        Skriv ut
+    </button>
+
+    <p id="saveMessage" aria-live="polite"></p>
+</section>
+
+<section>
+    <h2>Fortsätt utforska</h2>
+
+    <div class="navigation">
+        <a class="button" href="ekosystem.html">Ekosystem</a>
+        <a class="button" href="vaxter.html">Växter</a>
+        <a class="button" href="vaxtermiljo.html">Växternas livsmiljöer</a>
+        <a class="button" href="fotosyntes.html">Fotosyntes</a>
+        <a class="button" href="biologibegrepp.html">Biologiska begrepp</a>
+        <a class="button" href="biologitest.html">Biologitest</a>
+        <a class="button" href="biologi.html">Till biologi</a>
+        <a class="button" href="index.html">Till startsidan</a>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    NO-Upptäckaren | Biologi årskurs 4–6
+</footer>
+
+<script>
+const questions = [
+    {
+        question: "Vad visar en näringskedja?",
+        answers: [
+            "Hur energi förs vidare när organismer äter varandra",
+            "Hur växter växer på höjden",
+            "Hur vatten rinner i marken"
+        ],
+        correct: 0,
+        explanation: "Rätt! En näringskedja visar hur energi förs vidare."
+    },
+    {
+        question: "Vad är en producent?",
+        answers: [
+            "En organism som tillverkar energirika ämnen",
+            "Ett djur som bara äter kött",
+            "En organism som bryter ner döda djur"
+        ],
+        correct: 0,
+        explanation: "Rätt! Växter är exempel på producenter."
+    },
+    {
+        question: "Vad visar pilen i en näringskedja?",
+        answers: [
+            "Vart energin förs",
+            "Var djuret sover",
+            "Vilket djur som är störst"
+        ],
+        correct: 0,
+        explanation: "Rätt! Pilen går från det som blir uppätet till den som äter."
+    },
+    {
+        question: "Vad är en förstahandskonsument?",
+        answers: [
+            "Ett djur som äter producenter",
+            "En växt som bildar socker",
+            "En svamp som bryter ner löv"
+        ],
+        correct: 0,
+        explanation: "Rätt! Förstahandskonsumenter äter producenter."
+    },
+    {
+        question: "Vad är en näringsväv?",
+        answers: [
+            "Flera näringskedjor som hänger ihop",
+            "En enda näringskedja",
+            "Ett nät av rötter"
+        ],
+        correct: 0,
+        explanation: "Rätt! En näringsväv visar flera samband."
+    },
+    {
+        question: "Vilka är exempel på nedbrytare?",
+        answers: [
+            "Svampar och bakterier",
+            "Harar och rådjur",
+            "Gräs och träd"
+        ],
+        correct: 0,
+        explanation: "Rätt! Svampar och bakterier kan bryta ner döda organismer."
+    },
+    {
+        question: "Varifrån kommer energin från början i många näringskedjor?",
+        answers: [
+            "Från solen",
+            "Från månen",
+            "Från stenar"
+        ],
+        correct: 0,
+        explanation: "Rätt! Växter fångar ljusenergi från solen."
+    },
+    {
+        question: "Vad kan hända om en viktig art försvinner?",
+        answers: [
+            "Andra arter kan påverkas",
+            "Ingenting kan förändras",
+            "Alla växter dör direkt"
+        ],
+        correct: 0,
+        explanation: "Rätt! Arter påverkar varandra i ekosystemet."
+    },
+    {
+        question: "Vilken organism är en producent?",
+        answers: [
+            "Gräs",
+            "Räv",
+            "Groda"
+        ],
+        correct: 0,
+        explanation: "Rätt! Gräs tillverkar socker genom fotosyntesen."
+    },
+    {
+        question: "Vad händer med näringsämnen när organismer bryts ner?",
+        answers: [
+            "De kan återföras till miljön",
+            "De blir till solljus",
+            "De försvinner alltid"
+        ],
+        correct: 0,
+        explanation: "Rätt! Nedbrytning hjälper näringsämnen att cirkulera."
+    }
+];
+
+let score = 0;
+let answered = 0;
+let completed = [];
+
+function createQuiz() {
+    const quiz = document.getElementById("quiz");
+    quiz.innerHTML = "";
+
+    questions.forEach((q, index) => {
+        const box = document.createElement("div");
+        box.className = "question";
+
+        const title = document.createElement("p");
+        title.textContent = (index + 1) + ". " + q.question;
+        box.appendChild(title);
+
+        q.answers.forEach((answer, answerIndex) => {
+            const button = document.createElement("button");
+            button.className = "answer";
+            button.type = "button";
+            button.textContent = answer;
+
+            button.addEventListener("click", () => {
+                checkAnswer(index, answerIndex, box);
+            });
+
+            box.appendChild(button);
+        });
+
+        const feedback = document.createElement("div");
+        feedback.className = "feedback";
+        feedback.setAttribute("aria-live", "polite");
+        box.appendChild(feedback);
+
+        quiz.appendChild(box);
+    });
+}
+
+function checkAnswer(questionIndex, answerIndex, box) {
+    if (completed.includes(questionIndex)) return;
+
+    completed.push(questionIndex);
+    answered++;
+
+    const question = questions[questionIndex];
+    const buttons = box.querySelectorAll(".answer");
+    const feedback = box.querySelector(".feedback");
+
+    buttons.forEach(button => button.disabled = true);
+
+    if (answerIndex === question.correct) {
+        score++;
+        buttons[answerIndex].classList.add("correct");
+        feedback.textContent = question.explanation;
+        feedback.style.color = "#17652b";
+    } else {
+        buttons[answerIndex].classList.add("wrong");
+        buttons[question.correct].classList.add("correct");
+        feedback.textContent = "Inte riktigt. " + question.explanation;
+        feedback.style.color = "#9a332b";
+    }
+}
+
+function showResult() {
+    const result = document.getElementById("result");
+    result.style.display = "block";
+
+    if (answered < questions.length) {
+        result.textContent =
+            "Du har svarat på " + answered + " av " +
+            questions.length + " frågor. Fortsätt!";
+        return;
+    }
+
+    result.textContent =
+        "Du fick " + score + " av " + questions.length + " rätt.";
+
+    if (score === questions.length) {
+        result.textContent += " Fantastiskt! Alla rätt!";
+    } else if (score >= 6) {
+        result.textContent += " Bra jobbat!";
+    } else {
+        result.textContent += " Läs igen och försök igen.";
+    }
+}
+
+function restartQuiz() {
+    score = 0;
+    answered = 0;
+    completed = [];
+
+    document.getElementById("result").style.display = "none";
+    createQuiz();
+}
+
+function buildChain() {
+    const producer = document.getElementById("producer").value;
+    const first = document.getElementById("consumer1").value;
+    const second = document.getElementById("consumer2").value;
+    const third = document.getElementById("consumer3").value;
+
+    const output = document.getElementById("chainResult");
+    const explanation = document.getElementById("chainExplanation");
+
+    if (!producer || !first || !second || !third) {
+        output.textContent = "Välj en organism i varje ruta först.";
+        explanation.textContent = "";
+        return;
+    }
+
+    const validChains = [
+        ["Gräs", "Gräshoppa", "Groda", "Orm"],
+        ["Blåbärsris", "Skogshare", "Räv", "Uggla"],
+        ["Växtplankton", "Djurplankton", "Småfisk", "Gädda"]
+    ];
+
+    const selected = [producer, first, second, third];
+
+    const valid = validChains.some(chain =>
+        chain.every((item, index) => item === selected[index])
+    );
+
+    output.textContent = selected.join(" → ");
+
+    if (valid) {
+        explanation.textContent =
+            "Bra! Du har byggt en biologiskt rimlig näringskedja. " +
+            "Pilarna visar hur energin förs vidare.";
+    } else {
+        explanation.textContent =
+            "Den här kombinationen är inte en av de exempel vi " +
+            "har tränat på. Fundera på vad varje organism äter. " +
+            "Prova gärna en annan kombination.";
+    }
+}
+
+function saveAnswers() {
+    const answers = {
+        answer1: document.getElementById("answer1").value,
+        answer2: document.getElementById("answer2").value,
+        answer3: document.getElementById("answer3").value
+    };
+
+    try {
+        localStorage.setItem(
+            "noUpptackarenNaringskedjor",
+            JSON.stringify(answers)
+        );
+
+        document.getElementById("saveMessage").textContent =
+            "Dina svar är sparade på den här enheten.";
+    } catch (error) {
+        document.getElementById("saveMessage").textContent =
+            "Det gick inte att spara svaren.";
+    }
+}
+
+function loadAnswers() {
+    try {
+        const saved = localStorage.getItem(
+            "noUpptackarenNaringskedjor"
+        );
+
+        if (saved) {
+            const answers = JSON.parse(saved);
+
+            document.getElementById("answer1").value =
+                answers.answer1 || "";
+
+            document.getElementById("answer2").value =
+                answers.answer2 || "";
+
+            document.getElementById("answer3").value =
+                answers.answer3 || "";
+        }
+    } catch (error) {
+        console.log("Kunde inte läsa sparade svar.");
+    }
+}
+
+createQuiz();
+loadAnswers();
+</script>
+
+</body>
+</html>
