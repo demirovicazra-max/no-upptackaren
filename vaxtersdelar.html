@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -16,8 +15,11 @@
     box-shadow: 0 4px 15px rgba(0,0,0,.06);
 }
 .lesson h2 { color: #245b43; }
-.lesson p, .lesson li { font-size: 17px; line-height: 1.7; }
-.plant-grid, .quiz-grid {
+.lesson p, .lesson li {
+    font-size: 17px;
+    line-height: 1.7;
+}
+.plant-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
     gap: 15px;
@@ -29,7 +31,6 @@
     padding: 18px;
 }
 .plant-part .icon { font-size: 38px; }
-.plant-part h3 { margin: 8px 0; }
 .fact {
     background: #eaf5ed;
     padding: 18px;
@@ -43,7 +44,7 @@
     padding: 20px;
     margin-top: 18px;
 }
-.activity button, .quiz button {
+.activity button {
     display: block;
     width: 100%;
     text-align: left;
@@ -77,6 +78,7 @@ button:focus-visible, textarea:focus-visible {
     border: 2px solid #cbd5ce;
     border-radius: 10px;
     margin: 8px 0 15px;
+    box-sizing: border-box;
 }
 .action {
     background: #276749 !important;
@@ -111,7 +113,9 @@ button:focus-visible, textarea:focus-visible {
     <div class="hero-content">
         <p class="eyebrow">NO-UPPTÄCKAREN • BIOLOGI • ÅRSKURS 4</p>
         <h1>Växternas delar</h1>
-        <p class="hero-text">Upptäck hur växter är uppbyggda och hur de fungerar.</p>
+        <p class="hero-text">
+            Upptäck hur växter är uppbyggda och hur de fungerar.
+        </p>
     </div>
 </header>
 
@@ -140,6 +144,7 @@ button:focus-visible, textarea:focus-visible {
     <h2>1. Växtens olika delar</h2>
 
     <div class="plant-grid">
+
         <div class="plant-part">
             <div class="icon">🌱</div>
             <h3>Rot</h3>
@@ -195,6 +200,7 @@ button:focus-visible, textarea:focus-visible {
                 när förhållandena är lämpliga.
             </p>
         </div>
+
     </div>
 </section>
 
@@ -238,6 +244,7 @@ button:focus-visible, textarea:focus-visible {
     </p>
 
     <div class="plant-grid">
+
         <div class="plant-part">
             <div class="icon">🌾</div>
             <h3>Ståndare</h3>
@@ -273,6 +280,7 @@ button:focus-visible, textarea:focus-visible {
                 när den fortfarande är en knopp.
             </p>
         </div>
+
     </div>
 </section>
 
@@ -328,7 +336,7 @@ button:focus-visible, textarea:focus-visible {
     </div>
 </section>
 
-<section class="lesson quiz">
+<section class="lesson">
     <h2>6. Kunskapsquiz</h2>
     <p>Svara på frågorna. Du får återkoppling direkt.</p>
 
@@ -378,25 +386,38 @@ button:focus-visible, textarea:focus-visible {
     </p>
 
     <div class="activity">
-        <label for="plantName"><strong>Vilken växt undersöker du?</strong></label>
+
+        <label for="plantName">
+            <strong>Vilken växt undersöker du?</strong>
+        </label>
         <textarea id="plantName" placeholder="Jag undersöker..."></textarea>
 
-        <label for="plantParts"><strong>Vilka delar kan du se?</strong></label>
+        <label for="plantParts">
+            <strong>Vilka delar kan du se?</strong>
+        </label>
         <textarea id="plantParts" placeholder="Jag kan se..."></textarea>
 
-        <label for="plantQuestion"><strong>Vilken fråga vill du undersöka?</strong></label>
+        <label for="plantQuestion">
+            <strong>Vilken fråga vill du undersöka?</strong>
+        </label>
         <textarea id="plantQuestion" placeholder="Jag undrar..."></textarea>
 
-        <label for="plantConclusion"><strong>Vad har du upptäckt?</strong></label>
+        <label for="plantConclusion">
+            <strong>Vad har du upptäckt?</strong>
+        </label>
         <textarea id="plantConclusion" placeholder="Jag har upptäckt..."></textarea>
 
-        <button class="action" onclick="saveResearch()">Spara min växtundersökning</button>
+        <button class="action" onclick="saveResearch()">
+            Spara min växtundersökning
+        </button>
+
         <div id="saveFeedback" class="feedback" aria-live="polite"></div>
     </div>
 </section>
 
 <section class="lesson">
     <h2>8. Begrepp att kunna</h2>
+
     <ul>
         <li><strong>Rot:</strong> Tar upp vatten och näringsämnen.</li>
         <li><strong>Stjälk:</strong> Håller upp växten och transporterar ämnen.</li>
@@ -428,6 +449,7 @@ let quizScore = 0;
 
 function checkPart(number, choice) {
     if (partAnswered[number]) return;
+
     partAnswered[number] = true;
 
     const correct = {
@@ -451,6 +473,7 @@ function checkPart(number, choice) {
 
 function quiz(number, correct) {
     if (quizAnswered[number]) return;
+
     quizAnswered[number] = true;
 
     const feedback = document.getElementById("q" + number);
@@ -467,8 +490,8 @@ function quiz(number, correct) {
     feedback.style.display = "block";
 
     document.getElementById("score").innerHTML =
-        "Du har svarat rätt på <strong>" + quizScore +
-        " av 4</strong> frågor.";
+        "Du har svarat rätt på <strong>" +
+        quizScore + " av 4</strong> frågor.";
 }
 
 function saveResearch() {
@@ -480,13 +503,24 @@ function saveResearch() {
     };
 
     if (!data.name.trim() || !data.parts.trim()) {
-        showSaveMessage("Skriv vilken växt du undersöker och vilka delar du ser.", true);
+        showSaveMessage(
+            "Skriv vilken växt du undersöker och vilka delar du ser.",
+            true
+        );
         return;
     }
 
     try {
-        localStorage.setItem("noUpptackaren_vaxtersdelar", JSON.stringify(data));
-        showSaveMessage("Din undersökning är sparad på den här enheten.", false);
+        localStorage.setItem(
+            "noUpptackaren_vaxtersdelar",
+            JSON.stringify(data)
+        );
+
+        showSaveMessage(
+            "Din undersökning är sparad på den här enheten.",
+            false
+        );
+
     } catch (error) {
         showSaveMessage("Det gick inte att spara. Försök igen.", true);
     }
@@ -494,6 +528,7 @@ function saveResearch() {
 
 function showSaveMessage(message, error) {
     const box = document.getElementById("saveFeedback");
+
     box.textContent = message;
     box.className = error ? "feedback wrong" : "feedback";
     box.style.display = "block";
@@ -502,13 +537,16 @@ function showSaveMessage(message, error) {
 window.addEventListener("DOMContentLoaded", function() {
     try {
         const saved = localStorage.getItem("noUpptackaren_vaxtersdelar");
+
         if (!saved) return;
 
         const data = JSON.parse(saved);
+
         document.getElementById("plantName").value = data.name || "";
         document.getElementById("plantParts").value = data.parts || "";
         document.getElementById("plantQuestion").value = data.question || "";
         document.getElementById("plantConclusion").value = data.conclusion || "";
+
     } catch (error) {
         console.log("Kunde inte läsa sparade svar.");
     }
@@ -517,4 +555,3 @@ window.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
-```
