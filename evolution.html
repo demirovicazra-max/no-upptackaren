@@ -4,203 +4,443 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anpassning och evolution – NO-Upptäckaren</title>
+
+    <title>Evolution – NO-Upptäckaren</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            background: #f3f7f3;
+            color: #24352b;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        header {
+            background: #315f3b;
+            color: white;
+            padding: 45px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: clamp(28px, 5vw, 42px);
+        }
+
+        main {
+            max-width: 950px;
+            margin: auto;
+            padding: 25px 18px 60px;
+        }
+
+        .welcome {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .welcome h2 {
+            color: #315f3b;
+            margin-top: 0;
+        }
+
+        .info {
+            background: #e9f5e5;
+            border-left: 5px solid #4f8f52;
+            padding: 16px;
+            border-radius: 10px;
+            margin-top: 18px;
+        }
+
+        .example {
+            background: #f5faf3;
+            padding: 18px;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        .quiz-question {
+            margin: 22px 0;
+            padding: 15px;
+            background: #f5faf3;
+            border-radius: 12px;
+        }
+
+        .quiz-question button {
+            display: block;
+            width: 100%;
+            padding: 13px;
+            margin: 9px 0;
+            border: 2px solid #d2e4cf;
+            border-radius: 10px;
+            background: white;
+            text-align: left;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .quiz-question button:hover {
+            background: #e9f5e5;
+        }
+
+        .quiz-question button:disabled {
+            cursor: default;
+            opacity: 1;
+        }
+
+        .correct {
+            background: #d9f2d5 !important;
+            border-color: #4f9b4f !important;
+        }
+
+        .wrong {
+            background: #fde0e0 !important;
+            border-color: #d9534f !important;
+        }
+
+        .feedback {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .navigation {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .navigation a {
+            display: inline-block;
+            padding: 13px 18px;
+            background: #315f3b;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .navigation a:hover {
+            background: #244b2e;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #526b5b;
+        }
+
+        @media (max-width: 600px) {
+            .navigation {
+                flex-direction: column;
+            }
+
+            .navigation a {
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-    <h1>🦋 ANPASSNING OCH EVOLUTION</h1>
-    <p>NO-Upptäckaren • Biologi • Årskurs 4–6</p>
+    <p>NO-UPPTÄCKAREN · BIOLOGI · ÅK 4–6</p>
+    <h1>Evolution</h1>
+    <p>Hur har livet på jorden förändrats genom tiderna?</p>
 </header>
 
 <main>
 
     <section class="welcome">
-        <h2>🌍 Vad betyder anpassning?</h2>
+        <h2>1. Vad är evolution?</h2>
 
         <p>
-            Organismer har olika egenskaper som kan hjälpa
-            dem att överleva i den miljö där de lever.
+            Evolution handlar om hur populationer av organismer
+            förändras under många generationer.
         </p>
 
-        <br>
+        <p>
+            En population är individer av samma art
+            som lever i ett område.
+        </p>
+
+        <div class="info">
+            <strong>Kom ihåg!</strong>
+            <p>
+                Evolution sker över många generationer.
+                En enskild individ utvecklas inte genom evolution under sin livstid.
+            </p>
+        </div>
+    </section>
+
+    <section class="welcome">
+        <h2>2. Variation – individer är olika</h2>
 
         <p>
-            En egenskap som hjälper en organism att överleva
-            och få avkomma kan kallas en anpassning.
+            Individer av samma art är inte alltid exakt lika.
+            De kan ha olika färger, storlekar och egenskaper.
+        </p>
+
+        <div class="example">
+            <strong>Exempel:</strong>
+            <p>
+                Några har ljus päls.
+                Andra har mörk päls.
+                Det kallas variation.
+            </p>
+        </div>
+    </section>
+
+    <section class="welcome">
+        <h2>3. Naturligt urval</h2>
+
+        <p>
+            I naturen kan vissa egenskaper ge en fördel.
+            Det beror på vilken miljö organismen lever i.
+        </p>
+
+        <p>
+            Individer med egenskaper som passar miljön
+            kan ha större möjlighet att överleva och få avkomma.
+        </p>
+
+        <div class="example">
+            <strong>Exempel:</strong>
+            <p>
+                En insekt som har samma färg som barken
+                kan vara svårare för fåglar att upptäcka.
+            </p>
+        </div>
+
+        <div class="info">
+            <strong>Viktigt:</strong>
+            <p>
+                Individer väljer inte att utveckla nya egenskaper.
+                Ärftliga egenskaper kan bli vanligare i en population
+                under många generationer.
+            </p>
+        </div>
+    </section>
+
+    <section class="welcome">
+        <h2>4. Hur förändras arter?</h2>
+
+        <p>
+            Egenskaper kan föras vidare från föräldrar
+            till avkomma genom arv.
+        </p>
+
+        <p>
+            Om en ärftlig egenskap ger en fördel kan
+            den bli vanligare i populationen över tid.
+        </p>
+
+        <p>
+            Efter många generationer kan populationen
+            därför se annorlunda ut.
         </p>
     </section>
 
     <section class="welcome">
-        <h2>🐻 Anpassning till olika miljöer</h2>
+        <h2>5. Evolution och miljö</h2>
 
         <p>
-            Djur och växter kan vara anpassade till mycket
-            olika miljöer.
-        </p>
-
-        <br>
-
-        <p>
-            🐻‍❄️ Isbjörnens tjocka päls och fettlager hjälper
-            den att hålla värmen i ett kallt klimat.
+            Miljöer kan förändras.
+            Klimatet kan bli varmare eller kallare.
+            Nya konkurrenter och rovdjur kan komma till.
         </p>
 
         <p>
-            🌵 Kaktusar kan lagra vatten och har egenskaper
-            som hjälper dem att klara torra miljöer.
+            När miljön förändras kan andra egenskaper
+            bli fördelaktiga.
         </p>
     </section>
 
     <section class="welcome">
-        <h2>🧬 Vad är evolution?</h2>
+        <h2>6. Viktiga begrepp</h2>
 
-        <p>
-            Evolution handlar om hur populationer av
-            organismer förändras över många generationer.
-        </p>
+        <div class="example">
+            <strong>Evolution</strong>
+            <p>Förändringar i populationer över generationer.</p>
+        </div>
 
-        <br>
+        <div class="example">
+            <strong>Variation</strong>
+            <p>Skillnader mellan individer av samma art.</p>
+        </div>
 
-        <p>
-            När egenskaper som hjälper organismer att
-            överleva och få avkomma blir vanligare i en
-            population kan populationen förändras över tid.
-        </p>
+        <div class="example">
+            <strong>Naturligt urval</strong>
+            <p>
+                När ärftliga egenskaper som ger fördelar
+                kan bli vanligare i en population.
+            </p>
+        </div>
+
+        <div class="example">
+            <strong>Population</strong>
+            <p>Individer av samma art i ett område.</p>
+        </div>
+
+        <div class="example">
+            <strong>Generation</strong>
+            <p>En grupp individer i en följd av generationer.</p>
+        </div>
     </section>
 
     <section class="welcome">
-        <h2>🦒 Naturligt urval</h2>
+        <h2>7. Testa dina kunskaper</h2>
 
-        <p>
-            I en population finns variation mellan
-            individer. Alla individer har inte exakt
-            samma egenskaper.
-        </p>
+        <div class="quiz-question" data-answer="b">
+            <strong>Fråga 1. Vad handlar evolution om?</strong>
 
-        <br>
+            <button data-option="a">
+                A. Hur en individ växer under en dag.
+            </button>
 
-        <p>
-            Om en viss egenskap ger en fördel i en
-            viss miljö kan individer med den egenskapen
-            ha större möjlighet att överleva och få
-            avkomma.
-        </p>
+            <button data-option="b">
+                B. Hur populationer förändras över generationer.
+            </button>
+
+            <button data-option="c">
+                C. Hur vädret förändras.
+            </button>
+
+            <p class="feedback" aria-live="polite"></p>
+        </div>
+
+        <div class="quiz-question" data-answer="a">
+            <strong>Fråga 2. Vad betyder variation?</strong>
+
+            <button data-option="a">
+                A. Att individer kan ha olika egenskaper.
+            </button>
+
+            <button data-option="b">
+                B. Att alla individer är likadana.
+            </button>
+
+            <button data-option="c">
+                C. Att alla organismer lever på samma plats.
+            </button>
+
+            <p class="feedback" aria-live="polite"></p>
+        </div>
+
+        <div class="quiz-question" data-answer="c">
+            <strong>Fråga 3. Vad är naturligt urval?</strong>
+
+            <button data-option="a">
+                A. När djur väljer var de ska bo.
+            </button>
+
+            <button data-option="b">
+                B. När alla individer får samma egenskaper.
+            </button>
+
+            <button data-option="c">
+                C. När vissa ärftliga egenskaper ger fördelar.
+            </button>
+
+            <p class="feedback" aria-live="polite"></p>
+        </div>
+
+        <div class="quiz-question" data-answer="b">
+            <strong>Fråga 4. Hur kan egenskaper föras vidare?</strong>
+
+            <button data-option="a">
+                A. Genom att djur tränar.
+            </button>
+
+            <button data-option="b">
+                B. Genom arv från föräldrar till avkomma.
+            </button>
+
+            <button data-option="c">
+                C. Genom att flytta till en annan plats.
+            </button>
+
+            <p class="feedback" aria-live="polite"></p>
+        </div>
+
+        <p id="total-result" aria-live="polite"></p>
     </section>
 
-    <section class="welcome">
-        <h2>🦋 Variation</h2>
-
-        <p>
-            Individer av samma art kan se olika ut och
-            ha olika egenskaper.
-        </p>
-
-        <br>
-
-        <p>
-            Variation är viktig eftersom miljön förändras
-            och olika egenskaper kan vara olika bra
-            under olika förhållanden.
-        </p>
-    </section>
-
-    <section class="welcome">
-        <h2>🔎 Fundera!</h2>
-
-        <p>
-            Tänk på ett djur eller en växt.
-        </p>
-
-        <br>
-
-        <p>
-            Vilka egenskaper tror du hjälper organismen
-            att överleva i sin miljö?
-        </p>
-
-        <br>
-
-        <p>
-            Hur skulle organismen påverkas om miljön
-            förändrades?
-        </p>
-    </section>
-
-    <section class="welcome">
-        <h2>📝 Testa dina kunskaper</h2>
-
-        <p>
-            <strong>
-                1. Vad betyder anpassning?
-            </strong>
-        </p>
-
-        <br>
-
-        <p>
-            A. En egenskap som kan hjälpa en organism
-            att överleva<br>
-            B. Att alla organismer är likadana<br>
-            C. Att en organism aldrig förändras
-        </p>
-
-        <br>
-
-        <p>
-            <strong>
-                2. Vad handlar evolution om?
-            </strong>
-        </p>
-
-        <br>
-
-        <p>
-            A. Hur populationer förändras över generationer<br>
-            B. Hur vädret förändras under en dag<br>
-            C. Hur en individ lär sig något
-        </p>
-
-        <br>
-
-        <p>
-            <strong>
-                3. Varför är variation viktig?
-            </strong>
-        </p>
-
-        <br>
-
-        <p>
-            A. Alla individer måste vara exakt lika<br>
-            B. Olika egenskaper kan ge olika fördelar<br>
-            C. Variation gör att organismer inte kan överleva
-        </p>
-    </section>
-
-    <div style="text-align:center; margin-top:35px;">
-
-        <a href="biologi.html"
-           style="text-decoration:none; font-size:18px;">
-            ← Tillbaka till Biologi
-        </a>
-
-        <br><br>
-
-        <a href="index.html"
-           style="text-decoration:none; font-size:18px;">
-            🏠 Till startsidan
-        </a>
-
-    </div>
+    <nav class="navigation">
+        <a href="anpassning.html">← Tillbaka till anpassning</a>
+        <a href="ekosystem.html">Fortsätt till ekosystem →</a>
+        <a href="biologi.html">Till biologi</a>
+        <a href="index.html">Startsidan</a>
+    </nav>
 
 </main>
 
 <footer>
-    NO-Upptäckaren • Anpassning och evolution • Årskurs 4–6
+    NO-Upptäckaren · Biologi · Årskurs 4–6
 </footer>
+
+<script>
+    const questions = document.querySelectorAll(".quiz-question");
+
+    questions.forEach(question => {
+        const buttons = question.querySelectorAll("button");
+        const feedback = question.querySelector(".feedback");
+        const correctAnswer = question.dataset.answer;
+
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+
+                buttons.forEach(btn => btn.disabled = true);
+
+                if (button.dataset.option === correctAnswer) {
+                    button.classList.add("correct");
+                    feedback.textContent = "Rätt svar!";
+                    feedback.style.color = "#267333";
+                } else {
+                    button.classList.add("wrong");
+                    feedback.textContent = "Inte riktigt. Läs texten och försök igen nästa gång.";
+                    feedback.style.color = "#b52b2b";
+
+                    buttons.forEach(btn => {
+                        if (btn.dataset.option === correctAnswer) {
+                            btn.classList.add("correct");
+                        }
+                    });
+                }
+
+                updateScore();
+            });
+        });
+    });
+
+    function updateScore() {
+        let answered = 0;
+        let correct = 0;
+
+        questions.forEach(question => {
+            const selected = question.querySelector("button:disabled.correct");
+
+            if (selected) {
+                answered++;
+
+                if (selected.dataset.option === question.dataset.answer) {
+                    correct++;
+                }
+            }
+        });
+
+        if (answered === questions.length) {
+            document.getElementById("total-result").textContent =
+                "Du fick " + correct + " av " + questions.length + " rätt!";
+        }
+    }
+</script>
 
 </body>
 </html>
