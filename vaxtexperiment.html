@@ -1,1673 +1,600 @@
-```html
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#176b45">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Växtexperiment – NO-Upptäckaren</title>
 
-<title>Min forskardagbok – NO-Upptäckaren</title>
+  <link rel="stylesheet" href="style.css">
 
-<style>
-:root {
-  --green: #176b45;
-  --green-light: #e7f5eb;
-  --cream: #fffdf5;
-  --text: #20332a;
-  --border: #cbded0;
-  --blue: #eaf3ff;
-  --orange: #fff0d8;
-}
+  <style>
+    :root {
+      --green: #246b45;
+      --light-green: #eaf5ed;
+      --blue: #eaf3fb;
+      --yellow: #fff5d9;
+      --text: #24352b;
+      --border: #dce7df;
+    }
 
-* {
-  box-sizing: border-box;
-}
+    body {
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-body {
-  margin: 0;
-  background: var(--cream);
-  color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  line-height: 1.6;
-}
+    .experiment-container {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 24px 18px 60px;
+    }
 
-header {
-  background: var(--green);
-  color: white;
-  padding: 28px 18px;
-  text-align: center;
-}
+    .experiment-hero {
+      background: var(--light-green);
+      border-radius: 20px;
+      padding: 32px 24px;
+      margin: 20px 0 28px;
+    }
 
-header h1 {
-  margin: 0;
-  font-size: clamp(1.7rem, 5vw, 2.5rem);
-}
+    .experiment-hero h1 {
+      color: var(--green);
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      margin-bottom: 10px;
+    }
 
-header p {
-  margin-bottom: 0;
-}
+    .experiment-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 22px 0;
+    }
 
-main {
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px;
-}
+    .experiment-card h2 {
+      color: var(--green);
+      margin-top: 0;
+    }
 
-section, .panel {
-  background: white;
-  border: 2px solid var(--border);
-  border-radius: 16px;
-  padding: 20px;
-  margin: 20px 0;
-}
+    .info-box {
+      background: var(--blue);
+      border-radius: 12px;
+      padding: 18px;
+      margin: 18px 0;
+    }
 
-h2 {
-  color: var(--green);
-  margin-top: 0;
-}
+    .warning-box {
+      background: var(--yellow);
+      border-radius: 12px;
+      padding: 18px;
+      margin: 18px 0;
+    }
 
-h3 {
-  margin-bottom: 8px;
-}
+    .step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin: 18px 0;
+    }
 
-label {
-  display: block;
-  font-weight: bold;
-  margin: 16px 0 6px;
-}
+    .step-number {
+      background: var(--green);
+      color: white;
+      min-width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+    }
 
-input, textarea, select {
-  width: 100%;
-  padding: 13px;
-  font: inherit;
-  border: 2px solid #a7bdb0;
-  border-radius: 9px;
-  background: white;
-  color: #17251d;
-}
+    label {
+      display: block;
+      font-weight: 600;
+      margin: 14px 0 6px;
+    }
 
-textarea {
-  min-height: 110px;
-  resize: vertical;
-}
+    input, textarea, select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      border: 1px solid #aebfb3;
+      border-radius: 9px;
+      font: inherit;
+      background: white;
+    }
 
-button, .button {
-  display: inline-block;
-  padding: 12px 17px;
-  margin: 6px 5px 6px 0;
-  background: var(--green);
-  color: white;
-  border: 0;
-  border-radius: 10px;
-  font: inherit;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-}
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
 
-button:hover, .button:hover {
-  filter: brightness(0.92);
-}
+    button {
+      background: var(--green);
+      color: white;
+      border: none;
+      border-radius: 9px;
+      padding: 12px 18px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 8px 6px 8px 0;
+    }
 
-button:focus-visible, input:focus-visible,
-textarea:focus-visible, select:focus-visible {
-  outline: 3px solid #e59a24;
-  outline-offset: 2px;
-}
+    button:hover {
+      background: #174d30;
+    }
 
-.secondary {
-  background: #e5edf7;
-  color: #183754;
-}
+    .secondary-button {
+      background: #526b5b;
+    }
 
-.danger {
-  background: #a92d2d;
-}
+    .observation-row {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 14px 0;
+      background: #fbfdfb;
+    }
 
-.notice {
-  background: var(--blue);
-  padding: 14px;
-  border-radius: 10px;
-  margin: 12px 0;
-}
+    .saved-message {
+      color: var(--green);
+      font-weight: bold;
+      min-height: 24px;
+    }
 
-.success {
-  background: var(--green-light);
-  padding: 14px;
-  border-radius: 10px;
-  margin: 12px 0;
-}
+    .navigation {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
 
-.warning {
-  background: var(--orange);
-  padding: 14px;
-  border-radius: 10px;
-  margin: 12px 0;
-}
+    .navigation a {
+      display: inline-block;
+      padding: 12px 16px;
+      background: var(--light-green);
+      color: var(--green);
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-.small {
-  font-size: 0.9rem;
-}
+    .navigation a:hover {
+      background: #d8eadc;
+    }
 
-.muted {
-  color: #4d6256;
-}
+    @media print {
+      button, .navigation {
+        display: none;
+      }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 15px;
-}
+      input, textarea {
+        border: 1px solid #777;
+      }
 
-.observation {
-  border-left: 6px solid var(--green);
-  padding: 15px;
-  margin: 15px 0;
-  background: #f6fbf7;
-  border-radius: 8px;
-}
-
-.observation img {
-  max-width: 100%;
-  max-height: 300px;
-  object-fit: contain;
-  border-radius: 10px;
-  display: block;
-  margin: 10px 0;
-}
-
-.timeline-date {
-  font-weight: bold;
-  color: var(--green);
-  font-size: 1.1rem;
-}
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.stat {
-  text-align: center;
-  background: var(--green-light);
-  border-radius: 12px;
-  padding: 14px;
-}
-
-.stat strong {
-  display: block;
-  font-size: 1.5rem;
-}
-
-.chart-wrap {
-  width: 100%;
-  overflow-x: auto;
-}
-
-canvas {
-  display: block;
-  width: 100%;
-  min-width: 300px;
-  height: 300px;
-}
-
-.compare-images {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 15px;
-}
-
-.compare-images img {
-  width: 100%;
-  max-height: 350px;
-  object-fit: contain;
-  background: #f2f5f2;
-  border-radius: 10px;
-}
-
-.compare-card {
-  background: #f5f9f6;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 12px;
-  min-width: 0;
-}
-
-.checklist label {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-weight: normal;
-}
-
-.checklist input {
-  width: 22px;
-  height: 22px;
-  flex: 0 0 auto;
-  margin-top: 5px;
-}
-
-footer {
-  text-align: center;
-  padding: 25px;
-  background: #edf5ef;
-}
-
-.hidden {
-  display: none !important;
-}
-
-hr {
-  border: 0;
-  border-top: 1px solid var(--border);
-  margin: 22px 0;
-}
-
-@media (max-width: 650px) {
-  main {
-    padding: 10px;
-  }
-
-  section, .panel {
-    padding: 15px;
-  }
-
-  .grid, .compare-images {
-    grid-template-columns: 1fr;
-  }
-
-  .stats {
-    grid-template-columns: 1fr;
-  }
-
-  button, .button {
-    width: 100%;
-    margin: 5px 0;
-  }
-}
-
-@media print {
-  body {
-    background: white;
-    font-size: 12pt;
-  }
-
-  header {
-    background: white;
-    color: black;
-    border-bottom: 2px solid black;
-  }
-
-  main {
-    max-width: none;
-    padding: 0;
-  }
-
-  section, .panel {
-    border: 1px solid #999;
-    break-inside: avoid;
-  }
-
-  .no-print, button, input[type="file"] {
-    display: none !important;
-  }
-
-  .hidden {
-    display: none !important;
-  }
-
-  canvas {
-    max-width: 100%;
-  }
-}
-</style>
+      .experiment-card {
+        break-inside: avoid;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <h1>🌱 Min forskardagbok</h1>
-  <p>NO-Upptäckaren · Biologi · Årskurs 4</p>
-  <p>Undersök, observera, fotografera och följ hur din växt förändras!</p>
-</header>
+  <main class="experiment-container">
 
-<main>
+    <section class="experiment-hero">
+      <p><strong>NO-Upptäckaren · Biologi · Årskurs 4–6</strong></p>
+      <h1>Undersök hur växter växer</h1>
+      <p>
+        Vad behöver ett frö för att börja växa?
+        Nu ska du undersöka det som en forskare.
+      </p>
+    </section>
 
-  <div class="notice">
-    <strong>Så fungerar forskardagboken</strong>
-    <ol>
-      <li>Planera din undersökning.</li>
-      <li>Observera din växt regelbundet.</li>
-      <li>Mät, skriv och fotografera.</li>
-      <li>Jämför dina resultat över tid.</li>
-    </ol>
-    <p class="small">
-      Arbetet sparas i den här webbläsaren på den här enheten.
-      Skriv gärna ut eller exportera en säkerhetskopia regelbundet.
-    </p>
-  </div>
+    <section class="experiment-card">
+      <h2>1. Vad ska du lära dig?</h2>
 
-  <section id="planSection">
-    <h2>🧪 1. Min undersökningsplan</h2>
+      <p>Du ska få träna på att:</p>
+      <ul>
+        <li>ställa en fråga</li>
+        <li>skriva en hypotes</li>
+        <li>genomföra ett experiment</li>
+        <li>observera och dokumentera</li>
+        <li>jämföra resultat</li>
+        <li>skriva en slutsats</li>
+      </ul>
 
-    <label for="projectName">Vad heter din undersökning?</label>
-    <input id="projectName"
-           placeholder="Exempel: Min böna växer">
-
-    <label for="plantName">Vilken växt undersöker du?</label>
-    <input id="plantName"
-           placeholder="Exempel: En böna">
-
-    <div class="grid">
-      <div>
-        <label for="startDate">Startdatum</label>
-        <input type="date" id="startDate">
+      <div class="info-box">
+        <strong>Viktigt begrepp – hypotes</strong>
+        <p>
+          En hypotes är en gissning om vad du tror kommer att hända.
+          Du ska sedan undersöka om din hypotes stämmer.
+        </p>
       </div>
-      <div>
-        <label for="researcher">Mitt namn eller min elevkod</label>
-        <input id="researcher"
-               placeholder="Fyll i om din lärare ber dig">
+    </section>
+
+    <section class="experiment-card">
+      <h2>2. Din undersökning</h2>
+
+      <p>
+        Du ska undersöka hur ljus påverkar en växts tillväxt.
+      </p>
+
+      <p>Du behöver:</p>
+      <ul>
+        <li>två likadana krukor eller genomskinliga muggar</li>
+        <li>jord eller fuktigt hushållspapper</li>
+        <li>frön, till exempel krasse eller ärtor</li>
+        <li>vatten</li>
+        <li>en linjal</li>
+        <li>papper och penna</li>
+      </ul>
+
+      <div class="warning-box">
+        <strong>Tänk på!</strong>
+        <p>
+          Be läraren hjälpa dig med materialet.
+          Ät inte fröna eller växtdelarna från experimentet.
+        </p>
       </div>
-    </div>
+    </section>
 
-    <label for="researchQuestion">Vad vill jag ta reda på?</label>
-    <textarea id="researchQuestion"
-      placeholder="Jag vill ta reda på ..."></textarea>
+    <section class="experiment-card">
+      <h2>3. Så här gör du</h2>
 
-    <label for="prediction">Vad tror jag kommer att hända?</label>
-    <textarea id="prediction"
-      placeholder="Jag tror att ..."></textarea>
-
-    <label for="method">Hur ska jag göra undersökningen?</label>
-    <textarea id="method"
-      placeholder="Jag ska ..."></textarea>
-
-    <label for="materials">Vilket material behöver jag?</label>
-    <textarea id="materials"
-      placeholder="Jag behöver ..."></textarea>
-
-    <button type="button" id="savePlan">💾 Spara min plan</button>
-    <span id="planStatus" role="status" aria-live="polite"></span>
-  </section>
-
-  <section id="newObservation">
-    <h2>📝 2. Lägg till en ny observation</h2>
-
-    <p>
-      Titta noga på din växt. Vad har hänt sedan sist?
-      Skriv dina egna observationer.
-    </p>
-
-    <label for="obsDate">Datum för observationen</label>
-    <input type="date" id="obsDate">
-
-    <div class="grid">
-      <div>
-        <label for="plantHeight">Hur hög är växten?</label>
-        <input type="number" id="plantHeight"
-               min="0" step="0.1" placeholder="Exempel: 4.5">
+      <div class="step">
+        <span class="step-number">1</span>
+        <div>
+          <strong>Plantera fröna</strong>
+          <p>
+            Lägg lika många frön i båda krukorna.
+            Använd samma mängd jord eller papper.
+          </p>
+        </div>
       </div>
 
-      <div>
-        <label for="heightUnit">Mätenhet</label>
-        <select id="heightUnit">
-          <option value="cm">Centimeter (cm)</option>
-          <option value="mm">Millimeter (mm)</option>
-          <option value="m">Meter (m)</option>
-        </select>
-      </div>
-    </div>
-
-    <label>Vad ser du idag? Välj det som passar.</label>
-
-    <div class="checklist" id="changeChecklist">
-      <label><input type="checkbox" value="Fröet syns">
-        Fröet syns.</label>
-      <label><input type="checkbox" value="En rot har kommit fram">
-        En rot har kommit fram.</label>
-      <label><input type="checkbox" value="En grodd har kommit upp">
-        En grodd har kommit upp.</label>
-      <label><input type="checkbox" value="Stjälken har blivit längre">
-        Stjälken har blivit längre.</label>
-      <label><input type="checkbox" value="Nya blad har kommit">
-        Nya blad har kommit.</label>
-      <label><input type="checkbox" value="Bladen har ändrat färg">
-        Bladen har ändrat färg.</label>
-      <label><input type="checkbox" value="Växten har vissnat">
-        Växten har vissnat.</label>
-      <label><input type="checkbox" value="Ingen tydlig förändring">
-        Ingen tydlig förändring.</label>
-    </div>
-
-    <label for="leafCount">Antal blad (om du kan räkna dem)</label>
-    <input type="number" id="leafCount"
-           min="0" step="1" placeholder="Exempel: 4">
-
-    <label for="appearance">Hur ser växten ut?</label>
-    <textarea id="appearance"
-      placeholder="Bladen är gröna. Stjälken är tunn ..."></textarea>
-
-    <label for="changes">Vad har förändrats sedan förra gången?</label>
-    <textarea id="changes"
-      placeholder="Förra gången var växten ... Nu är den ..."></textarea>
-
-    <label for="conditions">Hur har växten skötts?</label>
-    <textarea id="conditions"
-      placeholder="Exempel: Jag vattnade den och den stod vid fönstret."></textarea>
-
-    <label for="reflection">Vad tänker jag om det jag ser?</label>
-    <textarea id="reflection"
-      placeholder="Jag undrar om ..."></textarea>
-
-    <label for="plantPhoto">📸 Fotografera växten eller välj en bild</label>
-
-    <input type="file"
-           id="plantPhoto"
-           accept="image/*"
-           capture="environment">
-
-    <p class="small muted">
-      På en iPad kan kameran öppnas om webbläsaren och enheten
-      erbjuder den möjligheten. Du kan också välja en bild som redan finns.
-      Bilden sparas i den här webbläsaren.
-    </p>
-
-    <div id="photoPreview"></div>
-
-    <button type="button" id="saveObservation">
-      💾 Spara observation
-    </button>
-
-    <button type="button" id="cancelEdit"
-            class="secondary hidden">
-      Avbryt redigering
-    </button>
-
-    <span id="observationStatus" role="status"
-          aria-live="polite"></span>
-  </section>
-
-  <section>
-    <h2>📊 3. Min utveckling i siffror</h2>
-
-    <div class="stats">
-      <div class="stat">
-        <strong id="observationCount">0</strong>
-        <span>Observationer</span>
-      </div>
-      <div class="stat">
-        <strong id="latestHeight">–</strong>
-        <span>Senaste höjden</span>
-      </div>
-      <div class="stat">
-        <strong id="heightChange">–</strong>
-        <span>Förändring i höjd</span>
-      </div>
-    </div>
-
-    <h3>📈 Så har växtens höjd förändrats</h3>
-
-    <p class="small muted">
-      Diagrammet använder dina sparade mätningar.
-      Om växten inte har mätts någon dag visas ingen påhittad mätning.
-    </p>
-
-    <div class="chart-wrap">
-      <canvas id="growthChart"
-              width="900" height="320"
-              role="img"
-              aria-label="Diagram över växtens höjd vid olika datum">
-        Diagrammet visar växtens uppmätta höjd över tid.
-      </canvas>
-    </div>
-
-    <p id="chartMessage" aria-live="polite"></p>
-  </section>
-
-  <section>
-    <h2>🕒 4. Min tidslinje</h2>
-    <p>Här visas allt du har dokumenterat, från första dagen till idag.</p>
-
-    <div id="timeline"></div>
-  </section>
-
-  <section>
-    <h2>🔍 5. Jämför två observationer</h2>
-
-    <p>
-      Välj två olika observationer. Då kan du undersöka vad som
-      har förändrats mellan datumen.
-    </p>
-
-    <div class="grid">
-      <div>
-        <label for="compareA">Första observationen</label>
-        <select id="compareA"></select>
+      <div class="step">
+        <span class="step-number">2</span>
+        <div>
+          <strong>Placera krukorna</strong>
+          <p>
+            Ställ kruka A på en ljus plats.
+            Ställ kruka B på en mörk plats.
+          </p>
+        </div>
       </div>
 
-      <div>
-        <label for="compareB">Andra observationen</label>
-        <select id="compareB"></select>
+      <div class="step">
+        <span class="step-number">3</span>
+        <div>
+          <strong>Ge lika mycket vatten</strong>
+          <p>
+            Vattna båda krukorna lika mycket.
+            Se till att de har ungefär samma temperatur.
+          </p>
+        </div>
       </div>
-    </div>
 
-    <button type="button" id="compareButton">
-      🔎 Jämför mina observationer
-    </button>
-
-    <div id="comparisonResult" aria-live="polite"></div>
-  </section>
-
-  <section>
-    <h2>📷 6. Jämför mina fotografier</h2>
-
-    <p>
-      Välj två fotografier från din tidslinje för att se
-      hur växten såg ut vid olika tillfällen.
-    </p>
-
-    <div class="grid">
-      <div>
-        <label for="photoA">Första bilden</label>
-        <select id="photoA"></select>
+      <div class="step">
+        <span class="step-number">4</span>
+        <div>
+          <strong>Vänta och observera</strong>
+          <p>
+            Titta på växterna varje dag.
+            Skriv ner vad du ser.
+          </p>
+        </div>
       </div>
-      <div>
-        <label for="photoB">Andra bilden</label>
-        <select id="photoB"></select>
+
+      <div class="step">
+        <span class="step-number">5</span>
+        <div>
+          <strong>Jämför växterna</strong>
+          <p>
+            Mät växterna med en linjal.
+            Jämför färg, längd och utseende.
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <button type="button" id="comparePhotos">
-      🖼️ Visa bilder bredvid varandra
-    </button>
+    <section class="experiment-card">
+      <h2>4. Skriv din hypotes</h2>
 
-    <div id="photoComparison" class="compare-images"></div>
-  </section>
+      <p>Vad tror du kommer att hända?</p>
 
-  <section>
-    <h2>🧠 7. Vad har jag lärt mig?</h2>
+      <label for="hypothesis">Min hypotes:</label>
+      <textarea id="hypothesis"
+        placeholder="Jag tror att..."></textarea>
 
-    <label for="conclusion">Vad upptäckte jag?</label>
-    <textarea id="conclusion"
-      placeholder="Jag upptäckte att ..."></textarea>
+      <label for="reason">Varför tror du det?</label>
+      <textarea id="reason"
+        placeholder="Jag tror det eftersom..."></textarea>
+    </section>
 
-    <label for="predictionResult">Stämde min förutsägelse?</label>
-    <select id="predictionResult">
-      <option value="">Välj ett svar</option>
-      <option value="Ja">Ja, den stämde.</option>
-      <option value="Delvis">Den stämde delvis.</option>
-      <option value="Nej">Nej, det blev annorlunda.</option>
-      <option value="Osäker">Jag är inte säker ännu.</option>
-    </select>
+    <section class="experiment-card">
+      <h2>5. Dokumentera dina observationer</h2>
 
-    <label for="nextQuestion">Vad skulle jag vilja undersöka mer?</label>
-    <textarea id="nextQuestion"
-      placeholder="Jag skulle vilja ta reda på ..."></textarea>
+      <p>
+        Skriv vad du ser vid varje tillfälle.
+        Du behöver inte skriva långa meningar.
+      </p>
 
-    <button type="button" id="saveConclusion">
-      💾 Spara min slutsats
-    </button>
+      <div class="observation-row">
+        <h3>Observation 1</h3>
 
-    <span id="conclusionStatus" role="status"
-          aria-live="polite"></span>
-  </section>
+        <label for="date1">Datum:</label>
+        <input type="date" id="date1">
 
-  <section>
-    <h2>📦 8. Spara och skriv ut</h2>
+        <label for="plantA1">Kruka A – ljus plats:</label>
+        <textarea id="plantA1"
+          placeholder="Färg, längd och utseende..."></textarea>
 
-    <div class="warning">
-      <strong>Kom ihåg:</strong>
-      Arbetet lagras lokalt i den här webbläsaren.
-      Det är ännu inte kopplat till skolans elevregister eller Supabase.
-      Om du byter enhet följer arbetet inte automatiskt med.
-    </div>
+        <label for="plantB1">Kruka B – mörk plats:</label>
+        <textarea id="plantB1"
+          placeholder="Färg, längd och utseende..."></textarea>
+      </div>
 
-    <button type="button" id="printDiary">
-      🖨️ Skriv ut / spara som PDF
-    </button>
+      <div class="observation-row">
+        <h3>Observation 2</h3>
 
-    <button type="button" id="exportDiary" class="secondary">
-      📥 Exportera säkerhetskopia
-    </button>
+        <label for="date2">Datum:</label>
+        <input type="date" id="date2">
 
-    <label for="importFile">Återställ från en säkerhetskopia</label>
-    <input type="file" id="importFile" accept=".json,application/json">
+        <label for="plantA2">Kruka A – ljus plats:</label>
+        <textarea id="plantA2"></textarea>
 
-    <button type="button" id="importDiary" class="secondary">
-      📤 Återställ forskardagbok
-    </button>
+        <label for="plantB2">Kruka B – mörk plats:</label>
+        <textarea id="plantB2"></textarea>
+      </div>
 
-    <p class="small muted">
-      Säkerhetskopian innehåller undersökningsplanen,
-      observationerna och slutsatsen. Den kan även innehålla fotografier.
-      Förvara filen på en plats som skolan har godkänt.
-    </p>
+      <div class="observation-row">
+        <h3>Observation 3</h3>
 
-    <hr>
+        <label for="date3">Datum:</label>
+        <input type="date" id="date3">
 
-    <button type="button" id="resetDiary" class="danger">
-      Radera forskardagboken från den här webbläsaren
-    </button>
-  </section>
+        <label for="plantA3">Kruka A – ljus plats:</label>
+        <textarea id="plantA3"></textarea>
 
-</main>
+        <label for="plantB3">Kruka B – mörk plats:</label>
+        <textarea id="plantB3"></textarea>
+      </div>
 
-<footer>
-  NO-Upptäckaren · Biologi · Årskurs 4
-  <br>
-  Undersök · Observera · Dokumentera · Jämför
-  <br><br>
-  <a href="ak4.html">Till årskurs 4</a>
-</footer>
+      <div class="observation-row">
+        <h3>Observation 4</h3>
 
-<script>
-"use strict";
+        <label for="date4">Datum:</label>
+        <input type="date" id="date4">
 
-const STORAGE_KEY = "noUpptackarenPlantDiary_v1";
+        <label for="plantA4">Kruka A – ljus plats:</label>
+        <textarea id="plantA4"></textarea>
 
-const $ = id => document.getElementById(id);
+        <label for="plantB4">Kruka B – mörk plats:</label>
+        <textarea id="plantB4"></textarea>
+      </div>
+    </section>
 
-let diary = {
-  plan: {
-    projectName: "",
-    plantName: "",
-    startDate: "",
-    researcher: "",
-    researchQuestion: "",
-    prediction: "",
-    method: "",
-    materials: ""
-  },
-  observations: [],
-  conclusion: {
-    conclusion: "",
-    predictionResult: "",
-    nextQuestion: ""
-  }
-};
+    <section class="experiment-card">
+      <h2>6. Jämför dina resultat</h2>
 
-let editingId = null;
-let pendingPhoto = "";
-let pendingPhotoName = "";
+      <label for="heightA">Hur lång blev växten i kruka A?</label>
+      <input type="text" id="heightA" placeholder="Skriv i centimeter">
 
-function makeId() {
-  return Date.now().toString(36) +
-    Math.random().toString(36).slice(2, 9);
-}
+      <label for="heightB">Hur lång blev växten i kruka B?</label>
+      <input type="text" id="heightB" placeholder="Skriv i centimeter">
 
-function escapeHTML(value) {
-  return String(value ?? "").replace(/[&<>"']/g, char => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#039;"
-  })[char]);
-}
+      <label for="comparison">Vad var den största skillnaden?</label>
+      <textarea id="comparison"
+        placeholder="Jag såg att..."></textarea>
+    </section>
 
-function formatDate(date) {
-  if (!date) return "Inget datum";
+    <section class="experiment-card">
+      <h2>7. Skriv din slutsats</h2>
 
-  const parts = date.split("-");
-  if (parts.length !== 3) return date;
+      <p>
+        Nu ska du fundera på vad experimentet visade.
+      </p>
 
-  return `${parts[2]}-${parts[1]}-${parts[0]}`;
-}
+      <label for="result">Vad hände?</label>
+      <textarea id="result"
+        placeholder="Jag såg att..."></textarea>
 
-function today() {
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
+      <label for="hypothesisResult">Stämde din hypotes?</label>
+      <select id="hypothesisResult">
+        <option value="">Välj ett svar</option>
+        <option value="Ja">Ja</option>
+        <option value="Delvis">Delvis</option>
+        <option value="Nej">Nej</option>
+        <option value="Osäker">Jag är osäker</option>
+      </select>
 
-  return `${year}-${month}-${day}`;
-}
+      <label for="conclusion">Vad har du lärt dig?</label>
+      <textarea id="conclusion"
+        placeholder="Jag har lärt mig att..."></textarea>
 
-function normaliseHeight(value, unit) {
-  const number = Number(value);
+      <div class="info-box">
+        <strong>Kom ihåg!</strong>
+        <p>
+          Frön kan börja gro utan ljus.
+          Men växter behöver ljus för fotosyntesen.
+          En växt som växer länge utan ljus kan bli blek och svag.
+        </p>
+      </div>
+    </section>
 
-  if (!Number.isFinite(number) || number < 0) {
-    return null;
-  }
+    <section class="experiment-card">
+      <h2>8. Testa dina kunskaper</h2>
 
-  if (unit === "mm") return number / 10;
-  if (unit === "m") return number * 100;
+      <form id="quiz">
 
-  return number;
-}
+        <p><strong>1. Vad är en hypotes?</strong></p>
+        <label>
+          <input type="radio" name="q1" value="a" style="width:auto">
+          En gissning om vad som kan hända.
+        </label>
+        <label>
+          <input type="radio" name="q1" value="b" style="width:auto">
+          Ett färdigt resultat.
+        </label>
 
-function loadDiary() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return;
+        <p><strong>2. Vad behöver växter ljus till?</strong></p>
+        <label>
+          <input type="radio" name="q2" value="a" style="width:auto">
+          Fotosyntesen.
+        </label>
+        <label>
+          <input type="radio" name="q2" value="b" style="width:auto">
+          Att suga upp vatten.
+        </label>
 
-    const parsed = JSON.parse(raw);
+        <p><strong>3. Varför ska krukorna få lika mycket vatten?</strong></p>
+        <label>
+          <input type="radio" name="q3" value="a" style="width:auto">
+          För att jämförelsen ska bli rättvis.
+        </label>
+        <label>
+          <input type="radio" name="q3" value="b" style="width:auto">
+          För att de ska få olika resultat.
+        </label>
 
-    if (
-      parsed &&
-      typeof parsed === "object" &&
-      parsed.plan &&
-      Array.isArray(parsed.observations)
-    ) {
-      diary = {
-        plan: parsed.plan,
-        observations: parsed.observations,
-        conclusion: parsed.conclusion || diary.conclusion
-      };
-    }
-  } catch (error) {
-    console.error("Kunde inte läsa forskardagboken:", error);
-  }
-}
+        <p><strong>4. Vad är en observation?</strong></p>
+        <label>
+          <input type="radio" name="q4" value="a" style="width:auto">
+          Något du ser eller mäter.
+        </label>
+        <label>
+          <input type="radio" name="q4" value="b" style="width:auto">
+          Något du bara gissar.
+        </label>
 
-function saveDiary() {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(diary));
-    return true;
-  } catch (error) {
-    console.error("Kunde inte spara forskardagboken:", error);
+        <button type="button" onclick="checkQuiz()">
+          Rätta mina svar
+        </button>
 
-    alert(
-      "Det gick inte att spara. Webbläsarens lagringsutrymme kan vara fullt. " +
-      "Om du försöker spara en stor bild kan du välja en mindre bild."
-    );
+        <p id="quizResult" aria-live="polite"></p>
+      </form>
+    </section>
 
-    return false;
-  }
-}
+    <section class="experiment-card">
+      <h2>9. Spara din forskardagbok</h2>
 
-function fillForm() {
-  const fields = [
-    "projectName",
-    "plantName",
-    "startDate",
-    "researcher",
-    "researchQuestion",
-    "prediction",
-    "method",
-    "materials"
-  ];
+      <p>
+        Klicka på knappen för att spara dina svar i webbläsaren.
+      </p>
 
-  fields.forEach(id => {
-    $(id).value = diary.plan[id] || "";
-  });
+      <button type="button" onclick="saveWork()">
+        Spara mina svar
+      </button>
 
-  $("conclusion").value = diary.conclusion.conclusion || "";
-  $("predictionResult").value =
-    diary.conclusion.predictionResult || "";
-  $("nextQuestion").value =
-    diary.conclusion.nextQuestion || "";
+      <button type="button" class="secondary-button"
+        onclick="window.print()">
+        Skriv ut forskardagboken
+      </button>
 
-  $("obsDate").value = today();
-}
+      <p id="savedMessage" class="saved-message"
+        aria-live="polite"></p>
 
-function savePlan() {
-  const fields = [
-    "projectName",
-    "plantName",
-    "startDate",
-    "researcher",
-    "researchQuestion",
-    "prediction",
-    "method",
-    "materials"
-  ];
+      <p>
+        Dina svar sparas lokalt på den här enheten.
+        De skickas inte automatiskt till läraren.
+      </p>
+    </section>
 
-  fields.forEach(id => {
-    diary.plan[id] = $(id).value.trim();
-  });
+    <nav class="navigation" aria-label="Sidnavigation">
+      <a href="vaxtersdelar.html">Föregående: Växtens delar</a>
+      <a href="vaxtermiljo.html">Växter och miljö</a>
+      <a href="ak4.html">Till årskurs 4</a>
+      <a href="index.html">Startsidan</a>
+    </nav>
 
-  if (!diary.plan.startDate) {
-    diary.plan.startDate = today();
-    $("startDate").value = diary.plan.startDate;
-  }
+  </main>
 
-  if (saveDiary()) {
-    $("planStatus").textContent = " ✅ Din plan är sparad.";
-  }
-}
+  <script>
+    const fieldIds = [
+      "hypothesis", "reason",
+      "date1", "plantA1", "plantB1",
+      "date2", "plantA2", "plantB2",
+      "date3", "plantA3", "plantB3",
+      "date4", "plantA4", "plantB4",
+      "heightA", "heightB", "comparison",
+      "result", "hypothesisResult", "conclusion"
+    ];
 
-function getSelectedChanges() {
-  return Array.from(
-    $("changeChecklist").querySelectorAll("input:checked")
-  ).map(input => input.value);
-}
+    function saveWork() {
+      const data = {};
 
-function clearObservationForm() {
-  editingId = null;
-  pendingPhoto = "";
-  pendingPhotoName = "";
+      fieldIds.forEach(id => {
+        const field = document.getElementById(id);
+        if (field) {
+          data[id] = field.value;
+        }
+      });
 
-  $("obsDate").value = today();
-  $("plantHeight").value = "";
-  $("heightUnit").value = "cm";
-  $("leafCount").value = "";
-  $("appearance").value = "";
-  $("changes").value = "";
-  $("conditions").value = "";
-  $("reflection").value = "";
-  $("plantPhoto").value = "";
-
-  $("changeChecklist")
-    .querySelectorAll("input")
-    .forEach(input => input.checked = false);
-
-  $("photoPreview").innerHTML = "";
-  $("saveObservation").textContent = "💾 Spara observation";
-  $("cancelEdit").classList.add("hidden");
-}
-
-function resetObservationForm() {
-  clearObservationForm();
-  $("observationStatus").textContent = "";
-}
-
-function resizeImage(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-
-    reader.onerror = () => reject(
-      new Error("Det gick inte att läsa bilden.")
-    );
-
-    reader.onload = () => {
-      const img = new Image();
-
-      img.onerror = () => reject(
-        new Error("Bilden kunde inte öppnas.")
+      localStorage.setItem(
+        "noUpptackarenVaxtexperiment",
+        JSON.stringify(data)
       );
 
-      img.onload = () => {
-        const maxDimension = 1200;
-        const scale = Math.min(
-          1,
-          maxDimension / Math.max(img.width, img.height)
-        );
+      document.getElementById("savedMessage").textContent =
+        "Dina svar har sparats på den här enheten.";
+    }
 
-        const canvas = document.createElement("canvas");
+    function loadWork() {
+      const saved = localStorage.getItem(
+        "noUpptackarenVaxtexperiment"
+      );
 
-        canvas.width = Math.max(1, Math.round(img.width * scale));
-        canvas.height = Math.max(1, Math.round(img.height * scale));
+      if (!saved) return;
 
-        const ctx = canvas.getContext("2d");
+      try {
+        const data = JSON.parse(saved);
 
-        ctx.drawImage(
-          img,
-          0,
-          0,
-          canvas.width,
-          canvas.height
-        );
+        fieldIds.forEach(id => {
+          const field = document.getElementById(id);
 
-        resolve(canvas.toDataURL("image/jpeg", 0.78));
+          if (field && data[id] !== undefined) {
+            field.value = data[id];
+          }
+        });
+      } catch (error) {
+        console.error("Kunde inte läsa sparade svar.", error);
+      }
+    }
+
+    function checkQuiz() {
+      const answers = {
+        q1: "a",
+        q2: "a",
+        q3: "a",
+        q4: "a"
       };
 
-      img.src = reader.result;
-    };
-
-    reader.readAsDataURL(file);
-  });
-}
-
-$("plantPhoto").addEventListener("change", async event => {
-  const file = event.target.files[0];
-
-  if (!file) {
-    pendingPhoto = "";
-    pendingPhotoName = "";
-    $("photoPreview").innerHTML = "";
-    return;
-  }
-
-  if (!file.type.startsWith("image/")) {
-    alert("Välj en bildfil.");
-    event.target.value = "";
-    return;
-  }
-
-  pendingPhotoName = file.name;
-
-  $("photoPreview").textContent = "Bilden förbereds ...";
-
-  try {
-    pendingPhoto = await resizeImage(file);
-
-    $("photoPreview").innerHTML = "";
-
-    const img = document.createElement("img");
-    img.src = pendingPhoto;
-    img.alt = "Förhandsvisning av den valda växtbilden";
-    img.style.maxWidth = "100%";
-    img.style.maxHeight = "250px";
-
-    $("photoPreview").appendChild(img);
-  } catch (error) {
-    pendingPhoto = "";
-    $("photoPreview").textContent =
-      "Bilden kunde inte laddas. Prova en annan bild.";
-  }
-});
-
-function saveObservation() {
-  const date = $("obsDate").value;
-
-  if (!date) {
-    alert("Välj datum för din observation.");
-    $("obsDate").focus();
-    return;
-  }
-
-  const heightRaw = $("plantHeight").value;
-  let heightCm = null;
-
-  if (heightRaw !== "") {
-    const converted = normaliseHeight(
-      heightRaw,
-      $("heightUnit").value
-    );
-
-    if (converted === null) {
-      alert("Skriv en giltig höjd som är noll eller större.");
-      $("plantHeight").focus();
-      return;
-    }
-
-    heightCm = converted;
-  }
-
-  const leafRaw = $("leafCount").value;
-  let leafCount = null;
-
-  if (leafRaw !== "") {
-    leafCount = Number(leafRaw);
-
-    if (
-      !Number.isInteger(leafCount) ||
-      leafCount < 0
-    ) {
-      alert("Antalet blad ska vara ett heltal som är noll eller större.");
-      $("leafCount").focus();
-      return;
-    }
-  }
-
-  const existing = diary.observations.find(
-    observation => observation.id === editingId
-  );
-
-  const observation = {
-    id: editingId || makeId(),
-    date,
-    heightCm,
-    heightOriginal: heightRaw === ""
-      ? ""
-      : Number(heightRaw),
-    heightUnit: $("heightUnit").value,
-    leafCount,
-    changes: getSelectedChanges(),
-    appearance: $("appearance").value.trim(),
-    notes: $("changes").value.trim(),
-    conditions: $("conditions").value.trim(),
-    reflection: $("reflection").value.trim(),
-    photo: pendingPhoto ||
-      (existing ? existing.photo || "" : ""),
-    photoName: pendingPhotoName ||
-      (existing ? existing.photoName || "" : ""),
-    updatedAt: new Date().toISOString(),
-    createdAt: existing
-      ? existing.createdAt
-      : new Date().toISOString()
-  };
-
-  if (existing) {
-    diary.observations = diary.observations.map(item =>
-      item.id === editingId ? observation : item
-    );
-  } else {
-    diary.observations.push(observation);
-  }
-
-  if (!saveDiary()) return;
-
-  $("observationStatus").textContent =
-    " ✅ Observationen har sparats.";
-
-  clearObservationForm();
-  renderAll();
-}
-
-function sortedObservations() {
-  return [...diary.observations].sort((a, b) => {
-    const dateOrder = a.date.localeCompare(b.date);
-
-    if (dateOrder !== 0) return dateOrder;
-
-    return (a.createdAt || "").localeCompare(b.createdAt || "");
-  });
-}
-
-function getObservationById(id) {
-  return diary.observations.find(item => item.id === id);
-}
-
-function editObservation(id) {
-  const item = getObservationById(id);
-
-  if (!item) return;
-
-  editingId = id;
-  pendingPhoto = "";
-  pendingPhotoName = "";
-
-  $("obsDate").value = item.date || today();
-
-  const unit = item.heightUnit || "cm";
-  $("heightUnit").value = unit;
-
-  if (item.heightOriginal !== "") {
-    $("plantHeight").value = item.heightOriginal ?? "";
-  } else if (item.heightCm !== null && item.heightCm !== undefined) {
-    const converted = unit === "mm"
-      ? item.heightCm * 10
-      : unit === "m"
-        ? item.heightCm / 100
-        : item.heightCm;
-
-    $("plantHeight").value = converted;
-  } else {
-    $("plantHeight").value = "";
-  }
-
-  $("leafCount").value = item.leafCount ?? "";
-  $("appearance").value = item.appearance || "";
-  $("changes").value = item.notes || "";
-  $("conditions").value = item.conditions || "";
-  $("reflection").value = item.reflection || "";
-
-  $("changeChecklist")
-    .querySelectorAll("input")
-    .forEach(input => {
-      input.checked = (item.changes || []).includes(input.value);
-    });
-
-  $("photoPreview").innerHTML = "";
-
-  if (item.photo) {
-    const img = document.createElement("img");
-    img.src = item.photo;
-    img.alt = "Nuvarande bild i observationen";
-    img.style.maxWidth = "100%";
-    img.style.maxHeight = "250px";
-    $("photoPreview").appendChild(img);
-  }
-
-  $("saveObservation").textContent = "💾 Spara ändringar";
-  $("cancelEdit").classList.remove("hidden");
-
-  $("observationStatus").textContent =
-    "Du redigerar en tidigare observation.";
-
-  $("newObservation").scrollIntoView({ behavior: "smooth" });
-}
-
-function deleteObservation(id) {
-  if (!confirm(
-    "Vill du verkligen radera den här observationen och dess bild?"
-  )) return;
-
-  diary.observations = diary.observations.filter(
-    item => item.id !== id
-  );
-
-  if (saveDiary()) renderAll();
-}
-
-function heightText(item) {
-  if (item.heightCm === null || item.heightCm === undefined) {
-    return "Ingen höjdmätning";
-  }
-
-  return `${Number(item.heightCm.toFixed(2))} cm`;
-}
-
-function renderTimeline() {
-  const container = $("timeline");
-  const observations = sortedObservations();
-
-  if (!observations.length) {
-    container.innerHTML =
-      '<div class="notice">Du har inte sparat någon observation ännu. ' +
-      'Lägg till din första observation ovan!</div>';
-    return;
-  }
-
-  container.innerHTML = observations.map(item => {
-    const changes = (item.changes || []).length
-      ? `<p><strong>Förändringar:</strong> ${
-          escapeHTML(item.changes.join(", "))
-        }</p>`
-      : "";
-
-    const image = item.photo
-      ? `<img src="${item.photo}" alt="Växten den ${
-          escapeHTML(formatDate(item.date))
-        }" loading="lazy">`
-      : "";
-
-    return `
-      <article class="observation">
-        <div class="timeline-date">
-          📅 ${escapeHTML(formatDate(item.date))}
-        </div>
-
-        <p><strong>Höjd:</strong> ${escapeHTML(heightText(item))}</p>
-
-        <p><strong>Antal blad:</strong> ${
-          item.leafCount === null || item.leafCount === undefined
-            ? "Inte registrerat"
-            : escapeHTML(item.leafCount)
-        }</p>
-
-        ${changes}
-
-        ${item.appearance
-          ? `<p><strong>Så ser växten ut:</strong><br>${
-              escapeHTML(item.appearance).replace(/\n/g, "<br>")
-            }</p>`
-          : ""}
-
-        ${item.notes
-          ? `<p><strong>Vad har förändrats?</strong><br>${
-              escapeHTML(item.notes).replace(/\n/g, "<br>")
-            }</p>`
-          : ""}
-
-        ${item.conditions
-          ? `<p><strong>Skötsel:</strong><br>${
-              escapeHTML(item.conditions).replace(/\n/g, "<br>")
-            }</p>`
-          : ""}
-
-        ${item.reflection
-          ? `<p><strong>Mina tankar:</strong><br>${
-              escapeHTML(item.reflection).replace(/\n/g, "<br>")
-            }</p>`
-          : ""}
-
-        ${image}
-
-        <div class="no-print">
-          <button type="button" class="secondary"
-            data-edit="${escapeHTML(item.id)}">
-            ✏️ Redigera
-          </button>
-
-          <button type="button" class="danger"
-            data-delete="${escapeHTML(item.id)}">
-            🗑️ Radera
-          </button>
-        </div>
-      </article>
-    `;
-  }).join("");
-
-  container.querySelectorAll("[data-edit]").forEach(button => {
-    button.addEventListener("click", () =>
-      editObservation(button.dataset.edit)
-    );
-  });
-
-  container.querySelectorAll("[data-delete]").forEach(button => {
-    button.addEventListener("click", () =>
-      deleteObservation(button.dataset.delete)
-    );
-  });
-}
-
-function renderStats() {
-  const observations = sortedObservations();
-
-  $("observationCount").textContent = observations.length;
-
-  const measured = observations.filter(item =>
-    Number.isFinite(item.heightCm)
-  );
-
-  if (!measured.length) {
-    $("latestHeight").textContent = "–";
-    $("heightChange").textContent = "–";
-    return;
-  }
-
-  const latest = measured[measured.length - 1];
-  const first = measured[0];
-
-  $("latestHeight").textContent =
-    `${Number(latest.heightCm.toFixed(2))} cm`;
-
-  const difference = latest.heightCm - first.heightCm;
-
-  $("heightChange").textContent =
-    `${difference > 0 ? "+" : ""}${Number(difference.toFixed(2))} cm`;
-}
-
-function drawChart() {
-  const canvas = $("growthChart");
-  const ctx = canvas.getContext("2d");
-
-  const width = 900;
-  const height = 320;
-
-  canvas.width = width;
-  canvas.height = height;
-
-  ctx.clearRect(0, 0, width, height);
-
-  const observations = sortedObservations().filter(item =>
-    Number.isFinite(item.heightCm)
-  );
-
-  if (!observations.length) {
-    ctx.font = "20px Arial";
-    ctx.fillStyle = "#20332a";
-    ctx.fillText("Spara en höjdmätning för att se diagrammet.", 30, 150);
-
-    $("chartMessage").textContent =
-      "Diagrammet visas när du har registrerat minst en höjd.";
-    return;
-  }
-
-  const left = 75;
-  const right = 30;
-  const top = 25;
-  const bottom = 65;
-
-  const plotWidth = width - left - right;
-  const plotHeight = height - top - bottom;
-
-  const maxValue = Math.max(
-    1,
-    ...observations.map(item => item.heightCm)
-  ) * 1.15;
-
-  const minDate = new Date(observations[0].date + "T12:00:00");
-  const maxDate = new Date(
-    observations[observations.length - 1].date + "T12:00:00"
-  );
-
-  const dayRange = Math.max(
-    1,
-    (maxDate - minDate) / 86400000
-  );
-
-  const x = item =>
-    left +
-    ((new Date(item.date + "T12:00:00") - minDate) /
-      86400000 / dayRange) * plotWidth;
-
-  const y = value =>
-    top + plotHeight - (value / maxValue) * plotHeight;
-
-  ctx.font = "14px Arial";
-  ctx.lineWidth = 1;
-  ctx.strokeStyle = "#d6e2d9";
-  ctx.fillStyle = "#20332a";
-
-  const steps = 4;
-
-  for (let i = 0; i <= steps; i++) {
-    const value = maxValue * i / steps;
-    const py = y(value);
-
-    ctx.beginPath();
-    ctx.moveTo(left, py);
-    ctx.lineTo(width - right, py);
-    ctx.stroke();
-
-    ctx.fillText(`${value.toFixed(1)} cm`, 8, py + 5);
-  }
-
-  ctx.strokeStyle = "#176b45";
-  ctx.lineWidth = 3;
-
-  ctx.beginPath();
-
-  observations.forEach((item, index) => {
-    const px = x(item);
-    const py = y(item.heightCm);
-
-    if (index === 0) {
-      ctx.moveTo(px, py);
-    } else {
-      ctx.lineTo(px, py);
-    }
-  });
-
-  ctx.stroke();
-
-  observations.forEach(item => {
-    const px = x(item);
-    const py = y(item.heightCm);
-
-    ctx.beginPath();
-    ctx.arc(px, py, 5, 0, Math.PI * 2);
-    ctx.fillStyle = "#176b45";
-    ctx.fill();
-
-    ctx.fillStyle = "#20332a";
-    ctx.font = "12px Arial";
-
-    const dateLabel = formatDate(item.date);
-    ctx.fillText(dateLabel, Math.max(left, px - 24), height - 30);
-  });
-
-  $("chartMessage").textContent =
-    `Diagrammet visar ${observations.length} mätningar. ` +
-    `Första mätningen: ${heightText(observations[0])}. ` +
-    `Senaste mätningen: ${heightText(observations[observations.length - 1])}.`;
-}
-
-function populateComparisons() {
-  const observations = sortedObservations();
-
-  ["compareA", "compareB", "photoA", "photoB"].forEach(id => {
-    const select = $(id);
-    const previous = select.value;
-
-    const photoOnly = id === "photoA" || id === "photoB";
-
-    const eligible = photoOnly
-      ? observations.filter(item => item.photo)
-      : observations;
-
-    select.innerHTML = "";
-
-    const placeholder = document.createElement("option");
-    placeholder.value = "";
-    placeholder.textContent = photoOnly
-      ? "Välj en observation med bild"
-      : "Välj observation";
-
-    select.appendChild(placeholder);
-
-    eligible.forEach(item => {
-      const option = document.createElement("option");
-
-      option.value = item.id;
-
-      const shortText = item.appearance
-        ? ` – ${item.appearance.slice(0, 35)}`
-        : "";
-
-      option.textContent =
-        `${formatDate(item.date)} · ${heightText(item)}${shortText}`;
-
-      select.appendChild(option);
-    });
-
-    if (eligible.some(item => item.id === previous)) {
-      select.value = previous;
-    }
-  });
-}
-
-function compareObservations() {
-  const a = getObservationById($("compareA").value);
-  const b = getObservationById($("compareB").value);
-
-  const result = $("comparisonResult");
-
-  if (!a || !b) {
-    result.innerHTML =
-      '<div class="notice">Välj två observationer först.</div>';
-    return;
-  }
-
-  if (a.id === b.id) {
-    result.innerHTML =
-      '<div class="notice">Välj två olika observationer.</div>';
-    return;
-  }
-
-  const heightDifference =
-    Number.isFinite(a.heightCm) && Number.isFinite(b.heightCm)
-      ? b.heightCm - a.heightCm
-      : null;
-
-  const leafDifference =
-    Number.isFinite(a.leafCount) && Number.isFinite(b.leafCount)
-      ? b.leafCount - a.leafCount
-      : null;
-
-  const heightComparison = heightDifference === null
-    ? "Det finns inte två höjdmätningar att jämföra."
-    : `Höjden förändrades med ${
-        heightDifference > 0 ? "+" : ""
-      }${Number(heightDifference.toFixed(2))} cm.`;
-
-  const leafComparison = leafDifference === null
-    ? "Antalet blad kan inte jämföras eftersom en mätning saknas."
-    : `Antalet blad förändrades med ${
-        leafDifference > 0 ? "+" : ""
-      }${leafDifference}.`;
-
-  result.innerHTML = `
-    <div class="success">
-      <h3>Från ${escapeHTML(formatDate(a.date))}
-      till ${escapeHTML(formatDate(b.date))}</h3>
-
-      <p><strong>Första observationen:</strong> ${
-        escapeHTML(heightText(a))
-      }</p>
-
-      <p><strong>Andra observationen:</strong> ${
-        escapeHTML(heightText(b))
-      }</p>
-
-      <p>${escapeHTML(heightComparison)}</p>
-      <p>${escapeHTML(leafComparison)}</p>
-
-      <hr>
-
-      <div class="grid">
-        <div>
-          <h3>Första observationen</h3>
-          <p>${escapeHTML(a.appearance || "Ingen beskrivning.")}</p>
-          <p>${escapeHTML(a.notes || "Ingen förändringstext.")}</p>
-        </div>
-
-        <div>
-          <h3>Andra observationen</h3>
-          <p>${escapeHTML(b.appearance || "Ingen beskrivning.")}</p>
-          <p>${escapeHTML(b.notes || "Ingen förändringstext.")}</p>
-        </div>
-      </div>
-
-      <p><strong>Fundera:</strong>
-      Vad tror du har gjort att växten förändrats?</p>
-    </div>
-  `;
-}
-
-function comparePhotos() {
-  const a = getObservationById($("photoA").value);
-  const b = getObservationById($("photoB").value);
-
-  const result = $("photoComparison");
-
-  if (!a || !b || !a.photo || !b.photo) {
-    result.innerHTML =
-      '<div class="notice">Välj två observationer som innehåller fotografier.</div>';
-    return;
-  }
-
-  result.innerHTML = `
-    <div class="compare-card">
-      <h3>${escapeHTML(formatDate(a.date))}</h3>
-      <img src="${a.photo}" alt="Växten vid första valt datum">
-      <p><strong>Höjd:</strong> ${escapeHTML(heightText(a))}</p>
-      <p>${escapeHTML(a.appearance || "Ingen beskrivning.")}</p>
-    </div>
-
-    <div class="compare-card">
-      <h3>${escapeHTML(formatDate(b.date))}</h3>
-      <img src="${b.photo}" alt="Växten vid andra valt datum">
-      <p><strong>Höjd:</strong> ${escapeHTML(heightText(b))}</p>
-      <p>${escapeHTML(b.appearance || "Ingen beskrivning.")}</p>
-    </div>
-  `;
-}
-
-function saveConclusion() {
-  diary.conclusion = {
-    conclusion: $("conclusion").value.trim(),
-    predictionResult: $("predictionResult").value,
-    nextQuestion: $("nextQuestion").value.trim()
-  };
-
-  if (saveDiary()) {
-    $("conclusionStatus").textContent = " ✅ Slutsatsen har sparats.";
-  }
-}
-
-function renderAll() {
-  renderTimeline();
-  renderStats();
-  drawChart();
-  populateComparisons();
-}
-
-function exportDiary() {
-  const content = JSON.stringify(diary, null, 2);
-
-  const blob = new Blob(
-    [content],
-    { type: "application/json;charset=utf-8" }
-  );
-
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-
-  link.href = url;
-  link.download = "min-forskardagbok.json";
-
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-
-  URL.revokeObjectURL(url);
-}
-
-async function importDiary() {
-  const file = $("importFile").files[0];
-
-  if (!file) {
-    alert("Välj en säkerhetskopia först.");
-    return;
-  }
-
-  try {
-    const text = await file.text();
-    const parsed = JSON.parse(text);
-
-    if (
-      !parsed ||
-      !parsed.plan ||
-      !Array.isArray(parsed.observations)
-    ) {
-      throw new Error("Filen innehåller inte en giltig forskardagbok.");
-    }
-
-    const confirmed = confirm(
-      "Vill du ersätta forskardagboken på den här enheten " +
-      "med innehållet i säkerhetskopian?"
-    );
-
-    if (!confirmed) return;
-
-    diary = {
-      plan: parsed.plan,
-      observations: parsed.observations,
-      conclusion: parsed.conclusion || {
-        conclusion: "",
-        predictionResult: "",
-        nextQuestion: ""
+      let score = 0;
+
+      Object.keys(answers).forEach(question => {
+        const selected = document.querySelector(
+          'input[name="' + question + '"]:checked'
+        );
+
+        if (selected && selected.value === answers[question]) {
+          score++;
+        }
+      });
+
+      const result = document.getElementById("quizResult");
+
+      if (score === 4) {
+        result.textContent = "4 av 4 rätt! Fantastiskt arbetat.";
+      } else {
+        result.textContent =
+          "Du fick " + score + " av 4 rätt. Försök igen!";
       }
-    };
-
-    if (saveDiary()) {
-      fillForm();
-      renderAll();
-
-      alert("Forskardagboken har återställts.");
     }
-  } catch (error) {
-    alert("Filen kunde inte läsas. Kontrollera att du valt rätt säkerhetskopia.");
-  }
-}
 
-$("savePlan").addEventListener("click", savePlan);
-$("saveObservation").addEventListener("click", saveObservation);
-$("cancelEdit").addEventListener("click", resetObservationForm);
-$("compareButton").addEventListener("click", compareObservations);
-$("comparePhotos").addEventListener("click", comparePhotos);
-$("saveConclusion").addEventListener("click", saveConclusion);
-$("exportDiary").addEventListener("click", exportDiary);
-$("importDiary").addEventListener("click", importDiary);
-
-$("printDiary").addEventListener("click", () => {
-  savePlan();
-  saveConclusion();
-  window.print();
-});
-
-$("resetDiary").addEventListener("click", () => {
-  const confirmed = confirm(
-    "VARNING: Detta raderar hela forskardagboken från den här " +
-    "webbläsaren, inklusive sparade observationer och bilder. " +
-    "Exportera en säkerhetskopia först om du vill behålla arbetet. " +
-    "Vill du fortsätta?"
-  );
-
-  if (!confirmed) return;
-
-  localStorage.removeItem(STORAGE_KEY);
-
-  diary = {
-    plan: {
-      projectName: "",
-      plantName: "",
-      startDate: "",
-      researcher: "",
-      researchQuestion: "",
-      prediction: "",
-      method: "",
-      materials: ""
-    },
-    observations: [],
-    conclusion: {
-      conclusion: "",
-      predictionResult: "",
-      nextQuestion: ""
-    }
-  };
-
-  resetObservationForm();
-  fillForm();
-  renderAll();
-
-  $("planStatus").textContent = "Forskardagboken har raderats.";
-  $("observationStatus").textContent = "";
-  $("conclusionStatus").textContent = "";
-});
-
-loadDiary();
-fillForm();
-renderAll();
-</script>
+    loadWork();
+  </script>
 
 </body>
 </html>
-```
