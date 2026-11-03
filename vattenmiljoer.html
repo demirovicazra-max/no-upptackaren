@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sjöar, hav och vattendrag | NO-Upptäckaren</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#eef6fa;color:#263b48;line-height:1.6}
+header{background:#17658a;color:white;text-align:center;padding:32px 18px}
+header h1{font-size:clamp(2rem,5vw,2.7rem);margin:0}
+main{max-width:950px;margin:25px auto;padding:0 16px 40px}
+section{background:white;padding:24px;border-radius:14px;margin-bottom:22px;box-shadow:0 3px 12px #0000000d}
+h2,h3{color:#17658a}
+h2{margin-top:0}
+p,li{font-size:1.06rem}
+.goal{background:#e3f2f9;border-left:6px solid #2786ad;padding:16px;border-radius:8px}
+.card{border:2px solid #d7e9f1;border-radius:12px;padding:16px;margin:14px 0}
+.important{background:#fff4d8;border-left:5px solid #d49a24;padding:15px;border-radius:8px;margin:15px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.grid article{background:#f1f8fb;border:2px solid #d7e9f1;border-radius:12px;padding:16px}
+button,.button{background:#17658a;color:white;border:0;border-radius:9px;padding:12px 17px;margin:6px 5px 6px 0;font-size:1rem;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block}
+button:hover,.button:hover{background:#104967}
+.answer{display:block;width:100%;text-align:left;background:#f1f8fb;color:#263b48;border:2px solid #d7e9f1}
+.answer.correct{background:#d9f2dc;border-color:#27813b}
+.answer.wrong{background:#fde4e1;border-color:#bd4438}
+.answer:disabled{opacity:1;cursor:default}
+.question{border:2px solid #d7e9f1;border-radius:12px;padding:16px;margin:16px 0}
+.feedback{font-weight:bold;min-height:25px}
+textarea{width:100%;min-height:90px;padding:12px;border:2px solid #cbdde8;border-radius:8px;font:1rem Arial;resize:vertical}
+select{width:100%;padding:12px;border:2px solid #cbdde8;border-radius:8px;font-size:1rem}
+.result{display:none;background:#e3f2f9;padding:18px;border-radius:10px;margin-top:15px;font-weight:bold}
+.navigation{display:flex;flex-wrap:wrap;gap:6px}
+footer{text-align:center;padding:25px;color:#526775}
+@media(max-width:600px){section{padding:18px}.navigation .button{width:100%;text-align:center}}
+@media print{.button,button,#quiz{display:none}section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Sjöar, hav och vattendrag</h1>
+<p>Upptäck livet i våra vattenmiljöer</p>
+</header>
+
+<main>
+
+<section>
+<h2>Det här ska du lära dig</h2>
+<div class="goal">
+<ul>
+<li>beskriva skillnaden mellan sjöar, hav och vattendrag</li>
+<li>känna igen några organismer som lever i vatten</li>
+<li>förklara vad en näringskedja i vatten är</li>
+<li>beskriva varför vattenmiljöer behöver skyddas</li>
+<li>ge exempel på hur människor påverkar vattenmiljöer</li>
+</ul>
+</div>
+<p>Vattenmiljöer finns över hela jorden. Där lever många olika växter, djur och andra organismer.</p>
+</section>
+
+<section>
+<h2>1. Sjöar</h2>
+<p>En sjö är ett område med vatten som omges av land. De flesta sjöar innehåller sötvatten.</p>
+<div class="grid">
+<article><h3>Strandzonen</h3><p>Nära stranden kan det finnas vass, näckrosor och andra vattenväxter.</p></article>
+<article><h3>Öppet vatten</h3><p>Här kan fiskar simma. Små organismer kan sväva i vattnet.</p></article>
+<article><h3>Botten</h3><p>På botten kan det finnas växter, smådjur och nedbrytare.</p></article>
+</div>
+<p>Exempel på djur i svenska sjöar är abborre, gädda, mört och groda.</p>
+</section>
+
+<section>
+<h2>2. Hav</h2>
+<p>Haven täcker en stor del av jordens yta. Havsvatten innehåller salt.</p>
+<p>Haven påverkar klimatet och är livsmiljö för många organismer.</p>
+<div class="grid">
+<article><h3>Fiskar</h3><p>Fiskar använder gälar för att ta upp syre ur vattnet.</p></article>
+<article><h3>Alger</h3><p>Alger kan använda ljusenergi för fotosyntes.</p></article>
+<article><h3>Skaldjur</h3><p>Kräftdjur och musslor lever i många olika havsmiljöer.</p></article>
+<article><h3>Marina däggdjur</h3><p>Valar och sälar är däggdjur som lever i havet.</p></article>
+</div>
+</section>
+
+<section>
+<h2>3. Vattendrag</h2>
+<p>Vattendrag är vatten som rör sig genom landskapet.</p>
+<div class="card">
+<h3>Bäck</h3>
+<p>En bäck är ofta ett mindre rinnande vatten.</p>
+</div>
+<div class="card">
+<h3>Å</h3>
+<p>En å är ett rinnande vattendrag.</p>
+</div>
+<div class="card">
+<h3>Flod</h3>
+<p>En flod är ett större vattendrag som för vatten genom landskapet.</p>
+</div>
+<p>Vattendrag transporterar vatten och ämnen mellan olika miljöer.</p>
+</section>
+
+<section>
+<h2>4. Livet i vatten</h2>
+<p>Vattenmiljöer innehåller många olika organismer.</p>
+<div class="grid">
+<article><h3>Vattenväxter</h3><p>Vattenväxter växer i eller nära vatten.</p></article>
+<article><h3>Plankton</h3><p>Plankton är organismer som driver med vattnets rörelser.</p></article>
+<article><h3>Fiskar</h3><p>Fiskar lever i vatten och tar upp syre med gälar.</p></article>
+<article><h3>Smådjur</h3><p>Insektslarver, snäckor och kräftdjur kan leva i vatten.</p></article>
+<article><h3>Nedbrytare</h3><p>Bakterier och svampar bryter ner dött organiskt material.</p></article>
+<article><h3>Fåglar</h3><p>Änder och andra fåglar söker mat i vattenmiljöer.</p></article>
+</div>
+</section>
+
+<section>
+<h2>5. Näringskedjor i vatten</h2>
+<p>Organismer behöver energi. Energin kan föras vidare genom en näringskedja.</p>
+<div class="card">
+<h3>Exempel på näringskedja</h3>
+<p><strong>Växtplankton → djurplankton → småfisk → gädda</strong></p>
+<p>Växtplankton kan vara producenter. Djurplankton äter växtplankton. Småfisk kan äta djurplankton. Gäddan kan äta småfisk.</p>
+</div>
+<p>En näringsväv består av flera näringskedjor som hänger ihop.</p>
+</section>
+
+<section>
+<h2>6. Syre i vattnet</h2>
+<p>Många vattenlevande djur behöver syre som finns löst i vattnet.</p>
+<p>Syre kan komma från luften och bildas vid fotosyntes hos växter och alger.</p>
+<p>Vattnets temperatur påverkar hur mycket syre som kan vara löst i det. Kallt vatten kan hålla mer löst syre än varmt vatten.</p>
+<div class="important">Om syrehalten blir för låg kan fiskar och andra vattenlevande djur få svårt att överleva.</div>
+</section>
+
+<section>
+<h2>7. Övergödning</h2>
+<p>Övergödning innebär att vatten får för mycket näringsämnen, framför allt kväve och fosfor.</p>
+<p>Näringsämnen kan komma från jordbruk, avlopp och andra källor.</p>
+<p>Det kan leda till kraftig algtillväxt. När mycket organiskt material bryts ner kan syre förbrukas.</p>
+<div class="important">Låg syrehalt kan skada djurlivet på botten. I vissa områden kan syrebrist skapa döda bottnar.</div>
+</section>
+
+<section>
+<h2>8. Människans påverkan</h2>
+<div class="grid">
+<article><h3>Plast</h3><p>Plastskräp kan skada djur och brytas ner till mindre partiklar.</p></article>
+<article><h3>Utsläpp</h3><p>Utsläpp kan försämra vattenkvaliteten.</p></article>
+<article><h3>Fiske</h3><p>För stort fisketryck kan minska bestånd av vissa arter.</p></article>
+<article><h3>Byggande</h3><p>Byggnader och vägar kan förändra livsmiljöer nära vatten.</p></article>
+</div>
+</section>
+
+<section>
+<h2>9. Så skyddar vi vattenmiljöer</h2>
+<ul>
+<li>Släng inte skräp i naturen.</li>
+<li>Häll inte kemikalier i avloppet.</li>
+<li>Skydda växter och djur vid stränder.</li>
+<li>Följ regler för fiske.</li>
+<li>Rena avloppsvatten.</li>
+<li>Minska utsläpp av näringsämnen.</li>
+</ul>
+</section>
+
+<section>
+<h2>10. Interaktiv uppgift: Vilken vattenmiljö?</h2>
+<p>Välj vilken miljö som passar bäst till beskrivningen.</p>
+<p id="environmentQuestion"><strong>Här finns saltvatten och många marina organismer.</strong></p>
+<select id="environmentAnswer">
+<option value="">Välj svar</option>
+<option value="sjö">Sjö</option>
+<option value="hav">Hav</option>
+<option value="bäck">Bäck</option>
+</select>
+<button onclick="checkEnvironment()">Kontrollera</button>
+<p id="environmentFeedback" aria-live="polite"></p>
+<button onclick="nextEnvironment()">Nästa fråga</button>
+</section>
+
+<section>
+<h2>11. Kunskapstest</h2>
+<div id="quiz"></div>
+<button onclick="showResult()">Se mitt resultat</button>
+<button onclick="restartQuiz()">Börja om</button>
+<div id="result" class="result" aria-live="polite"></div>
+</section>
+
+<section>
+<h2>12. Förklara med egna ord</h2>
+<p>1. Vad är skillnaden mellan en sjö och ett hav?</p>
+<textarea id="a1"></textarea>
+<p>2. Ge exempel på organismer som lever i vatten.</p>
+<textarea id="a2"></textarea>
+<p>3. Vad är en näringskedja i vatten?</p>
+<textarea id="a3"></textarea>
+<p>4. Vad betyder övergödning?</p>
+<textarea id="a4"></textarea>
+<p>5. Hur kan vi skydda vattenmiljöer?</p>
+<textarea id="a5"></textarea>
+<button onclick="saveAnswers()">Spara mina svar</button>
+<button onclick="window.print()">Skriv ut</button>
+<p id="saveMessage" aria-live="polite"></p>
+</section>
+
+<section>
+<h2>Begrepp att kunna</h2>
+<div class="card"><h3>Vattenmiljö</h3><p>En miljö där vatten är en viktig del.</p></div>
+<div class="card"><h3>Plankton</h3><p>Organismer som driver med vattnets rörelser.</p></div>
+<div class="card"><h3>Producent</h3><p>En organism som tillverkar energirik näring, ofta genom fotosyntes.</p></div>
+<div class="card"><h3>Näringskedja</h3><p>Visar hur energi förs vidare mellan organismer.</p></div>
+<div class="card"><h3>Nedbrytare</h3><p>Organismer som bryter ner dött organiskt material.</p></div>
+<div class="card"><h3>Övergödning</h3><p>När vatten får för mycket näringsämnen.</p></div>
+<div class="card"><h3>Syrebrist</h3><p>När det finns för lite syre för många organismer.</p></div>
+</section>
+
+<section>
+<h2>Fortsätt utforska</h2>
+<div class="navigation">
+<a class="button" href="vattnetskretslopp.html">Vattnets kretslopp</a>
+<a class="button" href="vattnetsbetydelse.html">Vattnets betydelse</a>
+<a class="button" href="vadervindklimat.html">Väder och klimat</a>
+<a class="button" href="naringskedjor.html">Näringskedjor</a>
+<a class="button" href="biologiskmangfald.html">Biologisk mångfald</a>
+<a class="button" href="biologi.html">Biologi</a>
+<a class="button" href="index.html">Startsidan</a>
+</div>
+</section>
+
+</main>
+
+<footer>NO-Upptäckaren | NO årskurs 4–6</footer>
+
+<script>
+const environments=[
+{q:"Här finns saltvatten och många marina organismer.",a:"hav",e:"Rätt! Havet innehåller saltvatten."},
+{q:"Detta är ofta ett mindre rinnande vatten.",a:"bäck",e:"Rätt! En bäck är ett mindre vattendrag."},
+{q:"Detta är ett vattenområde som omges av land.",a:"sjö",e:"Rätt! En sjö omges av land."},
+{q:"Här kan du hitta både gädda och abborre.",a:"sjö",e:"Rätt! Gädda och abborre finns bland annat i svenska sjöar."},
+{q:"Detta är en stor saltvattenmiljö.",a:"hav",e:"Rätt! Hav är stora saltvattenmiljöer."}
+];
+let environmentIndex=0;
+function showEnvironment(){
+document.getElementById("environmentQuestion").textContent=environments[environmentIndex].q;
+document.getElementById("environmentAnswer").value="";
+document.getElementById("environmentFeedback").textContent="";
+}
+function checkEnvironment(){
+const value=document.getElementById("environmentAnswer").value;
+const item=environments[environmentIndex];
+if(!value){document.getElementById("environmentFeedback").textContent="Välj ett svar först.";return;}
+document.getElementById("environmentFeedback").textContent=
+value===item.a?item.e:"Inte riktigt. Försök igen.";
+}
+function nextEnvironment(){
+environmentIndex=(environmentIndex+1)%environments.length;
+showEnvironment();
+}
+
+const questions=[
+{q:"Vad innehåller havsvatten?",a:["Salt","Bara sötvatten","Ingen vätska"],c:0,e:"Rätt! Havsvatten innehåller salt."},
+{q:"Vad är ett vattendrag?",a:["Vatten som rör sig genom landskapet","En stillastående sjö","Ett moln"],c:0,e:"Rätt! Bäckar, åar och floder är vattendrag."},
+{q:"Vad är plankton?",a:["Organismer som driver med vattnet","En sorts sten","En sorts moln"],c:0,e:"Rätt! Plankton driver med vattnets rörelser."},
+{q:"Vad gör en producent?",a:["Tillverkar energirik näring, ofta genom fotosyntes","Äter alltid andra djur","Bryter alltid ner plast"],c:0,e:"Rätt! Växtplankton kan vara producenter."},
+{q:"Vad är en näringskedja?",a:["Hur energi förs vidare mellan organismer","En lista över alla sjöar","En karta över havet"],c:0,e:"Rätt! Näringskedjan visar vem som äter vem."},
+{q:"Vad behöver många fiskar i vattnet?",a:["Löst syre","Bara koldioxid","Bara salt"],c:0,e:"Rätt! Fiskar behöver syre som finns löst i vattnet."},
+{q:"Vad betyder övergödning?",a:["För mycket näringsämnen i vatten","För lite solljus överallt","Att vattnet fryser"],c:0,e:"Rätt! Övergödning beror på för mycket näringsämnen."},
+{q:"Vad kan hända vid syrebrist?",a:["Vattenlevande djur kan få svårt att överleva","Alla fiskar växer snabbare","Vattnet blir alltid drickbart"],c:0,e:"Rätt! Många organismer behöver syre för att överleva."},
+{q:"Hur kan vi skydda vattenmiljöer?",a:["Minska utsläpp och inte skräpa ner","Hälla kemikalier i vattnet","Lämna plast i naturen"],c:0,e:"Rätt! Vi kan minska föroreningar och skydda livsmiljöer."}
+];
+
+let score=0,answered=[];
+function createQuiz(){
+const root=document.getElementById("quiz");root.innerHTML="";
+questions.forEach((q,i)=>{
+const box=document.createElement("div");box.className="question";
+const title=document.createElement("p");title.textContent=(i+1)+". "+q.q;box.appendChild(title);
+q.a.forEach((answer,j)=>{
+const b=document.createElement("button");b.className="answer";b.textContent=answer;
+b.onclick=()=>check(i,j,box);box.appendChild(b);
+});
+const f=document.createElement("div");f.className="feedback";box.appendChild(f);root.appendChild(box);
+});
+}
+function check(i,j,box){
+if(answered.includes(i))return;
+answered.push(i);
+const q=questions[i],buttons=box.querySelectorAll(".answer"),f=box.querySelector(".feedback");
+buttons.forEach(b=>b.disabled=true);
+if(j===q.c){score++;buttons[j].classList.add("correct");f.textContent=q.e;f.style.color="#17652b";}
+else{buttons[j].classList.add("wrong");buttons[q.c].classList.add("correct");f.textContent="Inte riktigt. "+q.e;f.style.color="#9a332b";}
+}
+function showResult(){
+const r=document.getElementById("result");r.style.display="block";
+if(answered.length<questions.length){r.textContent="Du har svarat på "+answered.length+" av "+questions.length+" frågor.";return;}
+r.textContent="Du fick "+score+" av "+questions.length+" rätt.";
+}
+function restartQuiz(){score=0;answered=[];document.getElementById("result").style.display="none";createQuiz();}
+function saveAnswers(){
+const data={};["a1","a2","a3","a4","a5"].forEach(id=>data[id]=document.getElementById(id).value);
+try{
+localStorage.setItem("noVattenmiljoer",JSON.stringify(data));
+document.getElementById("saveMessage").textContent="Dina svar är sparade på den här enheten.";
+}catch(e){document.getElementById("saveMessage").textContent="Det gick inte att spara svaren.";}
+}
+function loadAnswers(){
+try{
+const data=JSON.parse(localStorage.getItem("noVattenmiljoer")||"{}");
+["a1","a2","a3","a4","a5"].forEach(id=>document.getElementById(id).value=data[id]||"");
+}catch(e){}
+}
+showEnvironment();createQuiz();loadAnswers();
+</script>
+
+</body>
+</html>
