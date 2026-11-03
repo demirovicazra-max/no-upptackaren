@@ -1,400 +1,640 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Biologi – NO-Upptäckaren</title>
+<title>Biologi – NO-Upptäckaren</title>
 
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
-  <style>
+<style>
+
+.biology-main {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.biology-intro {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+}
+
+.biology-intro h2 {
+    color: #236b45;
+    font-size: 28px;
+}
+
+.biology-intro p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.biology-section {
+    margin-bottom: 40px;
+}
+
+.biology-section h2 {
+    color: #236b45;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.biology-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+}
+
+.biology-card {
+    display: block;
+    background: white;
+    padding: 24px;
+    border-radius: 17px;
+    text-decoration: none;
+    color: #18332a;
+    box-shadow: 0 5px 16px rgba(0,0,0,0.08);
+    border-top: 6px solid #16a34a;
+    transition: transform 0.2s;
+}
+
+.biology-card:hover {
+    transform: translateY(-4px);
+}
+
+.biology-card .icon {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.biology-card h3 {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.biology-card p {
+    color: #52665d;
+    line-height: 1.5;
+}
+
+.learning-path {
+    border-top-color: #6479c8;
+}
+
+.learning-tools {
+    border-top-color: #0d9488;
+}
+
+.learning-test {
+    border-top-color: #e59b25;
+}
+
+.learning-diary {
+    border-top-color: #6479c8;
+}
+
+.learning-experiment {
+    border-top-color: #16a34a;
+}
+
+.biology-footer {
+    text-align: center;
+    margin: 35px 0;
+}
+
+.biology-footer a {
+    display: inline-block;
+    padding: 14px 22px;
+    background: #247346;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.biology-card:focus,
+.biology-footer a:focus {
+    outline: 4px solid #2563eb;
+    outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+
     .biology-main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 24px;
+        padding: 12px;
     }
 
     .biology-intro {
-      background: #eef8ed;
-      border-radius: 18px;
-      padding: 24px;
-      margin-bottom: 28px;
+        padding: 20px;
     }
 
-    .biology-section {
-      margin: 32px 0;
+    .biology-intro h2 {
+        font-size: 24px;
     }
 
-    .biology-section h2 {
-      margin-bottom: 16px;
-    }
+}
 
-    .biology-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 16px;
-    }
-
-    .biology-card {
-      display: block;
-      background: #ffffff;
-      border: 2px solid #e1e8e1;
-      border-radius: 16px;
-      padding: 20px;
-      text-decoration: none;
-      color: #203020;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .biology-card:hover,
-    .biology-card:focus-visible {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.10);
-      border-color: #75a875;
-    }
-
-    .biology-card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
-
-    .biology-card p {
-      margin-bottom: 0;
-      line-height: 1.6;
-    }
-
-    .biology-card .icon {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-
-    .learning-path {
-      background: #f4f1ff;
-      border: 2px solid #ded5ff;
-      border-radius: 18px;
-      padding: 24px;
-      margin-bottom: 28px;
-    }
-
-    .learning-path a {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 12px 18px;
-      background: #5946a5;
-      color: white;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .learning-path a:hover,
-    .learning-path a:focus-visible {
-      background: #40317e;
-    }
-
-    .biology-footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #ddd;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .biology-footer a {
-      display: inline-block;
-      padding: 10px 16px;
-      background: #eef2f5;
-      border-radius: 10px;
-      color: #203040;
-      text-decoration: none;
-    }
-
-    @media (max-width: 600px) {
-      .biology-main {
-        padding: 14px;
-      }
-
-      .biology-intro,
-      .learning-path {
-        padding: 18px;
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
-  <main class="biology-main">
 
-    <header>
-      <h1>Biologi</h1>
-      <p><strong>NO-Upptäckaren · Årskurs 4–6</strong></p>
-    </header>
+<header>
+
+    <h1>🌱 Biologi</h1>
+
+    <p>Utforska livet och naturen</p>
+
+</header>
+
+
+<main class="biology-main">
+
 
     <section class="biology-intro">
-      <h2>Välkommen till biologin!</h2>
 
-      <p>
-        I biologin undersöker vi livet omkring oss.
-        Vi lär oss om växter, djur, människokroppen och naturen.
-      </p>
+        <h2>Välkommen till biologins värld!</h2>
 
-      <p>
-        Du kan läsa, undersöka, träna på begrepp
-        och testa dina kunskaper.
-      </p>
+        <p>
+            Här får du lära dig om växter, djur,
+            människokroppen och naturen.
+            Du får läsa, undersöka, träna begrepp
+            och testa dina kunskaper.
+        </p>
+
     </section>
 
-    <section class="learning-path">
-      <h2>Din lärstig i biologi</h2>
-
-      <p>
-        Följ din utveckling och se vad du ska lära dig
-        i biologi under årskurs 4, 5 och 6.
-      </p>
-
-      <a href="biologiprogression.html">
-        Öppna min lärstig
-      </a>
-    </section>
-
-    <!-- BEGREPPSBIBLIOTEK OCH TEST -->
 
     <section class="biology-section">
-      <h2>Träna och testa dina kunskaper</h2>
 
-      <div class="biology-grid">
+        <h2>1. Börja här</h2>
 
-        <a class="biology-card" href="biologibegrepp.html">
-          <div class="icon">📚</div>
+        <div class="biology-grid">
 
-          <h3>Biologiska begrepp</h3>
+            <a href="biologiprogression.html" class="biology-card learning-path">
 
-          <p>
-            Lär dig viktiga biologiska ord.
-            Sök efter begrepp, läs förklaringar
-            och träna med frågor.
-          </p>
-        </a>
+                <div class="icon">🧭</div>
 
-        <a class="biology-card" href="biologitest.html">
-          <div class="icon">🧠</div>
+                <h3>Min biologiresa</h3>
 
-          <h3>Biologitest</h3>
+                <p>
+                    Följ din utveckling och se vad du ska lära dig.
+                </p>
 
-          <p>
-            Testa dina kunskaper om växter, djur,
-            celler, ekologi och naturvetenskapliga
-            undersökningar.
-          </p>
-        </a>
+            </a>
 
-      </div>
+
+            <a href="biologibegrepp.html" class="biology-card learning-tools">
+
+                <div class="icon">📚</div>
+
+                <h3>Biologiska begrepp</h3>
+
+                <p>
+                    Träna på viktiga ord och begrepp.
+                </p>
+
+            </a>
+
+
+            <a href="biologitest.html" class="biology-card learning-test">
+
+                <div class="icon">🧠</div>
+
+                <h3>Biologitest</h3>
+
+                <p>
+                    Testa dina kunskaper och få återkoppling.
+                </p>
+
+            </a>
+
+
+        </div>
+
     </section>
 
-    <!-- VÄXTER -->
 
     <section class="biology-section">
-      <h2>Växter</h2>
 
-      <div class="biology-grid">
+        <h2>2. Växter</h2>
 
-        <a class="biology-card" href="vaxter.html">
-          <div class="icon">🌱</div>
-          <h3>Växter</h3>
-          <p>Lär dig om växter och hur de lever.</p>
-        </a>
+        <div class="biology-grid">
 
-        <a class="biology-card" href="vaxtersdelar.html">
-          <div class="icon">🌿</div>
-          <h3>Växtens delar</h3>
-          <p>Undersök rötter, stjälk, blad och blomma.</p>
-        </a>
 
-        <a class="biology-card" href="fotosyntes.html">
-          <div class="icon">☀️</div>
-          <h3>Fotosyntesen</h3>
-          <p>Ta reda på hur växter tillverkar sin egen näring.</p>
-        </a>
+            <a href="vaxter.html" class="biology-card">
 
-        <a class="biology-card" href="fortplantning.html">
-          <div class="icon">🌸</div>
-          <h3>Växters fortplantning</h3>
-          <p>Lär dig hur växter bildar nya växter.</p>
-        </a>
+                <div class="icon">🌱</div>
 
-        <a class="biology-card" href="fronspridning.html">
-          <div class="icon">🍃</div>
-          <h3>Fröspridning</h3>
-          <p>Undersök hur frön sprids till nya platser.</p>
-        </a>
+                <h3>Växter</h3>
 
-        <a class="biology-card" href="vaxtermiljo.html">
-          <div class="icon">🌍</div>
-          <h3>Växters livsmiljö</h3>
-          <p>Lär dig vad växter behöver för att leva.</p>
-        </a>
+                <p>
+                    Lär dig om växter och hur de lever.
+                </p>
 
-        <a class="biology-card" href="vaxtexperiment.html">
-          <div class="icon">🔬</div>
-          <h3>Växtexperiment</h3>
-          <p>Planera, undersök och följ växters utveckling.</p>
-        </a>
+            </a>
 
-        <a class="biology-card" href="vaxterquiz.html">
-          <div class="icon">🧠</div>
-          <h3>Växtquiz</h3>
-          <p>Testa vad du har lärt dig om växter.</p>
-        </a>
 
-      </div>
+            <a href="vaxersdelar.html" class="biology-card">
+
+                <div class="icon">🌿</div>
+
+                <h3>Växters delar</h3>
+
+                <p>
+                    Undersök rötter, stjälk, blad och blomma.
+                </p>
+
+            </a>
+
+
+            <a href="fotosyntes.html" class="biology-card">
+
+                <div class="icon">☀️</div>
+
+                <h3>Fotosyntes</h3>
+
+                <p>
+                    Lär dig hur växter använder ljus för att tillverka socker.
+                </p>
+
+            </a>
+
+
+            <a href="fortplantning.html" class="biology-card">
+
+                <div class="icon">🌸</div>
+
+                <h3>Växters fortplantning</h3>
+
+                <p>
+                    Lär dig hur nya växter bildas.
+                </p>
+
+            </a>
+
+
+            <a href="fronspridning.html" class="biology-card">
+
+                <div class="icon">🌰</div>
+
+                <h3>Fröspridning</h3>
+
+                <p>
+                    Upptäck hur frön sprids i naturen.
+                </p>
+
+            </a>
+
+
+            <a href="vaxtermiljo.html" class="biology-card">
+
+                <div class="icon">🌍</div>
+
+                <h3>Växters miljö</h3>
+
+                <p>
+                    Undersök vad växter behöver för att leva.
+                </p>
+
+            </a>
+
+
+        </div>
+
     </section>
 
-    <!-- CELLER -->
 
     <section class="biology-section">
-      <h2>Celler</h2>
 
-      <div class="biology-grid">
+        <h2>3. Undersökningar och experiment</h2>
 
-        <a class="biology-card" href="celler.html">
-          <div class="icon">🧬</div>
-          <h3>Cellen</h3>
-          <p>Lär dig om livets minsta byggstenar.</p>
-        </a>
+        <div class="biology-grid">
 
-      </div>
+
+            <a href="vaxtexperiment.html" class="biology-card learning-experiment">
+
+                <div class="icon">🧪</div>
+
+                <h3>Växtexperiment</h3>
+
+                <p>
+                    Undersök hur ett frö börjar växa.
+                </p>
+
+            </a>
+
+
+            <a href="forskardagbok.html" class="biology-card learning-diary">
+
+                <div class="icon">📓</div>
+
+                <h3>Forskardagbok</h3>
+
+                <p>
+                    Skriv hypoteser, mät växten och dokumentera dina observationer.
+                </p>
+
+            </a>
+
+
+            <a href="experiment.html" class="biology-card">
+
+                <div class="icon">🔬</div>
+
+                <h3>Experiment</h3>
+
+                <p>
+                    Lär dig att genomföra undersökningar.
+                </p>
+
+            </a>
+
+
+            <a href="planera.html" class="biology-card">
+
+                <div class="icon">📝</div>
+
+                <h3>Planera</h3>
+
+                <p>
+                    Planera en egen undersökning.
+                </p>
+
+            </a>
+
+
+            <a href="hypotes.html" class="biology-card">
+
+                <div class="icon">💭</div>
+
+                <h3>Hypotes</h3>
+
+                <p>
+                    Träna på att formulera en hypotes.
+                </p>
+
+            </a>
+
+
+            <a href="observation.html" class="biology-card">
+
+                <div class="icon">👀</div>
+
+                <h3>Observation</h3>
+
+                <p>
+                    Träna på att observera och dokumentera.
+                </p>
+
+            </a>
+
+
+            <a href="resultat.html" class="biology-card">
+
+                <div class="icon">📊</div>
+
+                <h3>Resultat</h3>
+
+                <p>
+                    Sammanställ vad du har upptäckt.
+                </p>
+
+            </a>
+
+
+            <a href="slutsats.html" class="biology-card">
+
+                <div class="icon">💡</div>
+
+                <h3>Slutsats</h3>
+
+                <p>
+                    Förklara vad du har lärt dig.
+                </p>
+
+            </a>
+
+
+        </div>
+
     </section>
 
-    <!-- DJUR OCH MÄNNISKAN -->
 
     <section class="biology-section">
-      <h2>Djur och människan</h2>
 
-      <div class="biology-grid">
+        <h2>4. Celler, djur och människan</h2>
 
-        <a class="biology-card" href="djur.html">
-          <div class="icon">🐾</div>
-          <h3>Djur</h3>
-          <p>Undersök djur och deras sätt att leva.</p>
-        </a>
+        <div class="biology-grid">
 
-        <a class="biology-card" href="mankropp.html">
-          <div class="icon">🫀</div>
-          <h3>Människokroppen</h3>
-          <p>Lär dig om kroppens organ och funktioner.</p>
-        </a>
 
-        <a class="biology-card" href="människokroppen.html">
-          <div class="icon">🧍</div>
-          <h3>Kroppen</h3>
-          <p>Utforska människokroppens olika delar.</p>
-        </a>
+            <a href="celler.html" class="biology-card">
 
-      </div>
+                <div class="icon">🔬</div>
+
+                <h3>Celler</h3>
+
+                <p>
+                    Lär dig om kroppens minsta byggstenar.
+                </p>
+
+            </a>
+
+
+            <a href="djur.html" class="biology-card">
+
+                <div class="icon">🐾</div>
+
+                <h3>Djur</h3>
+
+                <p>
+                    Utforska djur och deras liv.
+                </p>
+
+            </a>
+
+
+            <a href="människokroppen.html" class="biology-card">
+
+                <div class="icon">🫀</div>
+
+                <h3>Människokroppen</h3>
+
+                <p>
+                    Lär dig om kroppens organ och funktioner.
+                </p>
+
+            </a>
+
+
+            <a href="mankropp.html" class="biology-card">
+
+                <div class="icon">🧍</div>
+
+                <h3>Människans kropp</h3>
+
+                <p>
+                    Utforska kroppen och hur den fungerar.
+                </p>
+
+            </a>
+
+
+            <a href="fortplantning.html" class="biology-card">
+
+                <div class="icon">🌱</div>
+
+                <h3>Fortplantning</h3>
+
+                <p>
+                    Lär dig om hur levande organismer får avkomma.
+                </p>
+
+            </a>
+
+
+        </div>
+
     </section>
 
-    <!-- NATUR OCH EKOLOGI -->
 
     <section class="biology-section">
-      <h2>Natur och ekologi</h2>
 
-      <div class="biology-grid">
+        <h2>5. Natur och ekosystem</h2>
 
-        <a class="biology-card" href="natur.html">
-          <div class="icon">🌳</div>
-          <h3>Naturen</h3>
-          <p>Upptäck naturen och organismerna omkring oss.</p>
-        </a>
+        <div class="biology-grid">
 
-        <a class="biology-card" href="ekosystem.html">
-          <div class="icon">🌲</div>
-          <h3>Ekosystem</h3>
-          <p>Undersök hur organismer samspelar med varandra.</p>
-        </a>
 
-      </div>
+            <a href="natur.html" class="biology-card">
+
+                <div class="icon">🌲</div>
+
+                <h3>Naturen</h3>
+
+                <p>
+                    Utforska naturen omkring oss.
+                </p>
+
+            </a>
+
+
+            <a href="ekosystem.html" class="biology-card">
+
+                <div class="icon">🌳</div>
+
+                <h3>Ekosystem</h3>
+
+                <p>
+                    Upptäck hur växter, djur och miljö hänger ihop.
+                </p>
+
+            </a>
+
+
+            <a href="anpassning.html" class="biology-card">
+
+                <div class="icon">🦊</div>
+
+                <h3>Anpassning</h3>
+
+                <p>
+                    Lär dig hur organismer är anpassade till sin miljö.
+                </p>
+
+            </a>
+
+
+            <a href="evolution.html" class="biology-card">
+
+                <div class="icon">🧬</div>
+
+                <h3>Evolution</h3>
+
+                <p>
+                    Upptäck hur livet på jorden har förändrats.
+                </p>
+
+            </a>
+
+
+        </div>
+
     </section>
 
-    <!-- ANPASSNING OCH EVOLUTION -->
 
     <section class="biology-section">
-      <h2>Anpassning och evolution</h2>
 
-      <div class="biology-grid">
+        <h2>6. Träna mer</h2>
 
-        <a class="biology-card" href="anpassning.html">
-          <div class="icon">🦊</div>
-          <h3>Anpassning</h3>
-          <p>
-            Lär dig hur organismer kan vara anpassade
-            till sin miljö.
-          </p>
-        </a>
+        <div class="biology-grid">
 
-        <a class="biology-card" href="evolution.html">
-          <div class="icon">🦋</div>
-          <h3>Evolution</h3>
-          <p>Undersök hur arter förändras över lång tid.</p>
-        </a>
 
-      </div>
+            <a href="vaxterquiz.html" class="biology-card learning-test">
+
+                <div class="icon">🎯</div>
+
+                <h3>Växtquiz</h3>
+
+                <p>
+                    Träna på det du har lärt dig om växter.
+                </p>
+
+            </a>
+
+
+            <a href="biologitest.html" class="biology-card learning-test">
+
+                <div class="icon">🧠</div>
+
+                <h3>Biologitest</h3>
+
+                <p>
+                    Repetera biologins olika områden.
+                </p>
+
+            </a>
+
+
+            <a href="biologibegrepp.html" class="biology-card learning-tools">
+
+                <div class="icon">📖</div>
+
+                <h3>Begreppsträning</h3>
+
+                <p>
+                    Repetera biologiska ord och deras betydelse.
+                </p>
+
+            </a>
+
+
+        </div>
+
     </section>
 
-    <!-- NATURVETENSKAPLIGA UNDERSÖKNINGAR -->
 
-    <section class="biology-section">
-      <h2>Undersökningar</h2>
+    <div class="biology-footer">
 
-      <div class="biology-grid">
-
-        <a class="biology-card" href="experiment.html">
-          <div class="icon">🔍</div>
-          <h3>Experiment</h3>
-          <p>Genomför naturvetenskapliga undersökningar.</p>
+        <a href="index.html">
+            Tillbaka till startsidan
         </a>
 
-        <a class="biology-card" href="planera.html">
-          <div class="icon">📝</div>
-          <h3>Planera</h3>
-          <p>Planera hur du ska genomföra en undersökning.</p>
-        </a>
+    </div>
 
-        <a class="biology-card" href="observation.html">
-          <div class="icon">👀</div>
-          <h3>Observation</h3>
-          <p>Träna på att observera och dokumentera.</p>
-        </a>
 
-        <a class="biology-card" href="hypotes.html">
-          <div class="icon">💭</div>
-          <h3>Hypotes</h3>
-          <p>Formulera vad du tror kommer att hända.</p>
-        </a>
+</main>
 
-        <a class="biology-card" href="resultat.html">
-          <div class="icon">📊</div>
-          <h3>Resultat</h3>
-          <p>Samla och visa vad undersökningen visar.</p>
-        </a>
 
-        <a class="biology-card" href="slutsats.html">
-          <div class="icon">💡</div>
-          <h3>Slutsats</h3>
-          <p>Förklara vad du har kommit fram till.</p>
-        </a>
+<footer>
+    NO-Upptäckaren
+</footer>
 
-      </div>
-    </section>
 
-    <!-- NAVIGATION -->
-
-    <footer class="biology-footer">
-      <a href="ak4.html">Till årskurs 4</a>
-      <a href="index.html">Till startsidan</a>
-    </footer>
-
-  </main>
 </body>
 </html>
