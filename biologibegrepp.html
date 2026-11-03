@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biologins begrepp | NO-Upptäckaren</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.dictionary {
+    max-width: 1050px;
+    margin: auto;
+    padding: 20px;
+}
+
+.panel {
+    background: white;
+    padding: 24px;
+    margin: 20px 0;
+    border-radius: 16px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+}
+
+.search-box {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #b8cbbd;
+    border-radius: 10px;
+    font-size: 17px;
+    box-sizing: border-box;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 18px 0;
+}
+
+.filters button,
+.quiz button {
+    padding: 11px 15px;
+    border: 2px solid #d5e2d8;
+    border-radius: 9px;
+    background: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.filters button.active {
+    background: #276749;
+    color: white;
+}
+
+.term-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 15px;
+}
+
+.term-card {
+    background: #f0f7f1;
+    border-radius: 13px;
+    padding: 18px;
+    border: 1px solid #d8e8dc;
+}
+
+.term-card h3 {
+    color: #245b43;
+    margin-top: 0;
+}
+
+.category {
+    font-size: 13px;
+    color: #52685a;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.example {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.quiz button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 9px 0;
+}
+
+.quiz button:hover {
+    background: #edf6ef;
+}
+
+.feedback {
+    display: none;
+    background: #e5f5e9;
+    padding: 13px;
+    border-radius: 9px;
+    margin-top: 10px;
+}
+
+.feedback.wrong {
+    background: #fee9e7;
+}
+
+.no-results {
+    display: none;
+    padding: 20px;
+    background: #fff5df;
+    border-radius: 10px;
+}
+
+@media(max-width:600px) {
+    .dictionary {
+        padding: 12px;
+    }
+
+    .panel {
+        padding: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Biologins begrepp</h1>
+    <p>NO-Upptäckaren • Årskurs 4–6</p>
+</header>
+
+<main class="dictionary">
+
+<section class="panel">
+    <h2>Välkommen till begreppsbiblioteket</h2>
+
+    <p>
+        Här hittar du viktiga ord inom biologi.
+        Sök efter ett ord eller välj ett område.
+        Läs förklaringen och träna på att använda begreppet.
+    </p>
+
+    <label for="search"><strong>Sök efter ett begrepp</strong></label>
+    <input
+        id="search"
+        class="search-box"
+        type="search"
+        placeholder="Skriv till exempel fotosyntes..."
+        autocomplete="off"
+    >
+
+    <div class="filters" aria-label="Välj ämnesområde">
+        <button class="active" data-category="Alla">Alla</button>
+        <button data-category="Växter">Växter</button>
+        <button data-category="Djur">Djur</button>
+        <button data-category="Celler">Celler</button>
+        <button data-category="Ekologi">Ekologi</button>
+        <button data-category="Evolution">Evolution</button>
+        <button data-category="Undersökningar">Undersökningar</button>
+    </div>
+
+    <p id="count" aria-live="polite"></p>
+
+    <div id="terms" class="term-grid"></div>
+
+    <div id="noResults" class="no-results">
+        Inga begrepp hittades. Prova ett annat sökord.
+    </div>
+</section>
+
+<section class="panel">
+    <h2>Träna på begreppen</h2>
+    <p>Välj rätt förklaring till begreppet.</p>
+
+    <div class="quiz">
+        <h3 id="question">Vad betyder fotosyntes?</h3>
+
+        <button onclick="checkAnswer(0)">En process där växter bildar druvsocker med hjälp av ljusenergi.</button>
+        <button onclick="checkAnswer(1)">När växter tar upp näring från djur.</button>
+        <button onclick="checkAnswer(2)">När frön sprids med vinden.</button>
+
+        <div id="quizFeedback" class="feedback" aria-live="polite"></div>
+
+        <button id="nextQuestion" onclick="nextQuestion()" style="display:none">
+            Nästa fråga
+        </button>
+
+        <p id="quizScore">Rätt svar: 0</p>
+    </div>
+</section>
+
+<section class="panel">
+    <h2>Så använder du ett biologiskt begrepp</h2>
+
+    <ol>
+        <li>Läs begreppet.</li>
+        <li>Läs förklaringen.</li>
+        <li>Titta på exemplet.</li>
+        <li>Förklara begreppet med egna ord.</li>
+        <li>Försök använda ordet i en egen mening.</li>
+    </ol>
+</section>
+
+<p><a href="biologi.html">← Tillbaka till biologin</a></p>
+<p><a href="index.html">Till startsidan</a></p>
+
+</main>
+
+<footer>
+    NO-Upptäckaren • Biologi • Årskurs 4–6
+</footer>
+
+<script>
+const vocabulary = [
+{
+    word:"Fotosyntes",
+    category:"Växter",
+    explanation:"En process där växter använder ljusenergi, vatten och koldioxid för att bilda druvsocker och syre.",
+    example:"Ett träd använder fotosyntes när det tillverkar druvsocker i sina gröna delar."
+},
+{
+    word:"Klorofyll",
+    category:"Växter",
+    explanation:"Ett grönt färgämne som fångar upp ljusenergi.",
+    example:"Klorofyll gör många blad gröna."
+},
+{
+    word:"Rot",
+    category:"Växter",
+    explanation:"En växtdel som ofta finns under marken. Den tar upp vatten och näringsämnen.",
+    example:"Morotens rot lagrar näring."
+},
+{
+    word:"Stjälk",
+    category:"Växter",
+    explanation:"Växtdel som håller upp blad och blommor och transporterar ämnen.",
+    example:"En blommas stjälk håller blomman upprätt."
+},
+{
+    word:"Pollinering",
+    category:"Växter",
+    explanation:"När pollen flyttas från en ståndare till en pistills märke hos en blomma.",
+    example:"Ett bi kan hjälpa till med pollinering."
+},
+{
+    word:"Frö",
+    category:"Växter",
+    explanation:"En del av en växt som kan utvecklas till en ny växt.",
+    example:"Ett solrosfrö kan gro och bli en solros."
+},
+{
+    word:"Groning",
+    category:"Växter",
+    explanation:"När ett frö börjar växa och utvecklas till en liten planta.",
+    example:"Ett bönfrö kan börja gro när det får vatten och lämplig temperatur."
+},
+{
+    word:"Fröspridning",
+    category:"Växter",
+    explanation:"När frön sprids till nya platser med exempelvis vind, vatten eller djur.",
+    example:"Maskrosens frön kan spridas med vinden."
+},
+{
+    word:"Pollen",
+    category:"Växter",
+    explanation:"Små korn som bildas i ståndarnas pollenknappar.",
+    example:"Pollen kan fastna på en insekt som besöker en blomma."
+},
+{
+    word:"Cell",
+    category:"Celler",
+    explanation:"En grundläggande byggsten i alla levande organismer.",
+    example:"Människans kropp består av många olika celler."
+},
+{
+    word:"Cellkärna",
+    category:"Celler",
+    explanation:"En del i många celler som innehåller arvsmassan.",
+    example:"En människocell har vanligtvis en cellkärna."
+},
+{
+    word:"Organism",
+    category:"Celler",
+    explanation:"En levande varelse, till exempel en växt, ett djur eller en svamp.",
+    example:"En ek, en myra och en människa är organismer."
+},
+{
+    word:"Livsmiljö",
+    category:"Djur",
+    explanation:"Den plats där en organism lever och hittar det den behöver.",
+    example:"En groda kan leva i och nära en damm."
+},
+{
+    word:"Anpassning",
+    category:"Evolution",
+    explanation:"En egenskap som kan hjälpa en organism att överleva och få ungar i en viss miljö.",
+    example:"En isbjörns tjocka päls hjälper den att behålla värmen."
+},
+{
+    word:"Evolution",
+    category:"Evolution",
+    explanation:"Förändringar i ärftliga egenskaper hos populationer över generationer.",
+    example:"Fåglars näbbformer kan förändras över lång tid genom evolution."
+},
+{
+    word:"Variation",
+    category:"Evolution",
+    explanation:"Skillnader mellan individer inom samma art.",
+    example:"Människor kan ha olika ögonfärg och längd."
+},
+{
+    word:"Art",
+    category:"Evolution",
+    explanation:"En grupp organismer som under naturliga förhållanden kan få fertil avkomma med varandra.",
+    example:"Alla människor tillhör samma art."
+},
+{
+    word:"Ekosystem",
+    category:"Ekologi",
+    explanation:"Alla levande organismer i ett område tillsammans med den icke-levande miljön.",
+    example:"En skog med träd, djur, svampar, jord och vatten är ett ekosystem."
+},
+{
+    word:"Näringskedja",
+    category:"Ekologi",
+    explanation:"Visar hur energi förs vidare när organismer äter andra organismer.",
+    example:"Gräs → hare → räv."
+},
+{
+    word:"Näringsväv",
+    category:"Ekologi",
+    explanation:"Flera näringskedjor som hänger ihop i ett ekosystem.",
+    example:"En räv kan äta både möss och harar."
+},
+{
+    word:"Nedbrytare",
+    category:"Ekologi",
+    explanation:"Organismer som bryter ner dött organiskt material.",
+    example:"Svampar och bakterier är viktiga nedbrytare."
+},
+{
+    word:"Biologisk mångfald",
+    category:"Ekologi",
+    explanation:"Variationen av liv, bland annat olika arter, gener och ekosystem.",
+    example:"En artrik äng har hög biologisk mångfald."
+},
+{
+    word:"Hypotes",
+    category:"Undersökningar",
+    explanation:"Ett förslag på vad man tror kommer att hända i en undersökning.",
+    example:"Jag tror att plantan med mest ljus kommer att växa snabbast."
+},
+{
+    word:"Observation",
+    category:"Undersökningar",
+    explanation:"Något man lägger märke till och undersöker med sina sinnen eller verktyg.",
+    example:"Jag observerar att plantan har fått ett nytt blad."
+},
+{
+    word:"Resultat",
+    category:"Undersökningar",
+    explanation:"Det som en undersökning visar.",
+    example:"Plantan växte tre centimeter på en vecka."
+},
+{
+    word:"Slutsats",
+    category:"Undersökningar",
+    explanation:"En förklaring av vad resultatet visar och vad man kan lära sig.",
+    example:"Resultatet visar att plantan växte under försöket."
+}
+];
+
+let selectedCategory = "Alla";
+
+function renderTerms() {
+    const search = document.getElementById("search").value
+        .toLowerCase().trim();
+
+    const container = document.getElementById("terms");
+    container.innerHTML = "";
+
+    const filtered = vocabulary.filter(item => {
+        const matchesCategory =
+            selectedCategory === "Alla" ||
+            item.category === selectedCategory;
+
+        const matchesSearch =
+            item.word.toLowerCase().includes(search) ||
+            item.explanation.toLowerCase().includes(search);
+
+        return matchesCategory && matchesSearch;
+    });
+
+    filtered.forEach(item => {
+        const card = document.createElement("article");
+        card.className = "term-card";
+
+        const category = document.createElement("div");
+        category.className = "category";
+        category.textContent = item.category;
+
+        const title = document.createElement("h3");
+        title.textContent = item.word;
+
+        const explanation = document.createElement("p");
+        explanation.textContent = item.explanation;
+
+        const example = document.createElement("div");
+        example.className = "example";
+
+        const strong = document.createElement("strong");
+        strong.textContent = "Exempel: ";
+
+        example.appendChild(strong);
+        example.appendChild(document.createTextNode(item.example));
+
+        card.appendChild(category);
+        card.appendChild(title);
+        card.appendChild(explanation);
+        card.appendChild(example);
+
+        container.appendChild(card);
+    });
+
+    document.getElementById("count").textContent =
+        "Visar " + filtered.length + " av " + vocabulary.length + " begrepp.";
+
+    document.getElementById("noResults").style.display =
+        filtered.length === 0 ? "block" : "none";
+}
+
+document.getElementById("search").addEventListener("input", renderTerms);
+
+document.querySelectorAll(".filters button").forEach(button => {
+    button.addEventListener("click", function() {
+        document.querySelectorAll(".filters button")
+            .forEach(item => item.classList.remove("active"));
+
+        this.classList.add("active");
+        selectedCategory = this.dataset.category;
+        renderTerms();
+    });
+});
+
+const questions = [
+{
+    question:"Vad betyder fotosyntes?",
+    answers:[
+        "En process där växter bildar druvsocker med hjälp av ljusenergi.",
+        "När växter tar upp näring från djur.",
+        "När frön sprids med vinden."
+    ],
+    correct:0
+},
+{
+    question:"Vad är en cell?",
+    answers:[
+        "En sorts växt.",
+        "En grundläggande byggsten i levande organismer.",
+        "Ett slags näringsämne."
+    ],
+    correct:1
+},
+{
+    question:"Vad är ett ekosystem?",
+    answers:[
+        "Bara alla djur i ett område.",
+        "Bara växterna i en skog.",
+        "Organismerna och den icke-levande miljön i ett område."
+    ],
+    correct:2
+},
+{
+    question:"Vad är en hypotes?",
+    answers:[
+        "Ett förslag på vad man tror kommer att hända.",
+        "Det färdiga resultatet.",
+        "En lista över material."
+    ],
+    correct:0
+},
+{
+    question:"Vad visar en näringskedja?",
+    answers:[
+        "Var djur sover.",
+        "Hur energi förs vidare när organismer äter varandra.",
+        "Hur växter får vatten."
+    ],
+    correct:1
+}
+];
+
+let questionIndex = 0;
+let score = 0;
+let answered = false;
+
+function showQuestion() {
+    const question = questions[questionIndex];
+
+    document.getElementById("question").textContent =
+        question.question;
+
+    const buttons = document.querySelectorAll(".quiz button:not(#nextQuestion)");
+
+    buttons.forEach((button, index) => {
+        button.textContent = question.answers[index];
+        button.disabled = false;
+    });
+
+    document.getElementById("quizFeedback").style.display = "none";
+    document.getElementById("nextQuestion").style.display = "none";
+    answered = false;
+}
+
+function checkAnswer(choice) {
+    if (answered) return;
+
+    answered = true;
+
+    const question = questions[questionIndex];
+    const feedback = document.getElementById("quizFeedback");
+
+    if (choice === question.correct) {
+        score++;
+        feedback.textContent = "Rätt svar! Bra arbetat.";
+        feedback.className = "feedback";
+    } else {
+        feedback.textContent =
+            "Inte riktigt. Rätt svar är: " +
+            question.answers[question.correct];
+
+        feedback.className = "feedback wrong";
+    }
+
+    feedback.style.display = "block";
+
+    document.querySelectorAll(".quiz button:not(#nextQuestion)")
+        .forEach(button => button.disabled = true);
+
+    document.getElementById("quizScore").textContent =
+        "Rätt svar: " + score + " av " + questions.length;
+
+    document.getElementById("nextQuestion").style.display =
+        "block";
+
+    if (questionIndex === questions.length - 1) {
+        document.getElementById("nextQuestion").textContent =
+            "Visa resultat";
+    }
+}
+
+function nextQuestion() {
+    if (questionIndex < questions.length - 1) {
+        questionIndex++;
+        showQuestion();
+    } else {
+        document.getElementById("question").textContent =
+            "Du har gjort klart testet!";
+
+        document.querySelectorAll(".quiz button:not(#nextQuestion)")
+            .forEach(button => button.style.display = "none");
+
+        document.getElementById("quizFeedback").textContent =
+            "Du fick " + score + " rätt av " + questions.length + ".";
+
+        document.getElementById("quizFeedback").style.display = "block";
+        document.getElementById("nextQuestion").style.display = "none";
+    }
+}
+
+renderTerms();
+showQuestion();
+</script>
+
+</body>
+</html>
