@@ -1,959 +1,212 @@
 <!DOCTYPE html>
 <html lang="sv">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Växter i ekosystemet | NO-Upptäckaren</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f2f7f1;
-            color: #29382d;
-            line-height: 1.6;
-        }
-
-        header {
-            background: #245b3b;
-            color: white;
-            text-align: center;
-            padding: 32px 18px;
-        }
-
-        header h1 {
-            font-size: clamp(2rem, 5vw, 2.8rem);
-            margin: 0 0 8px;
-        }
-
-        header p {
-            margin: 0;
-            font-size: 1.1rem;
-        }
-
-        main {
-            max-width: 950px;
-            margin: 25px auto;
-            padding: 0 16px 40px;
-        }
-
-        section {
-            background: white;
-            padding: 24px;
-            border-radius: 15px;
-            margin-bottom: 22px;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
-        }
-
-        h2 {
-            color: #245b3b;
-            font-size: 1.65rem;
-            margin-top: 0;
-        }
-
-        h3 {
-            color: #245b3b;
-        }
-
-        p {
-            font-size: 1.08rem;
-        }
-
-        .intro {
-            font-size: 1.2rem;
-        }
-
-        .goal {
-            background: #e6f2e7;
-            border-left: 6px solid #3d8653;
-            padding: 16px;
-            border-radius: 8px;
-        }
-
-        .card {
-            border: 2px solid #dce9dc;
-            border-radius: 13px;
-            padding: 19px;
-            margin: 16px 0;
-        }
-
-        .card h3 {
-            margin-top: 0;
-        }
-
-        .important {
-            background: #fff5d9;
-            border-left: 5px solid #d49a24;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 16px 0;
-        }
-
-        .word {
-            display: inline-block;
-            background: #e6f2e7;
-            color: #245b3b;
-            font-weight: bold;
-            padding: 3px 9px;
-            border-radius: 6px;
-        }
-
-        .example {
-            background: #f3f7f2;
-            border-radius: 10px;
-            padding: 17px;
-            margin: 14px 0;
-        }
-
-        .chain {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 9px;
-            margin: 20px 0;
-        }
-
-        .chain-item {
-            background: #e6f2e7;
-            border: 2px solid #8eae91;
-            border-radius: 10px;
-            padding: 13px;
-            text-align: center;
-            font-weight: bold;
-            min-width: 115px;
-        }
-
-        .arrow {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #245b3b;
-        }
-
-        .question {
-            border: 2px solid #dce9dc;
-            border-radius: 12px;
-            padding: 18px;
-            margin: 18px 0;
-        }
-
-        .question p {
-            font-weight: bold;
-        }
-
-        .answer {
-            display: block;
-            width: 100%;
-            text-align: left;
-            background: #f4f7f2;
-            border: 2px solid #cbd9ca;
-            border-radius: 9px;
-            padding: 13px 15px;
-            margin: 9px 0;
-            font-size: 1rem;
-            cursor: pointer;
-            color: #29382d;
-        }
-
-        .answer:hover,
-        .answer:focus {
-            background: #e3f0e3;
-            border-color: #245b3b;
-        }
-
-        .answer.correct {
-            background: #d9f2dc;
-            border-color: #27813b;
-        }
-
-        .answer.wrong {
-            background: #fde4e1;
-            border-color: #bd4438;
-        }
-
-        .answer:disabled {
-            cursor: default;
-            opacity: 1;
-        }
-
-        .feedback {
-            min-height: 28px;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        .button {
-            display: inline-block;
-            background: #245b3b;
-            color: white;
-            border: none;
-            border-radius: 9px;
-            padding: 13px 19px;
-            margin: 7px 5px 7px 0;
-            font-size: 1rem;
-            font-weight: bold;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .button:hover {
-            background: #17432a;
-        }
-
-        .result {
-            display: none;
-            background: #e6f2e7;
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 18px;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        textarea {
-            width: 100%;
-            min-height: 100px;
-            padding: 12px;
-            border: 2px solid #cbd9ca;
-            border-radius: 9px;
-            font-family: Arial, sans-serif;
-            font-size: 1rem;
-            resize: vertical;
-        }
-
-        .reflection {
-            background: #f2f6fb;
-            border-left: 5px solid #527ca8;
-            border-radius: 8px;
-            padding: 16px;
-        }
-
-        .navigation {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            color: #526357;
-        }
-
-        @media (max-width: 600px) {
-            section {
-                padding: 18px;
-            }
-
-            .navigation .button {
-                width: 100%;
-                text-align: center;
-            }
-
-            .chain {
-                flex-direction: column;
-            }
-
-            .arrow {
-                transform: rotate(90deg);
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ekosystem – NO-Upptäckaren</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f7f4;color:#26372b;line-height:1.65}
+header{background:#245b3b;color:white;text-align:center;padding:32px 18px}
+header h1{margin:0;font-size:clamp(1.8rem,4vw,2.6rem)}
+main{max-width:950px;margin:25px auto;padding:0 16px 40px}
+section{background:white;border-radius:15px;padding:23px;margin:18px 0;box-shadow:0 2px 9px #0000000b}
+h2,h3{color:#245b3b;margin-top:0}
+p,li{font-size:1.06rem}
+.goal{background:#e6f2e7;border-left:6px solid #398052;padding:17px;border-radius:9px}
+.aspect{background:#f2f6f2;border:1px solid #d6e4d8;border-radius:10px;padding:15px;margin:10px 0}
+.tag{display:inline-block;background:#e3efe5;color:#205b38;padding:4px 10px;border-radius:20px;font-weight:bold;font-size:.9rem}
+.diagram{background:#f5f8f5;border-radius:12px;padding:12px;text-align:center;margin:15px 0}
+svg{max-width:100%;height:auto}
+.compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.compare article{background:#f5f8f5;border-radius:12px;padding:15px}
+button,.nav a{background:#245b3b;color:white;border:0;border-radius:9px;padding:13px 18px;font-size:1rem;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block;margin:5px 4px 5px 0}
+.answer{display:block;width:100%;text-align:left;background:#f0f5f0;color:#26372b;border:2px solid #dce8dd;margin:9px 0}
+.feedback{display:none;padding:14px;border-radius:9px;margin-top:12px}
+.feedback.show{display:block;background:#e6f3e8;border-left:5px solid #398052}
+.feedback.try{display:block;background:#fff3df;border-left:5px solid #d49a24}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+.small{font-size:.94rem;color:#58675c}
+@media(max-width:600px){section{padding:17px}}
+</style>
 </head>
-
 <body>
-
 <header>
-    <h1>Växter i ekosystemet</h1>
-    <p>Hur samarbetar växter med andra organismer?</p>
+<h1>Ekosystem</h1>
+<p>Hur levande organismer påverkar varandra och sin miljö</p>
 </header>
-
 <main>
 
-    <section>
-        <h2>Det här ska du lära dig</h2>
-
-        <div class="goal">
-            När du är klar ska du kunna:
-
-            <ul>
-                <li>förklara vad ett ekosystem är</li>
-                <li>skilja på levande och icke-levande delar</li>
-                <li>förklara varför växter är viktiga</li>
-                <li>beskriva hur djur och växter samspelar</li>
-                <li>förklara vad en näringskedja är</li>
-                <li>beskriva vad nedbrytare gör</li>
-            </ul>
-        </div>
-
-        <p class="intro">
-            Växter lever inte ensamma.
-            De påverkas av djur, svampar och andra växter.
-            Alla delar hör ihop i naturen.
-        </p>
-    </section>
-
-    <section>
-        <h2>1. Vad är ett ekosystem?</h2>
-
-        <p>
-            Ett <span class="word">ekosystem</span>
-            består av allt levande och allt icke-levande
-            i ett område.
-        </p>
-
-        <div class="card">
-            <h3>Levande delar</h3>
-
-            <p>Det här är organismer:</p>
-
-            <ul>
-                <li>växter</li>
-                <li>djur</li>
-                <li>svampar</li>
-                <li>bakterier</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h3>Icke-levande delar</h3>
-
-            <p>Det här är faktorer i miljön:</p>
-
-            <ul>
-                <li>vatten</li>
-                <li>luft</li>
-                <li>ljus</li>
-                <li>temperatur</li>
-                <li>jord och mineralämnen</li>
-            </ul>
-        </div>
-
-        <div class="important">
-            <strong>Kom ihåg:</strong>
-            Ett ekosystem består av både levande
-            och icke-levande delar.
-        </div>
-    </section>
-
-    <section>
-        <h2>2. Växter är producenter</h2>
-
-        <p>
-            Växter kan tillverka sitt eget socker.
-            De använder fotosyntesen.
-        </p>
-
-        <p>
-            Växter kallas därför
-            <span class="word">producenter</span>.
-            De bygger upp energirika ämnen med hjälp av ljusenergi.
-        </p>
-
-        <div class="card">
-            <h3>Vad behöver växten?</h3>
-
-            <ul>
-                <li>ljusenergi</li>
-                <li>vatten</li>
-                <li>koldioxid</li>
-            </ul>
-
-            <p>
-                Växten bildar socker och syre.
-                Sockret kan användas av växten.
-            </p>
-        </div>
-
-        <div class="important">
-            <strong>Varför är producenter viktiga?</strong>
-            Många näringskedjor börjar med växter.
-            Djur får energi genom att äta växter
-            eller andra djur.
-        </div>
-
-        <a class="button" href="fotosyntes.html">
-            Läs om fotosyntesen
-        </a>
-    </section>
-
-    <section>
-        <h2>3. Växter och djur samarbetar</h2>
-
-        <div class="card">
-            <h3>Pollinering</h3>
-
-            <p>
-                Många blommande växter behöver pollinering
-                för att kunna bilda frön.
-            </p>
-
-            <p>
-                Bin och andra insekter besöker blommor.
-                De samlar ofta nektar eller pollen.
-            </p>
-
-            <p>
-                Pollen kan fastna på insekten.
-                Det kan sedan flyttas till en annan blomma.
-            </p>
-
-            <p>
-                Det hjälper växten med sin fortplantning.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Fröspridning</h3>
-
-            <p>
-                Djur kan hjälpa växter att sprida sina frön.
-            </p>
-
-            <p>
-                Vissa djur äter frukter.
-                Frön kan sedan spridas med djurens avföring.
-            </p>
-
-            <p>
-                Andra frön fastnar i djurens päls.
-                Då kan de följa med till en ny plats.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Växter ger mat och skydd</h3>
-
-            <p>
-                Många djur äter växter.
-                Andra djur äter djur som äter växter.
-            </p>
-
-            <p>
-                Växter kan också ge skydd.
-                Fåglar kan bygga bon i träd.
-                Små djur kan gömma sig bland växter.
-            </p>
-        </div>
-    </section>
-
-    <section>
-        <h2>4. Växter och svampar samarbetar</h2>
-
-        <p>
-            Många växter lever nära svampar i marken.
-            Svampens trådar kan växa runt eller in i rötterna.
-        </p>
-
-        <p>
-            Samarbetet kallas ofta
-            <span class="word">mykorrhiza</span>.
-        </p>
-
-        <div class="card">
-            <h3>Vad händer i samarbetet?</h3>
-
-            <p>
-                Svampen hjälper växten att ta upp
-                vatten och mineralämnen.
-            </p>
-
-            <p>
-                Växten ger svampen socker.
-                Sockret har växten bildat genom fotosyntesen.
-            </p>
-        </div>
-
-        <div class="important">
-            <strong>Kom ihåg:</strong>
-            Växten och svampen kan hjälpa varandra.
-        </div>
-    </section>
-
-    <section>
-        <h2>5. Näringskedjor</h2>
-
-        <p>
-            En <span class="word">näringskedja</span>
-            visar hur energi förs vidare när organismer äter varandra.
-        </p>
-
-        <div class="example">
-            <h3>Exempel från en äng</h3>
-
-            <div class="chain">
-                <div class="chain-item">Gräs</div>
-                <div class="arrow">→</div>
-                <div class="chain-item">Gräshoppa</div>
-                <div class="arrow">→</div>
-                <div class="chain-item">Groda</div>
-                <div class="arrow">→</div>
-                <div class="chain-item">Orm</div>
-            </div>
-
-            <p>
-                Gräshoppan äter gräs.
-                Grodan kan äta gräshoppan.
-                Ormen kan äta grodan.
-            </p>
-
-            <p>
-                Pilarna visar riktningen för energins överföring.
-                Energin går från det som blir uppätet
-                till den som äter.
-            </p>
-        </div>
-
-        <div class="important">
-            <strong>Viktigt:</strong>
-            Energin kommer ursprungligen från solen.
-            Växterna fångar upp ljusenergin
-            genom fotosyntesen.
-        </div>
-    </section>
-
-    <section>
-        <h2>6. Nedbrytare</h2>
-
-        <p>
-            När växter och djur dör bryts deras rester ner.
-            Det gör bland annat svampar och bakterier.
-        </p>
-
-        <p>
-            De kallas <span class="word">nedbrytare</span>.
-        </p>
-
-        <div class="card">
-            <h3>Vad gör nedbrytarna?</h3>
-
-            <ul>
-                <li>De bryter ner döda växter.</li>
-                <li>De bryter ner döda djur.</li>
-                <li>De hjälper näringsämnen tillbaka till miljön.</li>
-            </ul>
-
-            <p>
-                Växter kan sedan ta upp mineralämnen
-                från marken igen.
-            </p>
-        </div>
-
-        <div class="important">
-            <strong>Kom ihåg:</strong>
-            Nedbrytare hjälper ämnen att cirkulera i naturen.
-        </div>
-    </section>
-
-    <section>
-        <h2>7. Vad händer om en art försvinner?</h2>
-
-        <p>
-            Organismer i ett ekosystem påverkar varandra.
-            Om en art minskar kan andra arter påverkas.
-        </p>
-
-        <div class="example">
-            <h3>Exempel</h3>
-
-            <p>
-                Tänk dig att många blommande växter försvinner.
-            </p>
-
-            <p>
-                Då kan vissa pollinatörer få svårare
-                att hitta mat.
-            </p>
-
-            <p>
-                Om pollinatörerna minskar kan vissa växter
-                få svårare att bli pollinerade.
-            </p>
-        </div>
-
-        <p>
-            Förändringar i naturen kan påverka
-            flera delar av ett ekosystem.
-        </p>
-    </section>
-
-    <section>
-        <h2>8. Begrepp att kunna</h2>
-
-        <div class="card">
-            <h3>Ekosystem</h3>
-            <p>Levande och icke-levande delar i ett område.</p>
-        </div>
-
-        <div class="card">
-            <h3>Producent</h3>
-            <p>En organism som tillverkar energirika ämnen, ofta genom fotosyntes.</p>
-        </div>
-
-        <div class="card">
-            <h3>Konsument</h3>
-            <p>En organism som får energi genom att äta andra organismer.</p>
-        </div>
-
-        <div class="card">
-            <h3>Nedbrytare</h3>
-            <p>Organismer som bryter ner döda växter och djur.</p>
-        </div>
-
-        <div class="card">
-            <h3>Näringskedja</h3>
-            <p>Visar hur energi förs vidare när organismer äter varandra.</p>
-        </div>
-
-        <div class="card">
-            <h3>Pollinering</h3>
-            <p>När pollen flyttas till en blommas märke.</p>
-        </div>
-
-        <div class="card">
-            <h3>Mykorrhiza</h3>
-            <p>Ett samarbete mellan svamp och växtrötter.</p>
-        </div>
-    </section>
-
-    <section>
-        <h2>Testa dina kunskaper</h2>
-
-        <p>
-            Välj ett svar på varje fråga.
-            Du får direkt återkoppling.
-        </p>
-
-        <div id="quiz"></div>
-
-        <button class="button" onclick="showResult()">
-            Se mitt resultat
-        </button>
-
-        <button class="button" onclick="restartQuiz()">
-            Börja om
-        </button>
-
-        <div class="result" id="result" aria-live="polite"></div>
-    </section>
-
-    <section>
-        <h2>Fundera och förklara</h2>
-
-        <div class="reflection">
-
-            <p>
-                <strong>1. Varför är växter viktiga i ett ekosystem?</strong>
-            </p>
-
-            <textarea id="answer1"
-                placeholder="Skriv ditt svar här..."></textarea>
-
-            <p>
-                <strong>2. Hur kan bin hjälpa blommande växter?</strong>
-            </p>
-
-            <textarea id="answer2"
-                placeholder="Skriv ditt svar här..."></textarea>
-
-            <p>
-                <strong>3. Varför behöver naturen nedbrytare?</strong>
-            </p>
-
-            <textarea id="answer3"
-                placeholder="Skriv ditt svar här..."></textarea>
-
-            <button class="button" onclick="saveAnswers()">
-                Spara mina svar
-            </button>
-
-            <button class="button" onclick="window.print()">
-                Skriv ut
-            </button>
-
-            <p id="saveMessage" aria-live="polite"></p>
-        </div>
-    </section>
-
-    <section>
-        <h2>Fortsätt utforska</h2>
-
-        <div class="navigation">
-            <a class="button" href="vaxter.html">Växter</a>
-            <a class="button" href="vaxtermiljo.html">Växternas livsmiljöer</a>
-            <a class="button" href="fotosyntes.html">Fotosyntes</a>
-            <a class="button" href="fortplantning.html">Fortplantning</a>
-            <a class="button" href="fronspridning.html">Fröspridning</a>
-            <a class="button" href="biologibegrepp.html">Biologiska begrepp</a>
-            <a class="button" href="biologi.html">Till biologi</a>
-            <a class="button" href="index.html">Till startsidan</a>
-        </div>
-    </section>
-
+<section class="goal">
+<span class="tag">Ditt lärandeobjekt</span>
+<h2>Vad ska du lära dig?</h2>
+<p>Du ska förstå att ett ekosystem består av levande organismer och den miljö de lever i. Du ska också kunna beskriva några samband mellan organismerna.</p>
+</section>
+
+<section>
+<h2>Det här behöver du upptäcka</h2>
+<div class="aspect"><strong>1. Ett ekosystem har en plats.</strong><br>Det kan till exempel vara en skog, en sjö eller en äng.</div>
+<div class="aspect"><strong>2. Det finns levande och icke-levande delar.</strong><br>Växter, djur och svampar är levande. Vatten, luft, ljus och mark är exempel på icke-levande delar.</div>
+<div class="aspect"><strong>3. Organismer påverkar varandra.</strong><br>De kan äta varandra, konkurrera eller hjälpa varandra.</div>
+<div class="aspect"><strong>4. Ämnen återanvänds i naturen.</strong><br>Nedbrytare hjälper till att föra tillbaka näringsämnen till marken.</div>
+</section>
+
+<section>
+<h2>1. Se ett ekosystem</h2>
+<p>En skog är ett exempel på ett ekosystem. Där finns träd, växter, djur, svampar och små organismer. Där finns också vatten, luft, jord och ljus.</p>
+<div class="diagram">
+<svg viewBox="0 0 700 300" role="img" aria-label="Förenklad skog med träd, buskar, fågel, svamp, mark, vatten och sol">
+<circle cx="590" cy="48" r="28" fill="#f4d36b"/>
+<rect x="0" y="225" width="700" height="75" fill="#b4a17b"/>
+<path d="M0 225 Q160 190 300 225 Q480 190 700 225" fill="#80a96e"/>
+<rect x="150" y="95" width="28" height="130" fill="#85613f"/>
+<circle cx="164" cy="75" r="65" fill="#4c8d53"/>
+<rect x="440" y="115" width="25" height="110" fill="#85613f"/>
+<circle cx="452" cy="95" r="58" fill="#5c9c5e"/>
+<path d="M270 225 Q285 175 300 225 M300 225 Q325 175 340 225" fill="#5a9657"/>
+<path d="M510 185 Q540 140 565 185" fill="none" stroke="#5a9657" stroke-width="7"/>
+<path d="M530 180 Q520 160 510 175 M545 180 Q560 158 570 176" fill="#5a9657"/>
+<path d="M320 230 Q335 185 350 230" fill="#b97863"/>
+<path d="M315 205 Q335 175 355 205 Z" fill="#b97863"/>
+<path d="M330 205V225" stroke="#fff" stroke-width="3"/>
+<path d="M80 70 Q110 40 135 70 Q110 90 80 70" fill="#6b91ad"/>
+<path d="M110 70L135 60L135 80Z" fill="#6b91ad"/>
+<text x="164" y="155" fill="white" font-size="14" text-anchor="middle">Träd</text>
+<text x="590" y="95" font-size="15" fill="#26372b">Ljus</text>
+<text x="335" y="270" font-size="15" fill="#26372b" text-anchor="middle">Mark</text>
+<text x="535" y="215" font-size="15" fill="#26372b">Växter</text>
+</svg>
+</div>
+</section>
+
+<section>
+<h2>2. Levande eller icke-levande?</h2>
+<p><span class="tag">Variation: kontrast</span></p>
+<div class="compare">
+<article>
+<h3>Levande delar</h3>
+<p>Träd, fåglar, insekter, svampar och bakterier.</p>
+</article>
+<article>
+<h3>Icke-levande delar</h3>
+<p>Vatten, luft, solljus, temperatur och mark.</p>
+</article>
+</div>
+<p>Båda grupperna är viktiga. En växt behöver exempelvis vatten och ljus för att kunna växa.</p>
+</section>
+
+<section>
+<h2>3. En faktor i taget</h2>
+<p><span class="tag">Variation: separation</span></p>
+<p>Tänk dig två små områden i samma skog. De har samma mark och samma mängd vatten. Men det ena området får mer ljus.</p>
+<div class="aspect"><strong>Område A:</strong> Mycket ljus når marken.</div>
+<div class="aspect"><strong>Område B:</strong> Ett tätt lövverk skuggar marken.</div>
+<p>Vilka växter som kan växa kan skilja sig åt. Här undersöker vi särskilt hur mängden ljus påverkar växterna.</p>
+</section>
+
+<section>
+<h2>4. När organismer äter varandra</h2>
+<p>En näringskedja visar hur energi förs vidare när organismer äter andra organismer.</p>
+<div class="diagram">
+<svg viewBox="0 0 700 150" role="img" aria-label="Näringskedja med gräs, gräshoppa, groda och orm">
+<rect x="10" y="35" width="135" height="65" rx="12" fill="#dcebd7" stroke="#5a8b57" stroke-width="2"/>
+<rect x="190" y="35" width="135" height="65" rx="12" fill="#e6edcf" stroke="#8b9b48" stroke-width="2"/>
+<rect x="370" y="35" width="135" height="65" rx="12" fill="#dce8ee" stroke="#6d91a5" stroke-width="2"/>
+<rect x="550" y="35" width="135" height="65" rx="12" fill="#f0e2d4" stroke="#b58b65" stroke-width="2"/>
+<text x="77" y="74" text-anchor="middle" font-size="18">Gräs</text>
+<text x="257" y="74" text-anchor="middle" font-size="18">Gräshoppa</text>
+<text x="437" y="74" text-anchor="middle" font-size="18">Groda</text>
+<text x="617" y="74" text-anchor="middle" font-size="18">Orm</text>
+<path d="M150 67H180 M170 57L182 67L170 77 M330 67H360 M350 57L362 67L350 77 M510 67H540 M530 57L542 67L530 77" stroke="#245b3b" stroke-width="3" fill="none"/>
+</svg>
+<p class="small">Pilarna visar riktningen som energi förs vidare: från det som blir uppätet till den som äter.</p>
+</div>
+</section>
+
+<section>
+<h2>5. Nedbrytare i naturen</h2>
+<p><span class="tag">Variation: generalisering</span></p>
+<p>Svampar, bakterier och små markdjur hjälper till att bryta ner döda växter och djur.</p>
+<p>Det sker i många olika ekosystem. Nedbrytningen gör att näringsämnen kan återföras till marken och användas av växter igen.</p>
+<div class="diagram">
+<svg viewBox="0 0 650 180" role="img" aria-label="Förenklad bild av nedbrytning från dött växtmaterial till näringsämnen i marken">
+<rect x="15" y="30" width="170" height="110" rx="12" fill="#e9e2d2"/>
+<rect x="240" y="30" width="170" height="110" rx="12" fill="#e4efdf"/>
+<rect x="465" y="30" width="170" height="110" rx="12" fill="#d9e9d5"/>
+<text x="100" y="80" text-anchor="middle" font-size="17">Dött material</text>
+<text x="325" y="80" text-anchor="middle" font-size="17">Nedbrytare</text>
+<text x="550" y="80" text-anchor="middle" font-size="17">Näringsämnen</text>
+<path d="M190 85H230 M220 75L232 85L220 95 M415 85H455 M445 75L457 85L445 95" stroke="#245b3b" stroke-width="3" fill="none"/>
+<text x="325" y="115" text-anchor="middle" font-size="13">Svampar och bakterier</text>
+</svg>
+</div>
+</section>
+
+<section>
+<h2>6. Sätt ihop sambanden</h2>
+<p><span class="tag">Variation: fusion</span></p>
+<div class="question">
+<h3>Vilket alternativ beskriver bäst ett ekosystem?</h3>
+<button class="answer" onclick="check('q1','a')">A. Bara alla djur på en plats</button>
+<button class="answer" onclick="check('q1','b')">B. Levande organismer och den miljö de lever i</button>
+<button class="answer" onclick="check('q1','c')">C. Bara marken och vattnet</button>
+<div id="q1" class="feedback" aria-live="polite"></div>
+</div>
+<div class="question">
+<h3>Vilken uppgift har nedbrytare?</h3>
+<button class="answer" onclick="check('q2','a')">A. De gör solljus till vatten</button>
+<button class="answer" onclick="check('q2','b')">B. De stoppar all tillväxt</button>
+<button class="answer" onclick="check('q2','c')">C. De bryter ner dött material</button>
+<div id="q2" class="feedback" aria-live="polite"></div>
+</div>
+<div class="question">
+<h3>Vad visar en näringskedja?</h3>
+<button class="answer" onclick="check('q3','a')">A. Hur energi förs vidare mellan organismer</button>
+<button class="answer" onclick="check('q3','b')">B. Hur vatten rinner genom marken</button>
+<button class="answer" onclick="check('q3','c')">C. Hur gamla organismer blir</button>
+<div id="q3" class="feedback" aria-live="polite"></div>
+</div>
+</section>
+
+<section>
+<h2>Förklara med egna ord</h2>
+<ol>
+<li>Vad är ett ekosystem?</li>
+<li>Ge två exempel på levande delar.</li>
+<li>Ge två exempel på icke-levande delar.</li>
+<li>Varför behövs nedbrytare?</li>
+<li>Vad visar en näringskedja?</li>
+</ol>
+</section>
+
+<section>
+<h2>Självbedömning</h2>
+<label><input type="checkbox"> Jag kan förklara vad ett ekosystem är.</label><br>
+<label><input type="checkbox"> Jag kan skilja levande delar från icke-levande delar.</label><br>
+<label><input type="checkbox"> Jag kan läsa en enkel näringskedja.</label><br>
+<label><input type="checkbox"> Jag kan förklara nedbrytarnas betydelse.</label>
+</section>
+
+<nav class="nav">
+<a href="fotosyntes.html">Föregående: Fotosyntes</a>
+<a href="biologibegrepp.html">Biologiska begrepp</a>
+<a href="biologitest.html">Biologitest</a>
+<a href="forskardagbok.html">Forskardagbok</a>
+<a href="index.html">Startsidan</a>
+</nav>
 </main>
-
-<footer>
-    NO-Upptäckaren | Biologi årskurs 4–6
-</footer>
-
 <script>
-    const questions = [
-        {
-            question: "Vad består ett ekosystem av?",
-            answers: [
-                "Bara växter",
-                "Levande och icke-levande delar",
-                "Bara djur"
-            ],
-            correct: 1,
-            explanation: "Rätt! Ett ekosystem består av levande och icke-levande delar."
-        },
-        {
-            question: "Varför kallas växter producenter?",
-            answers: [
-                "De tillverkar socker genom fotosyntesen",
-                "De äter andra växter",
-                "De bryter ner döda djur"
-            ],
-            correct: 0,
-            explanation: "Rätt! Växter tillverkar socker genom fotosyntesen."
-        },
-        {
-            question: "Vad kan bin hjälpa växter med?",
-            answers: [
-                "Pollinering",
-                "Nedbrytning",
-                "Att bilda rötter"
-            ],
-            correct: 0,
-            explanation: "Rätt! Bin kan flytta pollen mellan blommor."
-        },
-        {
-            question: "Vad är en näringskedja?",
-            answers: [
-                "En lista med växtnamn",
-                "Hur energi förs vidare när organismer äter varandra",
-                "En kedja av rötter"
-            ],
-            correct: 1,
-            explanation: "Rätt! En näringskedja visar hur energi förs vidare."
-        },
-        {
-            question: "Vad gör nedbrytare?",
-            answers: [
-                "Bryter ner döda växter och djur",
-                "Tillverkar solljus",
-                "Stoppar fotosyntesen"
-            ],
-            correct: 0,
-            explanation: "Rätt! Svampar och bakterier kan fungera som nedbrytare."
-        },
-        {
-            question: "Vad får svampen vid mykorrhiza?",
-            answers: [
-                "Socker från växten",
-                "Solljus från roten",
-                "Syre från blommorna"
-            ],
-            correct: 0,
-            explanation: "Rätt! Växten ger svampen socker."
-        },
-        {
-            question: "Vad får växten hjälp med vid mykorrhiza?",
-            answers: [
-                "Att ta upp vatten och mineralämnen",
-                "Att fånga insekter",
-                "Att bilda solljus"
-            ],
-            correct: 0,
-            explanation: "Rätt! Svampen kan hjälpa växten att ta upp vatten och mineralämnen."
-        },
-        {
-            question: "Varifrån kommer energin i början av många näringskedjor?",
-            answers: [
-                "Från solen",
-                "Från stenar",
-                "Från marken"
-            ],
-            correct: 0,
-            explanation: "Rätt! Växter fångar upp ljusenergi från solen."
-        },
-        {
-            question: "Vad kan hända om många blommande växter försvinner?",
-            answers: [
-                "Vissa pollinatörer kan få mindre mat",
-                "Alla djur får mer mat",
-                "Alla ekosystem blir större"
-            ],
-            correct: 0,
-            explanation: "Rätt! Pollinatörer kan få svårare att hitta mat."
-        },
-        {
-            question: "Vad händer med näringsämnen när döda växter bryts ner?",
-            answers: [
-                "De kan återföras till miljön",
-                "De försvinner alltid",
-                "De blir till solljus"
-            ],
-            correct: 0,
-            explanation: "Rätt! Nedbrytare hjälper näringsämnen tillbaka till miljön."
-        }
-    ];
-
-    let score = 0;
-    let answered = 0;
-    let completed = [];
-
-    function createQuiz() {
-        const quiz = document.getElementById("quiz");
-        quiz.innerHTML = "";
-
-        questions.forEach((q, index) => {
-            const box = document.createElement("div");
-            box.className = "question";
-
-            const title = document.createElement("p");
-            title.textContent = (index + 1) + ". " + q.question;
-            box.appendChild(title);
-
-            q.answers.forEach((answer, answerIndex) => {
-                const button = document.createElement("button");
-                button.className = "answer";
-                button.type = "button";
-                button.textContent = answer;
-
-                button.addEventListener("click", () => {
-                    checkAnswer(index, answerIndex, box);
-                });
-
-                box.appendChild(button);
-            });
-
-            const feedback = document.createElement("div");
-            feedback.className = "feedback";
-            feedback.setAttribute("aria-live", "polite");
-            box.appendChild(feedback);
-
-            quiz.appendChild(box);
-        });
-    }
-
-    function checkAnswer(questionIndex, answerIndex, box) {
-        if (completed.includes(questionIndex)) {
-            return;
-        }
-
-        completed.push(questionIndex);
-        answered++;
-
-        const question = questions[questionIndex];
-        const buttons = box.querySelectorAll(".answer");
-        const feedback = box.querySelector(".feedback");
-
-        buttons.forEach(button => {
-            button.disabled = true;
-        });
-
-        if (answerIndex === question.correct) {
-            score++;
-            buttons[answerIndex].classList.add("correct");
-            feedback.textContent = question.explanation;
-            feedback.style.color = "#17652b";
-        } else {
-            buttons[answerIndex].classList.add("wrong");
-            buttons[question.correct].classList.add("correct");
-            feedback.textContent = "Inte riktigt. " + question.explanation;
-            feedback.style.color = "#9a332b";
-        }
-    }
-
-    function showResult() {
-        const result = document.getElementById("result");
-        result.style.display = "block";
-
-        if (answered < questions.length) {
-            result.textContent =
-                "Du har svarat på " + answered + " av " +
-                questions.length + " frågor. Fortsätt!";
-            return;
-        }
-
-        result.textContent =
-            "Du fick " + score + " av " +
-            questions.length + " rätt.";
-
-        if (score === questions.length) {
-            result.textContent += " Fantastiskt! Alla rätt!";
-        } else if (score >= 6) {
-            result.textContent += " Bra jobbat!";
-        } else {
-            result.textContent += " Läs igen och försök en gång till.";
-        }
-    }
-
-    function restartQuiz() {
-        score = 0;
-        answered = 0;
-        completed = [];
-
-        document.getElementById("result").style.display = "none";
-        createQuiz();
-    }
-
-    function saveAnswers() {
-        const answers = {
-            answer1: document.getElementById("answer1").value,
-            answer2: document.getElementById("answer2").value,
-            answer3: document.getElementById("answer3").value
-        };
-
-        try {
-            localStorage.setItem(
-                "noUpptackarenEkosystem",
-                JSON.stringify(answers)
-            );
-
-            document.getElementById("saveMessage").textContent =
-                "Dina svar är sparade på den här enheten.";
-
-        } catch (error) {
-            document.getElementById("saveMessage").textContent =
-                "Det gick inte att spara svaren.";
-        }
-    }
-
-    function loadAnswers() {
-        try {
-            const saved = localStorage.getItem(
-                "noUpptackarenEkosystem"
-            );
-
-            if (saved) {
-                const answers = JSON.parse(saved);
-
-                document.getElementById("answer1").value =
-                    answers.answer1 || "";
-
-                document.getElementById("answer2").value =
-                    answers.answer2 || "";
-
-                document.getElementById("answer3").value =
-                    answers.answer3 || "";
-            }
-
-        } catch (error) {
-            console.log("Kunde inte läsa sparade svar.");
-        }
-    }
-
-    createQuiz();
-    loadAnswers();
+function check(id,value){
+const box=document.getElementById(id);
+const data={
+q1:{right:"b",good:"Rätt. Ett ekosystem innehåller både levande organismer och den miljö de lever i.",try:"Tänk på både organismerna och deras omgivning."},
+q2:{right:"c",good:"Rätt. Nedbrytare bryter ner döda växter och djur och hjälper näringsämnen tillbaka till marken.",try:"Tänk på vad som händer med ett dött löv på marken."},
+q3:{right:"a",good:"Rätt. En näringskedja visar hur energi förs vidare när organismer äter varandra.",try:"Tänk på pilarna mellan organismerna i exemplet."}
+};
+const d=data[id];
+box.className="feedback show "+(value===d.right?"":"try");
+box.textContent=value===d.right?d.good:d.try;
+}
 </script>
-
 </body>
 </html>
