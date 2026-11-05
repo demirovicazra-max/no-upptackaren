@@ -1,299 +1,303 @@
 <!DOCTYPE html>
-
 <html lang="sv">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-```
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NO-Upptäckaren</title>
-
 <link rel="stylesheet" href="style.css">
 
 <style>
+*{box-sizing:border-box}
 
-    .welcome {
-        background: white;
-        border-radius: 20px;
-        padding: 35px;
-        margin-bottom: 30px;
-        text-align: center;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    }
+body{
+font-family:Arial,sans-serif;
+margin:0;
+background:#f2f6f3;
+color:#18332a;
+line-height:1.6;
+}
 
-    .welcome h2 {
-        font-size: 30px;
-        margin-bottom: 15px;
-    }
+header{
+background:#245b43;
+color:white;
+text-align:center;
+padding:35px 15px;
+}
 
-    .welcome p {
-        font-size: 18px;
-        line-height: 1.6;
-    }
+header h1{font-size:32px;margin:0 0 8px}
 
-    .subjects {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 20px;
-    }
+main{
+max-width:1150px;
+margin:30px auto;
+padding:0 18px;
+}
 
-    .subject {
-        display: block;
-        background: white;
-        border-radius: 20px;
-        padding: 30px 20px;
-        text-align: center;
-        text-decoration: none;
-        color: #18332a;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-        transition: transform 0.2s, box-shadow 0.2s;
-    }
+.welcome{
+background:white;
+border-radius:18px;
+padding:30px;
+margin-bottom:30px;
+text-align:center;
+box-shadow:0 5px 18px #0000000d;
+}
 
-    .subject:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 12px 25px rgba(0,0,0,0.14);
-    }
+.section-heading{
+text-align:center;
+font-size:27px;
+margin:40px 0 20px;
+color:#18332a;
+}
 
-    .subject .icon {
-        font-size: 55px;
-        margin-bottom: 15px;
-    }
+.subjects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:18px;
+}
 
-    .subject h3 {
-        font-size: 23px;
-        margin-bottom: 10px;
-    }
+.subject{
+display:block;
+background:white;
+border-radius:16px;
+padding:25px 20px;
+text-align:center;
+text-decoration:none;
+color:#18332a;
+box-shadow:0 5px 18px #0000000d;
+border-top:7px solid #16a34a;
+transition:transform .2s;
+}
 
-    .subject p {
-        color: #52665d;
-        line-height: 1.5;
-    }
+.subject:hover{
+transform:translateY(-4px);
+}
 
-    .grade {
-        border-top: 7px solid #16a34a;
-    }
+.subject:focus{
+outline:4px solid #2563eb;
+outline-offset:3px;
+}
 
-    .coming {
-        border-top: 7px solid #94a3b8;
-    }
+.subject .icon{
+font-size:42px;
+margin-bottom:10px;
+}
 
-    .biology {
-        border-top: 7px solid #16a34a;
-    }
+.subject h3{
+font-size:21px;
+margin:8px 0;
+}
 
-    .concepts {
-        border-top: 7px solid #0d9488;
-    }
+.subject p{
+color:#52665d;
+margin:0;
+}
 
-    .test {
-        border-top: 7px solid #e59b25;
-    }
+.biology{border-top-color:#16a34a}
+.concepts{border-top-color:#0d9488}
+.test{border-top-color:#e59b25}
+.diary{border-top-color:#6479c8}
+.water{border-top-color:#2496c7}
+.weather{border-top-color:#e2a52c}
+.nature{border-top-color:#628b43}
+.science{border-top-color:#8065b5}
 
-    .diary {
-        border-top: 7px solid #6479c8;
-    }
+.coming{
+border-top-color:#94a3b8;
+}
 
-    .section-heading {
-        text-align: center;
-        font-size: 27px;
-        margin: 40px 0 20px;
-        color: #18332a;
-    }
+footer{
+text-align:center;
+padding:30px;
+color:#52665d;
+}
 
-    .subject:focus {
-        outline: 4px solid #2563eb;
-        outline-offset: 4px;
-    }
-
-    @media (max-width: 600px) {
-        .welcome {
-            padding: 25px 18px;
-        }
-
-        .welcome h2 {
-            font-size: 25px;
-        }
-
-        .section-heading {
-            font-size: 23px;
-        }
-    }
-
+@media(max-width:600px){
+header h1{font-size:25px}
+.welcome{padding:22px 16px}
+.section-heading{font-size:23px}
+.subject{padding:22px 15px}
+}
 </style>
-```
-
 </head>
 
 <body>
 
 <header>
-
-```
-<h1>🔬 NO-UPPTÄCKAREN</h1>
-
-<p>
-    Din interaktiva NO-värld
-</p>
-```
-
+<h1>NO-UPPTÄCKAREN</h1>
+<p>Din interaktiva NO-värld</p>
 </header>
 
 <main>
 
-```
 <section class="welcome">
-
-    <h2>👋 Välkommen, forskare!</h2>
-
-    <p>
-        Här får du utforska biologi, kemi, fysik och teknik
-        genom texter, undersökningar, begrepp, frågor och quiz.
-    </p>
-
+<h2>Välkommen, forskare!</h2>
+<p>
+Här får du utforska biologi, kemi, fysik och teknik.
+Läs texter, upptäck begrepp, gör undersökningar
+och testa dina kunskaper.
+</p>
 </section>
 
-
-<h2 class="section-heading">
-    Välj årskurs
-</h2>
-
+<h2 class="section-heading">Välj årskurs</h2>
 
 <section class="subjects">
 
+<a href="ak4.html" class="subject">
+<div class="icon">🔬</div>
+<h3>Årskurs 4</h3>
+<p>Utforska NO för årskurs 4.</p>
+</a>
 
-    <a href="ak4.html" class="subject grade">
+<div class="subject coming">
+<div class="icon">🧪</div>
+<h3>Årskurs 5</h3>
+<p>Kommer snart.</p>
+</div>
 
-        <div class="icon">
-            🔬
-        </div>
-
-        <h3>Årskurs 4</h3>
-
-        <p>
-            Utforska NO för årskurs 4.
-        </p>
-
-    </a>
-
-
-    <div class="subject coming">
-
-        <div class="icon">
-            🧪
-        </div>
-
-        <h3>Årskurs 5</h3>
-
-        <p>
-            Kommer snart.
-        </p>
-
-    </div>
-
-
-    <div class="subject coming">
-
-        <div class="icon">
-            ⚡
-        </div>
-
-        <h3>Årskurs 6</h3>
-
-        <p>
-            Kommer snart.
-        </p>
-
-    </div>
-
+<div class="subject coming">
+<div class="icon">⚡</div>
+<h3>Årskurs 6</h3>
+<p>Kommer snart.</p>
+</div>
 
 </section>
 
-
-<h2 class="section-heading">
-    Biologi – utforska och lär dig
-</h2>
-
+<h2 class="section-heading">Biologi – utforska och lär dig</h2>
 
 <section class="subjects">
 
+<a href="biologi.html" class="subject biology">
+<div class="icon">🌱</div>
+<h3>Biologi</h3>
+<p>Utforska växter, djur, kroppen, naturen och livet.</p>
+</a>
 
-    <a href="biologi.html" class="subject biology">
+<a href="biologibegrepp.html" class="subject concepts">
+<div class="icon">📚</div>
+<h3>Biologiska begrepp</h3>
+<p>Lär dig viktiga ord och begrepp inom biologi.</p>
+</a>
 
-        <div class="icon">
-            🌱
-        </div>
+<a href="biologitest.html" class="subject test">
+<div class="icon">🧠</div>
+<h3>Biologitest</h3>
+<p>Testa dina kunskaper och få återkoppling.</p>
+</a>
 
-        <h3>Biologi</h3>
+<a href="forskardagbok.html" class="subject diary">
+<div class="icon">🔎</div>
+<h3>Forskardagbok</h3>
+<p>Skriv hypoteser och dokumentera undersökningar.</p>
+</a>
 
-        <p>
-            Utforska växter, djur, kroppen, naturen och livet.
-        </p>
+<a href="biologiprogression.html" class="subject biology">
+<div class="icon">🪜</div>
+<h3>Biologins lärstig</h3>
+<p>Följ stegen och upptäck biologins olika områden.</p>
+</a>
 
-    </a>
-
-
-    <a href="biologibegrepp.html" class="subject concepts">
-
-        <div class="icon">
-            📚
-        </div>
-
-        <h3>Biologiska begrepp</h3>
-
-        <p>
-            Lär dig viktiga ord och begrepp inom biologi.
-            Träna med sökfunktion och quiz.
-        </p>
-
-    </a>
-
-
-    <a href="biologitest.html" class="subject test">
-
-        <div class="icon">
-            🧠
-        </div>
-
-        <h3>Biologitest</h3>
-
-        <p>
-            Testa dina kunskaper och få återkoppling
-            direkt på dina svar.
-        </p>
-
-    </a>
-
-
-    <a href="forskardagbok.html" class="subject diary">
-
-        <div class="icon">
-            🔎
-        </div>
-
-        <h3>Forskardagbok</h3>
-
-        <p>
-            Skriv hypoteser, dokumentera observationer
-            och följ dina undersökningar.
-        </p>
-
-    </a>
-
+<a href="biologibedomning.html" class="subject concepts">
+<div class="icon">📝</div>
+<h3>Självbedömning</h3>
+<p>Fundera över vad du har lärt dig.</p>
+</a>
 
 </section>
-```
+
+<h2 class="section-heading">Vatten, vind och väder</h2>
+
+<section class="subjects">
+
+<a href="vadervindklimat.html" class="subject weather">
+<div class="icon">🌦️</div>
+<h3>Väder, vind och klimat</h3>
+<p>Lär dig om väder, vind, moln och klimat.</p>
+</a>
+
+<a href="vattnetsbetydelse.html" class="subject water">
+<div class="icon">💧</div>
+<h3>Vattnets betydelse</h3>
+<p>Upptäck varför vatten är viktigt för allt liv.</p>
+</a>
+
+<a href="vattenmiljoer.html" class="subject water">
+<div class="icon">🌊</div>
+<h3>Vattenmiljöer</h3>
+<p>Utforska sjöar, hav och vattendrag.</p>
+</a>
+
+<a href="vattnetskretslopp.html" class="subject water">
+<div class="icon">🔄</div>
+<h3>Vattnets kretslopp</h3>
+<p>Följ vattnets väg genom naturen.</p>
+</a>
+
+</section>
+
+<h2 class="section-heading">Natur och miljö</h2>
+
+<section class="subjects">
+
+<a href="ekosystem.html" class="subject nature">
+<div class="icon">🌳</div>
+<h3>Ekosystem</h3>
+<p>Upptäck hur organismer lever tillsammans.</p>
+</a>
+
+<a href="naringskedjor.html" class="subject nature">
+<div class="icon">🐛</div>
+<h3>Näringskedjor</h3>
+<p>Se hur energi förs vidare mellan organismer.</p>
+</a>
+
+<a href="biologiskmangfald.html" class="subject nature">
+<div class="icon">🦋</div>
+<h3>Biologisk mångfald</h3>
+<p>Lär dig om variationen av liv på jorden.</p>
+</a>
+
+<a href="manniskanspaverkan.html" class="subject nature">
+<div class="icon">🌍</div>
+<h3>Människans påverkan</h3>
+<p>Undersök hur människor påverkar naturen.</p>
+</a>
+
+<a href="vaxtermiljo.html" class="subject nature">
+<div class="icon">🌿</div>
+<h3>Växter och miljö</h3>
+<p>Utforska hur växter lever i olika miljöer.</p>
+</a>
+
+</section>
+
+<h2 class="section-heading">Fler NO-områden</h2>
+
+<section class="subjects">
+
+<a href="fysik.html" class="subject science">
+<div class="icon">⚡</div>
+<h3>Fysik</h3>
+<p>Utforska krafter, energi och fysikaliska fenomen.</p>
+</a>
+
+<a href="kemi.html" class="subject science">
+<div class="icon">🧪</div>
+<h3>Kemi</h3>
+<p>Upptäck ämnen och kemiska förändringar.</p>
+</a>
+
+<a href="teknik.html" class="subject science">
+<div class="icon">⚙️</div>
+<h3>Teknik</h3>
+<p>Undersök tekniska lösningar och konstruktioner.</p>
+</a>
+
+</section>
 
 </main>
 
 <footer>
-
-```
-NO-Upptäckaren
-```
-
+<p>NO-Upptäckaren · Interaktiv NO-lärobok årskurs 4–6</p>
 </footer>
 
 </body>
-
 </html>
