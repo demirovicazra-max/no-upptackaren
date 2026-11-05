@@ -4,35 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Celler och liv – NO-Upptäckaren</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f3f7f4;color:#26372b;line-height:1.65}
+body{margin:0;background:#f3f7f4;color:#26372b;font-family:Arial,sans-serif;line-height:1.65}
 header{background:#245b3b;color:white;text-align:center;padding:32px 18px}
 header h1{margin:0;font-size:clamp(1.8rem,4vw,2.6rem)}
 main{max-width:950px;margin:25px auto;padding:0 16px 40px}
 section{background:white;border-radius:15px;padding:23px;margin:18px 0;box-shadow:0 2px 9px #0000000b}
-h2,h3{color:#245b3b;margin-top:0}
-p,li{font-size:1.06rem}
-.goal{background:#e6f2e7;border-left:6px solid #398052;padding:17px;border-radius:9px}
-.aspect{background:#f2f6f2;border:1px solid #d6e4d8;border-radius:10px;padding:15px;margin:10px 0}
+h2,h3{color:#245b3b}
+.goal{background:#e6f2e7;border-left:6px solid #398052}
 .tag{display:inline-block;background:#e3efe5;color:#205b38;padding:4px 10px;border-radius:20px;font-weight:bold;font-size:.9rem}
-.diagram{background:#f5f8f5;border-radius:12px;padding:12px;text-align:center;margin:15px 0}
-svg{max-width:100%;height:auto}
-.compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:15px}
-.compare article{background:#f5f8f5;border:1px solid #dce8dd;border-radius:12px;padding:15px}
+.photo{width:100%;max-height:340px;object-fit:cover;border-radius:12px}
+.caption{font-size:.92rem;color:#58675c;margin-top:5px}
+.levels,.compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.card{background:#f2f6f2;border:1px solid #d6e4d8;border-radius:12px;padding:16px}
+.card h3{margin-top:0}
+.key{background:#edf5ed;border-left:5px solid #398052;padding:15px;border-radius:8px;margin:14px 0}
 button,.nav a{background:#245b3b;color:white;border:0;border-radius:9px;padding:13px 18px;font-size:1rem;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block;margin:5px 4px 5px 0}
-button:hover,.nav a:hover{background:#17452b}
-button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #d99b24;outline-offset:3px}
 .answer{display:block;width:100%;text-align:left;background:#f0f5f0;color:#26372b;border:2px solid #dce8dd;margin:9px 0}
-.answer:hover{background:#e2eee4}
 .feedback{display:none;padding:14px;border-radius:9px;margin-top:12px}
 .feedback.show{display:block;background:#e6f3e8;border-left:5px solid #398052}
 .feedback.try{display:block;background:#fff3df;border-left:5px solid #d49a24}
-.small{color:#58675c;font-size:.94rem}
 .nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+button:focus-visible,a:focus-visible{outline:3px solid #d99b24;outline-offset:3px}
 @media(max-width:600px){section{padding:17px}}
 </style>
 </head>
+
 <body>
 <header>
 <h1>Celler och liv</h1>
@@ -44,165 +43,149 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #d99b
 <section class="goal">
 <span class="tag">Ditt lärandeobjekt</span>
 <h2>Vad ska du lära dig?</h2>
-<p>Du ska förstå att allt levande består av celler och kunna jämföra växtceller med djurceller.</p>
+<p>Du ska förstå att levande organismer består av celler. Du ska också kunna jämföra växtceller och djurceller.</p>
 </section>
 
 <section>
-<h2>Det här behöver du upptäcka</h2>
-<div class="aspect"><strong>1. Celler bygger upp levande organismer.</strong><br>En cell är den minsta levande byggstenen i en organism.</div>
-<div class="aspect"><strong>2. Celler har olika delar.</strong><br>Delarna har olika uppgifter.</div>
-<div class="aspect"><strong>3. Växtceller och djurceller liknar varandra.</strong><br>Men växtceller har också några särskilda delar.</div>
-</section>
+<h2>1. Börja på makronivå – det stora</h2>
+<p>Titta på en hel växt. Du kan se blad, stjälk och rötter.</p>
 
-<section>
-<h2>Från det stora till det lilla</h2>
-<p>En människa består av många celler. En växt består också av många celler. Cellerna är så små att de flesta inte går att se utan mikroskop.</p>
-<div class="diagram">
-<svg viewBox="0 0 700 230" role="img" aria-labelledby="celltitle celldesc">
-<title id="celltitle">Från organism till cell</title>
-<desc id="celldesc">En människa och en växt visas tillsammans med en förstorad cell.</desc>
-<circle cx="110" cy="65" r="30" fill="#e4bd91" stroke="#785c42" stroke-width="3"/>
-<path d="M80 105 Q110 85 140 105 L155 190 L65 190 Z" fill="#82a8c5" stroke="#49677c" stroke-width="3"/>
-<path d="M390 185 Q390 100 420 70 Q450 100 450 185" fill="#5b9a60" stroke="#31683b" stroke-width="4"/>
-<path d="M420 100 Q360 70 350 110 Q380 140 420 120 M420 130 Q470 90 490 120 Q470 155 420 145" fill="#77b66d" stroke="#31683b" stroke-width="3"/>
-<path d="M420 70 L420 35" stroke="#31683b" stroke-width="5"/>
-<path d="M220 115 L300 115" stroke="#245b3b" stroke-width="3" stroke-dasharray="7 6"/>
-<path d="M290 105 L305 115 L290 125" fill="none" stroke="#245b3b" stroke-width="3"/>
-<circle cx="570" cy="115" r="65" fill="#dcefdc" stroke="#39794b" stroke-width="4"/>
-<circle cx="570" cy="115" r="20" fill="#9a8ac4"/>
-<circle cx="545" cy="85" r="8" fill="#4d9a68"/>
-<circle cx="600" cy="145" r="8" fill="#4d9a68"/>
-<text x="110" y="215" text-anchor="middle" font-size="16" fill="#26372b">Människa</text>
-<text x="420" y="215" text-anchor="middle" font-size="16" fill="#26372b">Växt</text>
-<text x="570" y="205" text-anchor="middle" font-size="16" fill="#26372b">Cell</text>
-</svg>
-<p class="small">Bilden visar att stora organismer är uppbyggda av mycket små delar.</p>
+<img class="photo"
+src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1100&q=85"
+alt="En grön växt med flera blad">
+
+<p class="caption">Makronivå: en hel växt som vi kan se med ögonen.</p>
+
+<div class="key">
+<strong>Fundera:</strong>
+<p>Kan du se växtens celler med bara ögonen?</p>
+<p>Nej. Cellerna är så små att vi behöver ett mikroskop för att se de flesta av dem.</p>
 </div>
 </section>
 
 <section>
-<h2>Jämför: växtcell och djurcell</h2>
-<p><span class="tag">Variation: kontrast</span></p>
-<p>Jämför bilderna. Lägg märke till vad som är lika och vad som skiljer cellerna åt.</p>
+<h2>2. Gå närmare – från växt till cell</h2>
+<p>En växt består av många celler. Cellerna bygger upp växtens olika delar.</p>
+
+<div class="levels">
+<div class="card">
+<h3>Makronivå</h3>
+<p>En hel växt med blad, stjälk och rötter.</p>
+</div>
+<div class="card">
+<h3>Mikronivå</h3>
+<p>Små celler bygger upp blad, stjälk och rötter.</p>
+</div>
+</div>
+
+<p>En cell är en mycket liten levande byggsten. Människor, djur, växter och svampar består av celler.</p>
+</section>
+
+<section>
+<h2>3. Växtceller och djurceller</h2>
+<p>Växtceller och djurceller har flera delar gemensamt. Men växtceller har också särskilda delar.</p>
+
 <div class="compare">
-<article>
+<article class="card">
 <h3>Växtcell</h3>
-<svg viewBox="0 0 300 210" role="img" aria-label="Förenklad växtcell med cellvägg, cellmembran, cellkärna, kloroplaster och vakuol">
-<rect x="20" y="20" width="260" height="170" rx="20" fill="#b9dcae" stroke="#39764a" stroke-width="9"/>
-<rect x="30" y="30" width="240" height="150" rx="15" fill="#e7f4dc" stroke="#6d9d66" stroke-width="3"/>
-<ellipse cx="150" cy="105" rx="50" ry="55" fill="#d2e8f1" stroke="#6392a7" stroke-width="3"/>
-<circle cx="80" cy="80" r="19" fill="#9c8bc3" stroke="#62518a" stroke-width="2"/>
-<ellipse cx="220" cy="65" rx="20" ry="9" fill="#4e9d61"/>
-<ellipse cx="220" cy="145" rx="20" ry="9" fill="#4e9d61"/>
-<ellipse cx="75" cy="145" rx="20" ry="9" fill="#4e9d61"/>
-<text x="80" y="53" font-size="12" text-anchor="middle">Cellkärna</text>
-<text x="150" y="110" font-size="12" text-anchor="middle">Vakuol</text>
-<text x="210" y="35" font-size="12" text-anchor="middle">Kloroplast</text>
-</svg>
-<p>Växtcellen har cellvägg, kloroplaster och ofta en stor vakuol.</p>
+<p><strong>Cellvägg:</strong> ger stöd och stadga.</p>
+<p><strong>Cellmembran:</strong> omsluter cellen.</p>
+<p><strong>Cellkärna:</strong> innehåller arvsmassa.</p>
+<p><strong>Kloroplaster:</strong> här sker fotosyntesen.</p>
+<p><strong>Vakuol:</strong> innehåller cellvätska.</p>
 </article>
-<article>
+
+<article class="card">
 <h3>Djurcell</h3>
-<svg viewBox="0 0 300 210" role="img" aria-label="Förenklad djurcell med cellmembran, cellkärna och cytoplasma">
-<ellipse cx="150" cy="105" rx="125" ry="78" fill="#f4d9c9" stroke="#b77d61" stroke-width="4"/>
-<ellipse cx="145" cy="105" rx="42" ry="37" fill="#9c8bc3" stroke="#62518a" stroke-width="3"/>
-<circle cx="80" cy="75" r="9" fill="#d49b62"/>
-<circle cx="210" cy="75" r="9" fill="#d49b62"/>
-<circle cx="205" cy="140" r="9" fill="#d49b62"/>
-<circle cx="85" cy="145" r="9" fill="#d49b62"/>
-<text x="145" y="110" text-anchor="middle" font-size="12" fill="white">Cellkärna</text>
-<text x="150" y="202" text-anchor="middle" font-size="12">Cellmembran runt cellen</text>
-</svg>
-<p>Djurcellen har cellmembran, cellkärna och cytoplasma. Den saknar cellvägg och kloroplaster.</p>
+<p><strong>Cellmembran:</strong> omsluter cellen.</p>
+<p><strong>Cellkärna:</strong> innehåller arvsmassa.</p>
+<p><strong>Cellplasma:</strong> fyller cellen.</p>
+<p><strong>Mitokondrier:</strong> hjälper cellen att frigöra energi ur näring.</p>
+<p>Djurceller har inte cellvägg eller kloroplaster.</p>
 </article>
 </div>
-<div class="aspect"><strong>Viktigt:</strong> Båda celltyperna har cellmembran, cellkärna och cytoplasma. Det är en likhet.</div>
 </section>
 
 <section>
-<h2>Undersök en celldel i taget</h2>
-<p><span class="tag">Variation: separation</span></p>
-<div class="aspect"><strong>Cellkärna</strong><br>Cellkärnan innehåller arvsmassa och är viktig för cellens funktioner.</div>
-<div class="aspect"><strong>Cellmembran</strong><br>Cellmembranet omger cellen och reglerar vad som kan passera in och ut.</div>
-<div class="aspect"><strong>Cytoplasma</strong><br>Det är vätskan och innehållet innanför cellmembranet där många processer sker.</div>
-<div class="aspect"><strong>Kloroplast</strong><br>Kloroplaster finns i gröna växtdelar. Där sker fotosyntesen.</div>
-<div class="aspect"><strong>Cellvägg</strong><br>Cellväggen ger växtcellen stadga och skydd.</div>
-</section>
+<h2>4. Jämför – vad är lika och vad är olika?</h2>
 
-<section>
-<h2>Flera exempel</h2>
-<p><span class="tag">Variation: generalisering</span></p>
-<p>En lök, ett träd och ett grässtrå är olika växter. De består ändå av växtceller.</p>
-<p>En hund, en fisk och en människa är olika djur. De består ändå av djurceller.</p>
-<p>Cellernas form och storlek kan variera. Men de har gemensamma grundläggande egenskaper.</p>
-</section>
-
-<section>
-<h2>Nu kombinerar du dina kunskaper</h2>
-<p><span class="tag">Variation: fusion</span></p>
-<p>Du har nu undersökt cellernas delar var för sig. Nu ska du använda flera ledtrådar samtidigt.</p>
-<div class="question">
-<h3>Vilken celltyp har både cellvägg och kloroplaster?</h3>
-<button class="answer" onclick="check('q1','a')">A. Växtcell</button>
-<button class="answer" onclick="check('q1','b')">B. Djurcell</button>
-<button class="answer" onclick="check('q1','c')">C. Båda celltyperna</button>
-<div id="q1" class="feedback" aria-live="polite"></div>
+<div class="key">
+<strong>Det som är lika:</strong>
+<p>Både växtceller och djurceller har cellmembran, cellkärna och cellplasma.</p>
 </div>
-<div class="question">
-<h3>Vad har växtcellen och djurcellen gemensamt?</h3>
-<button class="answer" onclick="check('q2','a')">A. Båda har kloroplaster</button>
-<button class="answer" onclick="check('q2','b')">B. Båda har cellkärna och cellmembran</button>
-<button class="answer" onclick="check('q2','c')">C. Båda har cellvägg</button>
-<div id="q2" class="feedback" aria-live="polite"></div>
-</div>
-<div class="question">
-<h3>Kan en organism bestå av bara en cell?</h3>
-<button class="answer" onclick="check('q3','a')">A. Ja</button>
-<button class="answer" onclick="check('q3','b')">B. Nej</button>
-<div id="q3" class="feedback" aria-live="polite"></div>
+
+<div class="key">
+<strong>Det som är olika:</strong>
+<p>Växtceller har cellvägg, stor vakuol och ofta kloroplaster i gröna växtdelar. Djurceller saknar dessa delar.</p>
 </div>
 </section>
 
 <section>
-<h2>Kontrollera din förståelse</h2>
-<p>Försök förklara med egna ord:</p>
-<ol>
-<li>Vad är en cell?</li>
-<li>Nämn två likheter mellan växtceller och djurceller.</li>
-<li>Nämn två skillnader.</li>
-<li>Varför behöver en cell olika delar?</li>
-</ol>
-<p class="small">Du kan skriva svaren i din forskardagbok eller diskutera dem med din lärare.</p>
+<h2>5. Träna på att urskilja skillnader</h2>
+<p>Jämför en växtcell och en djurcell. Fokusera först på en enda del.</p>
+
+<div class="card">
+<p><strong>Vilken del finns i växtcellen men inte i djurcellen?</strong></p>
+<button class="answer" onclick="check(1)">Cellvägg</button>
+<button class="answer" onclick="check(2)">Cellkärna</button>
+<button class="answer" onclick="check(3)">Cellmembran</button>
+<div id="feedback1" class="feedback" aria-live="polite"></div>
+</div>
+
+<div class="card">
+<p><strong>Vilken del finns i både växtceller och djurceller?</strong></p>
+<button class="answer" onclick="check2(1)">Kloroplast</button>
+<button class="answer" onclick="check2(2)">Cellkärna</button>
+<button class="answer" onclick="check2(3)">Cellvägg</button>
+<div id="feedback2" class="feedback" aria-live="polite"></div>
+</div>
 </section>
 
 <section>
-<h2>Självbedömning</h2>
-<p>Markera det som stämmer för dig.</p>
-<label><input type="checkbox"> Jag kan förklara vad en cell är.</label><br>
-<label><input type="checkbox"> Jag kan jämföra växtceller och djurceller.</label><br>
-<label><input type="checkbox"> Jag kan beskriva vad några celldelar gör.</label>
+<h2>6. Generalisera – gäller det fler organismer?</h2>
+<p>Vi har jämfört en växtcell och en djurcell. Nu tänker vi på fler levande organismer.</p>
+<ul>
+<li>En hund består av djurceller.</li>
+<li>En människa består av djurceller.</li>
+<li>Ett träd består av växtceller.</li>
+<li>En blomma består av växtceller.</li>
+</ul>
+<p>Olika organismer har olika celler. Men alla dessa organismer är uppbyggda av celler.</p>
+</section>
+
+<section>
+<h2>7. Förklara sambandet</h2>
+<p>Försök att använda orden organism, cell, växtcell och djurcell.</p>
+
+<div class="key">
+<p><strong>Kom ihåg:</strong> En organism är en levande individ. En organism består av en eller flera celler.</p>
+</div>
+
+<p>Fundera på hur cellerna i ett blad hänger ihop med nästa lektion om fotosyntes.</p>
+<a class="nav button" href="fotosyntes.html">Nästa: Fotosyntes</a>
 </section>
 
 <nav class="nav">
-<a href="biologi.html">Till Biologi</a>
-<a href="fotosyntes.html">Nästa: Fotosyntes</a>
-<a href="biologibegrepp.html">Biologiska begrepp</a>
-<a href="forskardagbok.html">Forskardagbok</a>
 <a href="index.html">Startsidan</a>
+<a href="biologiprogression.html">Biologins lärstig</a>
+<a href="fotosyntes.html">Nästa lektion</a>
 </nav>
+
 </main>
 
 <script>
-function check(id,value){
- const box=document.getElementById(id);
- const answers={
- q1:{right:"a",good:"Du såg båda kännetecknen. Cellväggen och kloroplasterna finns i växtceller.",try:"Titta efter cellväggen och kloroplasterna. Vilken celltyp har båda?"},
- q2:{right:"b",good:"Både växtceller och djurceller har cellkärna och cellmembran.",try:"Jämför bilderna igen. Leta efter delar som finns i båda cellerna."},
- q3:{right:"a",good:"Ja. Vissa organismer består av en enda cell.",try:"Alla organismer behöver inte vara uppbyggda av många celler."}
- };
- const item=answers[id];
- box.className="feedback show "+(value===item.right?"":"try");
- box.textContent=value===item.right?item.good:item.try;
+function showFeedback(id,correct,message){
+const box=document.getElementById(id);
+box.className=correct?"feedback show":"feedback try";
+box.textContent=message;
+}
+function check(value){
+showFeedback("feedback1",value===1,
+value===1?"Rätt! Cellväggen ger växtcellen stadga.":"Försök igen. Vilken del ger växtcellen stadga?");
+}
+function check2(value){
+showFeedback("feedback2",value===2,
+value===2?"Rätt! Både växtceller och djurceller har en cellkärna.":"Försök igen. Tänk på vad cellerna har gemensamt.");
 }
 </script>
 </body>
