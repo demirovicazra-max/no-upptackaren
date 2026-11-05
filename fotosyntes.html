@@ -1,962 +1,198 @@
 <!DOCTYPE html>
 <html lang="sv">
-
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fotosyntes – NO-Upptäckaren</title>
-
 <style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f2f7f1;
-    color: #26372b;
-    line-height: 1.7;
-}
-
-header {
-    background: #246b45;
-    color: white;
-    text-align: center;
-    padding: 35px 18px;
-}
-
-header h1 {
-    font-size: 2.3rem;
-    margin: 0;
-}
-
-header p {
-    margin-bottom: 0;
-}
-
-main {
-    max-width: 1000px;
-    margin: 28px auto;
-    padding: 0 16px;
-}
-
-section {
-    background: white;
-    border-radius: 15px;
-    padding: 25px;
-    margin-bottom: 24px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-h2 {
-    color: #246b45;
-    margin-top: 0;
-}
-
-h3 {
-    color: #246b45;
-}
-
-.intro {
-    background: #e2f1e5;
-    border-left: 7px solid #246b45;
-}
-
-.word {
-    display: inline-block;
-    background: #e2f1e5;
-    color: #205b38;
-    padding: 2px 8px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.diagram {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin: 25px 0;
-}
-
-.diagram-box {
-    background: #f0f6ef;
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-    border: 2px solid #d6e6d7;
-}
-
-.diagram-box strong {
-    display: block;
-    color: #246b45;
-    font-size: 1.15rem;
-}
-
-.plant-diagram {
-    background: #e8f3e7;
-    border-radius: 15px;
-    padding: 25px;
-    text-align: center;
-    margin: 20px 0;
-}
-
-.plant {
-    font-size: 5rem;
-    line-height: 1.4;
-}
-
-.arrow {
-    font-size: 1.7rem;
-    font-weight: bold;
-    color: #246b45;
-}
-
-.equation {
-    background: #e4f1e6;
-    border: 2px solid #b8d8bd;
-    border-radius: 13px;
-    padding: 22px;
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-    overflow-wrap: anywhere;
-}
-
-.equation small {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: normal;
-    margin-top: 10px;
-}
-
-.step {
-    border-left: 5px solid #6ba77a;
-    background: #f5f8f4;
-    border-radius: 8px;
-    padding: 17px;
-    margin: 14px 0;
-}
-
-.step-number {
-    display: inline-block;
-    background: #246b45;
-    color: white;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 14px;
-}
-
-.info-card {
-    background: #f0f6ef;
-    border-radius: 12px;
-    padding: 18px;
-}
-
-.info-card h3 {
-    margin-top: 0;
-}
-
-.question {
-    border: 1px solid #dce7dd;
-    border-radius: 12px;
-    padding: 18px;
-    margin: 18px 0;
-}
-
-.question label {
-    display: block;
-    background: #f1f6f1;
-    padding: 12px;
-    margin: 9px 0;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.question label:hover {
-    background: #e3efe4;
-}
-
-input[type="radio"] {
-    transform: scale(1.2);
-    margin-right: 10px;
-}
-
-button,
-.nav-button {
-    display: inline-block;
-    background: #246b45;
-    color: white;
-    border: none;
-    border-radius: 9px;
-    padding: 13px 19px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: none;
-    margin: 8px 5px 8px 0;
-}
-
-button:hover,
-.nav-button:hover {
-    background: #174b30;
-}
-
-button:focus-visible,
-a:focus-visible {
-    outline: 4px solid #e3a72f;
-    outline-offset: 3px;
-}
-
-.feedback {
-    display: none;
-    padding: 17px;
-    border-radius: 10px;
-    margin-top: 18px;
-}
-
-.correct {
-    display: block;
-    background: #e1f3e4;
-    border-left: 6px solid #238347;
-}
-
-.incorrect {
-    display: block;
-    background: #fff0df;
-    border-left: 6px solid #d58b27;
-}
-
-textarea {
-    width: 100%;
-    min-height: 110px;
-    padding: 13px;
-    border: 2px solid #ccd9ce;
-    border-radius: 9px;
-    font-family: Arial, sans-serif;
-    font-size: 1rem;
-    resize: vertical;
-}
-
-.small {
-    color: #59675d;
-    font-size: 0.94rem;
-}
-
-.navigation {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 25px 0;
-}
-
-.navigation a {
-    background: #344d3b;
-    color: white;
-    text-decoration: none;
-    padding: 12px 17px;
-    border-radius: 9px;
-}
-
-@media(max-width: 600px) {
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    section {
-        padding: 17px;
-    }
-
-    .diagram {
-        grid-template-columns: 1fr;
-    }
-
-    .plant {
-        font-size: 3.8rem;
-    }
-}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f7f4;color:#26372b;line-height:1.65}
+header{background:#245b3b;color:white;text-align:center;padding:32px 18px}
+header h1{margin:0;font-size:clamp(1.8rem,4vw,2.6rem)}
+main{max-width:950px;margin:25px auto;padding:0 16px 40px}
+section{background:white;border-radius:15px;padding:23px;margin:18px 0;box-shadow:0 2px 9px #0000000b}
+h2,h3{color:#245b3b;margin-top:0}
+p,li{font-size:1.06rem}
+.goal{background:#e6f2e7;border-left:6px solid #398052;padding:17px;border-radius:9px}
+.aspect{background:#f2f6f2;border:1px solid #d6e4d8;border-radius:10px;padding:15px;margin:10px 0}
+.tag{display:inline-block;background:#e3efe5;color:#205b38;padding:4px 10px;border-radius:20px;font-weight:bold;font-size:.9rem}
+.diagram{background:#f5f8f5;border-radius:12px;padding:12px;text-align:center;margin:15px 0}
+svg{max-width:100%;height:auto}
+.equation{background:#e6f2e7;padding:20px;border-radius:12px;text-align:center;font-size:1.15rem;font-weight:bold}
+button,.nav a{background:#245b3b;color:white;border:0;border-radius:9px;padding:13px 18px;font-size:1rem;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block;margin:5px 4px 5px 0}
+.answer{display:block;width:100%;text-align:left;background:#f0f5f0;color:#26372b;border:2px solid #dce8dd;margin:9px 0}
+.feedback{display:none;padding:14px;border-radius:9px;margin-top:12px}
+.feedback.show{display:block;background:#e6f3e8;border-left:5px solid #398052}
+.feedback.try{display:block;background:#fff3df;border-left:5px solid #d49a24}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+.small{font-size:.94rem;color:#58675c}
+@media(max-width:600px){section{padding:17px}}
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Fotosyntes</h1>
-    <p>Hur får växter energi och hur bildas syre?</p>
+<h1>Fotosyntes</h1>
+<p>Hur växter använder ljus för att bilda socker</p>
 </header>
-
 <main>
 
-<section class="intro">
-
-    <h2>Vad ska du lära dig?</h2>
-
-    <p>Efter lektionen ska du kunna:</p>
-
-    <ul>
-        <li>Förklara vad fotosyntes är.</li>
-        <li>Berätta vad växten behöver för fotosyntesen.</li>
-        <li>Beskriva vad som bildas.</li>
-        <li>Använda orden vatten, koldioxid, ljus, socker och syre.</li>
-    </ul>
-
+<section class="goal">
+<span class="tag">Ditt lärandeobjekt</span>
+<h2>Vad ska du lära dig?</h2>
+<p>Du ska förstå hur växter använder ljusenergi, vatten och koldioxid för att bilda druvsocker och syre.</p>
 </section>
-
 
 <section>
-
-    <h2>1. Vad är fotosyntes?</h2>
-
-    <p>
-        Växter behöver energi för att leva och växa.
-        De kan fånga upp energi från solljuset.
-    </p>
-
-    <p>
-        I växtens gröna delar sker en process
-        som heter <span class="word">fotosyntes</span>.
-    </p>
-
-    <p>
-        Vid fotosyntesen använder växten ljusenergi
-        för att bilda energirikt socker av vatten
-        och koldioxid.
-    </p>
-
-    <p>
-        Samtidigt bildas syre som släpps ut i luften.
-    </p>
-
-    <div class="plant-diagram">
-
-        <div class="plant">🌱</div>
-
-        <p><strong>En grön växt använder:</strong></p>
-
-        <div class="grid">
-
-            <div class="diagram-box">
-                <strong>☀️ Ljus</strong>
-                Energi från solen
-            </div>
-
-            <div class="diagram-box">
-                <strong>💧 Vatten</strong>
-                Tas upp av rötterna
-            </div>
-
-            <div class="diagram-box">
-                <strong>Koldioxid</strong>
-                Tas upp från luften
-            </div>
-
-            <div class="diagram-box">
-                <strong>🍃 Klorofyll</strong>
-                Fångar upp ljusenergi
-            </div>
-
-        </div>
-
-        <div class="arrow">↓</div>
-
-        <h3>Fotosyntes</h3>
-
-        <div class="grid">
-
-            <div class="diagram-box">
-                <strong>Socker</strong>
-                Växten använder sockret som energikälla och byggmaterial.
-            </div>
-
-            <div class="diagram-box">
-                <strong>Syre</strong>
-                Släpps ut i luften.
-            </div>
-
-        </div>
-
-    </div>
-
+<h2>Det här behöver du upptäcka</h2>
+<div class="aspect"><strong>1. Ljus behövs.</strong><br>Fotosyntesen behöver energi från ljuset.</div>
+<div class="aspect"><strong>2. Vatten och koldioxid behövs.</strong><br>Vatten tas främst upp genom rötterna. Koldioxid tas upp från luften genom bladens klyvöppningar.</div>
+<div class="aspect"><strong>3. Fotosyntesen sker i kloroplasterna.</strong><br>Kloroplasterna finns i växtens gröna delar.</div>
+<div class="aspect"><strong>4. Nya ämnen bildas.</strong><br>Växten bildar druvsocker och syre.</div>
 </section>
-
 
 <section>
-
-    <h2>2. Vad behöver växten?</h2>
-
-    <div class="grid">
-
-        <article class="info-card">
-            <h3>☀️ Ljus</h3>
-            <p>
-                Växten fångar upp ljusenergi.
-                Energin behövs för fotosyntesen.
-            </p>
-        </article>
-
-        <article class="info-card">
-            <h3>💧 Vatten</h3>
-            <p>
-                Rötterna tar upp vatten
-                från marken.
-                Vattnet transporteras till bladen.
-            </p>
-        </article>
-
-        <article class="info-card">
-            <h3>Koldioxid</h3>
-            <p>
-                Koldioxid är en gas i luften.
-                Växten tar upp den genom små öppningar
-                i bladen.
-            </p>
-        </article>
-
-        <article class="info-card">
-            <h3>Klorofyll</h3>
-            <p>
-                Klorofyll är ett grönt ämne
-                som fångar upp ljusenergi.
-                Det finns i kloroplasterna.
-            </p>
-        </article>
-
-    </div>
-
+<h2>1. Se växten i naturen</h2>
+<p>En växt behöver vatten från marken och koldioxid från luften. Bladen fångar upp ljus från solen.</p>
+<div class="diagram">
+<svg viewBox="0 0 700 300" role="img" aria-labelledby="plantTitle plantDesc">
+<title id="plantTitle">Fotosyntes i en hel växt</title>
+<desc id="plantDesc">En växt tar upp vatten genom rötterna, koldioxid från luften och ljus från solen. Syre lämnar växten.</desc>
+<circle cx="570" cy="65" r="38" fill="#f5d36a" stroke="#c79a27" stroke-width="3"/>
+<path d="M570 10V0 M570 120V135 M515 65H495 M625 65H645 M530 25L515 10 M610 25L625 10" stroke="#c79a27" stroke-width="4"/>
+<path d="M330 250V100" stroke="#39794b" stroke-width="9" stroke-linecap="round"/>
+<path d="M330 145 Q245 70 205 120 Q240 185 330 160" fill="#74ad69" stroke="#39794b" stroke-width="3"/>
+<path d="M330 180 Q415 100 460 145 Q425 210 330 195" fill="#74ad69" stroke="#39794b" stroke-width="3"/>
+<path d="M330 250 Q290 275 270 295 M330 250 Q350 275 365 295 M330 250 Q320 280 325 298" fill="none" stroke="#916b45" stroke-width="5"/>
+<path d="M120 210H260" stroke="#398052" stroke-width="3" stroke-dasharray="8 6"/>
+<path d="M250 200L265 210L250 220" fill="none" stroke="#398052" stroke-width="3"/>
+<path d="M500 120L390 145" stroke="#c79a27" stroke-width="3" stroke-dasharray="7 6"/>
+<path d="M400 135L388 145L405 150" fill="none" stroke="#c79a27" stroke-width="3"/>
+<path d="M380 70L340 120" stroke="#4d83a0" stroke-width="3" stroke-dasharray="7 6"/>
+<text x="115" y="190" font-size="17" fill="#26372b">Koldioxid</text>
+<text x="530" y="150" font-size="17" fill="#26372b">Ljus</text>
+<text x="330" y="290" text-anchor="middle" font-size="16" fill="#26372b">Vatten tas upp av rötterna</text>
+<text x="390" y="230" font-size="17" fill="#245b3b">Syre lämnar växten</text>
+</svg>
+<p class="small">Illustrationen visar växten som helhet. Nu ska vi undersöka vad som händer inne i bladet.</p>
+</div>
 </section>
-
 
 <section>
-
-    <h2>3. Var sker fotosyntesen?</h2>
-
-    <p>
-        Fotosyntesen sker i växtens
-        <span class="word">kloroplaster</span>.
-    </p>
-
-    <p>
-        Kloroplaster finns i växtceller.
-        De innehåller klorofyll.
-    </p>
-
-    <p>
-        Klorofyll fångar upp ljusenergi
-        som används vid fotosyntesen.
-    </p>
-
-    <div class="diagram">
-
-        <div class="diagram-box">
-            <strong>Växtcell</strong>
-            En byggsten i växten.
-        </div>
-
-        <div class="diagram-box">
-            <strong>Kloroplast</strong>
-            Finns inuti växtcellen.
-        </div>
-
-        <div class="diagram-box">
-            <strong>Klorofyll</strong>
-            Grönt ämne i kloroplasten.
-        </div>
-
-        <div class="diagram-box">
-            <strong>Fotosyntes</strong>
-            Sker i kloroplasten.
-        </div>
-
-    </div>
-
+<h2>2. Titta närmare på bladet</h2>
+<p><span class="tag">Variation: separation</span></p>
+<p>Bladet innehåller många växtceller. I de gröna delarna av cellerna finns kloroplaster. Det är där fotosyntesen sker.</p>
+<div class="diagram">
+<svg viewBox="0 0 700 260" role="img" aria-label="Förstorad växtcell med kloroplaster där fotosyntesen sker">
+<rect x="35" y="35" width="630" height="190" rx="35" fill="#d4e9c9" stroke="#39794b" stroke-width="8"/>
+<rect x="48" y="48" width="604" height="164" rx="28" fill="#edf5df" stroke="#76a66b" stroke-width="3"/>
+<ellipse cx="350" cy="130" rx="70" ry="57" fill="#d1e7f1" stroke="#6b98a8" stroke-width="3"/>
+<circle cx="350" cy="130" r="22" fill="#9c8bc3"/>
+<ellipse cx="145" cy="95" rx="34" ry="14" fill="#4b9b5e"/>
+<ellipse cx="225" cy="170" rx="34" ry="14" fill="#4b9b5e"/>
+<ellipse cx="545" cy="90" rx="34" ry="14" fill="#4b9b5e"/>
+<ellipse cx="535" cy="170" rx="34" ry="14" fill="#4b9b5e"/>
+<text x="145" y="65" text-anchor="middle" font-size="16">Kloroplast</text>
+<text x="350" y="135" text-anchor="middle" font-size="15" fill="white">Cellkärna</text>
+<text x="350" y="248" text-anchor="middle" font-size="16">Förenklad växtcell</text>
+</svg>
+<p>Inne i kloroplasterna omvandlas energi och ämnen i fotosyntesen.</p>
+</div>
 </section>
-
 
 <section>
-
-    <h2>4. Vad bildas vid fotosyntesen?</h2>
-
-    <div class="grid">
-
-        <article class="info-card">
-            <h3>Socker</h3>
-            <p>
-                Växten använder sockret
-                som energikälla och byggmaterial.
-                En del kan lagras i växten.
-            </p>
-        </article>
-
-        <article class="info-card">
-            <h3>Syre</h3>
-            <p>
-                Syre bildas vid fotosyntesen.
-                En stor del släpps ut i luften.
-            </p>
-        </article>
-
-    </div>
-
-    <p>
-        Människor och många andra organismer
-        behöver syre för cellandningen.
-    </p>
-
+<h2>3. Jämför med och utan ljus</h2>
+<p><span class="tag">Variation: kontrast</span></p>
+<div class="aspect"><strong>Växt med ljus:</strong><br>Om växten också har vatten och koldioxid kan fotosyntesen ske.</div>
+<div class="aspect"><strong>Växt utan ljus:</strong><br>Fotosyntesen kan inte fortsätta utan ljusenergi.</div>
+<p>Vad har förändrats? Ljuset. De andra förutsättningarna tänker vi oss vara lika.</p>
 </section>
-
 
 <section>
-
-    <h2>5. Fotosyntesens formel</h2>
-
-    <p>
-        Fotosyntesen kan beskrivas med en kemisk formel.
-    </p>
-
-    <div class="equation">
-
-        6 CO₂ + 6 H₂O + ljusenergi
-
-        <div class="arrow">↓</div>
-
-        C₆H₁₂O₆ + 6 O₂
-
-        <small>
-            Koldioxid + vatten + ljusenergi
-            blir socker + syre.
-        </small>
-
-    </div>
-
-    <p class="small">
-        CO₂ betyder koldioxid.
-        H₂O betyder vatten.
-        C₆H₁₂O₆ är druvsocker.
-        O₂ betyder syrgas.
-    </p>
-
+<h2>4. Vad bildas?</h2>
+<p>Växten använder vatten och koldioxid. Med hjälp av ljusenergi bildas druvsocker och syre.</p>
+<div class="equation">
+Koldioxid + vatten + ljusenergi<br>
+↓<br>
+Druvsocker + syre
+</div>
+<p>Druvsockret kan användas som energi och byggmaterial. Syre kan lämna växten och komma ut i luften.</p>
 </section>
-
 
 <section>
-
-    <h2>6. Fotosyntesen steg för steg</h2>
-
-    <div class="step">
-        <span class="step-number">Steg 1</span>
-        <h3>Vatten tas upp</h3>
-        <p>
-            Växtens rötter tar upp vatten från marken.
-        </p>
-    </div>
-
-    <div class="step">
-        <span class="step-number">Steg 2</span>
-        <h3>Koldioxid tas upp</h3>
-        <p>
-            Växten tar upp koldioxid från luften
-            genom små öppningar i bladen.
-        </p>
-    </div>
-
-    <div class="step">
-        <span class="step-number">Steg 3</span>
-        <h3>Ljus fångas upp</h3>
-        <p>
-            Klorofyll fångar upp ljusenergi
-            i kloroplasterna.
-        </p>
-    </div>
-
-    <div class="step">
-        <span class="step-number">Steg 4</span>
-        <h3>Socker bildas</h3>
-        <p>
-            Växten använder ljusenergin
-            för att bilda socker av vatten och koldioxid.
-        </p>
-    </div>
-
-    <div class="step">
-        <span class="step-number">Steg 5</span>
-        <h3>Syre släpps ut</h3>
-        <p>
-            Syre bildas och släpps ut i luften.
-        </p>
-    </div>
-
+<h2>5. Flera olika växter</h2>
+<p><span class="tag">Variation: generalisering</span></p>
+<p>Ett grässtrå, en buske och ett träd ser olika ut. Men gröna växtdelar kan utföra fotosyntes.</p>
+<p>Det betyder att fotosyntes inte bara sker i ett enda slags växt. Processen är viktig för många växter på jorden.</p>
 </section>
-
 
 <section>
+<h2>6. Sätt ihop hela processen</h2>
+<p><span class="tag">Variation: fusion</span></p>
+<p>Nu använder du alla delar tillsammans: ljus, vatten, koldioxid, kloroplaster, druvsocker och syre.</p>
 
-    <h2>7. Testa dina kunskaper</h2>
+<div class="question">
+<h3>Vad behöver växten för att fotosyntesen ska kunna ske?</h3>
+<button class="answer" onclick="check('q1','a')">A. Ljus, vatten och koldioxid</button>
+<button class="answer" onclick="check('q1','b')">B. Jord, syre och druvsocker</button>
+<button class="answer" onclick="check('q1','c')">C. Bara vatten</button>
+<div id="q1" class="feedback" aria-live="polite"></div>
+</div>
 
-    <p>
-        Välj ett svar på varje fråga.
-        Du får direkt återkoppling när du rättar.
-    </p>
+<div class="question">
+<h3>Var sker fotosyntesen?</h3>
+<button class="answer" onclick="check('q2','a')">A. I rötternas cellkärnor</button>
+<button class="answer" onclick="check('q2','b')">B. I kloroplasterna</button>
+<button class="answer" onclick="check('q2','c')">C. I marken runt rötterna</button>
+<div id="q2" class="feedback" aria-live="polite"></div>
+</div>
 
-    <form id="quiz">
-
-        <div class="question">
-
-            <h3>Fråga 1. Vad är fotosyntes?</h3>
-
-            <label>
-                <input type="radio" name="q1" value="a">
-                När växter tar upp vatten
-            </label>
-
-            <label>
-                <input type="radio" name="q1" value="b">
-                När växter använder ljusenergi för att bilda socker
-            </label>
-
-            <label>
-                <input type="radio" name="q1" value="c">
-                När växter vissnar
-            </label>
-
-        </div>
-
-
-        <div class="question">
-
-            <h3>Fråga 2. Vilken gas använder växten?</h3>
-
-            <label>
-                <input type="radio" name="q2" value="a">
-                Koldioxid
-            </label>
-
-            <label>
-                <input type="radio" name="q2" value="b">
-                Syre
-            </label>
-
-            <label>
-                <input type="radio" name="q2" value="c">
-                Vätgas
-            </label>
-
-        </div>
-
-
-        <div class="question">
-
-            <h3>Fråga 3. Vad bildas vid fotosyntesen?</h3>
-
-            <label>
-                <input type="radio" name="q3" value="a">
-                Sand och vatten
-            </label>
-
-            <label>
-                <input type="radio" name="q3" value="b">
-                Socker och syre
-            </label>
-
-            <label>
-                <input type="radio" name="q3" value="c">
-                Koldioxid och jord
-            </label>
-
-        </div>
-
-
-        <div class="question">
-
-            <h3>Fråga 4. Var sker fotosyntesen?</h3>
-
-            <label>
-                <input type="radio" name="q4" value="a">
-                I kloroplasterna
-            </label>
-
-            <label>
-                <input type="radio" name="q4" value="b">
-                I rötterna
-            </label>
-
-            <label>
-                <input type="radio" name="q4" value="c">
-                I fröna
-            </label>
-
-        </div>
-
-
-        <div class="question">
-
-            <h3>Fråga 5. Vad gör klorofyll?</h3>
-
-            <label>
-                <input type="radio" name="q5" value="a">
-                Tar upp vatten
-            </label>
-
-            <label>
-                <input type="radio" name="q5" value="b">
-                Fångar upp ljusenergi
-            </label>
-
-            <label>
-                <input type="radio" name="q5" value="c">
-                Bildar rötter
-            </label>
-
-        </div>
-
-
-        <div class="question">
-
-            <h3>Fråga 6. Varifrån kommer vattnet?</h3>
-
-            <label>
-                <input type="radio" name="q6" value="a">
-                Från marken genom rötterna
-            </label>
-
-            <label>
-                <input type="radio" name="q6" value="b">
-                Från blommorna
-            </label>
-
-            <label>
-                <input type="radio" name="q6" value="c">
-                Från solljuset
-            </label>
-
-        </div>
-
-
-        <button type="button" onclick="checkQuiz()">
-            Rätta mina svar
-        </button>
-
-        <button type="reset" onclick="resetQuiz()">
-            Börja om
-        </button>
-
-    </form>
-
-    <div id="feedback" class="feedback"></div>
-
+<div class="question">
+<h3>Vilka ämnen bildas vid fotosyntesen?</h3>
+<button class="answer" onclick="check('q3','a')">A. Vatten och koldioxid</button>
+<button class="answer" onclick="check('q3','b')">B. Jord och mineraler</button>
+<button class="answer" onclick="check('q3','c')">C. Druvsocker och syre</button>
+<div id="q3" class="feedback" aria-live="polite"></div>
+</div>
 </section>
-
 
 <section>
-
-    <h2>8. Förklara med egna ord</h2>
-
-    <p>
-        Försök att förklara fotosyntesen
-        utan att titta på texten.
-    </p>
-
-    <p>
-        Använd gärna dessa ord:
-    </p>
-
-    <div class="grid">
-
-        <div class="diagram-box">Ljus</div>
-        <div class="diagram-box">Vatten</div>
-        <div class="diagram-box">Koldioxid</div>
-        <div class="diagram-box">Socker</div>
-        <div class="diagram-box">Syre</div>
-
-    </div>
-
-    <textarea
-        id="ownAnswer"
-        placeholder="Fotosyntes är när...">
-    </textarea>
-
-    <button type="button" onclick="showWritingTip()">
-        Visa stöd
-    </button>
-
-    <div id="writingTip" class="feedback">
-        Växter använder ljusenergi, vatten och
-        koldioxid för att bilda socker.
-        Samtidigt bildas syre.
-    </div>
-
+<h2>Förklara med egna ord</h2>
+<ol>
+<li>Varifrån kommer vattnet som växten använder?</li>
+<li>Varifrån kommer koldioxiden?</li>
+<li>Varför behöver växten ljus?</li>
+<li>Vad bildas under fotosyntesen?</li>
+</ol>
 </section>
-
 
 <section>
-
-    <h2>9. Sammanfattning</h2>
-
-    <p>
-        Fotosyntes är en process som sker i växternas
-        kloroplaster.
-    </p>
-
-    <p>
-        Växten använder ljusenergi, vatten och koldioxid
-        för att bilda socker.
-    </p>
-
-    <p>
-        Samtidigt bildas syre som släpps ut i luften.
-    </p>
-
-    <p>
-        Fotosyntesen är viktig för livet på jorden.
-        Den bidrar till syret i atmosfären och till
-        att energi lagras i organiskt material.
-    </p>
-
+<h2>Självbedömning</h2>
+<label><input type="checkbox"> Jag kan beskriva vad växten behöver.</label><br>
+<label><input type="checkbox"> Jag vet var fotosyntesen sker.</label><br>
+<label><input type="checkbox"> Jag kan beskriva vad som bildas.</label><br>
+<label><input type="checkbox"> Jag kan förklara hela processen.</label>
 </section>
 
-
-<nav class="navigation">
-
-    <a href="biologi.html">Till biologisidan</a>
-
-    <a href="biologibegrepp.html">Träna begrepp</a>
-
-    <a href="biologitest.html">Biologitestet</a>
-
-    <a href="vaxtexperiment.html">Växtexperiment</a>
-
-    <a href="index.html">Startsidan</a>
-
+<nav class="nav">
+<a href="celler.html">Föregående: Celler</a>
+<a href="ekosystem.html">Nästa: Ekosystem</a>
+<a href="biologibegrepp.html">Biologiska begrepp</a>
+<a href="forskardagbok.html">Forskardagbok</a>
+<a href="index.html">Startsidan</a>
 </nav>
-
 </main>
-
-
 <script>
-
-function checkQuiz() {
-
-    const answers = {
-        q1: "b",
-        q2: "a",
-        q3: "b",
-        q4: "a",
-        q5: "b",
-        q6: "a"
-    };
-
-    const explanations = {
-        q1: "Fotosyntes använder ljusenergi för att bilda socker.",
-        q2: "Växten använder koldioxid från luften.",
-        q3: "Socker och syre bildas vid fotosyntesen.",
-        q4: "Fotosyntesen sker i kloroplasterna.",
-        q5: "Klorofyll fångar upp ljusenergi.",
-        q6: "Rötterna tar upp vatten från marken."
-    };
-
-    let score = 0;
-    let unanswered = 0;
-    let details = "";
-
-    for (let i = 1; i <= 6; i++) {
-
-        const selected = document.querySelector(
-            'input[name="q' + i + '"]:checked'
-        );
-
-        if (!selected) {
-            unanswered++;
-            details +=
-                "<p>Fråga " + i + ": Du har inte svarat.</p>";
-            continue;
-        }
-
-        if (selected.value === answers["q" + i]) {
-
-            score++;
-
-            details +=
-                "<p><strong>Fråga " + i +
-                ": Rätt!</strong> " +
-                explanations["q" + i] + "</p>";
-
-        } else {
-
-            details +=
-                "<p><strong>Fråga " + i +
-                ": Inte riktigt.</strong> " +
-                explanations["q" + i] + "</p>";
-        }
-    }
-
-    const feedback = document.getElementById("feedback");
-
-    feedback.style.display = "block";
-
-    if (unanswered > 0) {
-
-        feedback.className = "feedback incorrect";
-
-        feedback.innerHTML =
-            "<h3>Du har inte svarat på alla frågor.</h3>" +
-            "<p>Besvarade frågor: " + (6 - unanswered) +
-            " av 6.</p>" +
-            details;
-
-    } else {
-
-        feedback.className = "feedback correct";
-
-        let message = "";
-
-        if (score === 6) {
-            message = "Fantastiskt! Alla svar är rätt.";
-        } else if (score >= 4) {
-            message = "Bra arbetat! Repetera de frågor som blev fel.";
-        } else {
-            message = "Fortsätt träna. Läs lektionen igen och försök på nytt.";
-        }
-
-        feedback.innerHTML =
-            "<h2>Du fick " + score + " av 6 poäng.</h2>" +
-            "<h3>" + message + "</h3>" +
-            details;
-    }
-
-    feedback.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
+function check(id,value){
+const box=document.getElementById(id);
+const data={
+q1:{right:"a",good:"Rätt. Växten behöver ljusenergi, vatten och koldioxid.",try:"Tänk på de tre förutsättningarna som du just har undersökt."},
+q2:{right:"b",good:"Rätt. Fotosyntesen sker i kloroplasterna i växtens gröna delar.",try:"Tänk på den gröna celldel som finns i växtceller."},
+q3:{right:"c",good:"Rätt. Fotosyntesen bildar druvsocker och syre.",try:"Vilka två ämnen bildas efter att växten använt vatten och koldioxid?"}
+};
+const d=data[id];
+box.className="feedback show "+(value===d.right?"":"try");
+box.textContent=value===d.right?d.good:d.try;
 }
-
-
-function resetQuiz() {
-
-    const feedback = document.getElementById("feedback");
-
-    feedback.style.display = "none";
-    feedback.innerHTML = "";
-
-}
-
-
-function showWritingTip() {
-
-    const tip = document.getElementById("writingTip");
-
-    tip.style.display =
-        tip.style.display === "block" ? "none" : "block";
-
-}
-
 </script>
-
 </body>
 </html>
