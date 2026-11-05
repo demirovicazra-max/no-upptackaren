@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Krafter och rörelse | NO-Upptäckaren</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f6f2;color:#303b32;line-height:1.6}
+header{background:#557b68;color:white;padding:28px 18px;text-align:center}
+header h1{margin:0;font-size:2rem}
+main{max-width:900px;margin:auto;padding:20px}
+section{background:white;padding:22px;margin:18px 0;border-radius:14px;box-shadow:0 2px 8px #00000010}
+h2{color:#426b58;margin-top:0}
+h3{color:#557b68}
+.card{background:#edf4ef;padding:15px;border-radius:10px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.item{background:#edf4ef;padding:15px;border-radius:10px}
+.arrow{font-size:1.8rem;font-weight:bold;text-align:center;color:#426b58;margin:10px}
+button{border:0;border-radius:9px;background:#557b68;color:white;padding:12px 17px;margin:5px;cursor:pointer;font-size:1rem}
+button:hover{background:#365e49}
+.option{display:block;width:100%;text-align:left;background:#edf4ef;color:#303b32;border:2px solid #d5e5d9}
+.option:hover{background:#dcebe0}
+.feedback{font-weight:bold;min-height:28px;margin-top:10px}
+textarea{width:100%;padding:12px;border:1px solid #afc5b5;border-radius:8px;font:inherit;margin:6px 0 14px}
+nav a{display:inline-block;margin:5px;padding:10px 14px;background:#e5efe8;border-radius:8px;color:#365e49;text-decoration:none}
+footer{text-align:center;padding:25px;color:#52675a}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Krafter och rörelse</h1>
+<p>Vi undersöker hur krafter påverkar saker.</p>
+</header>
+
+<main>
+
+<section>
+<h2>Vad är en kraft?</h2>
+<p>En kraft är en påverkan som kan förändra hur ett föremål rör sig eller se ut.</p>
+<p>En kraft kan få något att börja röra sig, stanna, ändra riktning eller ändra form.</p>
+<div class="card">
+<strong>Exempel:</strong>
+<p>När du sparkar på en boll påverkar din fot bollen med en kraft.</p>
+</div>
+</section>
+
+<section>
+<h2>Att dra och skjuta</h2>
+<div class="grid">
+<div class="item">
+<h3>Skjuta</h3>
+<p>Du använder en kraft för att flytta något bort från dig.</p>
+<div class="arrow">→</div>
+</div>
+<div class="item">
+<h3>Dra</h3>
+<p>Du använder en kraft för att flytta något mot dig.</p>
+<div class="arrow">←</div>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Tyngdkraft</h2>
+<p>Tyngdkraften är den kraft som gör att föremål dras mot jorden.</p>
+<p>När du släpper en boll faller den mot marken på grund av tyngdkraften.</p>
+<div class="card">
+<strong>Fundera:</strong>
+<p>Vad händer om du släpper en penna från handen?</p>
+<p>Den faller mot golvet eftersom jorden drar i pennan.</p>
+</div>
+</section>
+
+<section>
+<h2>Friktion</h2>
+<p>Friktion är en kraft som motverkar rörelse mellan ytor som rör vid varandra.</p>
+<p>Friktion gör det svårare för föremål att glida mot varandra.</p>
+<div class="grid">
+<div class="item">
+<h3>Hög friktion</h3>
+<p>En grov yta ger ofta större friktion.</p>
+<p>Exempel: skor mot en torr asfaltväg.</p>
+</div>
+<div class="item">
+<h3>Låg friktion</h3>
+<p>En hal yta ger ofta mindre friktion.</p>
+<p>Exempel: en skridsko mot is.</p>
+</div>
+</div>
+<p>Friktion kan vara bra. Den hjälper oss att gå utan att halka och gör att cykelbromsar fungerar.</p>
+</section>
+
+<section>
+<h2>Magnetisk kraft</h2>
+<p>Magneter kan påverka vissa material utan att röra vid dem.</p>
+<p>En magnet kan dra till sig föremål av järn och vissa andra material.</p>
+<p>Två magneter kan också dra till sig eller stöta bort varandra.</p>
+<div class="card">
+<strong>Kom ihåg:</strong>
+<p>Motsatta magnetpoler dras till varandra. Lika magnetpoler stöter bort varandra.</p>
+</div>
+</section>
+
+<section>
+<h2>Vad är rörelse?</h2>
+<p>Något rör sig när dess plats förändras i förhållande till omgivningen.</p>
+<p>Vi kan beskriva rörelse med hjälp av sträcka, tid och hastighet.</p>
+<div class="card">
+<h3>Hastighet</h3>
+<p>Hastighet beskriver hur snabbt något rör sig.</p>
+<p>Om en cykel färdas 100 meter på 20 sekunder är hastigheten i genomsnitt 5 meter per sekund.</p>
+</div>
+</section>
+
+<section>
+<h2>Kan krafter ändra form?</h2>
+<p>Ja. En kraft kan förändra ett föremåls form.</p>
+<ul>
+<li>När du trycker på en svamp ändrar den form.</li>
+<li>När du drar i ett gummiband blir det längre.</li>
+<li>När du knådar en deg förändras dess form.</li>
+</ul>
+</section>
+
+<section>
+<h2>Testa dina kunskaper</h2>
+<div id="quiz">
+<p id="question"></p>
+<div id="answers"></div>
+<p id="feedback" class="feedback" aria-live="polite"></p>
+<p id="counter"></p>
+<button id="next" hidden>Nästa fråga</button>
+</div>
+</section>
+
+<section>
+<h2>Visa vad du har lärt dig</h2>
+<label for="answer1">1. Vad kan en kraft göra med ett föremål?</label>
+<textarea id="answer1" rows="3"></textarea>
+<label for="answer2">2. Vad är friktion?</label>
+<textarea id="answer2" rows="3"></textarea>
+<label for="answer3">3. Vad är tyngdkraft?</label>
+<textarea id="answer3" rows="3"></textarea>
+<button onclick="saveAnswers()">Spara mina svar</button>
+<button onclick="window.print()">Skriv ut</button>
+<p id="saveMessage" class="feedback" aria-live="polite"></p>
+</section>
+
+<section>
+<h2>Viktiga begrepp</h2>
+<ul>
+<li><strong>Kraft:</strong> en påverkan som kan förändra rörelse eller form.</li>
+<li><strong>Tyngdkraft:</strong> kraften som drar föremål mot jorden.</li>
+<li><strong>Friktion:</strong> kraft som motverkar rörelse mellan ytor.</li>
+<li><strong>Magnetisk kraft:</strong> kraft mellan magneter och vissa material.</li>
+<li><strong>Hastighet:</strong> hur snabbt något rör sig.</li>
+</ul>
+</section>
+
+<section>
+<h2>Fortsätt utforska</h2>
+<nav>
+<a href="index.html">Startsidan</a>
+<a href="fysik.html">Fysik</a>
+<a href="energi.html">Energi</a>
+<a href="elektricitet.html">Elektricitet</a>
+<a href="teknik.html">Teknik</a>
+</nav>
+</section>
+
+</main>
+
+<footer>NO-Upptäckaren | Naturvetenskap för årskurs 4–6</footer>
+
+<script>
+const questions=[
+{q:"Vad kan en kraft göra?",a:["Ändra rörelse eller form","Bara ändra färg","Skapa vatten"],c:0,e:"En kraft kan påverka rörelse och form."},
+{q:"Vad gör tyngdkraften?",a:["Drar föremål mot jorden","Gör föremål genomskinliga","Skapar ljus"],c:0,e:"Tyngdkraften drar föremål mot jorden."},
+{q:"Vad är friktion?",a:["En kraft som motverkar rörelse mellan ytor","En sorts ljus","En gas"],c:0,e:"Friktion motverkar rörelse mellan ytor som rör vid varandra."},
+{q:"Vilken yta ger ofta mindre friktion?",a:["En hal isyta","En grov asfaltväg","En sandig yta"],c:0,e:"En hal yta ger ofta mindre friktion."},
+{q:"Vad händer med motsatta magnetpoler?",a:["De dras till varandra","De stöter alltid bort varandra","De försvinner"],c:0,e:"Motsatta magnetpoler dras till varandra."},
+{q:"Vad beskriver hastighet?",a:["Hur snabbt något rör sig","Hur tungt något är","Hur varmt något är"],c:0,e:"Hastighet beskriver hur snabbt något rör sig."}
+];
+
+let current=0,score=0,answered=false;
+
+function showQuestion(){
+answered=false;
+const q=questions[current];
+document.getElementById("question").textContent=q.q;
+document.getElementById("answers").innerHTML="";
+document.getElementById("feedback").textContent="";
+document.getElementById("counter").textContent="Fråga "+(current+1)+" av "+questions.length;
+document.getElementById("next").hidden=true;
+
+q.a.forEach((a,i)=>{
+const b=document.createElement("button");
+b.className="option";
+b.textContent=a;
+b.onclick=()=>checkAnswer(i);
+document.getElementById("answers").appendChild(b);
+});
+}
+
+function checkAnswer(i){
+if(answered)return;
+answered=true;
+const q=questions[current];
+
+if(i===q.c){
+score++;
+document.getElementById("feedback").textContent="Rätt! "+q.e;
+}else{
+document.getElementById("feedback").textContent="Inte riktigt. "+q.e;
+}
+
+document.getElementById("next").hidden=false;
+document.getElementById("next").textContent=current===questions.length-1?"Visa resultat":"Nästa fråga";
+}
+
+function nextQuestion(){
+if(current<questions.length-1){
+current++;
+showQuestion();
+}else{
+document.getElementById("quiz").innerHTML=
+"<h3>Du är klar!</h3><p>Du fick "+score+" av "+questions.length+" rätt.</p><button onclick='restartQuiz()'>Gör testet igen</button>";
+}
+}
+
+function restartQuiz(){
+current=0;
+score=0;
+document.getElementById("quiz").innerHTML=
+'<p id="question"></p><div id="answers"></div><p id="feedback" class="feedback"></p><p id="counter"></p><button id="next" hidden>Nästa fråga</button>';
+document.getElementById("next").onclick=nextQuestion;
+showQuestion();
+}
+
+function saveAnswers(){
+const data={
+a1:document.getElementById("answer1").value,
+a2:document.getElementById("answer2").value,
+a3:document.getElementById("answer3").value
+};
+localStorage.setItem("krafterochrorelseSvar",JSON.stringify(data));
+document.getElementById("saveMessage").textContent="Dina svar är sparade på den här enheten.";
+}
+
+document.getElementById("next").onclick=nextQuestion;
+
+window.addEventListener("load",()=>{
+const saved=localStorage.getItem("krafterochrorelseSvar");
+if(saved){
+const d=JSON.parse(saved);
+document.getElementById("answer1").value=d.a1||"";
+document.getElementById("answer2").value=d.a2||"";
+document.getElementById("answer3").value=d.a3||"";
+}
+showQuestion();
+});
+</script>
+
+</body>
+</html>
