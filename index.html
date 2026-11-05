@@ -4,160 +4,116 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NO-Upptäckaren</title>
-<link rel="stylesheet" href="style.css">
-
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#f2f6f3;color:#26372b;font-family:Arial,sans-serif;line-height:1.6}
-header{background:#245b43;color:white;text-align:center;padding:38px 18px}
-header h1{font-size:clamp(2rem,5vw,3rem);margin:0}
-header p{font-size:1.15rem;margin:8px 0 0}
-main{max-width:1150px;margin:30px auto;padding:0 18px}
-section{margin-bottom:30px}
-h2{color:#245b43}
-.welcome,.learning-path,.subject,.path-card{background:white;border-radius:16px;padding:23px;box-shadow:0 3px 12px #0000000c}
-.welcome{text-align:center}
-.learning-path{background:#e6f2e7;border:2px solid #c9dfcb}
-.learning-path>h2{text-align:center}
-.intro{text-align:center;max-width:750px;margin:auto}
-.path-grid,.subject-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:20px}
-.path-card{text-align:center;border:1px solid #d6e5d8}
-.path-card img{width:100%;height:155px;object-fit:cover;border-radius:11px}
-.path-card h3{color:#245b43}
-.subject-grid .subject{display:block;text-decoration:none;color:#26372b;border-top:5px solid #26945b}
-.subject h3{color:#245b43}
-.button{display:inline-block;background:#245b43;color:white;text-decoration:none;padding:12px 18px;border-radius:9px;font-weight:bold;margin:6px 3px}
+body{margin:0;font-family:Arial,sans-serif;background:#f2f6f3;color:#20352a;line-height:1.6}
+header{background:#245b43;color:white;text-align:center;padding:35px 18px}
+header h1{margin:0;font-size:clamp(28px,4vw,40px)}
+main{max-width:1100px;margin:28px auto;padding:0 18px}
+section{background:white;border-radius:16px;padding:24px;margin:20px 0;box-shadow:0 4px 15px #0000000c}
+h2,h3{color:#245b43}
+.intro{text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.card{display:block;background:#f4f8f4;border:1px solid #dce8dd;border-radius:13px;padding:20px;text-decoration:none;color:#20352a}
+.card:hover{background:#e8f3e9}
+.card:focus-visible,a:focus-visible{outline:4px solid #d99b24;outline-offset:3px}
+.card h3{margin-top:0}
+.button{display:inline-block;background:#245b43;color:white;text-decoration:none;padding:12px 17px;border-radius:9px;font-weight:bold;margin:5px 4px 5px 0}
 .button:hover{background:#17452f}
-.button:focus-visible,a:focus-visible{outline:4px solid #d99b24;outline-offset:3px}
-.label{display:inline-block;background:#e6f2e7;color:#245b43;border-radius:20px;padding:4px 10px;font-weight:bold;font-size:.9rem}
-footer{text-align:center;padding:25px;color:#58675c}
-@media(max-width:600px){.welcome,.learning-path,.path-card{padding:16px}}
+.hero-image{width:100%;height:auto;display:block;border-radius:14px;margin:18px auto;max-width:1000px}
+.caption{font-size:.92rem;color:#59685e;text-align:center}
+.path{background:#eaf3e9}
+footer{text-align:center;padding:25px;color:#58675e}
+@media(max-width:600px){section{padding:17px}}
 </style>
 </head>
-
 <body>
+
 <header>
-<h1>NO-Upptäckaren</h1>
-<p>Upptäck, undersök och förstå naturvetenskap</p>
+<h1>NO-UPPTÄCKAREN</h1>
+<p>Din interaktiva NO-värld</p>
 </header>
 
 <main>
 
-<section class="welcome">
-<span class="label">NO · Årskurs 4–6</span>
-<h2>Välkommen till NO-Upptäckaren!</h2>
-<p>Här får du undersöka hur naturen fungerar. Du får läsa, titta på bilder, jämföra, testa och träna på att förklara.</p>
+<section class="intro">
+<h2>Välkommen, forskare!</h2>
+<p>Här får du utforska biologi, kemi, fysik och teknik.</p>
+<p>Läs, upptäck, jämför, undersök och testa dina kunskaper.</p>
 </section>
 
-<section class="learning-path">
-<h2>Biologins lärstig</h2>
-<p class="intro">
-Följ sambandet från det allra minsta till naturen omkring dig.
-Vi börjar med cellerna, fortsätter med fotosyntesen och avslutar
-med ekosystem.
-</p>
+<section class="path">
+<h2>Biologi – från det lilla till det stora</h2>
+<p>Följ hur livet hänger ihop. Börja med cellerna. Fortsätt med fotosyntesen. Avsluta med ekosystem.</p>
 
-<div class="path-grid">
+<img class="hero-image"
+src="celler-makro-mikro.png"
+alt="Illustration som visar en växt, ett blad, förstorade växtceller och en jämförelse mellan växtcell och djurcell">
 
-<article class="path-card">
-<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=85"
-alt="Grön växt med blad">
-<span class="label">Steg 1</span>
-<h3>Celler</h3>
-<p>Makro: en hel växt.</p>
-<p>Mikro: cellerna som bygger upp växten.</p>
-<a class="button" href="celler.html">Lär dig om celler</a>
-</article>
+<p class="caption">Vi kan undersöka livet på olika nivåer: från hela organismer till mycket små celler.</p>
 
-<article class="path-card">
-<img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=85"
-alt="Gröna blad i solljus">
-<span class="label">Steg 2</span>
-<h3>Fotosyntes</h3>
-<p>Makro: en växt som växer.</p>
-<p>Mikro: kloroplaster där fotosyntesen sker.</p>
-<a class="button" href="fotosyntes.html">Lär dig om fotosyntes</a>
-</article>
+<div class="grid">
+<a class="card" href="celler.html">
+<h3>1. Celler och liv</h3>
+<p>Undersök celler. Jämför växtceller och djurceller.</p>
+</a>
 
-<article class="path-card">
-<img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=900&q=85"
-alt="Skog med träd och växter">
-<span class="label">Steg 3</span>
-<h3>Ekosystem</h3>
-<p>Makro: en hel skog eller sjö.</p>
-<p>Mikro: små organismer och nedbrytare.</p>
-<a class="button" href="ekosystem.html">Lär dig om ekosystem</a>
-</article>
+<a class="card" href="fotosyntes.html">
+<h3>2. Fotosyntes</h3>
+<p>Upptäck hur växter använder ljus, vatten och koldioxid.</p>
+</a>
 
+<a class="card" href="ekosystem.html">
+<h3>3. Ekosystem</h3>
+<p>Undersök hur organismer och miljö påverkar varandra.</p>
+</a>
 </div>
 
-<p style="text-align:center;margin-top:22px">
-<a class="button" href="biologiprogression.html">Se hela biologins lärstig</a>
+<p>
+<a class="button" href="biologiprogression.html">Öppna biologins lärstig</a>
 </p>
 </section>
 
 <section>
-<h2>Fler delar av NO-Upptäckaren</h2>
-
-<div class="subject-grid">
-
-<a class="subject" href="biologibegrepp.html">
+<h2>Träna och undersök</h2>
+<div class="grid">
+<a class="card" href="biologibegrepp.html">
 <h3>Biologiska begrepp</h3>
 <p>Träna på viktiga ord och förklaringar.</p>
 </a>
-
-<a class="subject" href="biologitest.html">
+<a class="card" href="biologitest.html">
 <h3>Biologitest</h3>
-<p>Kontrollera vad du har lärt dig.</p>
+<p>Kontrollera vad du har förstått.</p>
 </a>
-
-<a class="subject" href="biologibedomning.html">
-<h3>Min lärandeöversikt</h3>
+<a class="card" href="biologibedomning.html">
+<h3>Självbedömning</h3>
 <p>Fundera över vad du kan och vill träna mer på.</p>
 </a>
-
-<a class="subject" href="forskardagbok.html">
+<a class="card" href="forskardagbok.html">
 <h3>Forskardagbok</h3>
-<p>Dokumentera undersökningar och experiment.</p>
+<p>Skriv hypoteser och dokumentera undersökningar.</p>
 </a>
+</div>
+</section>
 
-<a class="subject" href="vaxter.html">
-<h3>Växter</h3>
-<p>Undersök växternas liv.</p>
-</a>
-
-<a class="subject" href="djur.html">
-<h3>Djur</h3>
-<p>Upptäck djurens liv och anpassningar.</p>
-</a>
-
-<a class="subject" href="vattenmiljoer.html">
-<h3>Vattenmiljöer</h3>
-<p>Undersök livet i sjöar och hav.</p>
-</a>
-
-<a class="subject" href="fysik.html">
-<h3>Fysik</h3>
-<p>Utforska krafter, energi och rörelse.</p>
-</a>
-
-<a class="subject" href="kemi.html">
-<h3>Kemi</h3>
-<p>Undersök ämnen och material.</p>
-</a>
-
-<a class="subject" href="teknik.html">
-<h3>Teknik</h3>
-<p>Upptäck tekniska lösningar.</p>
-</a>
-
+<section>
+<h2>Fler delar av NO</h2>
+<div class="grid">
+<a class="card" href="ak4.html"><h3>Årskurs 4</h3><p>Utforska NO för årskurs 4.</p></a>
+<a class="card" href="biologi.html"><h3>Biologi</h3><p>Växter, djur, kroppen och naturen.</p></a>
+<a class="card" href="vaxter.html"><h3>Växter</h3><p>Växternas liv och delar.</p></a>
+<a class="card" href="vaxtersdelar.html"><h3>Växternas delar</h3><p>Rötter, stam, blad och blomma.</p></a>
+<a class="card" href="biologiskmangfald.html"><h3>Biologisk mångfald</h3><p>Variation av liv på jorden.</p></a>
+<a class="card" href="naringskedjor.html"><h3>Näringskedjor</h3><p>Hur energi förs vidare.</p></a>
+<a class="card" href="manniskanspaverkan.html"><h3>Människans påverkan</h3><p>Hur människor påverkar naturen.</p></a>
+<a class="card" href="fortplantning.html"><h3>Fortplantning</h3><p>Hur organismer förökar sig.</p></a>
+<a class="card" href="vadervindklimat.html"><h3>Väder och klimat</h3><p>Väder, vind och klimat.</p></a>
+<a class="card" href="vattnetsbetydelse.html"><h3>Vattnets betydelse</h3><p>Varför vatten är viktigt för livet.</p></a>
 </div>
 </section>
 
 </main>
 
-<footer>
-<p>NO-Upptäckaren · Naturvetenskap för årskurs 4–6</p>
-</footer>
+<footer>NO-Upptäckaren · Biologi · Årskurs 4–6</footer>
 </body>
 </html>
