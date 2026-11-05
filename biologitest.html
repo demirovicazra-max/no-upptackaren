@@ -2,414 +2,247 @@
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Biologitest – NO-Upptäckaren</title>
-
 <style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f2f6f2;
-    color: #26372b;
-    line-height: 1.6;
-}
-
-header {
-    background: #246b45;
-    color: white;
-    text-align: center;
-    padding: 28px 16px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2rem;
-}
-
-main {
-    max-width: 850px;
-    margin: 25px auto;
-    padding: 0 16px;
-}
-
-.panel {
-    background: white;
-    padding: 22px;
-    border-radius: 14px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
-
-.question {
-    border: 1px solid #dce7dd;
-    border-radius: 12px;
-    padding: 18px;
-    margin: 18px 0;
-}
-
-.question h3 {
-    margin-top: 0;
-}
-
-label {
-    display: block;
-    background: #f3f7f3;
-    padding: 12px;
-    border-radius: 8px;
-    margin: 9px 0;
-    cursor: pointer;
-}
-
-label:hover {
-    background: #e4f0e6;
-}
-
-input[type="radio"] {
-    margin-right: 10px;
-    transform: scale(1.2);
-}
-
-textarea {
-    width: 100%;
-    min-height: 90px;
-    padding: 12px;
-    border: 2px solid #ccd9ce;
-    border-radius: 8px;
-    font-family: Arial, sans-serif;
-    font-size: 1rem;
-    resize: vertical;
-}
-
-button, .link-button {
-    display: inline-block;
-    background: #246b45;
-    color: white;
-    border: none;
-    padding: 13px 20px;
-    border-radius: 9px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: none;
-    margin: 8px 5px 8px 0;
-}
-
-button:hover, .link-button:hover {
-    background: #174b30;
-}
-
-.feedback {
-    display: none;
-    padding: 18px;
-    border-radius: 10px;
-    margin-top: 20px;
-}
-
-.correct {
-    background: #e0f3e3;
-    border-left: 6px solid #268044;
-}
-
-.incorrect {
-    background: #fff0df;
-    border-left: 6px solid #d58b27;
-}
-
-.result-number {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #246b45;
-}
-
-.small {
-    color: #59675d;
-    font-size: 0.95rem;
-}
-
-.navigation {
-    margin: 25px 0;
-}
-
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 1.6rem;
-    }
-
-    .panel {
-        padding: 16px;
-    }
-}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f7f4;color:#26372b;line-height:1.65}
+header{background:#245b3b;color:white;text-align:center;padding:32px 18px}
+header h1{margin:0}
+main{max-width:900px;margin:25px auto;padding:0 16px 40px}
+section{background:white;border-radius:15px;padding:23px;margin:18px 0;box-shadow:0 2px 9px #0000000b}
+h2,h3{color:#245b3b;margin-top:0}
+.goal{background:#e6f2e7;border-left:6px solid #398052;padding:17px;border-radius:9px}
+.tag{display:inline-block;background:#e3efe5;color:#205b38;padding:4px 10px;border-radius:20px;font-weight:bold;font-size:.9rem}
+.question{border:1px solid #dce8dd;border-radius:12px;padding:17px;margin:16px 0}
+label.option{display:block;background:#f2f6f2;padding:12px;border-radius:8px;margin:9px 0;cursor:pointer}
+input[type=radio]{margin-right:9px;transform:scale(1.15)}
+input[type=text],textarea{width:100%;padding:12px;border:2px solid #cbd9ce;border-radius:8px;font:1rem Arial}
+textarea{min-height:90px;resize:vertical}
+button,.nav a{background:#245b3b;color:white;border:0;border-radius:9px;padding:13px 18px;font-size:1rem;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block;margin:5px 4px 5px 0}
+.feedback{display:none;padding:14px;border-radius:9px;margin-top:12px}
+.feedback.show{display:block;background:#e6f3e8;border-left:5px solid #398052}
+.feedback.try{display:block;background:#fff3df;border-left:5px solid #d49a24}
+.result{font-size:1.5rem;font-weight:bold;color:#245b3b}
+.small{font-size:.94rem;color:#58675c}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+@media(max-width:600px){section{padding:17px}}
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Biologitestet</h1>
-    <p>Visa vad du har lärt dig om livet och naturen</p>
+<h1>Biologitestet</h1>
+<p>Celler, fotosyntes och ekosystem · Årskurs 4–6</p>
 </header>
-
 <main>
 
-<section class="panel">
-    <h2>Innan du börjar</h2>
-    <p>Testet innehåller 12 frågor.</p>
-    <p>Välj ett svar på varje fråga.</p>
-    <p>På de sista frågorna skriver du egna svar.</p>
-    <p class="small">
-        Dina fritextsvar rättas inte automatiskt.
-        Din lärare behöver läsa dem.
-    </p>
-    <label for="studentName">Ditt namn</label>
-    <input id="studentName" type="text"
-        placeholder="Skriv ditt namn"
-        style="width:100%;padding:12px;border:2px solid #ccd9ce;border-radius:8px;font-size:1rem;">
+<section class="goal">
+<span class="tag">Ditt lärandeobjekt</span>
+<h2>Vad ska testet visa?</h2>
+<p>Testet undersöker om du kan beskriva biologiska begrepp och samband mellan celler, fotosyntes och ekosystem.</p>
+</section>
+
+<section>
+<h2>Innan du börjar</h2>
+<p>Testet har 12 frågor.</p>
+<p>Fråga 1–8 har svarsalternativ. Fråga 9–12 besvarar du med egna ord.</p>
+<p>Du får återkoppling när du lämnar in testet.</p>
+<label for="studentName"><strong>Ditt namn</strong></label>
+<input id="studentName" type="text" placeholder="Skriv ditt namn">
 </section>
 
 <form id="biologyQuiz">
 
-<section class="panel">
-<h2>Del 1 – Växter</h2>
-
+<section>
+<h2>Del 1 – Celler</h2>
 <div class="question">
-<h3>1. Vilken del av växten tar oftast upp vatten från marken?</h3>
-<label><input type="radio" name="q1" value="a"> Blomman</label>
-<label><input type="radio" name="q1" value="b"> Roten</label>
-<label><input type="radio" name="q1" value="c"> Bladet</label>
+<h3>1. Vad är en cell?</h3>
+<label class="option"><input type="radio" name="q1" value="a"> En sorts vävnad</label>
+<label class="option"><input type="radio" name="q1" value="b"> Den minsta levande byggstenen i en organism</label>
+<label class="option"><input type="radio" name="q1" value="c"> Ett organ</label>
 </div>
 
 <div class="question">
-<h3>2. Vad behöver växter för fotosyntesen?</h3>
-<label><input type="radio" name="q2" value="a"> Ljus, vatten och koldioxid</label>
-<label><input type="radio" name="q2" value="b"> Sand och socker</label>
-<label><input type="radio" name="q2" value="c"> Jord och syre</label>
+<h3>2. Vilken del finns i både växtceller och djurceller?</h3>
+<label class="option"><input type="radio" name="q2" value="a"> Cellkärna</label>
+<label class="option"><input type="radio" name="q2" value="b"> Cellvägg</label>
+<label class="option"><input type="radio" name="q2" value="c"> Kloroplast</label>
 </div>
 
 <div class="question">
-<h3>3. Vad bildas vid fotosyntesen?</h3>
-<label><input type="radio" name="q3" value="a"> Salt och vatten</label>
-<label><input type="radio" name="q3" value="b"> Socker och syre</label>
-<label><input type="radio" name="q3" value="c"> Jord och koldioxid</label>
-</div>
-
-<div class="question">
-<h3>4. Vilken del av växten fångar upp ljus?</h3>
-<label><input type="radio" name="q4" value="a"> Bladen</label>
-<label><input type="radio" name="q4" value="b"> Rötterna</label>
-<label><input type="radio" name="q4" value="c"> Fröna</label>
+<h3>3. Vilken uppgift har cellmembranet?</h3>
+<label class="option"><input type="radio" name="q3" value="a"> Det fångar solljus</label>
+<label class="option"><input type="radio" name="q3" value="b"> Det bildar jord</label>
+<label class="option"><input type="radio" name="q3" value="c"> Det reglerar vad som passerar in och ut ur cellen</label>
 </div>
 </section>
 
-<section class="panel">
-<h2>Del 2 – Frön och celler</h2>
-
+<section>
+<h2>Del 2 – Fotosyntes</h2>
 <div class="question">
-<h3>5. Vad behöver de flesta frön för att börja gro?</h3>
-<label><input type="radio" name="q5" value="a"> Vatten, syre och lämplig temperatur</label>
-<label><input type="radio" name="q5" value="b"> Bara solljus</label>
-<label><input type="radio" name="q5" value="c"> Bara jord</label>
+<h3>4. Vilka förutsättningar behövs för fotosyntesen?</h3>
+<label class="option"><input type="radio" name="q4" value="a"> Ljus, vatten och koldioxid</label>
+<label class="option"><input type="radio" name="q4" value="b"> Jord, syre och druvsocker</label>
+<label class="option"><input type="radio" name="q4" value="c"> Bara vatten</label>
 </div>
 
 <div class="question">
-<h3>6. Vad är en cell?</h3>
-<label><input type="radio" name="q6" value="a"> En sorts sten</label>
-<label><input type="radio" name="q6" value="b"> En grundläggande byggsten i levande organismer</label>
-<label><input type="radio" name="q6" value="c"> En sorts blomma</label>
+<h3>5. Var sker fotosyntesen?</h3>
+<label class="option"><input type="radio" name="q5" value="a"> I cellkärnan</label>
+<label class="option"><input type="radio" name="q5" value="b"> I kloroplasterna</label>
+<label class="option"><input type="radio" name="q5" value="c"> I marken</label>
 </div>
 
 <div class="question">
-<h3>7. Vilken del finns i växtceller och innehåller klorofyll?</h3>
-<label><input type="radio" name="q7" value="a"> Kloroplast</label>
-<label><input type="radio" name="q7" value="b"> Rot</label>
-<label><input type="radio" name="q7" value="c"> Blomblad</label>
-</div>
-</section>
-
-<section class="panel">
-<h2>Del 3 – Djur och natur</h2>
-
-<div class="question">
-<h3>8. Vad är ett ekosystem?</h3>
-<label><input type="radio" name="q8" value="a"> Bara en grupp växter</label>
-<label><input type="radio" name="q8" value="b"> Levande organismer och miljön de lever i</label>
-<label><input type="radio" name="q8" value="c"> Bara en grupp djur</label>
-</div>
-
-<div class="question">
-<h3>9. Vad är en producent i ett ekosystem?</h3>
-<label><input type="radio" name="q9" value="a"> En organism som tillverkar sin egen näring, till exempel en grön växt</label>
-<label><input type="radio" name="q9" value="b"> Ett djur som jagar andra djur</label>
-<label><input type="radio" name="q9" value="c"> En organism som bara äter kött</label>
-</div>
-
-<div class="question">
-<h3>10. Vad visar en näringskedja?</h3>
-<label><input type="radio" name="q10" value="a"> Hur vatten rinner</label>
-<label><input type="radio" name="q10" value="b"> Vem som äter vem i ett ekosystem</label>
-<label><input type="radio" name="q10" value="c"> Hur växter växer</label>
+<h3>6. Vilka ämnen bildas vid fotosyntesen?</h3>
+<label class="option"><input type="radio" name="q6" value="a"> Vatten och koldioxid</label>
+<label class="option"><input type="radio" name="q6" value="b"> Jord och mineraler</label>
+<label class="option"><input type="radio" name="q6" value="c"> Druvsocker och syre</label>
 </div>
 </section>
 
-<section class="panel">
+<section>
+<h2>Del 3 – Ekosystem</h2>
+<div class="question">
+<h3>7. Vad är ett ekosystem?</h3>
+<label class="option"><input type="radio" name="q7" value="a"> Bara alla djur på en plats</label>
+<label class="option"><input type="radio" name="q7" value="b"> Levande organismer och den miljö de lever i</label>
+<label class="option"><input type="radio" name="q7" value="c"> Bara mark och vatten</label>
+</div>
+
+<div class="question">
+<h3>8. Vilken uppgift har nedbrytare?</h3>
+<label class="option"><input type="radio" name="q8" value="a"> De bryter ner dött material</label>
+<label class="option"><input type="radio" name="q8" value="b"> De gör solljus till vatten</label>
+<label class="option"><input type="radio" name="q8" value="c"> De stoppar växters tillväxt</label>
+</div>
+</section>
+
+<section>
 <h2>Del 4 – Förklara med egna ord</h2>
-
+<p>Här behöver du skriva egna svar. Din lärare läser och bedömer svaren.</p>
 <div class="question">
-<h3>11. Förklara vad fotosyntes är.</h3>
-<p class="small">
-Tips: Tänk på ljus, vatten, koldioxid, socker och syre.
-</p>
-<textarea name="q11"
-    placeholder="Skriv ditt svar här..."></textarea>
+<h3>9. Beskriv två skillnader mellan en växtcell och en djurcell.</h3>
+<textarea name="q9"></textarea>
 </div>
-
 <div class="question">
-<h3>12. Vad kan hända om en växt inte får vatten?</h3>
-<textarea name="q12"
-    placeholder="Skriv ditt svar här..."></textarea>
+<h3>10. Förklara vad växten behöver för att fotosyntesen ska kunna ske.</h3>
+<textarea name="q10"></textarea>
 </div>
-
+<div class="question">
+<h3>11. Beskriv vad som bildas vid fotosyntesen.</h3>
+<textarea name="q11"></textarea>
+</div>
+<div class="question">
+<h3>12. Förklara varför nedbrytare är viktiga i ett ekosystem.</h3>
+<textarea name="q12"></textarea>
+</div>
 </section>
 
-<section class="panel">
-<button type="button" onclick="checkQuiz()">
-Rätta mina svar
-</button>
-<button type="reset" onclick="resetQuiz()">
-Börja om
-</button>
-
-<div id="result" class="feedback"></div>
+<section>
+<h2>Lämna in och se resultat</h2>
+<button type="submit">Rätta testet</button>
+<button type="button" onclick="resetQuiz()">Börja om</button>
+<div id="result" class="feedback" aria-live="polite"></div>
 </section>
 
 </form>
 
-<nav class="navigation">
-<a class="link-button" href="biologi.html">Till biologisidan</a>
-<a class="link-button" href="biologiprogression.html">Till biologins lärstig</a>
-<a class="link-button" href="index.html">Till startsidan</a>
-</nav>
+<section>
+<h2>Fundera över ditt lärande</h2>
+<p>Vilken del kunde du bäst?</p>
+<label><input type="checkbox"> Celler</label><br>
+<label><input type="checkbox"> Fotosyntes</label><br>
+<label><input type="checkbox"> Ekosystem</label>
+<p>Vilken del vill du träna mer på?</p>
+<textarea id="reflection" placeholder="Skriv din reflektion här..."></textarea>
+</section>
 
+<nav class="nav">
+<a href="celler.html">Träna: Celler</a>
+<a href="fotosyntes.html">Träna: Fotosyntes</a>
+<a href="ekosystem.html">Träna: Ekosystem</a>
+<a href="biologibegrepp.html">Biologiska begrepp</a>
+<a href="index.html">Startsidan</a>
+</nav>
 </main>
 
 <script>
-const answers = {
-    q1: "b",
-    q2: "a",
-    q3: "b",
-    q4: "a",
-    q5: "a",
-    q6: "b",
-    q7: "a",
-    q8: "b",
-    q9: "a",
-    q10: "b"
+const correct={
+q1:"b",
+q2:"a",
+q3:"c",
+q4:"a",
+q5:"b",
+q6:"c",
+q7:"b",
+q8:"a"
 };
 
-function checkQuiz() {
-    const form = document.getElementById("biologyQuiz");
-    const result = document.getElementById("result");
-    let score = 0;
-    let answered = 0;
-    let details = "";
+const explanations={
+q1:"En cell är den minsta levande byggstenen i en organism.",
+q2:"Både växtceller och djurceller har cellkärna.",
+q3:"Cellmembranet reglerar vad som passerar in i och ut ur cellen.",
+q4:"Fotosyntesen behöver ljusenergi, vatten och koldioxid.",
+q5:"Fotosyntesen sker i kloroplasterna i växtens gröna delar.",
+q6:"Druvsocker och syre bildas vid fotosyntesen.",
+q7:"Ett ekosystem består av levande organismer och deras miljö.",
+q8:"Nedbrytare bryter ner dött material och hjälper näringsämnen tillbaka till marken."
+};
 
-    for (let i = 1; i <= 10; i++) {
-        const selected = form.querySelector(
-            'input[name="q' + i + '"]:checked'
-        );
+document.getElementById("biologyQuiz").addEventListener("submit",function(event){
+event.preventDefault();
+let score=0;
+let answered=0;
+let details="<h3>Återkoppling på dina svar</h3>";
 
-        if (selected) {
-            answered++;
-
-            if (selected.value === answers["q" + i]) {
-                score++;
-                details += "<p>Fråga " + i + ": Rätt svar.</p>";
-            } else {
-                details += "<p>Fråga " + i +
-                    ": Inte riktigt. Försök igen nästa gång.</p>";
-            }
-        } else {
-            details += "<p>Fråga " + i + ": Du har inte svarat.</p>";
-        }
-    }
-
-    if (answered < 10) {
-        result.className = "feedback incorrect";
-        result.style.display = "block";
-        result.innerHTML =
-            "<h2>Du behöver svara på alla flervalsfrågor.</h2>" +
-            "<p>Du har svarat på " + answered + " av 10 frågor.</p>" +
-            details;
-        result.scrollIntoView({behavior: "smooth"});
-        return;
-    }
-
-    const name = document.getElementById("studentName").value.trim();
-    const q11 = form.querySelector('[name="q11"]').value.trim();
-    const q12 = form.querySelector('[name="q12"]').value.trim();
-
-    let writtenMessage = "";
-
-    if (q11.length === 0 || q12.length === 0) {
-        writtenMessage =
-            "<p><strong>Kom ihåg:</strong> Du behöver också svara på fråga 11 och 12.</p>";
-    } else {
-        writtenMessage =
-            "<p>Du har skrivit svar på båda förklaringsfrågorna. " +
-            "Din lärare behöver läsa och bedöma dem.</p>";
-    }
-
-    let message = "";
-
-    if (score >= 9) {
-        message = "Mycket bra arbetat!";
-    } else if (score >= 7) {
-        message = "Bra arbetat! Fortsätt träna.";
-    } else if (score >= 5) {
-        message = "Du är på väg. Repetera och försök igen.";
-    } else {
-        message = "Träna mer på begreppen och gör ett nytt försök.";
-    }
-
-    result.className = "feedback correct";
-    result.style.display = "block";
-
-    result.innerHTML =
-        "<h2>Ditt resultat</h2>" +
-        "<p>" + (name ? "Elev: " + escapeHTML(name) : "Elevnamn saknas") + "</p>" +
-        '<div class="result-number">' + score + " av 10 poäng</div>" +
-        "<h3>" + message + "</h3>" +
-        "<h3>Genomgång av frågorna</h3>" +
-        details +
-        writtenMessage +
-        "<p><strong>Observera:</strong> Poängen gäller endast flervalsfrågorna. " +
-        "De två egna svaren behöver bedömas av läraren.</p>";
-
-    result.scrollIntoView({behavior: "smooth"});
+for(let i=1;i<=8;i++){
+const selected=document.querySelector('input[name="q'+i+'"]:checked');
+if(selected){
+answered++;
+if(selected.value===correct["q"+i]){
+score++;
+details+="<p><strong>Fråga "+i+":</strong> Rätt. "+explanations["q"+i]+"</p>";
+}else{
+details+="<p><strong>Fråga "+i+":</strong> Titta på förklaringen igen. "+explanations["q"+i]+"</p>";
+}
+}else{
+details+="<p><strong>Fråga "+i+":</strong> Du har inte valt något svar. "+explanations["q"+i]+"</p>";
+}
 }
 
-function escapeHTML(text) {
-    return text.replace(/[&<>"']/g, function(character) {
-        const replacements = {
-            "&": "&amp;",
-            "<": "&lt;",
-            ">": "&gt;",
-            '"': "&quot;",
-            "'": "&#039;"
-        };
-        return replacements[character];
-    });
+const name=document.getElementById("studentName").value.trim();
+let written=0;
+for(let i=9;i<=12;i++){
+const value=document.querySelector('[name="q'+i+'"]').value.trim();
+if(value.length>0)written++;
 }
 
-function resetQuiz() {
-    const result = document.getElementById("result");
-    result.style.display = "none";
-    result.innerHTML = "";
+const result=document.getElementById("result");
+result.className="feedback show";
+result.innerHTML=
+"<p class='result'>"+score+" av 8 rätt</p>"+
+"<p>"+answered+" av 8 flervalsfrågor besvarade.</p>"+
+"<p>"+written+" av 4 egna svar ifyllda.</p>"+
+"<p><strong>Elev:</strong> "+escapeHTML(name||"Namn saknas")+"</p>"+
+details+
+"<p><strong>Kom ihåg:</strong> Dina egna svar rättas inte automatiskt. Läraren behöver läsa dem.</p>";
+result.scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+function escapeHTML(text){
+return text.replace(/[&<>"']/g,function(char){
+return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[char];
+});
+}
+
+function resetQuiz(){
+document.getElementById("biologyQuiz").reset();
+const result=document.getElementById("result");
+result.className="feedback";
+result.innerHTML="";
+window.scrollTo({top:0,behavior:"smooth"});
 }
 </script>
-
 </body>
 </html>
