@@ -2,7 +2,7 @@
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Biologins lärstig – NO-Upptäckaren</title>
 
 <style>
@@ -13,109 +13,132 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f3f7f2;
-    color: #24352a;
-    line-height: 1.6;
+    background: #f2f7f1;
+    color: #26372b;
+    line-height: 1.65;
 }
 
 header {
-    background: #246b45;
+    background: #245b3b;
     color: white;
-    padding: 30px 20px;
     text-align: center;
+    padding: 35px 18px;
 }
 
 header h1 {
-    margin: 0 0 10px;
-    font-size: 2rem;
+    margin: 0;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
 }
 
 main {
     max-width: 950px;
-    margin: 30px auto;
-    padding: 0 18px;
+    margin: 25px auto;
+    padding: 0 16px 40px;
+}
+
+section {
+    background: white;
+    border-radius: 15px;
+    padding: 24px;
+    margin-bottom: 22px;
+    box-shadow: 0 3px 12px #0000000b;
+}
+
+h2, h3 {
+    color: #245b3b;
 }
 
 .intro {
-    background: white;
-    padding: 22px;
-    border-radius: 14px;
-    margin-bottom: 25px;
+    background: #e6f2e7;
+    border-left: 6px solid #398052;
 }
 
-.progress {
-    display: grid;
-    gap: 18px;
+.goal {
+    background: #f0f6ef;
+    border-radius: 11px;
+    padding: 17px;
+    margin: 15px 0;
 }
 
 .step {
-    background: white;
-    border-radius: 14px;
-    padding: 22px;
-    border-left: 7px solid #69a77b;
-    box-shadow: 0 2px 7px rgba(0,0,0,0.06);
+    border: 2px solid #dce9dc;
+    border-radius: 13px;
+    padding: 20px;
+    margin: 18px 0;
 }
 
 .step-number {
     display: inline-block;
-    background: #246b45;
+    background: #245b3b;
     color: white;
     padding: 5px 13px;
     border-radius: 20px;
     font-weight: bold;
-    margin-bottom: 8px;
 }
 
-.step h2 {
-    margin: 5px 0 10px;
-    color: #246b45;
+.variation {
+    background: #f4f8f4;
+    border-left: 5px solid #6ba77a;
+    padding: 14px;
+    margin: 13px 0;
+    border-radius: 8px;
 }
 
-.step p {
-    margin: 7px 0;
+.connection {
+    background: #e6f2e7;
+    border: 1px solid #cbdcc9;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 18px 0;
 }
 
 .button {
     display: inline-block;
-    background: #246b45;
-    color: white;
-    text-decoration: none;
-    padding: 11px 18px;
-    border-radius: 9px;
-    margin-top: 12px;
-    font-weight: bold;
-}
-
-.button:hover {
-    background: #174b30;
-}
-
-.goal {
-    background: #e2f1e5;
-    border-radius: 12px;
-    padding: 20px;
-    margin-top: 25px;
-}
-
-.navigation {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin: 30px 0;
-}
-
-.navigation a {
-    background: #344d3b;
+    background: #245b3b;
     color: white;
     text-decoration: none;
     padding: 12px 18px;
     border-radius: 9px;
+    margin: 7px 5px 7px 0;
+    font-weight: bold;
+}
+
+.button:hover {
+    background: #17432a;
+}
+
+.button:focus-visible {
+    outline: 4px solid #d99b24;
+    outline-offset: 3px;
+}
+
+.path {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+    text-align: center;
+}
+
+.path-item {
+    background: #f0f6ef;
+    padding: 16px;
+    border-radius: 11px;
+}
+
+.path-item strong {
+    color: #245b3b;
 }
 
 footer {
     text-align: center;
     padding: 25px;
     color: #526456;
+}
+
+@media(max-width: 600px) {
+    section {
+        padding: 17px;
+    }
 }
 </style>
 </head>
@@ -124,154 +147,298 @@ footer {
 
 <header>
     <h1>Biologins lärstig</h1>
-    <p>Din väg genom biologin – steg för steg</p>
+    <p>Från celler till fotosyntes och ekosystem</p>
 </header>
 
 <main>
 
-    <section class="intro">
-        <h2>Välkommen till biologin!</h2>
+<section class="intro">
+    <h2>Din väg genom biologin</h2>
+
+    <p>
+        Du ska undersöka hur livet är uppbyggt
+        och hur organismer påverkar varandra.
+    </p>
+
+    <p>
+        Börja med det lilla. Fortsätt med det som
+        händer i växten. Avsluta med att undersöka
+        hela ekosystemet.
+    </p>
+</section>
+
+<section>
+    <h2>Överblick – tre steg</h2>
+
+    <div class="path">
+
+        <div class="path-item">
+            <strong>Steg 1</strong>
+            <p>Celler</p>
+            <p>Livets byggstenar</p>
+        </div>
+
+        <div class="path-item">
+            <strong>Steg 2</strong>
+            <p>Fotosyntes</p>
+            <p>Växtens process</p>
+        </div>
+
+        <div class="path-item">
+            <strong>Steg 3</strong>
+            <p>Ekosystem</p>
+            <p>Livets samband</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="step">
+
+    <span class="step-number">Steg 1</span>
+
+    <h2>Celler – vad består livet av?</h2>
+
+    <div class="goal">
+        <strong>Lärandeobjekt</strong>
         <p>
-            Här får du lära dig om levande organismer.
-            Du kommer att undersöka växter, djur, celler
-            och hur naturen fungerar.
+            Förstå att levande organismer består av celler
+            och kunna jämföra växtceller och djurceller.
         </p>
+    </div>
+
+    <h3>Kritiska aspekter</h3>
+
+    <ul>
+        <li>En cell är en levande byggsten.</li>
+        <li>Växtceller och djurceller har likheter.</li>
+        <li>Växtceller har också särskilda celldelar.</li>
+        <li>Olika celldelar har olika uppgifter.</li>
+    </ul>
+
+    <div class="variation">
+        <strong>Kontrast</strong>
         <p>
-            Följ stegen i ordning. Läs, undersök och
-            testa dina kunskaper.
+            Jämför en växtcell med en djurcell.
+            Vad är lika? Vad är olika?
         </p>
-    </section>
+    </div>
 
-    <section class="progress">
-
-        <article class="step">
-            <span class="step-number">Steg 1</span>
-            <h2>Vad är biologi?</h2>
-            <p>
-                Biologi handlar om livet.
-                Du får lära dig vad levande organismer är
-                och hur människor, djur och växter hör ihop.
-            </p>
-            <a class="button" href="biologi.html">Börja med biologi</a>
-        </article>
-
-        <article class="step">
-            <span class="step-number">Steg 2</span>
-            <h2>Biologiska begrepp</h2>
-            <p>
-                Träna på viktiga ord inom biologin.
-                Lär dig vad orden betyder och hur de används.
-            </p>
-            <a class="button" href="biologibegrepp.html">Träna begrepp</a>
-        </article>
-
-        <article class="step">
-            <span class="step-number">Steg 3</span>
-            <h2>Växter och växters delar</h2>
-            <p>
-                Undersök växternas olika delar.
-                Lär dig om rötter, stam, blad och blommor.
-            </p>
-            <a class="button" href="vaxter.html">Lär dig om växter</a>
-            <a class="button" href="vaxtersdelar.html">Växternas delar</a>
-        </article>
-
-        <article class="step">
-            <span class="step-number">Steg 4</span>
-            <h2>Fotosyntes</h2>
-            <p>
-                Ta reda på hur växter använder ljus,
-                vatten och koldioxid för att bilda socker.
-            </p>
-            <a class="button" href="fotosyntes.html">Lär dig om fotosyntes</a>
-        </article>
-
-        <article class="step">
-            <span class="step-number">Steg 5</span>
-            <h2>Frön och fortplantning</h2>
-            <p>
-                Lär dig hur växter kan föröka sig,
-                hur frön bildas och hur frön sprids.
-            </p>
-            <a class="button" href="fortplantning.html">Fortplantning</a>
-            <a class="button" href="fronspridning.html">Fröspridning</a>
-        </article>
-
-        <article class="step">
-            <span class="step-number">Steg 6</span>
-            <h2>Växternas miljö</h2>
-            <p>
-                Undersök vad växter behöver för att leva
-                och hur miljön påverkar deras tillväxt.
-            </p>
-            <a class="button" href="vaxtermiljo.html">Växternas miljö</a>
-        </article>
-
-        <article class="step">
-            <span class="step-number">Steg 7</span>
-            <h2>Gör ett eget experiment</h2>
-            <p>
-                Planera ett experiment där du undersöker
-                hur ett frö gror och växer.
-            </p>
-            <a class="button" href="vaxtexperiment.html">Starta experimentet</a>
-            <a class="button" href="forskardagbok.html">Öppna forskardagboken</a>
-        </article>
-
-        <article class="step">
-            <span class="step-number">Steg 8</span>
-            <h2>Celler</h2>
-            <p>
-                Lär dig att levande organismer består av celler.
-                Undersök hur celler är uppbyggda.
-            </p>
-            <a class="button" href="celler.html">Lär dig om celler</a>
-        </article>
-
-        <article class="step">
-            <span class="step-number">Steg 9</span>
-            <h2>Djur och ekosystem</h2>
-            <p>
-                Undersök hur djur lever och hur organismer
-                påverkar varandra i naturen.
-            </p>
-            <a class="button" href="djur.html">Lär dig om djur</a>
-            <a class="button" href="ekosystem.html">Lär dig om ekosystem</a>
-        </article>
-
-        <article class="step">
-            <span class="step-number">Steg 10</span>
-            <h2>Testa dina kunskaper</h2>
-            <p>
-                Nu är det dags att repetera och visa
-                vad du har lärt dig.
-            </p>
-            <a class="button" href="biologitest.html">Gör biologitestet</a>
-        </article>
-
-    </section>
-
-    <section class="goal">
-        <h2>Mitt mål</h2>
+    <div class="variation">
+        <strong>Separation</strong>
         <p>
-            Jag kan beskriva vad jag har lärt mig om
-            växter, djur och naturen.
+            Undersök cellkärnan, cellmembranet
+            och kloroplasterna var för sig.
         </p>
-        <p>
-            Jag kan använda biologiska begrepp
-            och genomföra en enkel undersökning.
-        </p>
-    </section>
+    </div>
 
-    <nav class="navigation">
-        <a href="biologi.html">Till biologisidan</a>
-        <a href="index.html">Till startsidan</a>
-    </nav>
+    <div class="variation">
+        <strong>Generalisering</strong>
+        <p>
+            Jämför celler från flera olika växter
+            och djur. Upptäck vad som är gemensamt.
+        </p>
+    </div>
+
+    <a href="celler.html" class="button">
+        Börja med celler
+    </a>
+
+</section>
+
+<section class="step">
+
+    <span class="step-number">Steg 2</span>
+
+    <h2>Fotosyntes – vad händer i växten?</h2>
+
+    <div class="goal">
+        <strong>Lärandeobjekt</strong>
+        <p>
+            Förstå hur växter använder ljusenergi,
+            vatten och koldioxid för att bilda
+            druvsocker och syre.
+        </p>
+    </div>
+
+    <h3>Kritiska aspekter</h3>
+
+    <ul>
+        <li>Växten behöver ljusenergi.</li>
+        <li>Växten använder vatten.</li>
+        <li>Växten tar upp koldioxid.</li>
+        <li>Fotosyntesen sker i kloroplasterna.</li>
+        <li>Druvsocker och syre bildas.</li>
+    </ul>
+
+    <div class="variation">
+        <strong>Kontrast</strong>
+        <p>
+            Jämför en växt med ljus och en växt
+            utan ljus. Håll de andra förutsättningarna lika.
+        </p>
+    </div>
+
+    <div class="variation">
+        <strong>Separation</strong>
+        <p>
+            Undersök ljus, vatten och koldioxid
+            var för sig.
+        </p>
+    </div>
+
+    <div class="variation">
+        <strong>Generalisering</strong>
+        <p>
+            Jämför flera olika gröna växter.
+            Upptäck att fotosyntes sker i många växter.
+        </p>
+    </div>
+
+    <div class="variation">
+        <strong>Fusion</strong>
+        <p>
+            Kombinera ljus, vatten, koldioxid och
+            kloroplaster för att förklara hela processen.
+        </p>
+    </div>
+
+    <a href="fotosyntes.html" class="button">
+        Utforska fotosyntesen
+    </a>
+
+</section>
+
+<section class="step">
+
+    <span class="step-number">Steg 3</span>
+
+    <h2>Ekosystem – hur hänger livet ihop?</h2>
+
+    <div class="goal">
+        <strong>Lärandeobjekt</strong>
+        <p>
+            Förstå att ett ekosystem består av
+            levande organismer och deras miljö,
+            samt kunna beskriva samband mellan dem.
+        </p>
+    </div>
+
+    <h3>Kritiska aspekter</h3>
+
+    <ul>
+        <li>Ett ekosystem innehåller levande organismer.</li>
+        <li>Det innehåller också icke-levande delar.</li>
+        <li>Organismer påverkar varandra.</li>
+        <li>Energi förs vidare genom näringskedjor.</li>
+        <li>Nedbrytare bidrar till ämnenas kretslopp.</li>
+    </ul>
+
+    <div class="variation">
+        <strong>Kontrast</strong>
+        <p>
+            Jämför levande delar med icke-levande delar
+            i ett ekosystem.
+        </p>
+    </div>
+
+    <div class="variation">
+        <strong>Separation</strong>
+        <p>
+            Undersök en faktor i taget, till exempel
+            ljus, vatten eller temperatur.
+        </p>
+    </div>
+
+    <div class="variation">
+        <strong>Generalisering</strong>
+        <p>
+            Jämför skog, sjö och äng.
+            Upptäck vad som är gemensamt för ekosystem.
+        </p>
+    </div>
+
+    <div class="variation">
+        <strong>Fusion</strong>
+        <p>
+            Förklara hur växter, djur, nedbrytare,
+            vatten och ljus samverkar.
+        </p>
+    </div>
+
+    <a href="ekosystem.html" class="button">
+        Utforska ekosystem
+    </a>
+
+</section>
+
+<section class="connection">
+
+    <h2>Hur hänger de tre stegen ihop?</h2>
+
+    <p>
+        En växt består av celler.
+    </p>
+
+    <p>
+        I växtens gröna celler finns kloroplaster.
+        Där sker fotosyntesen.
+    </p>
+
+    <p>
+        Vid fotosyntesen bildas druvsocker.
+        Växten kan använda sockret som energi
+        och byggmaterial.
+    </p>
+
+    <p>
+        Växter är viktiga producenter i många
+        ekosystem. De kan bli föda för andra organismer.
+    </p>
+
+    <p>
+        Därför hänger celler, fotosyntes och ekosystem ihop.
+    </p>
+
+</section>
+
+<section>
+
+    <h2>Avsluta lärstigen</h2>
+
+    <p>
+        När du har arbetat med alla tre områden
+        kan du visa vad du har lärt dig.
+    </p>
+
+    <a href="biologibegrepp.html" class="button">
+        Träna biologiska begrepp
+    </a>
+
+    <a href="biologitest.html" class="button">
+        Gör biologitestet
+    </a>
+
+    <a href="biologibedomning.html" class="button">
+        Gör självbedömningen
+    </a>
+
+    <a href="forskardagbok.html" class="button">
+        Öppna forskardagboken
+    </a>
+
+</section>
+
+<nav>
+    <a href="index.html" class="button">
+        Till startsidan
+    </a>
+</nav>
 
 </main>
 
 <footer>
-    NO-Upptäckaren – lär dig NO steg för steg
+    NO-Upptäckaren · Biologi · Årskurs 4–6
 </footer>
 
 </body>
