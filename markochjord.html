@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mark och jord | NO-Upptäckaren</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7f2;color:#26352b;line-height:1.6}
+header{background:#557b45;color:white;padding:28px 18px;text-align:center}
+header h1{margin:0;font-size:2rem}
+header p{margin:8px 0 0}
+main{max-width:900px;margin:auto;padding:20px}
+section{background:white;margin:18px 0;padding:22px;border-radius:14px;box-shadow:0 2px 8px #00000010}
+h2{color:#456c39;margin-top:0}
+h3{color:#557b45}
+.card{background:#f0f5eb;padding:15px;border-radius:10px;margin:12px 0}
+.model{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}
+.layer{flex:1 1 130px;padding:18px 10px;text-align:center;border-radius:8px;font-weight:bold}
+.layer:nth-child(1){background:#d8c39b}
+.layer:nth-child(2){background:#a8754c;color:white}
+.layer:nth-child(3){background:#806044;color:white}
+.layer:nth-child(4){background:#b7b7b7}
+button{border:0;border-radius:9px;background:#557b45;color:white;padding:12px 17px;margin:5px;cursor:pointer;font-size:1rem}
+button:hover{background:#3d6032}
+.option{display:block;width:100%;text-align:left;background:#edf3e9;color:#26352b;border:2px solid #d5e2ce}
+.option:hover{background:#dcebd4}
+.feedback{font-weight:bold;margin-top:10px;min-height:28px}
+input,textarea{width:100%;padding:12px;border:1px solid #aab9a2;border-radius:8px;font:inherit;margin:6px 0 14px}
+nav a{display:inline-block;margin:5px;padding:10px 14px;background:#e6efdf;border-radius:8px;color:#31552b;text-decoration:none}
+footer{text-align:center;padding:25px;color:#52634d}
+.small{font-size:.92rem;color:#53634f}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Mark och jord</h1>
+<p>Vi undersöker marken under våra fötter.</p>
+</header>
+
+<main>
+
+<section>
+<h2>Vad är mark?</h2>
+<p>Marken är den yta vi går på. Under våra fötter finns jord, stenar, rötter och många små organismer.</p>
+<p>Marken är viktig för växter, djur och människor. Växter kan växa i jord. Många djur lever i marken.</p>
+<div class="card">
+<strong>Kom ihåg:</strong>
+<p>Marken är en livsmiljö. Den hjälper växter att växa och ger många organismer en plats att leva på.</p>
+</div>
+</section>
+
+<section>
+<h2>Vad består jord av?</h2>
+<p>Jord kan innehålla flera olika delar:</p>
+<ul>
+<li><strong>Mineralpartiklar:</strong> små korn från berg och sten.</li>
+<li><strong>Humus:</strong> material från döda växter och djur som har brutits ner.</li>
+<li><strong>Vatten:</strong> finns mellan jordens partiklar.</li>
+<li><strong>Luft:</strong> finns i små hålrum i jorden.</li>
+<li><strong>Organismer:</strong> till exempel maskar, svampar och bakterier.</li>
+</ul>
+<div class="card">
+<strong>Fundera:</strong>
+<p>Varför tror du att växter behöver både vatten och luft i jorden?</p>
+</div>
+</section>
+
+<section>
+<h2>Olika lager i marken</h2>
+<p>Marken kan ha olika lager. Hur lagren ser ut beror bland annat på platsen.</p>
+<div class="model">
+<div class="layer">Översta lagret<br><span class="small">Löv och växtdelar</span></div>
+<div class="layer">Mulljord<br><span class="small">Humus och mineraler</span></div>
+<div class="layer">Underjord<br><span class="small">Mer mineraljord</span></div>
+<div class="layer">Berggrund<br><span class="small">Fast berg</span></div>
+</div>
+<p>Detta är en förenklad modell. Alla jordar har inte exakt samma lager.</p>
+</section>
+
+<section>
+<h2>Vad är nedbrytning?</h2>
+<p>När växter och djur dör börjar deras delar brytas ner.</p>
+<p>Maskar, svampar, bakterier och andra små organismer hjälper till med nedbrytningen.</p>
+<p>Materialet blir en del av marken. Näringsämnen kan åter användas av växter.</p>
+<div class="card">
+<strong>Exempel:</strong>
+<p>Ett löv faller från ett träd. Små organismer bryter ner lövet. Delar av materialet blir en del av jorden.</p>
+</div>
+</section>
+
+<section>
+<h2>Djur som lever i jorden</h2>
+<h3>Daggmasken</h3>
+<p>Daggmaskar äter jord och döda växtdelar. De hjälper till att blanda jorden.</p>
+<p>När maskar gräver gångar kan luft och vatten lättare komma ner i marken.</p>
+<h3>Andra nedbrytare</h3>
+<p>Svampar och bakterier bryter ner döda växter och djur. De är viktiga för naturens kretslopp.</p>
+</section>
+
+<section>
+<h2>Varför är jord viktig?</h2>
+<ul>
+<li>Växter får vatten och näringsämnen.</li>
+<li>Rötter kan fästa i marken.</li>
+<li>Många djur hittar mat och skydd.</li>
+<li>Jord kan lagra vatten.</li>
+<li>Nedbrytning gör att näringsämnen återanvänds.</li>
+</ul>
+</section>
+
+<section>
+<h2>Testa dina kunskaper</h2>
+<div id="quiz">
+<p id="question"></p>
+<div id="answers"></div>
+<p class="feedback" id="feedback" aria-live="polite"></p>
+<p id="counter"></p>
+<button onclick="nextQuestion()" id="next" hidden>Nästa fråga</button>
+</div>
+</section>
+
+<section>
+<h2>Visa vad du har lärt dig</h2>
+<label for="answer1">1. Nämn två saker som jord kan bestå av.</label>
+<textarea id="answer1" rows="3"></textarea>
+<label for="answer2">2. Vad gör daggmaskar i jorden?</label>
+<textarea id="answer2" rows="3"></textarea>
+<label for="answer3">3. Varför är nedbrytare viktiga?</label>
+<textarea id="answer3" rows="3"></textarea>
+<button onclick="saveAnswers()">Spara mina svar</button>
+<button onclick="window.print()">Skriv ut</button>
+<p id="saveMessage" class="feedback" aria-live="polite"></p>
+</section>
+
+<section>
+<h2>Viktiga begrepp</h2>
+<ul>
+<li><strong>Mark:</strong> jord, sten och annat material på land.</li>
+<li><strong>Humus:</strong> nedbrutet material från växter och djur.</li>
+<li><strong>Nedbrytare:</strong> organismer som bryter ner dött material.</li>
+<li><strong>Näringsämnen:</strong> ämnen som organismer behöver för att leva och växa.</li>
+<li><strong>Jordart:</strong> en typ av jord, till exempel sand eller lera.</li>
+</ul>
+</section>
+
+<section>
+<h2>Fortsätt utforska</h2>
+<nav>
+<a href="index.html">Startsidan</a>
+<a href="ekosystem.html">Ekosystem</a>
+<a href="naringskedjor.html">Näringskedjor</a>
+<a href="vattnetskretslopp.html">Vattnets kretslopp</a>
+<a href="biologiskmangfald.html">Biologisk mångfald</a>
+</nav>
+</section>
+
+</main>
+
+<footer>NO-Upptäckaren | Naturvetenskap för årskurs 4–6</footer>
+
+<script>
+const questions=[
+{q:"Vad är humus?",a:["Nedbrutet material från växter och djur","En sorts sten","En typ av vatten"],c:0,e:"Humus bildas när döda växter och djur bryts ner."},
+{q:"Vilka organismer hjälper till med nedbrytning?",a:["Bara fåglar","Maskar, svampar och bakterier","Bara träd"],c:1,e:"Maskar, svampar och bakterier hjälper till med nedbrytning."},
+{q:"Vad kan finnas mellan jordens partiklar?",a:["Bara plast","Vatten och luft","Bara metall"],c:1,e:"Det finns ofta både vatten och luft i små hålrum i jorden."},
+{q:"Vad gör daggmaskar?",a:["Hjälper till att blanda jorden","Gör solljus","Skapar stenar"],c:0,e:"Maskar gräver gångar och blandar jord och organiskt material."},
+{q:"Varför är jord viktig för växter?",a:["Den ger stöd, vatten och näringsämnen","Den gör att växter slipper ljus","Den hindrar rötter från att växa"],c:0,e:"Jorden ger rötterna stöd och kan innehålla vatten och näringsämnen."}
+];
+let current=0,score=0,answered=false;
+function showQuestion(){
+answered=false;
+const q=questions[current];
+document.getElementById("question").textContent=q.q;
+document.getElementById("answers").innerHTML="";
+document.getElementById("feedback").textContent="";
+document.getElementById("counter").textContent="Fråga "+(current+1)+" av "+questions.length;
+document.getElementById("next").hidden=true;
+q.a.forEach((a,i)=>{
+const b=document.createElement("button");
+b.className="option";
+b.textContent=a;
+b.onclick=()=>checkAnswer(i);
+document.getElementById("answers").appendChild(b);
+});
+}
+function checkAnswer(i){
+if(answered)return;
+answered=true;
+if(i===questions[current].c){
+score++;
+document.getElementById("feedback").textContent="Rätt! "+questions[current].e;
+}else{
+document.getElementById("feedback").textContent="Inte riktigt. "+questions[current].e;
+}
+document.getElementById("next").hidden=false;
+document.getElementById("next").textContent=current===questions.length-1?"Visa resultat":"Nästa fråga";
+}
+function nextQuestion(){
+if(current<questions.length-1){current++;showQuestion();}
+else{
+document.getElementById("quiz").innerHTML="<h3>Du är klar!</h3><p>Du fick "+score+" av "+questions.length+" rätt.</p><button onclick='restartQuiz()'>Gör testet igen</button>";
+}
+}
+function restartQuiz(){current=0;score=0;document.getElementById("quiz").innerHTML='<p id="question"></p><div id="answers"></div><p class="feedback" id="feedback"></p><p id="counter"></p><button onclick="nextQuestion()" id="next" hidden>Nästa fråga</button>';showQuestion();}
+function saveAnswers(){
+const data={a1:answer1.value,a2:answer2.value,a3:answer3.value};
+localStorage.setItem("markochjordSvar",JSON.stringify(data));
+saveMessage.textContent="Dina svar är sparade på den här enheten.";
+}
+window.addEventListener("load",()=>{
+const saved=localStorage.getItem("markochjordSvar");
+if(saved){const d=JSON.parse(saved);answer1.value=d.a1||"";answer2.value=d.a2||"";answer3.value=d.a3||"";}
+showQuestion();
+});
+</script>
+</body>
+</html>
