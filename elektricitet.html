@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elektricitet | NO-Upptäckaren</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f7fa;color:#263746;line-height:1.6}
+header{background:#397c9e;color:white;padding:28px 18px;text-align:center}
+header h1{margin:0;font-size:2rem}
+main{max-width:900px;margin:auto;padding:20px}
+section{background:white;padding:22px;margin:18px 0;border-radius:14px;box-shadow:0 2px 8px #00000010}
+h2{color:#28688e;margin-top:0}
+h3{color:#397c9e}
+.card{background:#eaf4f8;padding:15px;border-radius:10px;margin:12px 0}
+.diagram{background:#edf5f8;border:2px solid #b8d2df;border-radius:12px;padding:18px;text-align:center;margin:15px 0}
+.part{display:inline-block;padding:13px;margin:6px;background:white;border:2px solid #8fb6c9;border-radius:9px;font-weight:bold}
+button{border:0;border-radius:9px;background:#397c9e;color:white;padding:12px 17px;margin:5px;cursor:pointer;font-size:1rem}
+button:hover{background:#245e7c}
+.option{display:block;width:100%;text-align:left;background:#eaf4f8;color:#263746;border:2px solid #c8dfe9}
+.option:hover{background:#d9edf5}
+.feedback{font-weight:bold;min-height:28px;margin-top:10px}
+textarea{width:100%;padding:12px;border:1px solid #a9c4d4;border-radius:8px;font:inherit;margin:6px 0 14px}
+nav a{display:inline-block;margin:5px;padding:10px 14px;background:#e4f0f6;border-radius:8px;color:#245e7c;text-decoration:none}
+footer{text-align:center;padding:25px;color:#526978}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Elektricitet</h1>
+<p>Vi undersöker elektrisk ström och enkla kretsar.</p>
+</header>
+
+<main>
+
+<section>
+<h2>Vad är elektricitet?</h2>
+<p>Elektricitet handlar om elektriska laddningar.</p>
+<p>Elektrisk ström är elektriska laddningar som rör sig genom ett material.</p>
+<p>Vi använder elektricitet till lampor, datorer, kylskåp och många andra saker.</p>
+<div class="card">
+<strong>Kom ihåg:</strong>
+<p>Elektrisk ström kan få en lampa att lysa eller en motor att snurra.</p>
+</div>
+</section>
+
+<section>
+<h2>Vad behövs i en enkel elektrisk krets?</h2>
+<p>En enkel krets kan bestå av:</p>
+<ul>
+<li><strong>Batteri:</strong> ger elektrisk energi.</li>
+<li><strong>Ledningar:</strong> leder elektrisk ström.</li>
+<li><strong>Lampa:</strong> omvandlar elektrisk energi till ljus och värme.</li>
+<li><strong>Strömbrytare:</strong> öppnar eller stänger kretsen.</li>
+</ul>
+
+<div class="diagram">
+<div class="part">Batteri</div>
+<div class="part">Ledning</div>
+<div class="part">Lampa</div>
+<div class="part">Ledning tillbaka</div>
+<p><strong>En sluten krets gör att ström kan gå runt.</strong></p>
+</div>
+</section>
+
+<section>
+<h2>Öppen och sluten krets</h2>
+<div class="card">
+<h3>Sluten krets</h3>
+<p>Kretsen är hel. Elektrisk ström kan gå runt. Lampan kan lysa.</p>
+</div>
+<div class="card">
+<h3>Öppen krets</h3>
+<p>Kretsen har ett avbrott. Strömmen kan inte gå runt. Lampan lyser inte.</p>
+</div>
+</section>
+
+<section>
+<h2>Ledare och isolatorer</h2>
+<p>Olika material leder elektrisk ström olika bra.</p>
+<div class="card">
+<h3>Ledare</h3>
+<p>Metaller, till exempel koppar och aluminium, leder elektrisk ström bra.</p>
+</div>
+<div class="card">
+<h3>Isolatorer</h3>
+<p>Material som plast och gummi leder ström dåligt. De kan användas som skydd runt elektriska ledningar.</p>
+</div>
+</section>
+
+<section>
+<h2>Vad är ett batteri?</h2>
+<p>Ett batteri lagrar kemisk energi.</p>
+<p>När batteriet kopplas till en sluten krets kan det driva elektrisk ström.</p>
+<p>Batterier finns i exempelvis ficklampor, leksaker och mobiltelefoner.</p>
+</section>
+
+<section>
+<h2>Elektricitet i vardagen</h2>
+<ul>
+<li>Vi använder elektricitet för belysning.</li>
+<li>Elektriska motorer kan driva maskiner.</li>
+<li>Elektricitet används i datorer och telefoner.</li>
+<li>Elektricitet kan användas för att värma upp saker.</li>
+</ul>
+</section>
+
+<section>
+<h2>Elsäkerhet</h2>
+<p>Elektricitet kan vara farlig om den används fel.</p>
+<ul>
+<li>Stoppa aldrig föremål i ett vägguttag.</li>
+<li>Rör inte trasiga sladdar.</li>
+<li>Använd inte elektriska apparater nära vatten om de inte är avsedda för det.</li>
+<li>Be en vuxen om hjälp om något verkar trasigt.</li>
+</ul>
+<div class="card">
+<strong>Viktigt:</strong>
+<p>Experimentera bara med säkra batterier och enkla skolmaterial. Använd aldrig vägguttag i experiment.</p>
+</div>
+</section>
+
+<section>
+<h2>Testa dina kunskaper</h2>
+<div id="quiz">
+<p id="question"></p>
+<div id="answers"></div>
+<p id="feedback" class="feedback" aria-live="polite"></p>
+<p id="counter"></p>
+<button id="next" hidden>Nästa fråga</button>
+</div>
+</section>
+
+<section>
+<h2>Visa vad du har lärt dig</h2>
+<label for="answer1">1. Vad behövs för att en enkel krets ska fungera?</label>
+<textarea id="answer1" rows="3"></textarea>
+<label for="answer2">2. Vad är skillnaden mellan en öppen och en sluten krets?</label>
+<textarea id="answer2" rows="3"></textarea>
+<label for="answer3">3. Ge ett exempel på en ledare och en isolator.</label>
+<textarea id="answer3" rows="3"></textarea>
+<button onclick="saveAnswers()">Spara mina svar</button>
+<button onclick="window.print()">Skriv ut</button>
+<p id="saveMessage" class="feedback" aria-live="polite"></p>
+</section>
+
+<section>
+<h2>Viktiga begrepp</h2>
+<ul>
+<li><strong>Elektricitet:</strong> handlar om elektriska laddningar.</li>
+<li><strong>Elektrisk ström:</strong> laddningar som rör sig.</li>
+<li><strong>Elektrisk krets:</strong> en väg där ström kan gå runt.</li>
+<li><strong>Ledare:</strong> material som leder ström bra.</li>
+<li><strong>Isolator:</strong> material som leder ström dåligt.</li>
+<li><strong>Batteri:</strong> en energikälla som kan driva ström i en krets.</li>
+</ul>
+</section>
+
+<section>
+<h2>Fortsätt utforska</h2>
+<nav>
+<a href="index.html">Startsidan</a>
+<a href="fysik.html">Fysik</a>
+<a href="energi.html">Energi</a>
+<a href="krafterochrorelse.html">Krafter och rörelse</a>
+<a href="teknik.html">Teknik</a>
+</nav>
+</section>
+
+</main>
+
+<footer>NO-Upptäckaren | Naturvetenskap för årskurs 4–6</footer>
+
+<script>
+const questions=[
+{q:"Vad är elektrisk ström?",a:["Elektriska laddningar som rör sig","Vatten som rinner","Luft som blåser"],c:0,e:"Elektrisk ström innebär att elektriska laddningar rör sig."},
+{q:"Vad behöver en enkel krets?",a:["Batteri, ledningar och en mottagare","Bara en sten","Bara vatten"],c:0,e:"En enkel krets behöver en energikälla, ledningar och något som använder energin."},
+{q:"När kan ström gå runt i en enkel krets?",a:["När kretsen är sluten","När ledningen är avklippt","När batteriet saknas"],c:0,e:"En sluten krets ger strömmen en sammanhängande väg."},
+{q:"Vilket material leder ström bra?",a:["Koppar","Gummi","Plast"],c:0,e:"Koppar är en metall och leder elektrisk ström bra."},
+{q:"Vad är en isolator?",a:["Ett material som leder ström dåligt","Ett batteri","En sorts lampa"],c:0,e:"Plast och gummi är exempel på isolerande material."},
+{q:"Vad ska du göra om en sladd är trasig?",a:["Be en vuxen om hjälp","Röra vid den","Dra i den"],c:0,e:"Trasiga sladdar kan vara farliga. Be en vuxen om hjälp."}
+];
+
+let current=0,score=0,answered=false;
+
+function showQuestion(){
+answered=false;
+const q=questions[current];
+document.getElementById("question").textContent=q.q;
+document.getElementById("answers").innerHTML="";
+document.getElementById("feedback").textContent="";
+document.getElementById("counter").textContent="Fråga "+(current+1)+" av "+questions.length;
+document.getElementById("next").hidden=true;
+
+q.a.forEach((a,i)=>{
+const b=document.createElement("button");
+b.className="option";
+b.textContent=a;
+b.onclick=()=>checkAnswer(i);
+document.getElementById("answers").appendChild(b);
+});
+}
+
+function checkAnswer(i){
+if(answered)return;
+answered=true;
+const q=questions[current];
+
+if(i===q.c){
+score++;
+document.getElementById("feedback").textContent="Rätt! "+q.e;
+}else{
+document.getElementById("feedback").textContent="Inte riktigt. "+q.e;
+}
+
+document.getElementById("next").hidden=false;
+document.getElementById("next").textContent=current===questions.length-1?"Visa resultat":"Nästa fråga";
+}
+
+function nextQuestion(){
+if(current<questions.length-1){
+current++;
+showQuestion();
+}else{
+document.getElementById("quiz").innerHTML=
+"<h3>Du är klar!</h3><p>Du fick "+score+" av "+questions.length+" rätt.</p><button onclick='restartQuiz()'>Gör testet igen</button>";
+}
+}
+
+function restartQuiz(){
+current=0;
+score=0;
+document.getElementById("quiz").innerHTML=
+'<p id="question"></p><div id="answers"></div><p id="feedback" class="feedback"></p><p id="counter"></p><button id="next" hidden>Nästa fråga</button>';
+document.getElementById("next").onclick=nextQuestion;
+showQuestion();
+}
+
+function saveAnswers(){
+const data={
+a1:document.getElementById("answer1").value,
+a2:document.getElementById("answer2").value,
+a3:document.getElementById("answer3").value
+};
+localStorage.setItem("elektricitetSvar",JSON.stringify(data));
+document.getElementById("saveMessage").textContent="Dina svar är sparade på den här enheten.";
+}
+
+document.getElementById("next").onclick=nextQuestion;
+
+window.addEventListener("load",()=>{
+const saved=localStorage.getItem("elektricitetSvar");
+if(saved){
+const d=JSON.parse(saved);
+document.getElementById("answer1").value=d.a1||"";
+document.getElementById("answer2").value=d.a2||"";
+document.getElementById("answer3").value=d.a3||"";
+}
+showQuestion();
+});
+</script>
+
+</body>
+</html>
