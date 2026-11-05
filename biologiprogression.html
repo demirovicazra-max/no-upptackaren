@@ -6,440 +6,164 @@
 <title>Biologins lärstig – NO-Upptäckaren</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f2f7f1;
-    color: #26372b;
-    line-height: 1.65;
-}
-
-header {
-    background: #245b3b;
-    color: white;
-    text-align: center;
-    padding: 35px 18px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-}
-
-main {
-    max-width: 950px;
-    margin: 25px auto;
-    padding: 0 16px 40px;
-}
-
-section {
-    background: white;
-    border-radius: 15px;
-    padding: 24px;
-    margin-bottom: 22px;
-    box-shadow: 0 3px 12px #0000000b;
-}
-
-h2, h3 {
-    color: #245b3b;
-}
-
-.intro {
-    background: #e6f2e7;
-    border-left: 6px solid #398052;
-}
-
-.goal {
-    background: #f0f6ef;
-    border-radius: 11px;
-    padding: 17px;
-    margin: 15px 0;
-}
-
-.step {
-    border: 2px solid #dce9dc;
-    border-radius: 13px;
-    padding: 20px;
-    margin: 18px 0;
-}
-
-.step-number {
-    display: inline-block;
-    background: #245b3b;
-    color: white;
-    padding: 5px 13px;
-    border-radius: 20px;
-    font-weight: bold;
-}
-
-.variation {
-    background: #f4f8f4;
-    border-left: 5px solid #6ba77a;
-    padding: 14px;
-    margin: 13px 0;
-    border-radius: 8px;
-}
-
-.connection {
-    background: #e6f2e7;
-    border: 1px solid #cbdcc9;
-    border-radius: 12px;
-    padding: 18px;
-    margin: 18px 0;
-}
-
-.button {
-    display: inline-block;
-    background: #245b3b;
-    color: white;
-    text-decoration: none;
-    padding: 12px 18px;
-    border-radius: 9px;
-    margin: 7px 5px 7px 0;
-    font-weight: bold;
-}
-
-.button:hover {
-    background: #17432a;
-}
-
-.button:focus-visible {
-    outline: 4px solid #d99b24;
-    outline-offset: 3px;
-}
-
-.path {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 12px;
-    text-align: center;
-}
-
-.path-item {
-    background: #f0f6ef;
-    padding: 16px;
-    border-radius: 11px;
-}
-
-.path-item strong {
-    color: #245b3b;
-}
-
-footer {
-    text-align: center;
-    padding: 25px;
-    color: #526456;
-}
-
-@media(max-width: 600px) {
-    section {
-        padding: 17px;
-    }
-}
+*{box-sizing:border-box}
+body{margin:0;background:#f2f7f1;color:#26372b;font-family:Arial,sans-serif;line-height:1.65}
+header{background:#245b3b;color:white;text-align:center;padding:35px 18px}
+header h1{margin:0;font-size:clamp(1.8rem,4vw,2.6rem)}
+main{max-width:1000px;margin:25px auto;padding:0 16px 40px}
+section{background:white;border-radius:15px;padding:24px;margin-bottom:22px;box-shadow:0 3px 12px #0000000b}
+h2,h3{color:#245b3b}
+.intro{background:#e6f2e7;border-left:6px solid #398052}
+.stage{border:2px solid #dce9dc}
+.stage img{width:100%;max-height:300px;object-fit:cover;border-radius:12px}
+.levels{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px;margin-top:15px}
+.level{background:#f1f6f1;border-radius:10px;padding:15px}
+.level strong{color:#245b3b}
+.connection{background:#e6f2e7;border-radius:12px;padding:18px}
+.button{display:inline-block;background:#245b3b;color:white;text-decoration:none;padding:12px 18px;border-radius:9px;margin:6px 5px 6px 0;font-weight:bold}
+button{background:#245b3b;color:white;border:0;border-radius:9px;padding:12px 18px;font-size:1rem;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:4px solid #d99b24;outline-offset:3px}
+.question{background:#f4f7f4;padding:17px;border-radius:10px;margin:14px 0}
+.feedback{padding:12px;margin-top:10px;border-radius:8px;display:none}
+.feedback.show{display:block;background:#e6f3e8}
+footer{text-align:center;padding:20px}
+@media(max-width:600px){section{padding:17px}}
 </style>
 </head>
 
 <body>
-
 <header>
-    <h1>Biologins lärstig</h1>
-    <p>Från celler till fotosyntes och ekosystem</p>
+<h1>Biologins lärstig</h1>
+<p>Från celler till fotosyntes och ekosystem</p>
 </header>
 
 <main>
 
 <section class="intro">
-    <h2>Din väg genom biologin</h2>
-
-    <p>
-        Du ska undersöka hur livet är uppbyggt
-        och hur organismer påverkar varandra.
-    </p>
-
-    <p>
-        Börja med det lilla. Fortsätt med det som
-        händer i växten. Avsluta med att undersöka
-        hela ekosystemet.
-    </p>
+<h2>Från det lilla till det stora</h2>
+<p>Du ska undersöka hur livet är uppbyggt och hur organismer påverkar varandra.</p>
+<p>Vi växlar mellan två nivåer:</p>
+<ul>
+<li><strong>Makronivå:</strong> sådant vi kan se med ögonen, till exempel en växt eller en skog.</li>
+<li><strong>Mikronivå:</strong> sådant som är mycket litet, till exempel celler och små delar inuti celler.</li>
+</ul>
 </section>
 
 <section>
-    <h2>Överblick – tre steg</h2>
-
-    <div class="path">
-
-        <div class="path-item">
-            <strong>Steg 1</strong>
-            <p>Celler</p>
-            <p>Livets byggstenar</p>
-        </div>
-
-        <div class="path-item">
-            <strong>Steg 2</strong>
-            <p>Fotosyntes</p>
-            <p>Växtens process</p>
-        </div>
-
-        <div class="path-item">
-            <strong>Steg 3</strong>
-            <p>Ekosystem</p>
-            <p>Livets samband</p>
-        </div>
-
-    </div>
+<h2>Överblick över lärstigen</h2>
+<div class="levels">
+<div class="level">
+<strong>1. Celler</strong>
+<p>En hel organism består av celler.</p>
+</div>
+<div class="level">
+<strong>2. Fotosyntes</strong>
+<p>I växtcellernas kloroplaster sker fotosyntesen.</p>
+</div>
+<div class="level">
+<strong>3. Ekosystem</strong>
+<p>Växter och andra organismer ingår i naturens samband.</p>
+</div>
+</div>
 </section>
 
-<section class="step">
-
-    <span class="step-number">Steg 1</span>
-
-    <h2>Celler – vad består livet av?</h2>
-
-    <div class="goal">
-        <strong>Lärandeobjekt</strong>
-        <p>
-            Förstå att levande organismer består av celler
-            och kunna jämföra växtceller och djurceller.
-        </p>
-    </div>
-
-    <h3>Kritiska aspekter</h3>
-
-    <ul>
-        <li>En cell är en levande byggsten.</li>
-        <li>Växtceller och djurceller har likheter.</li>
-        <li>Växtceller har också särskilda celldelar.</li>
-        <li>Olika celldelar har olika uppgifter.</li>
-    </ul>
-
-    <div class="variation">
-        <strong>Kontrast</strong>
-        <p>
-            Jämför en växtcell med en djurcell.
-            Vad är lika? Vad är olika?
-        </p>
-    </div>
-
-    <div class="variation">
-        <strong>Separation</strong>
-        <p>
-            Undersök cellkärnan, cellmembranet
-            och kloroplasterna var för sig.
-        </p>
-    </div>
-
-    <div class="variation">
-        <strong>Generalisering</strong>
-        <p>
-            Jämför celler från flera olika växter
-            och djur. Upptäck vad som är gemensamt.
-        </p>
-    </div>
-
-    <a href="celler.html" class="button">
-        Börja med celler
-    </a>
-
+<section class="stage">
+<h2>Steg 1 – Celler</h2>
+<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1100&q=85"
+alt="En växt med gröna blad">
+<div class="levels">
+<div class="level">
+<strong>Makronivå</strong>
+<p>Vi ser en hel växt. Den har rötter, stjälk och blad.</p>
+</div>
+<div class="level">
+<strong>Mikronivå</strong>
+<p>Växten består av många små celler. Cellerna har olika delar.</p>
+</div>
+</div>
+<p><strong>Lärandeobjekt:</strong> Förstå att levande organismer består av celler och att växtceller och djurceller har både likheter och skillnader.</p>
+<a class="button" href="celler.html">Börja med celler</a>
 </section>
 
-<section class="step">
-
-    <span class="step-number">Steg 2</span>
-
-    <h2>Fotosyntes – vad händer i växten?</h2>
-
-    <div class="goal">
-        <strong>Lärandeobjekt</strong>
-        <p>
-            Förstå hur växter använder ljusenergi,
-            vatten och koldioxid för att bilda
-            druvsocker och syre.
-        </p>
-    </div>
-
-    <h3>Kritiska aspekter</h3>
-
-    <ul>
-        <li>Växten behöver ljusenergi.</li>
-        <li>Växten använder vatten.</li>
-        <li>Växten tar upp koldioxid.</li>
-        <li>Fotosyntesen sker i kloroplasterna.</li>
-        <li>Druvsocker och syre bildas.</li>
-    </ul>
-
-    <div class="variation">
-        <strong>Kontrast</strong>
-        <p>
-            Jämför en växt med ljus och en växt
-            utan ljus. Håll de andra förutsättningarna lika.
-        </p>
-    </div>
-
-    <div class="variation">
-        <strong>Separation</strong>
-        <p>
-            Undersök ljus, vatten och koldioxid
-            var för sig.
-        </p>
-    </div>
-
-    <div class="variation">
-        <strong>Generalisering</strong>
-        <p>
-            Jämför flera olika gröna växter.
-            Upptäck att fotosyntes sker i många växter.
-        </p>
-    </div>
-
-    <div class="variation">
-        <strong>Fusion</strong>
-        <p>
-            Kombinera ljus, vatten, koldioxid och
-            kloroplaster för att förklara hela processen.
-        </p>
-    </div>
-
-    <a href="fotosyntes.html" class="button">
-        Utforska fotosyntesen
-    </a>
-
+<section class="stage">
+<h2>Steg 2 – Fotosyntes</h2>
+<img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1100&q=85"
+alt="Blad som fångar solljus">
+<div class="levels">
+<div class="level">
+<strong>Makronivå</strong>
+<p>Vi ser en växt som växer. Den behöver ljus och vatten.</p>
+</div>
+<div class="level">
+<strong>Mikronivå</strong>
+<p>I kloroplasterna i växtens gröna celler sker fotosyntesen.</p>
+</div>
+</div>
+<p><strong>Lärandeobjekt:</strong> Förstå hur växter använder ljusenergi, vatten och koldioxid för att bilda druvsocker och syre.</p>
+<a class="button" href="fotosyntes.html">Fortsätt till fotosyntes</a>
 </section>
 
-<section class="step">
-
-    <span class="step-number">Steg 3</span>
-
-    <h2>Ekosystem – hur hänger livet ihop?</h2>
-
-    <div class="goal">
-        <strong>Lärandeobjekt</strong>
-        <p>
-            Förstå att ett ekosystem består av
-            levande organismer och deras miljö,
-            samt kunna beskriva samband mellan dem.
-        </p>
-    </div>
-
-    <h3>Kritiska aspekter</h3>
-
-    <ul>
-        <li>Ett ekosystem innehåller levande organismer.</li>
-        <li>Det innehåller också icke-levande delar.</li>
-        <li>Organismer påverkar varandra.</li>
-        <li>Energi förs vidare genom näringskedjor.</li>
-        <li>Nedbrytare bidrar till ämnenas kretslopp.</li>
-    </ul>
-
-    <div class="variation">
-        <strong>Kontrast</strong>
-        <p>
-            Jämför levande delar med icke-levande delar
-            i ett ekosystem.
-        </p>
-    </div>
-
-    <div class="variation">
-        <strong>Separation</strong>
-        <p>
-            Undersök en faktor i taget, till exempel
-            ljus, vatten eller temperatur.
-        </p>
-    </div>
-
-    <div class="variation">
-        <strong>Generalisering</strong>
-        <p>
-            Jämför skog, sjö och äng.
-            Upptäck vad som är gemensamt för ekosystem.
-        </p>
-    </div>
-
-    <div class="variation">
-        <strong>Fusion</strong>
-        <p>
-            Förklara hur växter, djur, nedbrytare,
-            vatten och ljus samverkar.
-        </p>
-    </div>
-
-    <a href="ekosystem.html" class="button">
-        Utforska ekosystem
-    </a>
-
+<section class="stage">
+<h2>Steg 3 – Ekosystem</h2>
+<img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1100&q=85"
+alt="Skog med många träd">
+<div class="levels">
+<div class="level">
+<strong>Makronivå</strong>
+<p>Vi ser en skog med växter, djur, svampar, vatten och mark.</p>
+</div>
+<div class="level">
+<strong>Mikronivå</strong>
+<p>Små organismer och nedbrytare hjälper till att bryta ner dött material.</p>
+</div>
+</div>
+<p><strong>Lärandeobjekt:</strong> Förstå hur levande och icke-levande delar samspelar i ett ekosystem.</p>
+<a class="button" href="ekosystem.html">Fortsätt till ekosystem</a>
 </section>
 
 <section class="connection">
-
-    <h2>Hur hänger de tre stegen ihop?</h2>
-
-    <p>
-        En växt består av celler.
-    </p>
-
-    <p>
-        I växtens gröna celler finns kloroplaster.
-        Där sker fotosyntesen.
-    </p>
-
-    <p>
-        Vid fotosyntesen bildas druvsocker.
-        Växten kan använda sockret som energi
-        och byggmaterial.
-    </p>
-
-    <p>
-        Växter är viktiga producenter i många
-        ekosystem. De kan bli föda för andra organismer.
-    </p>
-
-    <p>
-        Därför hänger celler, fotosyntes och ekosystem ihop.
-    </p>
-
+<h2>Hur hänger allt ihop?</h2>
+<ol>
+<li>En växt består av många celler.</li>
+<li>I växtens gröna celler finns kloroplaster.</li>
+<li>I kloroplasterna sker fotosyntesen.</li>
+<li>Växten bildar druvsocker som den kan använda och lagra.</li>
+<li>Växten blir föda för andra organismer och är en producent i ekosystemet.</li>
+</ol>
+<p>Det lilla och det stora hör ihop.</p>
 </section>
 
 <section>
-
-    <h2>Avsluta lärstigen</h2>
-
-    <p>
-        När du har arbetat med alla tre områden
-        kan du visa vad du har lärt dig.
-    </p>
-
-    <a href="biologibegrepp.html" class="button">
-        Träna biologiska begrepp
-    </a>
-
-    <a href="biologitest.html" class="button">
-        Gör biologitestet
-    </a>
-
-    <a href="biologibedomning.html" class="button">
-        Gör självbedömningen
-    </a>
-
-    <a href="forskardagbok.html" class="button">
-        Öppna forskardagboken
-    </a>
-
+<h2>Kontrollera din förståelse</h2>
+<div class="question">
+<p><strong>Var sker fotosyntesen?</strong></p>
+<button onclick="answer(1)">I kloroplasterna</button>
+<button onclick="answer(2)">I rötterna</button>
+<button onclick="answer(3)">I jorden</button>
+<div id="feedback" class="feedback" aria-live="polite"></div>
+</div>
 </section>
 
 <nav>
-    <a href="index.html" class="button">
-        Till startsidan
-    </a>
+<a class="button" href="index.html">Till startsidan</a>
+<a class="button" href="biologibegrepp.html">Biologiska begrepp</a>
+<a class="button" href="biologitest.html">Biologitest</a>
 </nav>
 
 </main>
 
-<footer>
-    NO-Upptäckaren · Biologi · Årskurs 4–6
-</footer>
+<footer>NO-Upptäckaren · Biologins lärstig</footer>
 
+<script>
+function answer(value){
+const box=document.getElementById("feedback");
+box.className="feedback show";
+if(value===1){
+box.textContent="Rätt! Fotosyntesen sker i kloroplasterna i växtens gröna celler.";
+}else{
+box.textContent="Försök igen. Tänk på var de gröna delarna i växtcellen finns.";
+}
+}
+</script>
 </body>
 </html>
