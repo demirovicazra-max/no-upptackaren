@@ -2,631 +2,169 @@
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Biologiska begrepp – NO-Upptäckaren</title>
-
 <style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f2f7f2;
-    color: #26372b;
-    line-height: 1.6;
-}
-
-header {
-    background: #246b45;
-    color: white;
-    padding: 28px 18px;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2rem;
-}
-
-main {
-    max-width: 850px;
-    margin: 25px auto;
-    padding: 0 16px;
-}
-
-.panel {
-    background: white;
-    padding: 22px;
-    border-radius: 14px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
-
-.categories {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-button {
-    background: #246b45;
-    color: white;
-    border: none;
-    padding: 13px 18px;
-    border-radius: 9px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #174b30;
-}
-
-button:focus-visible {
-    outline: 4px solid #e3a72f;
-    outline-offset: 3px;
-}
-
-.category-button {
-    background: #e5f1e7;
-    color: #205b38;
-}
-
-.category-button.active {
-    background: #246b45;
-    color: white;
-}
-
-.game-card {
-    border: 2px solid #dce9de;
-    border-radius: 14px;
-    padding: 22px;
-    margin-top: 18px;
-}
-
-.term {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #246b45;
-    margin: 12px 0;
-}
-
-.answers {
-    display: grid;
-    gap: 12px;
-    margin-top: 20px;
-}
-
-.answer {
-    background: #f1f6f1;
-    color: #26372b;
-    border: 2px solid #dce7dd;
-    text-align: left;
-    width: 100%;
-    padding: 15px;
-}
-
-.answer:hover {
-    background: #e1eee3;
-}
-
-.answer.correct {
-    background: #dff3e3;
-    border-color: #238347;
-}
-
-.answer.wrong {
-    background: #ffebdf;
-    border-color: #d36a42;
-}
-
-.answer:disabled {
-    cursor: default;
-    opacity: 1;
-}
-
-.feedback {
-    display: none;
-    margin-top: 18px;
-    padding: 16px;
-    border-radius: 10px;
-}
-
-.feedback.good {
-    display: block;
-    background: #e1f3e4;
-    border-left: 6px solid #238347;
-}
-
-.feedback.bad {
-    display: block;
-    background: #fff0df;
-    border-left: 6px solid #d58b27;
-}
-
-.status {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
-    background: #edf4ed;
-    padding: 13px;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
-.term-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 12px;
-}
-
-.term-item {
-    background: #f1f6f1;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-.term-item strong {
-    display: block;
-    color: #246b45;
-    font-size: 1.1rem;
-}
-
-.navigation {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 25px 0;
-}
-
-.navigation a {
-    background: #344d3b;
-    color: white;
-    padding: 12px 17px;
-    border-radius: 9px;
-    text-decoration: none;
-}
-
-.small {
-    color: #5b695e;
-    font-size: 0.95rem;
-}
-
-@media (max-width: 600px) {
-    .term {
-        font-size: 1.6rem;
-    }
-
-    .panel {
-        padding: 16px;
-    }
-}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f7f4;color:#26372b;line-height:1.65}
+header{background:#245b3b;color:white;text-align:center;padding:32px 18px}
+header h1{margin:0}
+main{max-width:900px;margin:25px auto;padding:0 16px 40px}
+section{background:white;border-radius:15px;padding:23px;margin:18px 0;box-shadow:0 2px 9px #0000000b}
+h2,h3{color:#245b3b;margin-top:0}
+.goal{background:#e6f2e7;border-left:6px solid #398052;padding:17px;border-radius:9px}
+.term{font-size:1.7rem;font-weight:bold;color:#245b3b;margin:10px 0}
+.tag{display:inline-block;background:#e3efe5;color:#205b38;padding:4px 10px;border-radius:20px;font-weight:bold;font-size:.9rem}
+.card{background:#f4f8f4;border:1px solid #dce8dd;border-radius:12px;padding:18px;margin:13px 0}
+button,.nav a{background:#245b3b;color:white;border:0;border-radius:9px;padding:13px 18px;font-size:1rem;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block;margin:5px 4px 5px 0}
+.answer{display:block;width:100%;text-align:left;background:#f0f5f0;color:#26372b;border:2px solid #dce8dd;margin:9px 0}
+.feedback{display:none;padding:14px;border-radius:9px;margin-top:12px}
+.feedback.show{display:block;background:#e6f3e8;border-left:5px solid #398052}
+.feedback.try{display:block;background:#fff3df;border-left:5px solid #d49a24}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+.small{font-size:.94rem;color:#58675c}
+input[type=text]{width:100%;padding:13px;border:2px solid #cbd9ce;border-radius:8px;font-size:1rem}
+@media(max-width:600px){section{padding:17px}}
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Biologiska begrepp</h1>
-    <p>Träna på biologins viktigaste ord</p>
+<h1>Biologiska begrepp</h1>
+<p>Förstå orden genom att jämföra och använda dem</p>
 </header>
-
 <main>
 
-<section class="panel">
-    <h2>Så fungerar spelet</h2>
-    <p>1. Välj ett område.</p>
-    <p>2. Läs ordet.</p>
-    <p>3. Välj den förklaring som passar.</p>
-    <p>4. Se om du svarade rätt.</p>
-    <p>Du får en poäng för varje rätt svar.</p>
+<section class="goal">
+<span class="tag">Ditt lärandeobjekt</span>
+<h2>Vad ska du lära dig?</h2>
+<p>Du ska förstå och kunna använda viktiga biologiska begrepp om celler, fotosyntes och ekosystem.</p>
 </section>
 
-<section class="panel">
-    <h2>Välj område</h2>
-
-    <div class="categories">
-        <button class="category-button active"
-            onclick="startCategory('alla', this)">Alla begrepp</button>
-
-        <button class="category-button"
-            onclick="startCategory('vaxter', this)">Växter</button>
-
-        <button class="category-button"
-            onclick="startCategory('fotosyntes', this)">Fotosyntes</button>
-
-        <button class="category-button"
-            onclick="startCategory('celler', this)">Celler</button>
-
-        <button class="category-button"
-            onclick="startCategory('ekosystem', this)">Ekosystem</button>
-
-        <button class="category-button"
-            onclick="startCategory('djur', this)">Djur</button>
-    </div>
+<section>
+<h2>Så tränar du</h2>
+<p>Först möter du ett begrepp i taget. Sedan jämför du begrepp som liknar varandra. Till sist använder du flera begrepp tillsammans.</p>
+<p><strong>Tips:</strong> Läs förklaringen och tänk på ett eget exempel.</p>
 </section>
 
-<section class="panel">
-
-    <div class="status">
-        <span id="questionCount">Fråga 1</span>
-        <span id="score">Poäng: 0</span>
-    </div>
-
-    <div class="game-card" id="game">
-        <p class="small">Vilket begrepp betyder följande?</p>
-
-        <div class="term" id="term">Fotosyntes</div>
-
-        <p id="questionText">Välj rätt förklaring.</p>
-
-        <div class="answers" id="answers"></div>
-
-        <div class="feedback" id="feedback"></div>
-
-        <button id="nextButton"
-            onclick="nextQuestion()"
-            style="display:none;margin-top:18px;">
-            Nästa fråga
-        </button>
-    </div>
-
-    <div id="finalResult" style="display:none;">
-        <h2>Du är klar!</h2>
-        <p class="term" id="finalScore"></p>
-        <p id="finalMessage"></p>
-        <button onclick="restartGame()">Spela igen</button>
-    </div>
-
+<section>
+<h2>Del 1 – Celler</h2>
+<p><span class="tag">Variation: separation</span></p>
+<div class="card"><div class="term">Cell</div><p>Den minsta levande byggstenen i en organism.</p><p><strong>Exempel:</strong> En människa består av många celler.</p></div>
+<div class="card"><div class="term">Cellkärna</div><p>En del av cellen som innehåller arvsmassa.</p><p><strong>Exempel:</strong> Växtceller och djurceller har cellkärna.</p></div>
+<div class="card"><div class="term">Cellmembran</div><p>En tunn gräns runt cellen. Den reglerar vad som passerar in och ut.</p></div>
+<div class="card"><div class="term">Kloroplast</div><p>En del i gröna växtceller där fotosyntesen sker.</p></div>
+<div class="card"><div class="term">Cellvägg</div><p>Ett stadigt lager utanför cellmembranet hos växtceller.</p></div>
+<div class="card"><div class="term">Cytoplasma</div><p>Cellens innehåll innanför cellmembranet.</p></div>
 </section>
 
-<section class="panel">
-    <h2>Begreppslista</h2>
-    <p class="small">
-        Här kan du läsa orden och deras betydelser.
-    </p>
-
-    <div class="term-list" id="termList"></div>
+<section>
+<h2>Del 2 – Fotosyntes</h2>
+<p><span class="tag">Variation: generalisering</span></p>
+<div class="card"><div class="term">Fotosyntes</div><p>En process där växter använder ljusenergi, vatten och koldioxid för att bilda druvsocker och syre.</p></div>
+<div class="card"><div class="term">Koldioxid</div><p>En gas i luften som växter använder vid fotosyntesen.</p></div>
+<div class="card"><div class="term">Druvsocker</div><p>Ett socker som växten bildar vid fotosyntesen. Det kan användas som energi och byggmaterial.</p></div>
+<div class="card"><div class="term">Syre</div><p>En gas som bildas vid fotosyntesen och kan lämna växten.</p></div>
+<div class="card"><div class="term">Ljusenergi</div><p>Energi från ljus. Den behövs för fotosyntesen.</p></div>
 </section>
 
-<nav class="navigation">
-    <a href="biologi.html">Biologisidan</a>
-    <a href="biologiprogression.html">Biologins lärstig</a>
-    <a href="biologitest.html">Biologitestet</a>
-    <a href="index.html">Startsidan</a>
+<section>
+<h2>Del 3 – Ekosystem</h2>
+<p><span class="tag">Variation: generalisering</span></p>
+<div class="card"><div class="term">Ekosystem</div><p>Alla levande organismer och den miljö de lever i på en viss plats.</p></div>
+<div class="card"><div class="term">Organism</div><p>En levande varelse, till exempel en växt, ett djur eller en svamp.</p></div>
+<div class="card"><div class="term">Näringskedja</div><p>Visar hur energi förs vidare när organismer äter varandra.</p></div>
+<div class="card"><div class="term">Producent</div><p>En organism, till exempel en grön växt, som kan bilda energirikt socker genom fotosyntes.</p></div>
+<div class="card"><div class="term">Konsument</div><p>En organism som får energi genom att äta andra organismer.</p></div>
+<div class="card"><div class="term">Nedbrytare</div><p>Organismer, till exempel svampar och bakterier, som bryter ner dött material.</p></div>
+<div class="card"><div class="term">Näringsämnen</div><p>Ämnen som organismer behöver för att leva och växa.</p></div>
+</section>
+
+<section>
+<h2>Del 4 – Upptäck skillnaden</h2>
+<p><span class="tag">Variation: kontrast</span></p>
+<div class="card">
+<h3>Producent eller konsument?</h3>
+<p>En grön växt bildar druvsocker genom fotosyntes. En hare får energi genom att äta växter.</p>
+<p>Växten är producent. Haren är konsument.</p>
+</div>
+<div class="card">
+<h3>Cellvägg eller cellmembran?</h3>
+<p>Cellväggen ger växtcellen stadga. Cellmembranet reglerar vad som passerar in och ut ur cellen.</p>
+</div>
+<div class="card">
+<h3>Fotosyntes eller nedbrytning?</h3>
+<p>Vid fotosyntes bildar växten druvsocker. Vid nedbrytning bryts dött material ner av organismer som svampar och bakterier.</p>
+</div>
+</section>
+
+<section>
+<h2>Del 5 – Begreppsspel</h2>
+<p>Välj den förklaring som passar till begreppet.</p>
+<div class="card">
+<div class="term" id="gameTerm">Cell</div>
+<p id="gameQuestion">Vad betyder begreppet?</p>
+<div id="gameAnswers"></div>
+<div id="gameFeedback" class="feedback" aria-live="polite"></div>
+<button onclick="nextQuestion()">Nästa begrepp</button>
+<p class="small" id="gameCount">Fråga 1</p>
+</div>
+</section>
+
+<section>
+<h2>Del 6 – Använd begreppen tillsammans</h2>
+<p><span class="tag">Variation: fusion</span></p>
+<p>Försök använda flera begrepp i en egen förklaring.</p>
+<p><strong>Uppgift:</strong> Förklara hur en grön växt kan påverka ett ekosystem. Använd orden fotosyntes, producent, syre och näringskedja.</p>
+<label for="ownAnswer">Skriv din förklaring:</label>
+<textarea id="ownAnswer" rows="5" style="width:100%;padding:12px;border:2px solid #cbd9ce;border-radius:8px;font:1rem Arial"></textarea>
+<p class="small">Ditt svar sparas inte automatiskt. Du kan kopiera det till din forskardagbok eller visa det för läraren.</p>
+</section>
+
+<nav class="nav">
+<a href="celler.html">Celler</a>
+<a href="fotosyntes.html">Fotosyntes</a>
+<a href="ekosystem.html">Ekosystem</a>
+<a href="biologitest.html">Biologitest</a>
+<a href="index.html">Startsidan</a>
 </nav>
-
 </main>
 
 <script>
-const terms = [
-    {
-        word: "Rot",
-        category: "vaxter",
-        meaning: "Den del av växten som oftast tar upp vatten och mineralämnen från marken."
-    },
-    {
-        word: "Stam",
-        category: "vaxter",
-        meaning: "Den del av växten som håller upp blad och blommor och transporterar vatten och socker."
-    },
-    {
-        word: "Blad",
-        category: "vaxter",
-        meaning: "En del av växten där fotosyntesen oftast sker."
-    },
-    {
-        word: "Frö",
-        category: "vaxter",
-        meaning: "En del som kan utvecklas till en ny växt."
-    },
-    {
-        word: "Groning",
-        category: "vaxter",
-        meaning: "När ett frö börjar växa och en grodd utvecklas."
-    },
-    {
-        word: "Pollinering",
-        category: "vaxter",
-        meaning: "När pollen flyttas till en blommas pistill."
-    },
-    {
-        word: "Fotosyntes",
-        category: "fotosyntes",
-        meaning: "När växter använder ljusenergi för att bilda socker av vatten och koldioxid. Syre bildas också."
-    },
-    {
-        word: "Koldioxid",
-        category: "fotosyntes",
-        meaning: "En gas i luften som växter använder vid fotosyntesen."
-    },
-    {
-        word: "Syre",
-        category: "fotosyntes",
-        meaning: "En gas som människor och många andra organismer behöver för cellandningen."
-    },
-    {
-        word: "Klorofyll",
-        category: "fotosyntes",
-        meaning: "Ett grönt ämne som fångar upp ljusenergi i växter."
-    },
-    {
-        word: "Cell",
-        category: "celler",
-        meaning: "En grundläggande byggsten som levande organismer består av."
-    },
-    {
-        word: "Cellkärna",
-        category: "celler",
-        meaning: "En del i många celler som innehåller det mesta av cellens DNA."
-    },
-    {
-        word: "Cellmembran",
-        category: "celler",
-        meaning: "Ett tunt lager som omger cellen och reglerar vad som släpps in och ut."
-    },
-    {
-        word: "Kloroplast",
-        category: "celler",
-        meaning: "En del i växtceller där fotosyntesen sker."
-    },
-    {
-        word: "Ekosystem",
-        category: "ekosystem",
-        meaning: "Alla levande organismer i ett område och den miljö de lever i."
-    },
-    {
-        word: "Näringskedja",
-        category: "ekosystem",
-        meaning: "Visar hur näring förs vidare när organismer äter varandra."
-    },
-    {
-        word: "Producent",
-        category: "ekosystem",
-        meaning: "En organism som tillverkar energirik näring, till exempel en grön växt."
-    },
-    {
-        word: "Konsument",
-        category: "ekosystem",
-        meaning: "En organism som får energi genom att äta andra organismer."
-    },
-    {
-        word: "Nedbrytare",
-        category: "ekosystem",
-        meaning: "Organismer som bryter ner dött material och avfall."
-    },
-    {
-        word: "Livsmiljö",
-        category: "ekosystem",
-        meaning: "En plats där en organism lever och hittar det den behöver."
-    },
-    {
-        word: "Ryggradsdjur",
-        category: "djur",
-        meaning: "Djur som har en ryggrad."
-    },
-    {
-        word: "Ryggradslösa djur",
-        category: "djur",
-        meaning: "Djur som saknar ryggrad."
-    },
-    {
-        word: "Anpassning",
-        category: "djur",
-        meaning: "En egenskap som hjälper en organism att leva i sin miljö."
-    },
-    {
-        word: "Näringsväv",
-        category: "djur",
-        meaning: "Flera näringskedjor som hänger ihop."
-    }
+const questions=[
+{term:"Cell",answers:["Den minsta levande byggstenen i en organism","En gas i luften","En plats där djur bor"],correct:0,why:"En cell är den minsta levande byggstenen i en organism."},
+{term:"Kloroplast",answers:["En del som finns i alla djurceller","En del i gröna växtceller där fotosyntesen sker","Ett ämne i marken"],correct:1,why:"Kloroplaster finns i gröna växtceller och där sker fotosyntesen."},
+{term:"Fotosyntes",answers:["När döda växter bryts ner","När djur äter växter","När växter använder ljusenergi för att bilda druvsocker"],correct:2,why:"Vid fotosyntesen används ljusenergi, vatten och koldioxid."},
+{term:"Ekosystem",answers:["Levande organismer och deras miljö","Bara alla djur på en plats","Bara mark och vatten"],correct:0,why:"Ett ekosystem innehåller både levande organismer och deras omgivning."},
+{term:"Nedbrytare",answers:["Organismer som bildar solljus","Organismer som bryter ner dött material","Djur som bara äter växter"],correct:1,why:"Svampar och bakterier är exempel på nedbrytare."},
+{term:"Näringskedja",answers:["En lista över växters namn","En karta över skogen","Visar hur energi förs vidare mellan organismer"],correct:2,why:"En näringskedja visar vem som äter vem och hur energi förs vidare."}
 ];
-
-let questions = [];
-let current = 0;
-let points = 0;
-let answered = false;
-
-function shuffle(array) {
-    return [...array].sort(() => Math.random() - 0.5);
+let current=0;
+function renderQuestion(){
+const q=questions[current];
+document.getElementById("gameTerm").textContent=q.term;
+document.getElementById("gameAnswers").innerHTML="";
+document.getElementById("gameFeedback").className="feedback";
+document.getElementById("gameFeedback").textContent="";
+q.answers.forEach((answer,index)=>{
+const button=document.createElement("button");
+button.className="answer";
+button.textContent=answer;
+button.onclick=()=>answerQuestion(index);
+document.getElementById("gameAnswers").appendChild(button);
+});
+document.getElementById("gameCount").textContent="Begrepp "+(current+1)+" av "+questions.length;
 }
-
-function startCategory(category, button) {
-    document.querySelectorAll(".category-button")
-        .forEach(btn => btn.classList.remove("active"));
-
-    button.classList.add("active");
-
-    if (category === "alla") {
-        questions = shuffle(terms);
-    } else {
-        questions = shuffle(
-            terms.filter(item => item.category === category)
-        );
-    }
-
-    current = 0;
-    points = 0;
-
-    document.getElementById("game").style.display = "block";
-    document.getElementById("finalResult").style.display = "none";
-
-    showQuestion();
+function answerQuestion(index){
+const q=questions[current];
+const box=document.getElementById("gameFeedback");
+box.className="feedback show "+(index===q.correct?"":"try");
+box.textContent=index===q.correct?"Rätt. "+q.why:"Försök igen. Läs begreppets förklaring och jämför alternativen.";
 }
-
-function showQuestion() {
-    answered = false;
-
-    const item = questions[current];
-
-    document.getElementById("questionCount").textContent =
-        "Fråga " + (current + 1) + " av " + questions.length;
-
-    document.getElementById("score").textContent =
-        "Poäng: " + points;
-
-    document.getElementById("term").textContent = item.word;
-    document.getElementById("questionText").textContent =
-        "Vilken förklaring passar bäst?";
-
-    const feedback = document.getElementById("feedback");
-    feedback.className = "feedback";
-    feedback.style.display = "none";
-    feedback.textContent = "";
-
-    document.getElementById("nextButton").style.display = "none";
-
-    const wrongAnswers = shuffle(
-        terms.filter(t => t.word !== item.word)
-    ).slice(0, 3);
-
-    const choices = shuffle([
-        item,
-        ...wrongAnswers
-    ]);
-
-    const answerArea = document.getElementById("answers");
-    answerArea.innerHTML = "";
-
-    choices.forEach(choice => {
-        const button = document.createElement("button");
-        button.className = "answer";
-        button.textContent = choice.meaning;
-
-        button.onclick = () => chooseAnswer(button, choice, item);
-
-        answerArea.appendChild(button);
-    });
+function nextQuestion(){
+current=(current+1)%questions.length;
+renderQuestion();
 }
-
-function chooseAnswer(button, choice, correctItem) {
-    if (answered) return;
-
-    answered = true;
-
-    const buttons = document.querySelectorAll(".answer");
-
-    buttons.forEach(btn => {
-        btn.disabled = true;
-    });
-
-    const feedback = document.getElementById("feedback");
-
-    if (choice.word === correctItem.word) {
-        points++;
-        button.classList.add("correct");
-        feedback.className = "feedback good";
-        feedback.innerHTML =
-            "<strong>Rätt svar!</strong><br>" +
-            "Bra jobbat! Du har förstått begreppet.";
-    } else {
-        button.classList.add("wrong");
-
-        buttons.forEach(btn => {
-            if (btn.textContent === correctItem.meaning) {
-                btn.classList.add("correct");
-            }
-        });
-
-        feedback.className = "feedback bad";
-        feedback.innerHTML =
-            "<strong>Inte riktigt.</strong><br>" +
-            "Rätt svar är <strong>" +
-            correctItem.word +
-            "</strong>.<br>" +
-            correctItem.meaning;
-    }
-
-    document.getElementById("score").textContent =
-        "Poäng: " + points;
-
-    feedback.style.display = "block";
-
-    document.getElementById("nextButton").style.display =
-        "inline-block";
-
-    if (current === questions.length - 1) {
-        document.getElementById("nextButton").textContent =
-            "Visa mitt resultat";
-    } else {
-        document.getElementById("nextButton").textContent =
-            "Nästa fråga";
-    }
-}
-
-function nextQuestion() {
-    current++;
-
-    if (current >= questions.length) {
-        showFinalResult();
-    } else {
-        showQuestion();
-    }
-}
-
-function showFinalResult() {
-    document.getElementById("game").style.display = "none";
-    document.getElementById("finalResult").style.display = "block";
-
-    document.getElementById("finalScore").textContent =
-        points + " av " + questions.length + " poäng";
-
-    let message = "";
-
-    const percentage = points / questions.length;
-
-    if (percentage >= 0.9) {
-        message = "Fantastiskt! Du kan många biologiska begrepp.";
-    } else if (percentage >= 0.7) {
-        message = "Bra arbetat! Fortsätt träna.";
-    } else if (percentage >= 0.5) {
-        message = "Du är på väg. Träna lite till.";
-    } else {
-        message = "Läs begreppslistan och försök igen.";
-    }
-
-    document.getElementById("finalMessage").textContent = message;
-}
-
-function restartGame() {
-    const active = document.querySelector(".category-button.active");
-
-    if (active) {
-        active.click();
-    }
-}
-
-function showTermList() {
-    const list = document.getElementById("termList");
-
-    terms.forEach(item => {
-        const div = document.createElement("div");
-        div.className = "term-item";
-
-        const strong = document.createElement("strong");
-        strong.textContent = item.word;
-
-        const paragraph = document.createElement("p");
-        paragraph.textContent = item.meaning;
-
-        div.appendChild(strong);
-        div.appendChild(paragraph);
-
-        list.appendChild(div);
-    });
-}
-
-showTermList();
-
-startCategory(
-    "alla",
-    document.querySelector(".category-button")
-);
+renderQuestion();
 </script>
-
 </body>
 </html>
