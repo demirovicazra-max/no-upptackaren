@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="sv">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,12 +23,17 @@ header {
     background: #245b43;
     color: white;
     text-align: center;
-    padding: 35px 15px;
+    padding: 38px 15px;
 }
 
 header h1 {
-    font-size: 32px;
+    font-size: clamp(27px, 4vw, 38px);
     margin: 0 0 8px;
+}
+
+header p {
+    margin: 0;
+    font-size: 1.1rem;
 }
 
 main {
@@ -47,10 +51,14 @@ main {
     box-shadow: 0 5px 18px #0000000d;
 }
 
+.welcome h2 {
+    color: #245b43;
+}
+
 .section-heading {
     text-align: center;
     font-size: 27px;
-    margin: 40px 0 20px;
+    margin: 42px 0 20px;
     color: #18332a;
 }
 
@@ -69,27 +77,23 @@ main {
     text-decoration: none;
     color: #18332a;
     box-shadow: 0 5px 18px #0000000d;
-    border-top: 7px solid #16a34a;
-    transition: transform .2s;
+    border-top: 6px solid #16a34a;
+    transition: transform .2s, box-shadow .2s;
 }
 
 .subject:hover {
     transform: translateY(-4px);
+    box-shadow: 0 8px 22px #00000016;
 }
 
-.subject:focus {
+.subject:focus-visible {
     outline: 4px solid #2563eb;
     outline-offset: 3px;
 }
 
-.subject .icon {
-    font-size: 42px;
-    margin-bottom: 10px;
-}
-
 .subject h3 {
-    font-size: 21px;
-    margin: 8px 0;
+    font-size: 20px;
+    margin: 7px 0;
 }
 
 .subject p {
@@ -97,20 +101,132 @@ main {
     margin: 0;
 }
 
-.biology { border-top-color: #16a34a; }
-.concepts { border-top-color: #0d9488; }
-.test { border-top-color: #e59b25; }
-.diary { border-top-color: #6479c8; }
-.water { border-top-color: #2496c7; }
-.weather { border-top-color: #e2a52c; }
-.nature { border-top-color: #628b43; }
-.science { border-top-color: #8065b5; }
-.earth { border-top-color: #987044; }
-.air { border-top-color: #55a6c9; }
-.physics { border-top-color: #8065b5; }
+.subject .label {
+    display: inline-block;
+    font-size: .82rem;
+    font-weight: bold;
+    color: #245b43;
+    background: #e6f2e7;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+}
 
-.coming {
-    border-top-color: #94a3b8;
+.biology {
+    border-top-color: #16a34a;
+}
+
+.concepts {
+    border-top-color: #0d9488;
+}
+
+.test {
+    border-top-color: #e59b25;
+}
+
+.diary {
+    border-top-color: #6479c8;
+}
+
+.water {
+    border-top-color: #2496c7;
+}
+
+.weather {
+    border-top-color: #e2a52c;
+}
+
+.nature {
+    border-top-color: #628b43;
+}
+
+.science {
+    border-top-color: #8065b5;
+}
+
+.learning-path {
+    background: #e6f2e7;
+    border: 2px solid #c9dfcb;
+    border-radius: 18px;
+    padding: 25px;
+    margin: 25px 0 35px;
+}
+
+.learning-path h2 {
+    text-align: center;
+    color: #245b43;
+    margin-top: 0;
+}
+
+.learning-intro {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 22px;
+}
+
+.path-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+}
+
+.path-step {
+    background: white;
+    border-radius: 13px;
+    padding: 19px;
+    text-align: center;
+    border: 1px solid #d2e3d4;
+}
+
+.path-number {
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    background: #245b43;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    margin-bottom: 9px;
+}
+
+.path-step h3 {
+    color: #245b43;
+    margin: 5px 0;
+}
+
+.path-step p {
+    color: #52665d;
+    font-size: .96rem;
+}
+
+.path-button {
+    display: inline-block;
+    background: #245b43;
+    color: white;
+    padding: 11px 17px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.path-button:hover {
+    background: #17452f;
+}
+
+.path-button:focus-visible {
+    outline: 4px solid #d99b24;
+    outline-offset: 3px;
+}
+
+.path-arrow {
+    text-align: center;
+    color: #245b43;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 5px;
 }
 
 footer {
@@ -120,8 +236,8 @@ footer {
 }
 
 @media(max-width: 600px) {
-    header h1 {
-        font-size: 25px;
+    header {
+        padding: 28px 15px;
     }
 
     .welcome {
@@ -134,6 +250,10 @@ footer {
 
     .subject {
         padding: 22px 15px;
+    }
+
+    .learning-path {
+        padding: 17px;
     }
 }
 </style>
@@ -152,8 +272,11 @@ footer {
     <h2>Välkommen, forskare!</h2>
     <p>
         Här får du utforska biologi, kemi, fysik och teknik.
-        Läs texter, upptäck begrepp, gör undersökningar
-        och testa dina kunskaper.
+        Läs, upptäck, jämför, undersök och testa dina kunskaper.
+    </p>
+    <p>
+        Följ lärstigarna steg för steg och upptäck hur
+        naturens olika delar hänger ihop.
     </p>
 </section>
 
@@ -162,211 +285,206 @@ footer {
 <section class="subjects">
 
     <a href="ak4.html" class="subject">
-        <div class="icon">🔬</div>
         <h3>Årskurs 4</h3>
         <p>Utforska NO för årskurs 4.</p>
     </a>
 
-    <div class="subject coming">
-        <div class="icon">🧪</div>
+    <div class="subject">
         <h3>Årskurs 5</h3>
-        <p>Kommer snart.</p>
+        <p>Fler lärandeområden kommer.</p>
     </div>
 
-    <div class="subject coming">
-        <div class="icon">⚡</div>
+    <div class="subject">
         <h3>Årskurs 6</h3>
-        <p>Kommer snart.</p>
+        <p>Fler lärandeområden kommer.</p>
     </div>
 
 </section>
 
-<!-- BIOLOGI -->
+<h2 class="section-heading">Biologi – följ lärstigen</h2>
 
-<h2 class="section-heading">Biologi – utforska och lär dig</h2>
+<section class="learning-path">
+
+    <h2>Från den lilla cellen till naturens ekosystem</h2>
+
+    <p class="learning-intro">
+        Följ stegen i ordning. Först undersöker du vad livet
+        består av. Sedan upptäcker du hur växter bildar socker.
+        Till sist undersöker du hur organismer och miljö
+        påverkar varandra.
+    </p>
+
+    <div class="path-steps">
+
+        <article class="path-step">
+            <span class="path-number">1</span>
+            <h3>Celler och liv</h3>
+            <p>
+                Upptäck vad levande organismer består av.
+                Jämför växtceller och djurceller.
+            </p>
+            <a href="celler.html" class="path-button">
+                Börja med celler
+            </a>
+        </article>
+
+        <article class="path-step">
+            <span class="path-number">2</span>
+            <h3>Fotosyntes</h3>
+            <p>
+                Undersök hur växter använder ljus,
+                vatten och koldioxid.
+            </p>
+            <a href="fotosyntes.html" class="path-button">
+                Utforska fotosyntes
+            </a>
+        </article>
+
+        <article class="path-step">
+            <span class="path-number">3</span>
+            <h3>Ekosystem</h3>
+            <p>
+                Upptäck hur växter, djur och andra
+                organismer hänger ihop.
+            </p>
+            <a href="ekosystem.html" class="path-button">
+                Utforska ekosystem
+            </a>
+        </article>
+
+    </div>
+
+    <div class="path-arrow" aria-hidden="true">
+        1 → 2 → 3
+    </div>
+
+    <p class="learning-intro">
+        När du har arbetat med alla tre stegen kan du träna
+        begrepp, göra biologitestet och bedöma ditt eget lärande.
+    </p>
+
+    <div class="path-steps">
+
+        <article class="path-step">
+            <h3>Biologiska begrepp</h3>
+            <p>Träna på viktiga ord och förklaringar.</p>
+            <a href="biologibegrepp.html" class="path-button">
+                Träna begrepp
+            </a>
+        </article>
+
+        <article class="path-step">
+            <h3>Biologitest</h3>
+            <p>Undersök vad du har förstått.</p>
+            <a href="biologitest.html" class="path-button">
+                Gör testet
+            </a>
+        </article>
+
+        <article class="path-step">
+            <h3>Självbedömning</h3>
+            <p>Fundera över vad du kan och vill träna mer på.</p>
+            <a href="biologibedomning.html" class="path-button">
+                Bedöm ditt lärande
+            </a>
+        </article>
+
+    </div>
+
+</section>
+
+<h2 class="section-heading">Fler delar av biologin</h2>
 
 <section class="subjects">
 
     <a href="biologi.html" class="subject biology">
-        <div class="icon">🌱</div>
         <h3>Biologi</h3>
         <p>Utforska växter, djur, kroppen, naturen och livet.</p>
     </a>
 
-    <a href="biologibegrepp.html" class="subject concepts">
-        <div class="icon">📚</div>
-        <h3>Biologiska begrepp</h3>
-        <p>Lär dig viktiga ord och begrepp inom biologi.</p>
+    <a href="vaxter.html" class="subject biology">
+        <h3>Växter</h3>
+        <p>Lär dig om växternas liv och delar.</p>
     </a>
 
-    <a href="biologitest.html" class="subject test">
-        <div class="icon">🧠</div>
-        <h3>Biologitest</h3>
-        <p>Testa dina kunskaper och få återkoppling.</p>
+    <a href="vaxtersdelar.html" class="subject biology">
+        <h3>Växternas delar</h3>
+        <p>Undersök rötter, stam, blad och blomma.</p>
+    </a>
+
+    <a href="biologiskmangfald.html" class="subject nature">
+        <h3>Biologisk mångfald</h3>
+        <p>Lär dig om variationen av liv på jorden.</p>
+    </a>
+
+    <a href="naringskedjor.html" class="subject nature">
+        <h3>Näringskedjor</h3>
+        <p>Se hur energi förs vidare mellan organismer.</p>
+    </a>
+
+    <a href="manniskanspaverkan.html" class="subject nature">
+        <h3>Människans påverkan</h3>
+        <p>Undersök hur människor påverkar naturen.</p>
+    </a>
+
+    <a href="fortplantning.html" class="subject biology">
+        <h3>Fortplantning</h3>
+        <p>Upptäck hur växter och organismer förökar sig.</p>
     </a>
 
     <a href="forskardagbok.html" class="subject diary">
-        <div class="icon">🔎</div>
         <h3>Forskardagbok</h3>
         <p>Skriv hypoteser och dokumentera undersökningar.</p>
     </a>
 
     <a href="biologiprogression.html" class="subject biology">
-        <div class="icon">🪜</div>
         <h3>Biologins lärstig</h3>
-        <p>Följ stegen och upptäck biologins olika områden.</p>
-    </a>
-
-    <a href="biologibedomning.html" class="subject concepts">
-        <div class="icon">📝</div>
-        <h3>Självbedömning</h3>
-        <p>Fundera över vad du har lärt dig.</p>
+        <p>Få en överblick över biologins olika områden.</p>
     </a>
 
 </section>
-
-<!-- VATTEN OCH VÄDER -->
 
 <h2 class="section-heading">Vatten, vind och väder</h2>
 
 <section class="subjects">
 
     <a href="vadervindklimat.html" class="subject weather">
-        <div class="icon">🌦️</div>
         <h3>Väder, vind och klimat</h3>
         <p>Lär dig om väder, vind, moln och klimat.</p>
     </a>
 
     <a href="vattnetsbetydelse.html" class="subject water">
-        <div class="icon">💧</div>
         <h3>Vattnets betydelse</h3>
         <p>Upptäck varför vatten är viktigt för allt liv.</p>
     </a>
 
     <a href="vattenmiljoer.html" class="subject water">
-        <div class="icon">🌊</div>
         <h3>Vattenmiljöer</h3>
         <p>Utforska sjöar, hav och vattendrag.</p>
     </a>
 
     <a href="vattnetskretslopp.html" class="subject water">
-        <div class="icon">🔄</div>
         <h3>Vattnets kretslopp</h3>
         <p>Följ vattnets väg genom naturen.</p>
     </a>
 
 </section>
 
-<!-- NATUR OCH MILJÖ -->
-
-<h2 class="section-heading">Natur och miljö</h2>
+<h2 class="section-heading">Fler NO-områden</h2>
 
 <section class="subjects">
 
-    <a href="ekosystem.html" class="subject nature">
-        <div class="icon">🌳</div>
-        <h3>Ekosystem</h3>
-        <p>Upptäck hur organismer lever tillsammans.</p>
+    <a href="fysik.html" class="subject science">
+        <h3>Fysik</h3>
+        <p>Utforska krafter, energi och fysikaliska fenomen.</p>
     </a>
-
-    <a href="naringskedjor.html" class="subject nature">
-        <div class="icon">🐛</div>
-        <h3>Näringskedjor</h3>
-        <p>Se hur energi förs vidare mellan organismer.</p>
-    </a>
-
-    <a href="biologiskmangfald.html" class="subject nature">
-        <div class="icon">🦋</div>
-        <h3>Biologisk mångfald</h3>
-        <p>Lär dig om variationen av liv på jorden.</p>
-    </a>
-
-    <a href="manniskanspaverkan.html" class="subject nature">
-        <div class="icon">🌍</div>
-        <h3>Människans påverkan</h3>
-        <p>Undersök hur människor påverkar naturen.</p>
-    </a>
-
-    <a href="vaxtermiljo.html" class="subject nature">
-        <div class="icon">🌿</div>
-        <h3>Växter och miljö</h3>
-        <p>Utforska hur växter lever i olika miljöer.</p>
-    </a>
-
-</section>
-
-<!-- JORD, LUFT OCH KRETSLOPP -->
-
-<h2 class="section-heading">Jord, luft och naturens kretslopp</h2>
-
-<section class="subjects">
-
-    <a href="markochjord.html" class="subject earth">
-        <div class="icon">🪱</div>
-        <h3>Mark och jord</h3>
-        <p>Upptäck jord, humus, nedbrytning och daggmaskar.</p>
-    </a>
-
-    <a href="luftochatmosfar.html" class="subject air">
-        <div class="icon">🌬️</div>
-        <h3>Luft och atmosfär</h3>
-        <p>Lär dig om luften, gaser och atmosfären.</p>
-    </a>
-
-    <a href="naturenochkretsloppen.html" class="subject nature">
-        <div class="icon">♻️</div>
-        <h3>Naturen och kretsloppen</h3>
-        <p>Utforska hur ämnen cirkulerar i naturen.</p>
-    </a>
-
-</section>
-
-<!-- FYSIK -->
-
-<h2 class="section-heading">Fysik – utforska och lär dig</h2>
-
-<section class="subjects">
-
-    <a href="energi.html" class="subject physics">
-        <div class="icon">⚡</div>
-        <h3>Energi</h3>
-        <p>Upptäck olika energiformer och energiomvandlingar.</p>
-    </a>
-
-    <a href="elektricitet.html" class="subject physics">
-        <div class="icon">💡</div>
-        <h3>Elektricitet</h3>
-        <p>Lär dig om elektriska kretsar och ström.</p>
-    </a>
-
-    <a href="krafterochrorelser.html" class="subject physics">
-        <div class="icon">🚴</div>
-        <h3>Krafter och rörelse</h3>
-        <p>Undersök krafter, friktion och rörelse.</p>
-    </a>
-
-    <a href="fysik.html" class="subject physics">
-        <div class="icon">🔭</div>
-        <h3>Fysik – översikt</h3>
-        <p>Utforska fysikens olika områden.</p>
-    </a>
-
-</section>
-
-<!-- KEMI OCH TEKNIK -->
-
-<h2 class="section-heading">Kemi och teknik</h2>
-
-<section class="subjects">
 
     <a href="kemi.html" class="subject science">
-        <div class="icon">🧪</div>
         <h3>Kemi</h3>
         <p>Upptäck ämnen och kemiska förändringar.</p>
     </a>
 
     <a href="teknik.html" class="subject science">
-        <div class="icon">⚙️</div>
         <h3>Teknik</h3>
         <p>Undersök tekniska lösningar och konstruktioner.</p>
     </a>
