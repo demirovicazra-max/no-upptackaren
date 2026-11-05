@@ -4,37 +4,42 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ekosystem – NO-Upptäckaren</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f3f7f4;color:#26372b;line-height:1.65}
+body{margin:0;background:#f3f7f4;color:#26372b;font-family:Arial,sans-serif;line-height:1.65}
 header{background:#245b3b;color:white;text-align:center;padding:32px 18px}
 header h1{margin:0;font-size:clamp(1.8rem,4vw,2.6rem)}
 main{max-width:950px;margin:25px auto;padding:0 16px 40px}
 section{background:white;border-radius:15px;padding:23px;margin:18px 0;box-shadow:0 2px 9px #0000000b}
-h2,h3{color:#245b3b;margin-top:0}
-p,li{font-size:1.06rem}
+h2,h3{color:#245b3b}
 .goal{background:#e6f2e7;border-left:6px solid #398052;padding:17px;border-radius:9px}
-.aspect{background:#f2f6f2;border:1px solid #d6e4d8;border-radius:10px;padding:15px;margin:10px 0}
 .tag{display:inline-block;background:#e3efe5;color:#205b38;padding:4px 10px;border-radius:20px;font-weight:bold;font-size:.9rem}
-.diagram{background:#f5f8f5;border-radius:12px;padding:12px;text-align:center;margin:15px 0}
-svg{max-width:100%;height:auto}
-.compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.compare article{background:#f5f8f5;border-radius:12px;padding:15px}
+.photo{width:100%;max-height:350px;object-fit:cover;border-radius:12px}
+.caption{font-size:.92rem;color:#58675c}
+.levels,.compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.card{background:#f2f6f2;border:1px solid #d6e4d8;border-radius:12px;padding:16px}
+.key{background:#edf5ed;border-left:5px solid #398052;padding:15px;border-radius:8px;margin:14px 0}
+.chain{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;background:#f1f6f1;padding:18px;border-radius:12px}
+.chain span{background:#dcebdc;padding:12px;border-radius:9px;font-weight:bold;text-align:center}
+.arrow{font-size:1.5rem;font-weight:bold}
 button,.nav a{background:#245b3b;color:white;border:0;border-radius:9px;padding:13px 18px;font-size:1rem;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block;margin:5px 4px 5px 0}
 .answer{display:block;width:100%;text-align:left;background:#f0f5f0;color:#26372b;border:2px solid #dce8dd;margin:9px 0}
 .feedback{display:none;padding:14px;border-radius:9px;margin-top:12px}
 .feedback.show{display:block;background:#e6f3e8;border-left:5px solid #398052}
 .feedback.try{display:block;background:#fff3df;border-left:5px solid #d49a24}
 .nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
-.small{font-size:.94rem;color:#58675c}
+button:focus-visible,a:focus-visible{outline:3px solid #d99b24;outline-offset:3px}
 @media(max-width:600px){section{padding:17px}}
 </style>
 </head>
+
 <body>
 <header>
 <h1>Ekosystem</h1>
 <p>Hur levande organismer påverkar varandra och sin miljö</p>
 </header>
+
 <main>
 
 <section class="goal">
@@ -44,168 +49,228 @@ button,.nav a{background:#245b3b;color:white;border:0;border-radius:9px;padding:
 </section>
 
 <section>
-<h2>Det här behöver du upptäcka</h2>
-<div class="aspect"><strong>1. Ett ekosystem har en plats.</strong><br>Det kan till exempel vara en skog, en sjö eller en äng.</div>
-<div class="aspect"><strong>2. Det finns levande och icke-levande delar.</strong><br>Växter, djur och svampar är levande. Vatten, luft, ljus och mark är exempel på icke-levande delar.</div>
-<div class="aspect"><strong>3. Organismer påverkar varandra.</strong><br>De kan äta varandra, konkurrera eller hjälpa varandra.</div>
-<div class="aspect"><strong>4. Ämnen återanvänds i naturen.</strong><br>Nedbrytare hjälper till att föra tillbaka näringsämnen till marken.</div>
-</section>
+<h2>1. Makronivå – se hela ekosystemet</h2>
 
-<section>
-<h2>1. Se ett ekosystem</h2>
-<p>En skog är ett exempel på ett ekosystem. Där finns träd, växter, djur, svampar och små organismer. Där finns också vatten, luft, jord och ljus.</p>
-<div class="diagram">
-<svg viewBox="0 0 700 300" role="img" aria-label="Förenklad skog med träd, buskar, fågel, svamp, mark, vatten och sol">
-<circle cx="590" cy="48" r="28" fill="#f4d36b"/>
-<rect x="0" y="225" width="700" height="75" fill="#b4a17b"/>
-<path d="M0 225 Q160 190 300 225 Q480 190 700 225" fill="#80a96e"/>
-<rect x="150" y="95" width="28" height="130" fill="#85613f"/>
-<circle cx="164" cy="75" r="65" fill="#4c8d53"/>
-<rect x="440" y="115" width="25" height="110" fill="#85613f"/>
-<circle cx="452" cy="95" r="58" fill="#5c9c5e"/>
-<path d="M270 225 Q285 175 300 225 M300 225 Q325 175 340 225" fill="#5a9657"/>
-<path d="M510 185 Q540 140 565 185" fill="none" stroke="#5a9657" stroke-width="7"/>
-<path d="M530 180 Q520 160 510 175 M545 180 Q560 158 570 176" fill="#5a9657"/>
-<path d="M320 230 Q335 185 350 230" fill="#b97863"/>
-<path d="M315 205 Q335 175 355 205 Z" fill="#b97863"/>
-<path d="M330 205V225" stroke="#fff" stroke-width="3"/>
-<path d="M80 70 Q110 40 135 70 Q110 90 80 70" fill="#6b91ad"/>
-<path d="M110 70L135 60L135 80Z" fill="#6b91ad"/>
-<text x="164" y="155" fill="white" font-size="14" text-anchor="middle">Träd</text>
-<text x="590" y="95" font-size="15" fill="#26372b">Ljus</text>
-<text x="335" y="270" font-size="15" fill="#26372b" text-anchor="middle">Mark</text>
-<text x="535" y="215" font-size="15" fill="#26372b">Växter</text>
-</svg>
-</div>
-</section>
+<img class="photo"
+src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1100&q=85"
+alt="Skog med träd och växter">
 
-<section>
-<h2>2. Levande eller icke-levande?</h2>
-<p><span class="tag">Variation: kontrast</span></p>
-<div class="compare">
-<article>
+<p class="caption">Makronivå: en skog med många olika delar.</p>
+
+<p>En skog är ett exempel på ett ekosystem. Där finns levande organismer och sådant som inte lever.</p>
+
+<div class="levels">
+<div class="card">
 <h3>Levande delar</h3>
-<p>Träd, fåglar, insekter, svampar och bakterier.</p>
-</article>
-<article>
+<ul>
+<li>Träd</li>
+<li>Gräs och blommor</li>
+<li>Djur</li>
+<li>Svampar</li>
+<li>Bakterier</li>
+</ul>
+</div>
+<div class="card">
 <h3>Icke-levande delar</h3>
-<p>Vatten, luft, solljus, temperatur och mark.</p>
-</article>
+<ul>
+<li>Vatten</li>
+<li>Luft</li>
+<li>Ljus</li>
+<li>Temperatur</li>
+<li>Mark och stenar</li>
+</ul>
 </div>
-<p>Båda grupperna är viktiga. En växt behöver exempelvis vatten och ljus för att kunna växa.</p>
-</section>
-
-<section>
-<h2>3. En faktor i taget</h2>
-<p><span class="tag">Variation: separation</span></p>
-<p>Tänk dig två små områden i samma skog. De har samma mark och samma mängd vatten. Men det ena området får mer ljus.</p>
-<div class="aspect"><strong>Område A:</strong> Mycket ljus når marken.</div>
-<div class="aspect"><strong>Område B:</strong> Ett tätt lövverk skuggar marken.</div>
-<p>Vilka växter som kan växa kan skilja sig åt. Här undersöker vi särskilt hur mängden ljus påverkar växterna.</p>
-</section>
-
-<section>
-<h2>4. När organismer äter varandra</h2>
-<p>En näringskedja visar hur energi förs vidare när organismer äter andra organismer.</p>
-<div class="diagram">
-<svg viewBox="0 0 700 150" role="img" aria-label="Näringskedja med gräs, gräshoppa, groda och orm">
-<rect x="10" y="35" width="135" height="65" rx="12" fill="#dcebd7" stroke="#5a8b57" stroke-width="2"/>
-<rect x="190" y="35" width="135" height="65" rx="12" fill="#e6edcf" stroke="#8b9b48" stroke-width="2"/>
-<rect x="370" y="35" width="135" height="65" rx="12" fill="#dce8ee" stroke="#6d91a5" stroke-width="2"/>
-<rect x="550" y="35" width="135" height="65" rx="12" fill="#f0e2d4" stroke="#b58b65" stroke-width="2"/>
-<text x="77" y="74" text-anchor="middle" font-size="18">Gräs</text>
-<text x="257" y="74" text-anchor="middle" font-size="18">Gräshoppa</text>
-<text x="437" y="74" text-anchor="middle" font-size="18">Groda</text>
-<text x="617" y="74" text-anchor="middle" font-size="18">Orm</text>
-<path d="M150 67H180 M170 57L182 67L170 77 M330 67H360 M350 57L362 67L350 77 M510 67H540 M530 57L542 67L530 77" stroke="#245b3b" stroke-width="3" fill="none"/>
-</svg>
-<p class="small">Pilarna visar riktningen som energi förs vidare: från det som blir uppätet till den som äter.</p>
 </div>
 </section>
 
 <section>
-<h2>5. Nedbrytare i naturen</h2>
-<p><span class="tag">Variation: generalisering</span></p>
-<p>Svampar, bakterier och små markdjur hjälper till att bryta ner döda växter och djur.</p>
-<p>Det sker i många olika ekosystem. Nedbrytningen gör att näringsämnen kan återföras till marken och användas av växter igen.</p>
-<div class="diagram">
-<svg viewBox="0 0 650 180" role="img" aria-label="Förenklad bild av nedbrytning från dött växtmaterial till näringsämnen i marken">
-<rect x="15" y="30" width="170" height="110" rx="12" fill="#e9e2d2"/>
-<rect x="240" y="30" width="170" height="110" rx="12" fill="#e4efdf"/>
-<rect x="465" y="30" width="170" height="110" rx="12" fill="#d9e9d5"/>
-<text x="100" y="80" text-anchor="middle" font-size="17">Dött material</text>
-<text x="325" y="80" text-anchor="middle" font-size="17">Nedbrytare</text>
-<text x="550" y="80" text-anchor="middle" font-size="17">Näringsämnen</text>
-<path d="M190 85H230 M220 75L232 85L220 95 M415 85H455 M445 75L457 85L445 95" stroke="#245b3b" stroke-width="3" fill="none"/>
-<text x="325" y="115" text-anchor="middle" font-size="13">Svampar och bakterier</text>
-</svg>
+<h2>2. Mellannivå – undersök organismerna</h2>
+<p>I ett ekosystem finns många olika organismer. De behöver olika saker och påverkar varandra.</p>
+
+<div class="levels">
+<div class="card">
+<h3>Producenter</h3>
+<p>Gröna växter kan bilda druvsocker genom fotosyntesen.</p>
+</div>
+<div class="card">
+<h3>Konsumenter</h3>
+<p>Djur får energi genom att äta växter eller andra djur.</p>
+</div>
+<div class="card">
+<h3>Nedbrytare</h3>
+<p>Svampar och bakterier bryter ner döda organismer och avfall.</p>
+</div>
 </div>
 </section>
 
 <section>
-<h2>6. Sätt ihop sambanden</h2>
-<p><span class="tag">Variation: fusion</span></p>
-<div class="question">
-<h3>Vilket alternativ beskriver bäst ett ekosystem?</h3>
-<button class="answer" onclick="check('q1','a')">A. Bara alla djur på en plats</button>
-<button class="answer" onclick="check('q1','b')">B. Levande organismer och den miljö de lever i</button>
-<button class="answer" onclick="check('q1','c')">C. Bara marken och vattnet</button>
-<div id="q1" class="feedback" aria-live="polite"></div>
-</div>
-<div class="question">
-<h3>Vilken uppgift har nedbrytare?</h3>
-<button class="answer" onclick="check('q2','a')">A. De gör solljus till vatten</button>
-<button class="answer" onclick="check('q2','b')">B. De stoppar all tillväxt</button>
-<button class="answer" onclick="check('q2','c')">C. De bryter ner dött material</button>
-<div id="q2" class="feedback" aria-live="polite"></div>
-</div>
-<div class="question">
-<h3>Vad visar en näringskedja?</h3>
-<button class="answer" onclick="check('q3','a')">A. Hur energi förs vidare mellan organismer</button>
-<button class="answer" onclick="check('q3','b')">B. Hur vatten rinner genom marken</button>
-<button class="answer" onclick="check('q3','c')">C. Hur gamla organismer blir</button>
-<div id="q3" class="feedback" aria-live="polite"></div>
+<h2>3. Mikronivå – det lilla i ekosystemet</h2>
+<p>Marken innehåller många små organismer. En del är så små att vi behöver mikroskop för att se dem.</p>
+
+<img class="photo"
+src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1100&q=85"
+alt="Närbild av mark och växtlighet">
+
+<p class="caption">Marken är en livsmiljö för många små organismer.</p>
+
+<div class="key">
+<strong>Vad gör nedbrytarna?</strong>
+<p>Svampar och bakterier bryter ner döda växter och djur. Näringsämnen förs tillbaka till marken och kan tas upp av växternas rötter.</p>
 </div>
 </section>
 
 <section>
-<h2>Förklara med egna ord</h2>
+<h2>4. Kontrast – levande eller icke-levande?</h2>
+<p>Vi jämför två olika delar av skogen.</p>
+
+<div class="compare">
+<div class="card">
+<h3>En levande del</h3>
+<p>Ett träd växer och består av celler.</p>
+</div>
+<div class="card">
+<h3>En icke-levande del</h3>
+<p>En sten växer inte och består inte av celler.</p>
+</div>
+</div>
+
+<p>Det är viktigt att kunna skilja mellan levande organismer och den icke-levande miljön.</p>
+</section>
+
+<section>
+<h2>5. Näringskedjor – vem äter vem?</h2>
+<p>Energi förs vidare mellan organismer när de äter.</p>
+
+<div class="chain">
+<span>Gräs</span>
+<span class="arrow">→</span>
+<span>Gräshoppa</span>
+<span class="arrow">→</span>
+<span>Groda</span>
+<span class="arrow">→</span>
+<span>Orm</span>
+</div>
+
+<p>Gräset är producent. Djuren är konsumenter.</p>
+<p>Pilen visar åt vilket håll energin förs vidare: från den organism som blir uppäten till den som äter.</p>
+</section>
+
+<section>
+<h2>6. Energi och materia är inte samma sak</h2>
+
+<div class="levels">
+<div class="card">
+<h3>Energi</h3>
+<p>Energi flödar genom ekosystemet. Den kommer bland annat från solen och förs vidare genom näringskedjor.</p>
+<p>Energin återanvänds inte i ett kretslopp på samma sätt som materia.</p>
+</div>
+<div class="card">
+<h3>Materia</h3>
+<p>Ämnen kan cirkulera i naturen.</p>
+<p>Nedbrytare hjälper till att föra tillbaka näringsämnen till miljön.</p>
+</div>
+</div>
+</section>
+
+<section>
+<h2>7. Generalisera – jämför olika ekosystem</h2>
+<p>En skog och en sjö ser olika ut. Men båda är ekosystem.</p>
+
+<div class="levels">
+<div class="card">
+<h3>Skog</h3>
+<p>Träd, fåglar, svampar, mark, vatten och luft.</p>
+</div>
+<div class="card">
+<h3>Sjö</h3>
+<p>Alger, fiskar, smådjur, vatten, ljus och botten.</p>
+</div>
+</div>
+
+<p>Alla ekosystem har levande organismer som samspelar med sin icke-levande miljö.</p>
+</section>
+
+<section>
+<h2>8. Fusion – sätt ihop sambanden</h2>
+<p>Nu kopplar vi ihop celler, fotosyntes och ekosystem.</p>
+
+<div class="key">
 <ol>
-<li>Vad är ett ekosystem?</li>
-<li>Ge två exempel på levande delar.</li>
-<li>Ge två exempel på icke-levande delar.</li>
-<li>Varför behövs nedbrytare?</li>
-<li>Vad visar en näringskedja?</li>
+<li>Växter består av celler.</li>
+<li>Gröna växtceller innehåller kloroplaster.</li>
+<li>I kloroplasterna sker fotosyntesen.</li>
+<li>Växter bildar druvsocker.</li>
+<li>Växter blir föda för andra organismer.</li>
+<li>Alla organismer ingår i ekosystemets samband.</li>
 </ol>
+</div>
 </section>
 
 <section>
-<h2>Självbedömning</h2>
-<label><input type="checkbox"> Jag kan förklara vad ett ekosystem är.</label><br>
-<label><input type="checkbox"> Jag kan skilja levande delar från icke-levande delar.</label><br>
-<label><input type="checkbox"> Jag kan läsa en enkel näringskedja.</label><br>
-<label><input type="checkbox"> Jag kan förklara nedbrytarnas betydelse.</label>
+<h2>9. Testa vad du har lärt dig</h2>
+
+<div class="card">
+<p><strong>Vilka delar kan finnas i ett ekosystem?</strong></p>
+<button class="answer" onclick="check(1)">Både levande och icke-levande delar</button>
+<button class="answer" onclick="check(2)">Bara djur</button>
+<button class="answer" onclick="check(3)">Bara växter</button>
+<div id="feedback1" class="feedback" aria-live="polite"></div>
+</div>
+
+<div class="card">
+<p><strong>Vad gör nedbrytare?</strong></p>
+<button class="answer" onclick="check2(1)">Bryter ner dött material</button>
+<button class="answer" onclick="check2(2)">Tillverkar solljus</button>
+<button class="answer" onclick="check2(3)">Stoppar fotosyntesen</button>
+<div id="feedback2" class="feedback" aria-live="polite"></div>
+</div>
+
+<div class="card">
+<p><strong>Vad visar pilen i en näringskedja?</strong></p>
+<button class="answer" onclick="check3(1)">Riktningen som energin förs vidare</button>
+<button class="answer" onclick="check3(2)">Var djuren bor</button>
+<button class="answer" onclick="check3(3)">Hur gammal växten är</button>
+<div id="feedback3" class="feedback" aria-live="polite"></div>
+</div>
+</section>
+
+<section>
+<h2>10. Fundera över ditt lärande</h2>
+<ul>
+<li>Kan du förklara vad ett ekosystem är?</li>
+<li>Kan du skilja mellan levande och icke-levande delar?</li>
+<li>Kan du förklara vad producenter, konsumenter och nedbrytare gör?</li>
+<li>Kan du beskriva skillnaden mellan energiflöde och materiens kretslopp?</li>
+<li>Kan du koppla ihop celler, fotosyntes och ekosystem?</li>
+</ul>
 </section>
 
 <nav class="nav">
-<a href="fotosyntes.html">Föregående: Fotosyntes</a>
-<a href="biologibegrepp.html">Biologiska begrepp</a>
-<a href="biologitest.html">Biologitest</a>
-<a href="forskardagbok.html">Forskardagbok</a>
 <a href="index.html">Startsidan</a>
+<a href="celler.html">Celler</a>
+<a href="fotosyntes.html">Fotosyntes</a>
+<a href="biologiprogression.html">Biologins lärstig</a>
 </nav>
+
 </main>
+
 <script>
-function check(id,value){
+function feedback(id,correct,message){
 const box=document.getElementById(id);
-const data={
-q1:{right:"b",good:"Rätt. Ett ekosystem innehåller både levande organismer och den miljö de lever i.",try:"Tänk på både organismerna och deras omgivning."},
-q2:{right:"c",good:"Rätt. Nedbrytare bryter ner döda växter och djur och hjälper näringsämnen tillbaka till marken.",try:"Tänk på vad som händer med ett dött löv på marken."},
-q3:{right:"a",good:"Rätt. En näringskedja visar hur energi förs vidare när organismer äter varandra.",try:"Tänk på pilarna mellan organismerna i exemplet."}
-};
-const d=data[id];
-box.className="feedback show "+(value===d.right?"":"try");
-box.textContent=value===d.right?d.good:d.try;
+box.className=correct?"feedback show":"feedback try";
+box.textContent=message;
+}
+function check(v){
+feedback("feedback1",v===1,
+v===1?"Rätt! Ett ekosystem har både levande och icke-levande delar.":"Försök igen. Tänk på både organismer och deras miljö.");
+}
+function check2(v){
+feedback("feedback2",v===1,
+v===1?"Rätt! Nedbrytare bryter ner dött material.":"Försök igen. Tänk på vad som händer med döda växter och djur.");
+}
+function check3(v){
+feedback("feedback3",v===1,
+v===1?"Rätt! Pilen visar riktningen som energin förs vidare.":"Försök igen. Tänk på vem som blir uppäten och vem som äter.");
 }
 </script>
 </body>
