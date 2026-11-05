@@ -2,500 +2,162 @@
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NO-Upptäckaren</title>
 <link rel="stylesheet" href="style.css">
 
 <style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f2f6f3;
-    color: #18332a;
-    line-height: 1.6;
-}
-
-header {
-    background: #245b43;
-    color: white;
-    text-align: center;
-    padding: 38px 15px;
-}
-
-header h1 {
-    font-size: clamp(27px, 4vw, 38px);
-    margin: 0 0 8px;
-}
-
-header p {
-    margin: 0;
-    font-size: 1.1rem;
-}
-
-main {
-    max-width: 1150px;
-    margin: 30px auto;
-    padding: 0 18px;
-}
-
-.welcome {
-    background: white;
-    border-radius: 18px;
-    padding: 30px;
-    margin-bottom: 30px;
-    text-align: center;
-    box-shadow: 0 5px 18px #0000000d;
-}
-
-.welcome h2 {
-    color: #245b43;
-}
-
-.section-heading {
-    text-align: center;
-    font-size: 27px;
-    margin: 42px 0 20px;
-    color: #18332a;
-}
-
-.subjects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 18px;
-}
-
-.subject {
-    display: block;
-    background: white;
-    border-radius: 16px;
-    padding: 25px 20px;
-    text-align: center;
-    text-decoration: none;
-    color: #18332a;
-    box-shadow: 0 5px 18px #0000000d;
-    border-top: 6px solid #16a34a;
-    transition: transform .2s, box-shadow .2s;
-}
-
-.subject:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 22px #00000016;
-}
-
-.subject:focus-visible {
-    outline: 4px solid #2563eb;
-    outline-offset: 3px;
-}
-
-.subject h3 {
-    font-size: 20px;
-    margin: 7px 0;
-}
-
-.subject p {
-    color: #52665d;
-    margin: 0;
-}
-
-.subject .label {
-    display: inline-block;
-    font-size: .82rem;
-    font-weight: bold;
-    color: #245b43;
-    background: #e6f2e7;
-    padding: 4px 10px;
-    border-radius: 20px;
-    margin-bottom: 8px;
-}
-
-.biology {
-    border-top-color: #16a34a;
-}
-
-.concepts {
-    border-top-color: #0d9488;
-}
-
-.test {
-    border-top-color: #e59b25;
-}
-
-.diary {
-    border-top-color: #6479c8;
-}
-
-.water {
-    border-top-color: #2496c7;
-}
-
-.weather {
-    border-top-color: #e2a52c;
-}
-
-.nature {
-    border-top-color: #628b43;
-}
-
-.science {
-    border-top-color: #8065b5;
-}
-
-.learning-path {
-    background: #e6f2e7;
-    border: 2px solid #c9dfcb;
-    border-radius: 18px;
-    padding: 25px;
-    margin: 25px 0 35px;
-}
-
-.learning-path h2 {
-    text-align: center;
-    color: #245b43;
-    margin-top: 0;
-}
-
-.learning-intro {
-    text-align: center;
-    max-width: 750px;
-    margin: 0 auto 22px;
-}
-
-.path-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 14px;
-}
-
-.path-step {
-    background: white;
-    border-radius: 13px;
-    padding: 19px;
-    text-align: center;
-    border: 1px solid #d2e3d4;
-}
-
-.path-number {
-    display: inline-flex;
-    width: 36px;
-    height: 36px;
-    align-items: center;
-    justify-content: center;
-    background: #245b43;
-    color: white;
-    border-radius: 50%;
-    font-weight: bold;
-    margin-bottom: 9px;
-}
-
-.path-step h3 {
-    color: #245b43;
-    margin: 5px 0;
-}
-
-.path-step p {
-    color: #52665d;
-    font-size: .96rem;
-}
-
-.path-button {
-    display: inline-block;
-    background: #245b43;
-    color: white;
-    padding: 11px 17px;
-    border-radius: 9px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 8px;
-}
-
-.path-button:hover {
-    background: #17452f;
-}
-
-.path-button:focus-visible {
-    outline: 4px solid #d99b24;
-    outline-offset: 3px;
-}
-
-.path-arrow {
-    text-align: center;
-    color: #245b43;
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: 5px;
-}
-
-footer {
-    text-align: center;
-    padding: 30px;
-    color: #52665d;
-}
-
-@media(max-width: 600px) {
-    header {
-        padding: 28px 15px;
-    }
-
-    .welcome {
-        padding: 22px 16px;
-    }
-
-    .section-heading {
-        font-size: 23px;
-    }
-
-    .subject {
-        padding: 22px 15px;
-    }
-
-    .learning-path {
-        padding: 17px;
-    }
-}
+*{box-sizing:border-box}
+body{margin:0;background:#f2f6f3;color:#26372b;font-family:Arial,sans-serif;line-height:1.6}
+header{background:#245b43;color:white;text-align:center;padding:38px 18px}
+header h1{font-size:clamp(2rem,5vw,3rem);margin:0}
+header p{font-size:1.15rem;margin:8px 0 0}
+main{max-width:1150px;margin:30px auto;padding:0 18px}
+section{margin-bottom:30px}
+h2{color:#245b43}
+.welcome,.learning-path,.subject,.path-card{background:white;border-radius:16px;padding:23px;box-shadow:0 3px 12px #0000000c}
+.welcome{text-align:center}
+.learning-path{background:#e6f2e7;border:2px solid #c9dfcb}
+.learning-path>h2{text-align:center}
+.intro{text-align:center;max-width:750px;margin:auto}
+.path-grid,.subject-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:20px}
+.path-card{text-align:center;border:1px solid #d6e5d8}
+.path-card img{width:100%;height:155px;object-fit:cover;border-radius:11px}
+.path-card h3{color:#245b43}
+.subject-grid .subject{display:block;text-decoration:none;color:#26372b;border-top:5px solid #26945b}
+.subject h3{color:#245b43}
+.button{display:inline-block;background:#245b43;color:white;text-decoration:none;padding:12px 18px;border-radius:9px;font-weight:bold;margin:6px 3px}
+.button:hover{background:#17452f}
+.button:focus-visible,a:focus-visible{outline:4px solid #d99b24;outline-offset:3px}
+.label{display:inline-block;background:#e6f2e7;color:#245b43;border-radius:20px;padding:4px 10px;font-weight:bold;font-size:.9rem}
+footer{text-align:center;padding:25px;color:#58675c}
+@media(max-width:600px){.welcome,.learning-path,.path-card{padding:16px}}
 </style>
 </head>
 
 <body>
-
 <header>
-    <h1>NO-UPPTÄCKAREN</h1>
-    <p>Din interaktiva NO-värld</p>
+<h1>NO-Upptäckaren</h1>
+<p>Upptäck, undersök och förstå naturvetenskap</p>
 </header>
 
 <main>
 
 <section class="welcome">
-    <h2>Välkommen, forskare!</h2>
-    <p>
-        Här får du utforska biologi, kemi, fysik och teknik.
-        Läs, upptäck, jämför, undersök och testa dina kunskaper.
-    </p>
-    <p>
-        Följ lärstigarna steg för steg och upptäck hur
-        naturens olika delar hänger ihop.
-    </p>
+<span class="label">NO · Årskurs 4–6</span>
+<h2>Välkommen till NO-Upptäckaren!</h2>
+<p>Här får du undersöka hur naturen fungerar. Du får läsa, titta på bilder, jämföra, testa och träna på att förklara.</p>
 </section>
-
-<h2 class="section-heading">Välj årskurs</h2>
-
-<section class="subjects">
-
-    <a href="ak4.html" class="subject">
-        <h3>Årskurs 4</h3>
-        <p>Utforska NO för årskurs 4.</p>
-    </a>
-
-    <div class="subject">
-        <h3>Årskurs 5</h3>
-        <p>Fler lärandeområden kommer.</p>
-    </div>
-
-    <div class="subject">
-        <h3>Årskurs 6</h3>
-        <p>Fler lärandeområden kommer.</p>
-    </div>
-
-</section>
-
-<h2 class="section-heading">Biologi – följ lärstigen</h2>
 
 <section class="learning-path">
+<h2>Biologins lärstig</h2>
+<p class="intro">
+Följ sambandet från det allra minsta till naturen omkring dig.
+Vi börjar med cellerna, fortsätter med fotosyntesen och avslutar
+med ekosystem.
+</p>
 
-    <h2>Från den lilla cellen till naturens ekosystem</h2>
+<div class="path-grid">
 
-    <p class="learning-intro">
-        Följ stegen i ordning. Först undersöker du vad livet
-        består av. Sedan upptäcker du hur växter bildar socker.
-        Till sist undersöker du hur organismer och miljö
-        påverkar varandra.
-    </p>
+<article class="path-card">
+<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=85"
+alt="Grön växt med blad">
+<span class="label">Steg 1</span>
+<h3>Celler</h3>
+<p>Makro: en hel växt.</p>
+<p>Mikro: cellerna som bygger upp växten.</p>
+<a class="button" href="celler.html">Lär dig om celler</a>
+</article>
 
-    <div class="path-steps">
+<article class="path-card">
+<img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=85"
+alt="Gröna blad i solljus">
+<span class="label">Steg 2</span>
+<h3>Fotosyntes</h3>
+<p>Makro: en växt som växer.</p>
+<p>Mikro: kloroplaster där fotosyntesen sker.</p>
+<a class="button" href="fotosyntes.html">Lär dig om fotosyntes</a>
+</article>
 
-        <article class="path-step">
-            <span class="path-number">1</span>
-            <h3>Celler och liv</h3>
-            <p>
-                Upptäck vad levande organismer består av.
-                Jämför växtceller och djurceller.
-            </p>
-            <a href="celler.html" class="path-button">
-                Börja med celler
-            </a>
-        </article>
+<article class="path-card">
+<img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=900&q=85"
+alt="Skog med träd och växter">
+<span class="label">Steg 3</span>
+<h3>Ekosystem</h3>
+<p>Makro: en hel skog eller sjö.</p>
+<p>Mikro: små organismer och nedbrytare.</p>
+<a class="button" href="ekosystem.html">Lär dig om ekosystem</a>
+</article>
 
-        <article class="path-step">
-            <span class="path-number">2</span>
-            <h3>Fotosyntes</h3>
-            <p>
-                Undersök hur växter använder ljus,
-                vatten och koldioxid.
-            </p>
-            <a href="fotosyntes.html" class="path-button">
-                Utforska fotosyntes
-            </a>
-        </article>
+</div>
 
-        <article class="path-step">
-            <span class="path-number">3</span>
-            <h3>Ekosystem</h3>
-            <p>
-                Upptäck hur växter, djur och andra
-                organismer hänger ihop.
-            </p>
-            <a href="ekosystem.html" class="path-button">
-                Utforska ekosystem
-            </a>
-        </article>
-
-    </div>
-
-    <div class="path-arrow" aria-hidden="true">
-        1 → 2 → 3
-    </div>
-
-    <p class="learning-intro">
-        När du har arbetat med alla tre stegen kan du träna
-        begrepp, göra biologitestet och bedöma ditt eget lärande.
-    </p>
-
-    <div class="path-steps">
-
-        <article class="path-step">
-            <h3>Biologiska begrepp</h3>
-            <p>Träna på viktiga ord och förklaringar.</p>
-            <a href="biologibegrepp.html" class="path-button">
-                Träna begrepp
-            </a>
-        </article>
-
-        <article class="path-step">
-            <h3>Biologitest</h3>
-            <p>Undersök vad du har förstått.</p>
-            <a href="biologitest.html" class="path-button">
-                Gör testet
-            </a>
-        </article>
-
-        <article class="path-step">
-            <h3>Självbedömning</h3>
-            <p>Fundera över vad du kan och vill träna mer på.</p>
-            <a href="biologibedomning.html" class="path-button">
-                Bedöm ditt lärande
-            </a>
-        </article>
-
-    </div>
-
+<p style="text-align:center;margin-top:22px">
+<a class="button" href="biologiprogression.html">Se hela biologins lärstig</a>
+</p>
 </section>
 
-<h2 class="section-heading">Fler delar av biologin</h2>
+<section>
+<h2>Fler delar av NO-Upptäckaren</h2>
 
-<section class="subjects">
+<div class="subject-grid">
 
-    <a href="biologi.html" class="subject biology">
-        <h3>Biologi</h3>
-        <p>Utforska växter, djur, kroppen, naturen och livet.</p>
-    </a>
+<a class="subject" href="biologibegrepp.html">
+<h3>Biologiska begrepp</h3>
+<p>Träna på viktiga ord och förklaringar.</p>
+</a>
 
-    <a href="vaxter.html" class="subject biology">
-        <h3>Växter</h3>
-        <p>Lär dig om växternas liv och delar.</p>
-    </a>
+<a class="subject" href="biologitest.html">
+<h3>Biologitest</h3>
+<p>Kontrollera vad du har lärt dig.</p>
+</a>
 
-    <a href="vaxtersdelar.html" class="subject biology">
-        <h3>Växternas delar</h3>
-        <p>Undersök rötter, stam, blad och blomma.</p>
-    </a>
+<a class="subject" href="biologibedomning.html">
+<h3>Min lärandeöversikt</h3>
+<p>Fundera över vad du kan och vill träna mer på.</p>
+</a>
 
-    <a href="biologiskmangfald.html" class="subject nature">
-        <h3>Biologisk mångfald</h3>
-        <p>Lär dig om variationen av liv på jorden.</p>
-    </a>
+<a class="subject" href="forskardagbok.html">
+<h3>Forskardagbok</h3>
+<p>Dokumentera undersökningar och experiment.</p>
+</a>
 
-    <a href="naringskedjor.html" class="subject nature">
-        <h3>Näringskedjor</h3>
-        <p>Se hur energi förs vidare mellan organismer.</p>
-    </a>
+<a class="subject" href="vaxter.html">
+<h3>Växter</h3>
+<p>Undersök växternas liv.</p>
+</a>
 
-    <a href="manniskanspaverkan.html" class="subject nature">
-        <h3>Människans påverkan</h3>
-        <p>Undersök hur människor påverkar naturen.</p>
-    </a>
+<a class="subject" href="djur.html">
+<h3>Djur</h3>
+<p>Upptäck djurens liv och anpassningar.</p>
+</a>
 
-    <a href="fortplantning.html" class="subject biology">
-        <h3>Fortplantning</h3>
-        <p>Upptäck hur växter och organismer förökar sig.</p>
-    </a>
+<a class="subject" href="vattenmiljoer.html">
+<h3>Vattenmiljöer</h3>
+<p>Undersök livet i sjöar och hav.</p>
+</a>
 
-    <a href="forskardagbok.html" class="subject diary">
-        <h3>Forskardagbok</h3>
-        <p>Skriv hypoteser och dokumentera undersökningar.</p>
-    </a>
+<a class="subject" href="fysik.html">
+<h3>Fysik</h3>
+<p>Utforska krafter, energi och rörelse.</p>
+</a>
 
-    <a href="biologiprogression.html" class="subject biology">
-        <h3>Biologins lärstig</h3>
-        <p>Få en överblick över biologins olika områden.</p>
-    </a>
+<a class="subject" href="kemi.html">
+<h3>Kemi</h3>
+<p>Undersök ämnen och material.</p>
+</a>
 
-</section>
+<a class="subject" href="teknik.html">
+<h3>Teknik</h3>
+<p>Upptäck tekniska lösningar.</p>
+</a>
 
-<h2 class="section-heading">Vatten, vind och väder</h2>
-
-<section class="subjects">
-
-    <a href="vadervindklimat.html" class="subject weather">
-        <h3>Väder, vind och klimat</h3>
-        <p>Lär dig om väder, vind, moln och klimat.</p>
-    </a>
-
-    <a href="vattnetsbetydelse.html" class="subject water">
-        <h3>Vattnets betydelse</h3>
-        <p>Upptäck varför vatten är viktigt för allt liv.</p>
-    </a>
-
-    <a href="vattenmiljoer.html" class="subject water">
-        <h3>Vattenmiljöer</h3>
-        <p>Utforska sjöar, hav och vattendrag.</p>
-    </a>
-
-    <a href="vattnetskretslopp.html" class="subject water">
-        <h3>Vattnets kretslopp</h3>
-        <p>Följ vattnets väg genom naturen.</p>
-    </a>
-
-</section>
-
-<h2 class="section-heading">Fler NO-områden</h2>
-
-<section class="subjects">
-
-    <a href="fysik.html" class="subject science">
-        <h3>Fysik</h3>
-        <p>Utforska krafter, energi och fysikaliska fenomen.</p>
-    </a>
-
-    <a href="kemi.html" class="subject science">
-        <h3>Kemi</h3>
-        <p>Upptäck ämnen och kemiska förändringar.</p>
-    </a>
-
-    <a href="teknik.html" class="subject science">
-        <h3>Teknik</h3>
-        <p>Undersök tekniska lösningar och konstruktioner.</p>
-    </a>
-
+</div>
 </section>
 
 </main>
 
 <footer>
-    <p>NO-Upptäckaren · Interaktiv NO-lärobok årskurs 4–6</p>
+<p>NO-Upptäckaren · Naturvetenskap för årskurs 4–6</p>
 </footer>
-
 </body>
 </html>
